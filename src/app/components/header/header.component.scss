@@ -1,0 +1,65 @@
+header{
+  width: 100%;
+}
+
+.container{
+  max-width: 140rem;
+  padding: 1.2rem 2.4rem;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.logo{
+  height: 6.2rem;
+}
+
+.container--logo-search-box{
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.container--buttons{
+  display: flex;
+  align-items: center;
+}
+
+.container--user{
+  display: flex;
+  gap: 0.4rem;
+}
+
+.credit{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.credit-amount{
+  background-color: var(--neutral-color-2);
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+}
+
+app-search-box{
+  flex: 1;
+}
+
+@media (max-width: 44em) {
+  app-search-box, .credit,
+  .container--logo-search-box app-divider-vertical{
+    display: none;
+  }
+
+}

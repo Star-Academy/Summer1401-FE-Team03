@@ -1,0 +1,49 @@
+.card{
+  background-color: var(--neutral-color-2);
+
+  width: 30rem;
+  box-shadow: var(--box-shadow-soft);
+  border-radius: 20px;
+
+  transition: 0.3s;
+
+  &:hover{
+    box-shadow: var(--box-shadow-hard);
+    transform: translateY(-1rem);
+  }
+
+  &--description{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  /* Number of lines displayed before it truncate */
+    overflow: hidden;
+  }
+
+  &--price{
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--add-to-cart{
+    background-color: var(--secondary-color-3);
+    color: var(--neutral-color-1);
+
+    &:hover{
+      background-color: var(--secondary-color-4);
+    }
+  }
+}
+
+img{
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.content{
+  padding: 1.2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

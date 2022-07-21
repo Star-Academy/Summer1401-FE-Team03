@@ -1,0 +1,180 @@
+/*
+Design System
+
+Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+White spaces (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+Shadows
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+
+*/
+
+:root{
+    --primary-color-5: #000a0e;
+    --primary-color-4: #012232;
+    --primary-color-3: #022639;
+    --primary-color-2: #35596c;
+    --primary-color-1: #8198a3;
+
+    --secondary-color-5: #0a2f38;
+    --secondary-color-4: #1a7e96;
+    --secondary-color-3: #219ebc;
+    --secondary-color-2: #4db1c9;
+    --secondary-color-1: #a6d8e4;
+
+    --tertiary-color-5: #643500;
+    --tertiary-color-4: #c96a00;
+    --tertiary-color-3: #FB8500;
+    --tertiary-color-2: #fc9d33;
+    --tertiary-color-1: #fdce99;
+
+    --neutral-color-5: #0f172a;
+    --neutral-color-4: #334155;
+    --neutral-color-3: #94a3b8;
+    --neutral-color-2: #e5e8eb;
+    --neutral-color-1: #f8fafc;
+
+    --box-shadow-hard: 0 1.6rem 3rem var(--neutral-color-2);
+    --box-shadow-soft: 0 0.6rem 1.2rem var(--neutral-color-2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* respecting user's default browser font size (user can change their font size from the browser settings
+       and it will affect the whole site because size is not hard coded pixel value.
+       every rem is now: 10/16 * 100 * 16px = 10px
+    */
+    font-size: 62.5%;
+    overflow-x: hidden;
+    /* only chrome and firefox */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;;
+    line-height: 1;
+    font-weight: 400;
+    color: var(--neutral-color-5);
+
+    overflow-x: hidden;
+
+    background-color: var(--neutral-color-1);
+}
+
+button{
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+
+    font-family: inherit;
+
+    padding: 1.2rem;
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+    &:hover{
+        .icon {
+            color: var(--secondary-color-3);
+        }
+
+        .icon-special{
+            color: var(--tertiary-color-4);
+        }
+    }
+
+    &:focus{
+        background-color: var(--neutral-color-2);
+
+        .icon{
+            color: var(--secondary-color-3);
+        }
+
+        .icon-special{
+            color: var(--tertiary-color-4);
+        }
+    }
+}
+
+.icon{
+    color: var(--primary-color-3);
+    font-size: 2.4rem;
+
+    transition: 0.3s;
+
+    &:hover{
+        color: var(--secondary-color-3);
+    }
+}
+
+.icon-special{
+    color: var(--tertiary-color-3);
+    font-size: 2.4rem;
+
+    transition: 0.3s;
+
+    &:hover{
+        color: var(--tertiary-color-4);
+    }
+}
+
+h1{
+    font-size: 2.4rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+a {
+    font-size: 1.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+
+    transition: 0.3s;
+
+    &:hover {
+        text-decoration: underline;
+        color: var(--secondary-color-3);
+    }
+}
+
+.currency{
+    color: var(--neutral-color-3);
+    font-size: 1.2rem;
+}
+
+@media (max-width: 84em) {}
+
+@media (max-width: 75em) {
+    html {
+        /* 9px / 16px */
+        font-size: 56.25%;
+    }
+}
+
+@media (max-width: 59em) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 44em) {}
+
+@media (max-width: 34em) {}

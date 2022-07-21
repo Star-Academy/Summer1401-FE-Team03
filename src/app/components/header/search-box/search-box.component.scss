@@ -1,0 +1,31 @@
+.search-box{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+}
+
+input{
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+
+  background-color: var(--neutral-color-1);
+  border: 1px solid var(--neutral-color-2);
+  outline: none;
+  box-shadow: var(--box-shadow-soft);
+
+  font-family: inherit;
+  font-weight: 700;
+
+  transition: 0.5s;
+
+  &::placeholder{
+    font-weight: 400;
+    color: var(--neutral-color-3);
+  }
+
+  &:focus{
+    border: 1px solid var(--primary-color-2);
+    flex: 1;
+  }
+}
