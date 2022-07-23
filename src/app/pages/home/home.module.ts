@@ -8,6 +8,6 @@ import {CardsModule} from '../../components/cards/cards.module';
 
 @NgModule({
     declarations: [HomeComponent, SlideshowComponent],
-    imports: [CommonModule, HeaderModule, FooterModule, CardsModule],
+    imports: [CommonModule, CardsModule],
 })
 export class HomeModule {}

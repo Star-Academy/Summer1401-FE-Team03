@@ -14,6 +14,12 @@ Shadows
 */
 
 :root {
+    --font-size-heading: 2.4rem;
+    --font-size-sub-heading: 2rem;
+    --font-size-tertiary-heading: 1.8rem;
+    --font-size-paragraph: 1.4rem;
+    --font-size-detail: 1.2rem;
+
     --primary-color-5: hsl(192deg 70% 13%);
     --primary-color-4: hsl(192deg 70% 35%);
     --primary-color-3: hsl(192deg 70% 43%);
@@ -38,8 +44,13 @@ Shadows
     --neutral-color-2: hsl(210deg 13% 91%);
     --neutral-color-1: hsl(210deg 40% 98%);
 
-    --box-shadow-hard: 0 1.6rem 3rem var(--neutral-color-2);
-    --box-shadow-soft: 0 0.6rem 1.2rem var(--neutral-color-2);
+    --box-shadow-hard: 0 0.4rem 1.6rem var(--neutral-color-2);
+    --box-shadow-soft: 0 0.1rem 0.8rem var(--neutral-color-2);
+
+    --content-max-width: 140rem;
+    --content-inline-padding: 1.2rem;
+
+    --card-padding: 2.4rem;
 }
 
 *,
@@ -69,44 +80,62 @@ body {
     font-weight: 400;
 
     line-height: 1;
-}
 
-button {
-    background-color: transparent;
+    button {
+        background-color: transparent;
 
-    padding: 1.2rem;
+        padding: 1.2rem;
 
-    border: none;
-    border-radius: 10px;
+        border: none;
+        border-radius: 10px;
 
-    outline: none;
+        outline: none;
 
-    font-family: inherit;
+        cursor: pointer;
 
-    transition: 0.3s;
+        &:hover {
+            .icon {
+                color: var(--primary-color-3);
+            }
 
-    cursor: pointer;
-
-    &:hover {
-        .icon {
-            color: var(--primary-color-3);
+            .icon-special {
+                color: var(--tertiary-color-4);
+            }
         }
 
-        .icon-special {
-            color: var(--tertiary-color-4);
+        &:focus {
+            background-color: var(--neutral-color-2);
+
+            .icon {
+                color: var(--primary-color-3);
+            }
+
+            .icon-special {
+                color: var(--tertiary-color-4);
+            }
         }
     }
 
-    &:focus {
-        background-color: var(--neutral-color-2);
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 4.8rem;
 
-        .icon {
-            color: var(--primary-color-3);
-        }
+        margin-block-end: 4.8rem;
+    }
 
-        .icon-special {
-            color: var(--tertiary-color-4);
-        }
+    input,
+    label,
+    select,
+    textarea,
+    button,
+    fieldset,
+    legend,
+    datalist,
+    output,
+    option,
+    optgroup {
+        font-family: inherit;
     }
 }
 
@@ -134,42 +163,36 @@ button {
     }
 }
 
-input,
-label,
-select,
-textarea,
-button,
-fieldset,
-legend,
-datalist,
-output,
-option,
-optgroup {
-    font-family: inherit;
-}
-
 h1 {
-    font-size: 2.4rem;
+    font-size: var(--font-size-heading);
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: var(--font-size-sub-heading);
+}
+
+h3 {
+    font-size: var(--font-size-tertiary-heading);
 }
 
 p {
-    font-size: 1.4rem;
+    color: var(--secondary-color-5);
+
+    font-size: var(--font-size-paragraph);
 
     line-height: 1.4;
+}
+
+.details {
+    color: var(--neutral-color-3);
+
+    font-size: var(--font-size-detail);
 }
 
 a {
     color: inherit;
 
-    font-size: 1.4rem;
-
     text-decoration: none;
-
-    transition: 0.3s;
 
     cursor: pointer;
 
@@ -180,21 +203,38 @@ a {
     }
 }
 
-.currency {
-    color: var(--neutral-color-3);
-
-    font-size: 1.2rem;
-}
-
-@media (max-width: 75em) {
-    html {
-        /* 9px / 16px */
-        font-size: 56.25%;
+@media (width >= 480px) {
+    :root {
+        --content-inline-padding: 2rem;
     }
 }
 
-@media (max-width: 59em) {
-    html {
-        font-size: 50%;
+@media (width >= 600px) {
+    :root {
+        --content-inline-padding: 4rem;
+    }
+}
+
+@media (width >= 768px) {
+    :root {
+        --content-inline-padding: 6rem;
+    }
+}
+
+@media (width >= 900px) {
+    :root {
+        --content-inline-padding: 8rem;
+    }
+}
+
+@media (width >= 1200px) {
+    :root {
+        --content-inline-padding: 12rem;
+    }
+}
+
+@media (width >= 1920px) {
+    :root {
+        --content-inline-padding: calc(calc(100vw - var(--content-max-width)) * 0.5);
     }
 }
