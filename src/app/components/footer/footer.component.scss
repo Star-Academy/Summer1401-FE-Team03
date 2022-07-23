@@ -1,81 +1,55 @@
 footer {
-    background-image: linear-gradient(to top right, var(--secondary-color-4), var(--secondary-color-2));
+    background-image: linear-gradient(to top right, var(--secondary-color-dark), var(--secondary-color-light));
 
-    color: var(--neutral-color-1);
+    color: var(--neutral-color-lighter);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 
     width: 100%;
 
-    padding: 4.8rem var(--content-inline-padding);
-}
+    padding: 4.8rem calc(var(--content-inline-padding) + var(--card-padding));
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 12.8rem;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
 
-    padding-inline: var(--card-padding);
-}
+        max-width: 20rem;
 
-.row {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2.4rem;
 
-    max-width: 20rem;
-}
+            list-style: none;
 
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+            a {
+                font-size: 1.8rem;
 
-    list-style: none;
-}
+                &:hover {
+                    color: var(--primary-color-normal);
+                }
+            }
+        }
 
-.social {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
 
-    list-style: none;
-}
+            list-style: none;
 
-.footer-icon {
-    font-size: 1.8rem;
+            .t-number {
+                direction: ltr;
+            }
+        }
 
-    transition: 0.3s;
+        .logo {
+            height: 6.2rem;
 
-    &:hover {
-        color: var(--primary-color-3);
-    }
-}
-
-.link {
-    cursor: pointer;
-}
-
-.logo {
-    height: 6.2rem;
-}
-
-@media (max-width: 75em) {
-    .container {
-        gap: 7.4rem;
-    }
-}
-
-@media (max-width: 59em) {
-    .container {
-        justify-content: center;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 38em) {
-    .container {
-        justify-content: flex-start;
-        gap: 3rem;
+            cursor: pointer;
+        }
     }
 }

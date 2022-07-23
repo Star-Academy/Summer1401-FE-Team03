@@ -1,12 +1,12 @@
-.card {
-    background-color: var(--neutral-color-2);
+:host > div {
+    background-color: var(--neutral-color-light);
     box-shadow: var(--box-shadow-soft);
 
     width: 30rem;
 
     border-radius: 20px;
 
-    transition: 0.3s;
+    transition: transform 200ms ease-in;
 
     &:hover {
         box-shadow: var(--box-shadow-hard);
@@ -14,41 +14,43 @@
         transform: translateY(-1rem);
     }
 
-    &--description {
+    .card-description > p {
         overflow: hidden;
 
-        // display: -webkit-box;
-        // -webkit-box-orient: vertical;
-        // -webkit-line-clamp: 2; /* Number of lines displayed before it truncate */
+        width: 100%;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
     }
 
-    &--price {
+    .card-price {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1.2rem;
     }
 
-    &--add-to-cart {
-        background-color: var(--primary-color-3);
-        color: var(--neutral-color-1);
+    .card-add-to-cart {
+        background-color: var(--primary-color-normal);
+        color: var(--neutral-color-lighter);
 
         &:hover {
-            background-color: var(--primary-color-4);
+            background-color: var(--primary-color-dark);
         }
     }
-}
 
-img {
-    width: 100%;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
 
-    border-radius: 20px 20px 0 0;
-}
+        padding: var(--card-padding);
+    }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    img {
+        width: 100%;
 
-    padding: 1.2rem var(--card-padding);
+        border-radius: 20px 20px 0 0;
+    }
 }

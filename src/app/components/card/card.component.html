@@ -1,18 +1,18 @@
-<div class="card">
+<div>
     <img [src]="src" [alt]="alt" />
     <div class="content">
         <div class="card--title">
-            <a routerLink="/games"
-                ><h2>{{ title }}</h2></a
-            >
+            <a>
+                <h2>{{ title }}</h2>
+            </a>
         </div>
-        <div class="card--description">
-            <p class="description">{{ description }}</p>
+        <div class="card-description">
+            <p>{{ description }}</p>
         </div>
-        <div class="card--price">
-            <i class="far fa-money-bill icon-special"></i>
-            <p class="card--price-amount">{{ price }} <span class="details">لول کوین</span></p>
+        <div class="card-price">
+            <i class="far fa-coins icon-special"></i>
+            <p class="card-price-amount">{{ price || '-' }} <span class="details">لول کوین</span></p>
         </div>
-        <button class="card--add-to-cart">افزودن به سبد خرید</button>
+        <button class="card-add-to-cart">افزودن به سبد خرید</button>
     </div>
 </div>

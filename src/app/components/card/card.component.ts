@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'app-card',
@@ -7,8 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CardComponent {
     @Input() public src: string = 'assets/card-images/no-image.jpg';
-    @Input() public alt: string = 'عکس بازی';
+    @Input() public alt: string = 'برای این بازی عکسی قرار داده نشده است.';
     @Input() public title: string = 'بازی';
     @Input() public description: string = 'توضیحات بازی';
-    @Input() public price: string = '-';
+    @Input() public price!: number;
 }
