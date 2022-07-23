@@ -10,7 +10,9 @@
         "lint": "ng lint",
         "lint:fix": "ng lint --fix",
         "prettier": "prettier .",
-        "prettier:fix": "prettier . --write"
+        "prettier:fix": "prettier . --write",
+        "stylelint": "npx stylelint \"**/*.scss\"",
+        "stylelint:fix": "npx stylelint \"**/*.scss\" --fix"
     },
     "private": true,
     "dependencies": {
@@ -50,7 +52,12 @@
         "karma-coverage": "~2.0.3",
         "karma-jasmine": "~4.0.0",
         "karma-jasmine-html-reporter": "~1.7.0",
+        "postcss": "^8.4.14",
         "prettier": "^2.5.1",
+        "stylelint": "^14.9.1",
+        "stylelint-config-prettier-scss": "^0.0.1",
+        "stylelint-config-standard-scss": "^5.0.0",
+        "stylelint-order": "^5.0.0",
         "typescript": "~4.3.5"
     }
 }

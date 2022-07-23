@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-divider-vertical',
-  templateUrl: './divider-vertical.component.html',
-  styleUrls: ['./divider-vertical.component.scss']
+    selector: 'app-divider-vertical',
+    templateUrl: './divider-vertical.component.html',
+    styleUrls: ['./divider-vertical.component.scss'],
 })
 export class DividerVerticalComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

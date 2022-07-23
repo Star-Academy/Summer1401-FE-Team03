@@ -13,154 +13,178 @@ Shadows
 
 */
 
-:root{
-    --primary-color-5: #000a0e;
-    --primary-color-4: #012232;
-    --primary-color-3: #022639;
-    --primary-color-2: #35596c;
-    --primary-color-1: #8198a3;
+:root {
+    --primary-color-5: hsl(192deg 70% 13%);
+    --primary-color-4: hsl(192deg 70% 35%);
+    --primary-color-3: hsl(192deg 70% 43%);
+    --primary-color-2: hsl(192deg 53% 55%);
+    --primary-color-1: hsl(192deg 53% 77%);
 
-    --secondary-color-5: #0a2f38;
-    --secondary-color-4: #1a7e96;
-    --secondary-color-3: #219ebc;
-    --secondary-color-2: #4db1c9;
-    --secondary-color-1: #a6d8e4;
+    --secondary-color-5: hsl(201deg 100% 3%);
+    --secondary-color-4: hsl(201deg 96% 10%);
+    --secondary-color-3: hsl(201deg 93% 12%);
+    --secondary-color-2: hsl(201deg 34% 32%);
+    --secondary-color-1: hsl(201deg 16% 57%);
 
-    --tertiary-color-5: #643500;
-    --tertiary-color-4: #c96a00;
-    --tertiary-color-3: #FB8500;
-    --tertiary-color-2: #fc9d33;
-    --tertiary-color-1: #fdce99;
+    --tertiary-color-5: hsl(32deg 100% 20%);
+    --tertiary-color-4: hsl(32deg 100% 39%);
+    --tertiary-color-3: hsl(32deg 100% 49%);
+    --tertiary-color-2: hsl(32deg 97% 59%);
+    --tertiary-color-1: hsl(32deg 96% 80%);
 
-    --neutral-color-5: #0f172a;
-    --neutral-color-4: #334155;
-    --neutral-color-3: #94a3b8;
-    --neutral-color-2: #e5e8eb;
-    --neutral-color-1: #f8fafc;
+    --neutral-color-5: hsl(210deg 47% 11%);
+    --neutral-color-4: hsl(210deg 25% 27%);
+    --neutral-color-3: hsl(210deg 20% 65%);
+    --neutral-color-2: hsl(210deg 13% 91%);
+    --neutral-color-1: hsl(210deg 40% 98%);
 
     --box-shadow-hard: 0 1.6rem 3rem var(--neutral-color-2);
     --box-shadow-soft: 0 0.6rem 1.2rem var(--neutral-color-2);
 }
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
-    /* respecting user's default browser font size (user can change their font size from the browser settings
-       and it will affect the whole site because size is not hard coded pixel value.
-       every rem is now: 10/16 * 100 * 16px = 10px
-    */
-    font-size: 62.5%;
     overflow-x: hidden;
-    /* only chrome and firefox */
+
     scroll-behavior: smooth;
+
+    font-family: Vazirmatn, sans-serif;
+    font-size: 62.5%;
 }
 
 body {
-    font-family: 'Vazirmatn', sans-serif;;
-    line-height: 1;
-    font-weight: 400;
+    background-color: var(--neutral-color-1);
     color: var(--neutral-color-5);
 
     overflow-x: hidden;
 
-    background-color: var(--neutral-color-1);
+    font-weight: 400;
+
+    line-height: 1;
 }
 
-button{
-    cursor: pointer;
-    outline: none;
+button {
     background-color: transparent;
+
+    padding: 1.2rem;
+
     border: none;
+    border-radius: 10px;
+
+    outline: none;
 
     font-family: inherit;
 
-    padding: 1.2rem;
-    border-radius: 10px;
-
     transition: 0.3s;
 
-    &:hover{
+    cursor: pointer;
+
+    &:hover {
         .icon {
-            color: var(--secondary-color-3);
+            color: var(--primary-color-3);
         }
 
-        .icon-special{
+        .icon-special {
             color: var(--tertiary-color-4);
         }
     }
 
-    &:focus{
+    &:focus {
         background-color: var(--neutral-color-2);
 
-        .icon{
-            color: var(--secondary-color-3);
+        .icon {
+            color: var(--primary-color-3);
         }
 
-        .icon-special{
+        .icon-special {
             color: var(--tertiary-color-4);
         }
     }
 }
 
-.icon{
-    color: var(--primary-color-3);
+.icon {
+    color: var(--secondary-color-3);
+
     font-size: 2.4rem;
 
     transition: 0.3s;
 
-    &:hover{
-        color: var(--secondary-color-3);
+    &:hover {
+        color: var(--primary-color-3);
     }
 }
 
-.icon-special{
+.icon-special {
     color: var(--tertiary-color-3);
+
     font-size: 2.4rem;
 
     transition: 0.3s;
 
-    &:hover{
+    &:hover {
         color: var(--tertiary-color-4);
     }
 }
 
-h1{
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+    font-family: inherit;
+}
+
+h1 {
     font-size: 2.4rem;
 }
 
-h2{
+h2 {
     font-size: 2rem;
 }
 
 p {
     font-size: 1.4rem;
+
     line-height: 1.4;
 }
 
 a {
-    font-size: 1.4rem;
-    cursor: pointer;
-    text-decoration: none;
     color: inherit;
+
+    font-size: 1.4rem;
+
+    text-decoration: none;
 
     transition: 0.3s;
 
+    cursor: pointer;
+
     &:hover {
+        color: var(--primary-color-3);
+
         text-decoration: underline;
-        color: var(--secondary-color-3);
     }
 }
 
-.currency{
+.currency {
     color: var(--neutral-color-3);
+
     font-size: 1.2rem;
 }
-
-@media (max-width: 84em) {}
 
 @media (max-width: 75em) {
     html {
@@ -174,7 +198,3 @@ a {
         font-size: 50%;
     }
 }
-
-@media (max-width: 44em) {}
-
-@media (max-width: 34em) {}

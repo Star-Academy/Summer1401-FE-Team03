@@ -93,6 +93,7 @@
     },
     "defaultProject": "boilera",
     "cli": {
+      "analytics": "87cb2be9-3f6e-4176-b077-e96686bf2e41",
         "defaultCollection": "@angular-eslint/schematics"
     }
 }

@@ -6,13 +6,15 @@
 }
 
 input{
-  border-radius: 999px;
+  background-color: var(--neutral-color-1);
+  box-shadow: var(--box-shadow-soft);
+
   padding: 0.8rem 1.6rem;
 
-  background-color: var(--neutral-color-1);
   border: 1px solid var(--neutral-color-2);
+  border-radius: 999px;
+
   outline: none;
-  box-shadow: var(--box-shadow-soft);
 
   font-family: inherit;
   font-weight: 700;
@@ -20,12 +22,14 @@ input{
   transition: 0.5s;
 
   &::placeholder{
-    font-weight: 400;
     color: var(--neutral-color-3);
+
+    font-weight: 400;
   }
 
   &:focus{
-    border: 1px solid var(--primary-color-2);
     flex: 1;
+
+    border: 1px solid var(--secondary-color-2);
   }
 }
