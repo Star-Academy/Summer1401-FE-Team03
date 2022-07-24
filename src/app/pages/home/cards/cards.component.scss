@@ -18,7 +18,7 @@ section {
     &::after {
         content: "";
 
-        background-image: linear-gradient(to right, var(--neutral-color-lighter) 0, hsla(210, 40%, 98%, 0));
+        background-image: linear-gradient(to right, var(--neutral-color-lighter) 0, hsl(210deg 40% 98% / 0%));
 
         position: absolute;
         inset-block-start: 0;
