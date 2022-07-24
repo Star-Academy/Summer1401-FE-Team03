@@ -51,5 +51,13 @@ footer {
 
             cursor: pointer;
         }
+
+        .visual-link {
+            text-decoration: underline;
+        }
+
+        li {
+            font-size: var(--font-size-detail);
+        }
     }
 }
