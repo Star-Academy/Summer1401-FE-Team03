@@ -1,7 +1,7 @@
 # فروشگاه لول آپ
 
 ![level up](src/assets/logo/logo-light.svg)
-[از فروشگاه بازدید کنید](https://www.google.com)
+[از فروشگاه بازدید کنید](https://star-academy.github.io/Summer1401-FE-Team03/)
 
 ---
 
@@ -41,7 +41,9 @@
 ## لینک‌های دانلود و مشاهده
 
 | [سورس‌کد فروشگاه](https://github.com/Star-Academy/Summer1401-FE-Team03)  
-| [مشاهده فایل‌های دیزاین](https://www.figma.com/file/8HrEFNO32c3rnd2Y86na5i/level-up?node-id=0%3A1)
+| [مشاهده فایل‌های دیزاین](https://www.figma.com/file/8HrEFNO32c3rnd2Y86na5i/level-up?node-id=0%3A1)  
+| [مشاهده لایو فروشگاه](https://star-academy.github.io/Summer1401-FE-Team03/)
+
 
 ---
 
