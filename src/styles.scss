@@ -188,17 +188,9 @@ p {
 }
 
 a {
-    font-size: var(--font-size-paragraph);
-}
-
-.details {
-    color: var(--neutral-color-normal);
-
-    font-size: var(--font-size-detail);
-}
-
-a {
     color: inherit;
+
+    font-size: var(--font-size-paragraph);
 
     text-decoration: none;
 
@@ -209,6 +201,12 @@ a {
 
         text-decoration: underline;
     }
+}
+
+.details {
+    color: var(--neutral-color-normal);
+
+    font-size: var(--font-size-detail);
 }
 
 @media (width >= 480px) {
