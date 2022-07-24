@@ -73,9 +73,7 @@ body {
     background-color: var(--neutral-color-lighter);
     color: var(--neutral-color-darker);
 
-    overflow-x: hidden;
-
-    font-weight: 400;
+    overflow-inline: hidden;
 
     line-height: 1;
 
@@ -85,7 +83,7 @@ body {
         padding: 1.2rem;
 
         border: none;
-        border-radius: 10px;
+        border-radius: 1rem;
 
         outline: none;
 

@@ -4,7 +4,7 @@
 
     width: 30rem;
 
-    border-radius: 20px;
+    border-radius: 2rem;
 
     transition: transform 200ms ease-in;
 
@@ -12,12 +12,6 @@
         box-shadow: var(--box-shadow-hard);
 
         transform: translateY(-1rem);
-    }
-
-    .card-price {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .card-add-to-cart-btn {
@@ -29,12 +23,18 @@
         }
     }
 
-    > div {
+    .card-body {
         display: flex;
         flex-direction: column;
         gap: 2rem;
 
         padding: var(--card-padding);
+
+        &__price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
         > p {
             overflow: hidden;
@@ -47,13 +47,13 @@
         }
 
         h2 {
-            text-align: left;
+            text-align: start;
         }
     }
 
     img {
         width: 100%;
 
-        border-radius: 20px 20px 0 0;
+        border-radius: 2rem 2rem 0 0;
     }
 }

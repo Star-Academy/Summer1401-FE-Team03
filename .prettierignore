@@ -149,6 +149,3 @@ modules.xml
 node_modules/
 package-lock.json
 *.min.*
-
-deploy_dist
-dist

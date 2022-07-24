@@ -13,7 +13,7 @@
         li {
             flex: 0 0 100%;
 
-            transform: translateX(#{calc(var(--active-index) * 100%)});
+            transform: translateX(calc(var(--active-index) * 100%));
 
             transition: transform 500ms ease-in-out;
 

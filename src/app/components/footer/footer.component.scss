@@ -10,7 +10,7 @@ footer {
 
     padding: 4.8rem calc(var(--content-inline-padding) + var(--card-padding));
 
-    > div {
+    .footer-section {
         display: flex;
         flex-direction: column;
         gap: 1.6rem;
