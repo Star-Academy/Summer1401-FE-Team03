@@ -10,7 +10,7 @@ section {
 
 .cards {
     position: relative;
-    overflow-inline: clip;
+    overflow-x: clip;
 
     display: flex;
     gap: 2.4rem;
