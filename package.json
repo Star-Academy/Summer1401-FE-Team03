@@ -1,11 +1,11 @@
 {
-    "name": "boilera",
+    "name": "Summer1401-FE-Team03",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "build:prod": "ng build --base-href=/boilera/",
+        "build:prod": "ng build --base-href=/Summer1401-FE-Team03/",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "eslint:check": "ng lint",

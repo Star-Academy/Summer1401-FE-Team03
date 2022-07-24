@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "boilera": {
+        "Summer1401-FE-Team03": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -20,7 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/boilera",
+                        "outputPath": "dist/Summer1401-FE-Team03",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -55,10 +55,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "boilera:build:production"
+                            "browserTarget": "Summer1401-FE-Team03:build:production"
                         },
                         "development": {
-                            "browserTarget": "boilera:build:development"
+                            "browserTarget": "Summer1401-FE-Team03:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -66,7 +66,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "boilera:build"
+                        "browserTarget": "Summer1401-FE-Team03:build"
                     }
                 },
                 "test": {
@@ -91,7 +91,7 @@
             }
         }
     },
-    "defaultProject": "boilera",
+    "defaultProject": "Summer1401-FE-Team03",
     "cli": {
         "analytics": "87cb2be9-3f6e-4176-b077-e96686bf2e41",
         "defaultCollection": "@angular-eslint/schematics"
