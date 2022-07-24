@@ -1,0 +1,65 @@
+footer {
+    background-image: linear-gradient(to top right, var(--secondary-color-dark), var(--secondary-color-light));
+
+    color: var(--neutral-color-lighter);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+    width: 100%;
+
+    padding: 4.8rem calc(var(--content-inline-padding) + var(--card-padding));
+
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        max-width: 20rem;
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2.4rem;
+
+            list-style: none;
+
+            a {
+                font-size: 1.8rem;
+
+                &:hover {
+                    color: var(--primary-color-normal);
+                }
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            list-style: none;
+
+            .t-number {
+                direction: ltr;
+
+                display: inline-block;
+            }
+        }
+
+        .logo {
+            height: 6.2rem;
+
+            cursor: pointer;
+        }
+
+        .visual-link {
+            text-decoration: underline;
+        }
+
+        li {
+            font-size: var(--font-size-detail);
+        }
+    }
+}

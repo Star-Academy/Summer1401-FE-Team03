@@ -1,0 +1,59 @@
+:host {
+    background-color: var(--neutral-color-light);
+    box-shadow: var(--box-shadow-soft);
+
+    width: 30rem;
+
+    border-radius: 2rem;
+
+    transition: transform 200ms ease-in;
+
+    &:hover {
+        box-shadow: var(--box-shadow-hard);
+
+        transform: translateY(-1rem);
+    }
+
+    .card-add-to-cart-btn {
+        background-color: var(--primary-color-normal);
+        color: var(--neutral-color-lighter);
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        padding: var(--card-padding);
+
+        &__price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        > p {
+            overflow: hidden;
+
+            width: 100%;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+        h2 {
+            text-align: end;
+        }
+    }
+
+    img {
+        width: 100%;
+
+        border-radius: 2rem 2rem 0 0;
+    }
+}

@@ -1,0 +1,20 @@
+<img [src]="src" [alt]="alt" />
+
+<div class="card-body">
+    <a>
+        <h2>{{ title }}</h2>
+    </a>
+
+    <p>{{ description }}</p>
+
+    <div class="card-body__price">
+        <i class="far fa-coins icon-special"></i>
+
+        <p>
+            {{ price || DASH }}
+            <span class="supporting-text">لول کوین</span>
+        </p>
+    </div>
+
+    <button class="card-add-to-cart-btn">{{ buttonText }}</button>
+</div>

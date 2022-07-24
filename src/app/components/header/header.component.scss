@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    width: 100%;
+
+    padding: 1.2rem var(--content-inline-padding);
+
+    img {
+        height: 6.2rem;
+
+        cursor: pointer;
+    }
+
+    .user-container {
+        display: flex;
+        gap: 0.4rem;
+    }
+
+    > div {
+        display: flex;
+        align-items: center;
+
+        margin-inline-start: auto;
+
+        span {
+            font-size: var(--font-size-paragraph);
+            font-weight: 700;
+        }
+    }
+}
+
+@media (max-width: 44em) {
+    app-search-box,
+    .credit,
+    app-divider-vertical {
+        display: none;
+    }
+}

@@ -1,0 +1,240 @@
+/*
+Design System
+
+Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+White spaces (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+Shadows
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+
+*/
+
+:root {
+    --font-size-heading: 2.4rem;
+    --font-size-sub-heading: 2rem;
+    --font-size-tertiary-heading: 1.8rem;
+    --font-size-paragraph: 1.4rem;
+    --font-size-detail: 1.2rem;
+
+    --primary-color-darker: hsl(192deg 70% 13%);
+    --primary-color-dark: hsl(192deg 70% 35%);
+    --primary-color-normal: hsl(192deg 70% 43%);
+    --primary-color-light: hsl(192deg 53% 55%);
+    --primary-color-lighter: hsl(192deg 53% 77%);
+
+    --secondary-color-darker: hsl(201deg 100% 3%);
+    --secondary-color-dark: hsl(201deg 96% 10%);
+    --secondary-color-normal: hsl(201deg 93% 12%);
+    --secondary-color-light: hsl(201deg 34% 32%);
+    --secondary-color-lighter: hsl(201deg 16% 57%);
+
+    --tertiary-color-darker: hsl(32deg 100% 20%);
+    --tertiary-color-dark: hsl(32deg 100% 39%);
+    --tertiary-color-normal: hsl(32deg 100% 49%);
+    --tertiary-color-light: hsl(32deg 97% 59%);
+    --tertiary-color-lighter: hsl(32deg 96% 80%);
+
+    --neutral-color-darker: hsl(210deg 47% 11%);
+    --neutral-color-dark: hsl(210deg 25% 27%);
+    --neutral-color-normal: hsl(210deg 20% 65%);
+    --neutral-color-light: hsl(210deg 13% 91%);
+    --neutral-color-lighter: hsl(210deg 40% 98%);
+
+    --box-shadow-hard: 0 0.4rem 1.6rem var(--neutral-color-light);
+    --box-shadow-soft: 0 0.1rem 0.8rem var(--neutral-color-light);
+
+    --content-max-width: 140rem;
+    --content-inline-padding: 1.2rem;
+
+    --card-padding: 2.4rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    font-family: Vazirmatn, sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--neutral-color-lighter);
+    color: var(--neutral-color-darker);
+
+    line-height: 1;
+
+    button {
+        background-color: transparent;
+
+        padding: 1.2rem;
+
+        border: none;
+        border-radius: 1rem;
+
+        outline: none;
+
+        cursor: pointer;
+
+        &:hover {
+            .icon {
+                color: var(--primary-color-normal);
+            }
+
+            .icon-special {
+                color: var(--tertiary-color-dark);
+            }
+        }
+
+        &:focus {
+            background-color: var(--neutral-color-light);
+
+            .icon {
+                color: var(--primary-color-normal);
+            }
+
+            .icon-special {
+                color: var(--tertiary-color-dark);
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 4.8rem;
+
+        margin-block-end: 4.8rem;
+    }
+
+    input,
+    label,
+    select,
+    textarea,
+    button,
+    fieldset,
+    legend,
+    datalist,
+    output,
+    option,
+    optgroup,
+    input:focus {
+        border: none;
+
+        outline: none;
+
+        font-family: inherit;
+    }
+}
+
+.icon {
+    color: var(--secondary-color-normal);
+
+    font-size: 2.4rem;
+
+    &:hover {
+        color: var(--primary-color-normal);
+    }
+}
+
+.icon-special {
+    color: var(--tertiary-color-normal);
+
+    font-size: 2.4rem;
+
+    &:hover {
+        color: var(--tertiary-color-dark);
+    }
+}
+
+h1 {
+    font-size: var(--font-size-heading);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--font-size-sub-heading);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: var(--font-size-tertiary-heading);
+    font-weight: 700;
+}
+
+p {
+    color: var(--secondary-color-darker);
+
+    font-size: var(--font-size-paragraph);
+
+    line-height: 1.4;
+}
+
+a {
+    color: inherit;
+
+    font-size: var(--font-size-paragraph);
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary-color-normal);
+
+        text-decoration: underline;
+    }
+}
+
+.supporting-text {
+    color: var(--neutral-color-normal);
+
+    font-size: var(--font-size-detail);
+}
+
+@media (width >= 480px) {
+    :root {
+        --content-inline-padding: 2rem;
+    }
+}
+
+@media (width >= 600px) {
+    :root {
+        --content-inline-padding: 4rem;
+    }
+}
+
+@media (width >= 768px) {
+    :root {
+        --content-inline-padding: 6rem;
+    }
+}
+
+@media (width >= 900px) {
+    :root {
+        --content-inline-padding: 8rem;
+    }
+}
+
+@media (width >= 1200px) {
+    :root {
+        --content-inline-padding: 12rem;
+    }
+}
+
+@media (width >= 1920px) {
+    :root {
+        --content-inline-padding: calc(calc(100vw - var(--content-max-width)) * 0.5);
+    }
+}

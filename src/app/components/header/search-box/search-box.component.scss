@@ -1,0 +1,42 @@
+:host {
+    background-color: var(--neutral-color-lighter);
+
+    padding: 0.8rem 1.6rem;
+
+    border: 1px solid var(--neutral-color-light);
+    border-radius: 999rem;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+
+        input {
+            background-color: inherit;
+
+            width: 30rem;
+
+            font-weight: 700;
+
+            &::placeholder {
+                color: var(--neutral-color-normal);
+
+                font-weight: 400;
+            }
+        }
+
+        i {
+            color: var(--neutral-color-normal);
+
+            font-size: var(--font-size-tertiary-heading);
+
+            &:hover {
+                color: var(--primary-color-normal);
+            }
+        }
+    }
+
+    &:focus-within {
+        border: 1px solid var(--primary-color-normal);
+    }
+}
