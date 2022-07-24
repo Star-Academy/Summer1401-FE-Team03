@@ -1,22 +1,20 @@
+<img [src]="src" [alt]="alt" />
+
 <div>
-    <img [src]="src" [alt]="alt" />
+    <a>
+        <h2>{{ title }}</h2>
+    </a>
 
-    <div>
-        <a>
-            <h2>{{ title }}</h2>
-        </a>
+    <p>{{ description }}</p>
 
-        <p>{{ description }}</p>
+    <div class="card-price">
+        <i class="far fa-coins icon-special"></i>
 
-        <div class="card-price">
-            <i class="far fa-coins icon-special"></i>
-
-            <p>
-                {{ price || DASH }}
-                <span class="details">لول کوین</span>
-            </p>
-        </div>
-
-        <button class="card-add-to-cart-btn">افزودن به سبد خرید</button>
+        <p>
+            {{ price || DASH }}
+            <span class="supporting-text">لول کوین</span>
+        </p>
     </div>
+
+    <button class="card-add-to-cart-btn">{{ buttonText }}</button>
 </div>
