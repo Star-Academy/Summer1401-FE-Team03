@@ -9,9 +9,9 @@ import SlideshowItem from '../../../models/slidshow-item.models';
 export class SlideshowComponent implements AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 6000;
     public items: SlideshowItem[] = [
-        {src: '/assets/slides/01-compressed.jpg', alt: 'بازی ویچر سه و اکسپنشن قلب های سنگی'},
-        {src: '/assets/slides/02-compressed.jpg', alt: 'بازی استری - مربوط به گربه ها'},
-        {src: '/assets/slides/03-compressed.jpg', alt: 'بازی رد دد ریدمپشن دو'},
+        {src: '/assets/slides/01-compressed.webp', alt: 'بازی ویچر سه و اکسپنشن قلب های سنگی'},
+        {src: '/assets/slides/02-compressed.webp', alt: 'بازی استری - مربوط به گربه ها'},
+        {src: '/assets/slides/03-compressed.webp', alt: 'بازی رد دد ریدمپشن دو'},
     ];
     public activeIndex: number = 0;
     private interval?: number;
