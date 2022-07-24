@@ -146,5 +146,6 @@ modules.xml
 
 .angular/
 
-deploy_dist
+deploy_dist/
+
 dist
