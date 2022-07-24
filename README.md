@@ -44,7 +44,6 @@
 | [مشاهده فایل‌های دیزاین](https://www.figma.com/file/8HrEFNO32c3rnd2Y86na5i/level-up?node-id=0%3A1)  
 | [مشاهده لایو فروشگاه](https://star-academy.github.io/Summer1401-FE-Team03/)
 
-
 ---
 
 ## باگ‌های موجود
