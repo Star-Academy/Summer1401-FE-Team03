@@ -13,12 +13,12 @@ header {
         cursor: pointer;
     }
 
-    .container-user {
+    .user-container {
         display: flex;
         gap: 0.4rem;
     }
 
-    .credit {
+    > div {
         display: flex;
         align-items: center;
 

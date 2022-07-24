@@ -1,36 +1,38 @@
-.search-box {
+:host div {
     background-color: var(--neutral-color-lighter);
-
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
 
     padding: 0.8rem 1.6rem;
 
     border: 1px solid var(--neutral-color-light);
     border-radius: 999rem;
 
-    input {
-        background-color: inherit;
+    label {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
 
-        width: 30rem;
+        input {
+            background-color: inherit;
 
-        font-weight: 700;
+            width: 30rem;
 
-        &::placeholder {
+            font-weight: 700;
+
+            &::placeholder {
+                color: var(--neutral-color-normal);
+
+                font-weight: 400;
+            }
+        }
+
+        i {
             color: var(--neutral-color-normal);
 
-            font-weight: 400;
-        }
-    }
+            font-size: var(--font-size-tertiary-heading);
 
-    i {
-        color: var(--neutral-color-normal);
-
-        font-size: var(--font-size-tertiary-heading);
-
-        &:hover {
-            color: var(--primary-color-normal);
+            &:hover {
+                color: var(--primary-color-normal);
+            }
         }
     }
 

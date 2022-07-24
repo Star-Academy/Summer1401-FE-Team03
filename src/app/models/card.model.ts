@@ -5,4 +5,5 @@ interface Card {
     description: string;
     price: number;
 }
+
 export default Card;

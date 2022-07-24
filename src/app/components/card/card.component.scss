@@ -14,28 +14,13 @@
         transform: translateY(-1rem);
     }
 
-    .card-title {
-        text-align: left;
-    }
-
-    .card-description > p {
-        overflow: hidden;
-
-        width: 100%;
-
-        text-overflow: ellipsis;
-
-        white-space: nowrap;
-    }
-
     .card-price {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1.2rem;
     }
 
-    .card-add-to-cart {
+    .card-add-to-cart-btn {
         background-color: var(--primary-color-normal);
         color: var(--neutral-color-lighter);
 
@@ -50,6 +35,20 @@
         gap: 2rem;
 
         padding: var(--card-padding);
+
+        > p {
+            overflow: hidden;
+
+            width: 100%;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+        h2 {
+            text-align: left;
+        }
     }
 
     img {

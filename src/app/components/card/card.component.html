@@ -1,18 +1,22 @@
 <div>
     <img [src]="src" [alt]="alt" />
-    <div class="content">
-        <div class="card-title">
-            <a>
-                <h2>{{ title }}</h2>
-            </a>
-        </div>
-        <div class="card-description">
-            <p>{{ description }}</p>
-        </div>
+
+    <div>
+        <a>
+            <h2>{{ title }}</h2>
+        </a>
+
+        <p>{{ description }}</p>
+
         <div class="card-price">
             <i class="far fa-coins icon-special"></i>
-            <p class="card-price-amount">{{ price || '-' }} <span class="details">لول کوین</span></p>
+
+            <p>
+                {{ price || DASH }}
+                <span class="details">لول کوین</span>
+            </p>
         </div>
-        <button class="card-add-to-cart">افزودن به سبد خرید</button>
+
+        <button class="card-add-to-cart-btn">افزودن به سبد خرید</button>
     </div>
 </div>

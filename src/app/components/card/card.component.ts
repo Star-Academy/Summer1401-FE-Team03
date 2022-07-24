@@ -11,4 +11,6 @@ export class CardComponent {
     @Input() public title: string = 'بازی';
     @Input() public description: string = 'توضیحات بازی';
     @Input() public price!: number;
+
+    public readonly DASH: string = '_';
 }
