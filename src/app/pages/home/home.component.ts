@@ -7,7 +7,7 @@ import Card from '../../models/card.model';
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-    public fetched_cards: Card[] = [
+    public fetchedCards: Card[] = [
         {
             src: 'assets/card-images/goat-sim-3-compressed.webp',
             alt: 'چهار بز که یکی از اون ها جت پک داره، در حال نگاه کردن به دوربین هستند.',
