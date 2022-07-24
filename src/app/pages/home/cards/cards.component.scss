@@ -1,0 +1,30 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    width: 100%;
+
+    padding-inline: var(--content-inline-padding);
+}
+
+.cards {
+    position: relative;
+    overflow-x: clip;
+
+    display: flex;
+    gap: 2.4rem;
+
+    &::after {
+        content: "";
+
+        background-image: linear-gradient(to right, var(--neutral-color-lighter) 0, hsl(210deg 40% 98% / 0%));
+
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-end: 0;
+
+        width: 10%;
+        height: 100%;
+    }
+}

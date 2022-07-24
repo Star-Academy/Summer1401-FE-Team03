@@ -1,0 +1,14 @@
+<section>
+    <h1 class="title">بازی های مورد انتظار در سال جاری</h1>
+    <div class="cards">
+        <ng-container *ngFor="let card of cards">
+            <app-card
+                [src]="card.src"
+                [alt]="card.alt"
+                [title]="card.title"
+                [description]="card.description"
+                [price]="card.price"
+            ></app-card>
+        </ng-container>
+    </div>
+</section>
