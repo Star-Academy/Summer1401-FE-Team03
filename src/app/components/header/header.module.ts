@@ -4,10 +4,11 @@ import {HeaderComponent} from './header.component';
 import {SearchBoxModule} from './search-box/search-box.module';
 import {DividerVerticalModule} from '../divider-vertical/divider-vertical.module';
 import {RouterModule} from '@angular/router';
+import {NgxPopperjsModule} from 'ngx-popperjs';
 
 @NgModule({
     declarations: [HeaderComponent],
-    imports: [CommonModule, SearchBoxModule, DividerVerticalModule, RouterModule],
+    imports: [CommonModule, SearchBoxModule, NgxPopperjsModule, DividerVerticalModule, RouterModule],
     exports: [HeaderComponent],
 })
 export class HeaderModule {}
