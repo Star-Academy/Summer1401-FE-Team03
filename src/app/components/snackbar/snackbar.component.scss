@@ -1,0 +1,37 @@
+.wrapper {
+    background-color: var(--error-color);
+
+    position: fixed;
+    inset-block-end: 3rem;
+    inset-inline-start: -30rem;
+
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+
+    min-inline-size: 15rem;
+    max-inline-size: 30rem;
+
+    padding: var(--card-padding);
+
+    border-radius: 0.4rem;
+
+    transition: transform 300ms ease-in-out;
+
+    p {
+        color: var(--neutral-color-lighter);
+    }
+
+    button {
+        margin-inline-start: auto;
+        padding: 0;
+
+        i {
+            color: var(--neutral-color-lighter);
+        }
+    }
+}
+
+.show {
+    transform: translateX(-33rem);
+}
