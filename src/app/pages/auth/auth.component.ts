@@ -16,9 +16,7 @@ export class AuthComponent {
         password: '',
     };
 
-    public constructor(private Router: Router) {
-        console.log(Router);
-    }
+    public constructor(private router: Router) {}
 
     public isLoginInView: boolean = true;
 

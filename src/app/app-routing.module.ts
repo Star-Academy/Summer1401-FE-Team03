@@ -5,7 +5,7 @@ import {AuthComponent} from './pages/auth/auth.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
-    {path: '/auth', component: AuthComponent},
+    {path: 'auth', component: AuthComponent},
     {path: '**', redirectTo: ''},
 ];
 
