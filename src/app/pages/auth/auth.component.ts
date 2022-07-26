@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
-import User from '../../models/user.model';
+import {User} from '../../models/user.model';
 import {Router} from '@angular/router';
-import {ApiService} from '../../services/api/api.service';
 import {AuthService} from '../../services/api/auth/auth.service';
 import {SnackbarService} from '../../services/snackbar/snackbar.service';
-import SnackbarTypes from '../../enum/snackbar.types';
+import SnackbarTypes from '../../models/enum/snackbar.types';
 
 @Component({
     selector: 'app-auth',

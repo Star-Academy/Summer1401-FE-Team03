@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SnackbarComponent} from '../../components/snackbar/snackbar.component';
-import SnackbarTypes from '../../enum/snackbar.types';
+import SnackbarTypes from '../../models/enum/snackbar.types';
 
 @Injectable({
     providedIn: 'root',

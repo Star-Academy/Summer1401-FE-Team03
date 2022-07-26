@@ -1,14 +1,16 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../api.service';
-import TokenObject from '../../../models/token-object.model';
+import {TokenObject} from '../../../models/token-object.model';
 import {API_USER_AUTH, API_USER_LOGIN, API_USER_REGISTER} from '../../../utils/api.utils';
-import Login from '../../../models/login.model';
-import User from '../../../models/user.model';
+import {Login} from '../../../models/login.model';
+import {User} from '../../../models/user.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
+    public isUserLoggedIn: boolean = false;
+
     public constructor(private apiService: ApiService) {}
 
     public async login(loginModel: Login): Promise<boolean> {
@@ -16,6 +18,7 @@ export class AuthService {
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
+        this.isUserLoggedIn = true;
         return true;
     }
 
@@ -24,16 +27,18 @@ export class AuthService {
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
+        this.isUserLoggedIn = true;
         return true;
     }
 
     public logout(): void {
         localStorage.removeItem('token');
+        this.isUserLoggedIn = false;
         window.location.reload();
     }
 
-    public async isLoggedIn(): Promise<boolean> {
+    public async isLoggedIn(): Promise<void> {
         const token = localStorage.getItem('token') || '';
-        return !!(await this.apiService.post<boolean>(API_USER_AUTH, {token}));
+        this.isUserLoggedIn = !!(await this.apiService.post<boolean>(API_USER_AUTH, {token}, {}, false));
     }
 }

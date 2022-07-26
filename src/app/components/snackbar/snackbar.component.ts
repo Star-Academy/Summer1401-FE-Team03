@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {SnackbarService} from '../../services/snackbar/snackbar.service';
-import SnackbarTypes from '../../enum/snackbar.types';
-import {ChangeDetection} from '@angular/cli/lib/config/workspace-schema';
+import SnackbarTypes from '../../models/enum/snackbar.types';
 
 @Component({
     selector: 'app-snackbar',

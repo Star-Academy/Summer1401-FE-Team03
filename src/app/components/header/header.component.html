@@ -20,7 +20,7 @@
 
     <app-divider-vertical></app-divider-vertical>
 
-    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+    <ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">
         <button class="auth-button" [popper]="popperContent" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
             <i class="far fa-user icon"></i>
             <i class="far fa-angle-down icon"></i>
@@ -58,7 +58,7 @@
             <p>دیدگاه‌ها</p>
         </a>
 
-        <a class="reset">
+        <a class="reset" (click)="authService.logout()">
             <i class="far fa-arrow-right-from-bracket"></i>
             <p>خروج از حساب کاربری</p>
         </a>

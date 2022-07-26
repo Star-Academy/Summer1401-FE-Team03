@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnDestroy} from '@angular/core';
-import SlideshowItem from '../../../models/slidshow-item.models';
+import {SlideshowItem} from '../../../models/slidshow-item.models';
 
 @Component({
     selector: 'app-slideshow',

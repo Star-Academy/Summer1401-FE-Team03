@@ -8,14 +8,7 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    public isLoggedIn = false;
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
-    public constructor(private authService: AuthService) {
-        this.init().then();
-    }
-
-    private async init(): Promise<void> {
-        this.isLoggedIn = await this.authService.isLoggedIn();
-    }
+    public constructor(public authService: AuthService) {}
 }
