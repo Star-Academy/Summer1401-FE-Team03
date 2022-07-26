@@ -13,8 +13,9 @@ header {
         cursor: pointer;
     }
 
-    .user-container {
+    .auth-button {
         display: flex;
+        align-items: center;
         gap: 0.4rem;
     }
 

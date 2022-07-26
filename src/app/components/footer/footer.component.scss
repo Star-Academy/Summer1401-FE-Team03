@@ -1,67 +1,71 @@
-footer {
-    background-image: linear-gradient(to top right, var(--secondary-color-dark), var(--secondary-color-light));
-
-    color: var(--neutral-color-lighter);
-
+:host {
     margin-block-start: auto;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    footer {
+        background-image: linear-gradient(to top right, var(--secondary-color-dark), var(--secondary-color-light));
 
-    width: 100%;
+        color: var(--neutral-color-lighter);
 
-    padding: 4.8rem calc(var(--content-inline-padding) + var(--card-padding));
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 
-    .footer-section {
-        display: flex;
-        flex-direction: column;
-        gap: 1.6rem;
+        width: 100%;
 
-        max-width: 20rem;
+        margin-block-start: auto;
 
-        .social {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 2.4rem;
+        padding: 4.8rem calc(var(--content-inline-padding) + var(--card-padding));
 
-            list-style: none;
-
-            a {
-                font-size: 1.8rem;
-
-                &:hover {
-                    color: var(--primary-color-normal);
-                }
-            }
-        }
-
-        .links {
+        .footer-section {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.6rem;
 
-            list-style: none;
+            max-width: 20rem;
 
-            .t-number {
-                direction: ltr;
+            .social {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 2.4rem;
 
-                display: inline-block;
+                list-style: none;
+
+                a {
+                    font-size: 1.8rem;
+
+                    &:hover {
+                        color: var(--primary-color-normal);
+                    }
+                }
             }
-        }
 
-        .logo {
-            height: 6.2rem;
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
 
-            cursor: pointer;
-        }
+                list-style: none;
 
-        .visual-link {
-            text-decoration: underline;
-        }
+                .t-number {
+                    direction: ltr;
 
-        li {
-            font-size: var(--font-size-detail);
+                    display: inline-block;
+                }
+            }
+
+            .logo {
+                height: 6.2rem;
+
+                cursor: pointer;
+            }
+
+            .visual-link {
+                text-decoration: underline;
+            }
+
+            li {
+                font-size: var(--font-size-detail);
+            }
         }
     }
 }

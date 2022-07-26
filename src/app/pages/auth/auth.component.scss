@@ -1,9 +1,12 @@
-div {
+:host {
+    flex: 1;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    padding-inline: var(--content-inline-padding);
+    padding: 4.8rem var(--content-inline-padding);
 
     form {
         background-color: var(--neutral-color-light);
@@ -14,7 +17,7 @@ div {
         gap: 2.4rem;
 
         min-inline-size: 25rem;
-        inline-size: 20%;
+        inline-size: 30%;
 
         padding: var(--card-padding);
 
@@ -41,6 +44,16 @@ div {
 
             &:hover {
                 background-color: var(--primary-color-dark);
+            }
+        }
+
+        p {
+            text-decoration: underline;
+
+            cursor: pointer;
+
+            &:hover {
+                color: var(--primary-color-normal);
             }
         }
     }

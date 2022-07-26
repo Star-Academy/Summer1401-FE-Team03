@@ -1,34 +1,36 @@
-<div>
-    <form (submit)="formSubmitHandler()">
-        <h1>
-            {{ isLoginInView ? 'ورود' : 'ثبت‌نام' }}
-        </h1>
+<form (submit)="formSubmitHandler()">
+    <h1>
+        {{ isLoginInView ? 'ورود' : 'ثبت‌نام' }}
+    </h1>
 
-        <label *ngIf="!isLoginInView">
-            نام:
-            <input type="text" name="firstName" [(ngModel)]="user.firstName" />
-        </label>
+    <label *ngIf="!isLoginInView">
+        نام:
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" />
+    </label>
 
-        <label *ngIf="!isLoginInView">
-            نام خانوادگی:
-            <input type="text" name="lastName" [(ngModel)]="user.lastName" />
-        </label>
+    <label *ngIf="!isLoginInView">
+        نام خانوادگی:
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" />
+    </label>
 
-        <label>
-            نام کاربری:
-            <input type="text" name="username" [(ngModel)]="user.username" />
-        </label>
+    <label>
+        نام کاربری:
+        <input type="text" name="username" [(ngModel)]="user.username" />
+    </label>
 
-        <label>
-            ایمیل:
-            <input type="email" name="email" [(ngModel)]="user.email" />
-        </label>
+    <label>
+        ایمیل:
+        <input type="email" name="email" [(ngModel)]="user.email" />
+    </label>
 
-        <label>
-            کلمه عبور:
-            <input type="password" name="password" [(ngModel)]="user.password" />
-        </label>
+    <label>
+        کلمه عبور:
+        <input type="password" name="password" [(ngModel)]="user.password" />
+    </label>
 
-        <button class="primary" type="submit">ورود</button>
-    </form>
-</div>
+    <button class="primary" type="submit">ورود</button>
+
+    <p class="supporting-text" (click)="changeView()">
+        {{ isLoginInView ? 'حساب کاربری ندارم، میخواهم ثبت نام کنم' : 'حساب کاربری دارم، میخواهم وارد شوم' }}
+    </p>
+</form>

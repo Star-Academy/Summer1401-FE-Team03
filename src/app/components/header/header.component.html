@@ -20,8 +20,17 @@
 
     <app-divider-vertical></app-divider-vertical>
 
-    <button class="user-container">
-        <i class="far fa-user icon"></i>
-        <i class="far fa-angle-down icon"></i>
-    </button>
+    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+        <button class="auth-button">
+            <i class="far fa-user icon"></i>
+            <i class="far fa-angle-down icon"></i>
+        </button>
+    </ng-container>
+
+    <ng-template #notLoggedIn>
+        <button routerLink="/auth" class="auth-button">
+            <i class="far fa-arrow-right-to-bracket"></i>
+            <p>ثبت نام | ورود</p>
+        </button>
+    </ng-template>
 </header>

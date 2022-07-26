@@ -28,12 +28,20 @@
             color: var(--neutral-color-lighter);
         }
     }
-}
 
-.show {
-    transform: translateX(-33rem);
-}
+    &.show {
+        transform: translateX(-33rem);
+    }
 
-.error {
-    background-color: var(--error-color);
+    &.error {
+        background-color: var(--error-color);
+    }
+
+    &.success {
+        background-color: var(--success-color);
+    }
+
+    &.warning {
+        background-color: var(--warning-color);
+    }
 }

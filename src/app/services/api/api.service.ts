@@ -14,7 +14,7 @@ export class ApiService {
         const response = await fetch(url, {...POST_REQUEST_INIT, body: JSON.stringify(body), ...init});
         const data = await response.json();
 
-        if (response.status === 200) return data as T;
+        if (response.ok) return data as T;
         this.SnackbarService.show((data as ApiError).message, SnackbarTypes.Error);
 
         return null;

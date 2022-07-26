@@ -29,10 +29,22 @@ export class AuthComponent {
     public isLoginInView: boolean = true;
 
     public async formSubmitHandler(): Promise<void> {
-        const succeeded = await this.authService.login(this.user);
-        if (succeeded) {
-            await this.router.navigateByUrl('/');
-            this.snackbarService.show('شما وارد حساب کاربری خود شدید!', SnackbarTypes.Success);
+        if (this.isLoginInView) {
+            const succeeded = await this.authService.login(this.user);
+            if (succeeded) {
+                await this.router.navigateByUrl('/');
+                this.snackbarService.show('شما وارد حساب کاربری خود شدید!', SnackbarTypes.Success);
+            }
+        } else {
+            const succeeded = await this.authService.register(this.user);
+            if (succeeded) {
+                await this.router.navigateByUrl('/');
+                this.snackbarService.show('شما با موفقیت ثبت نام شدید!', SnackbarTypes.Success);
+            }
         }
+    }
+
+    public changeView(): void {
+        this.isLoginInView = !this.isLoginInView;
     }
 }
