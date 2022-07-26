@@ -1,7 +1,7 @@
 enum snackbarTypes {
-    ERROR,
-    WARNING,
-    SUCCESS,
+    Error = 'error',
+    Warning = 'warning',
+    Success = 'success',
 }
 
 export default snackbarTypes;

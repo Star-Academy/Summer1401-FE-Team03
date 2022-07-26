@@ -3,6 +3,8 @@ footer {
 
     color: var(--neutral-color-lighter);
 
+    margin-block-start: auto;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 

@@ -17,6 +17,6 @@ export class AuthService {
         localStorage.setItem('token', response.token);
         return true;
     }
-    public register();
-    public isLoggedIn();
+    // public register();
+    // public isLoggedIn();
 }

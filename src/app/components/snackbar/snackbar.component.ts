@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {SnackbarService} from '../../services/snackbar/snackbar.service';
 import SnackbarTypes from '../../enum/snackbar.types';
+import {ChangeDetection} from '@angular/cli/lib/config/workspace-schema';
 
 @Component({
     selector: 'app-snackbar',
@@ -8,8 +9,8 @@ import SnackbarTypes from '../../enum/snackbar.types';
     styleUrls: ['./snackbar.component.scss'],
 })
 export class SnackbarComponent {
-    private readonly FADE_AWAY: number = 2_000;
-    private interval: number | null = null;
+    private readonly FADE_AWAY: number = 4_000;
+    private timeout: number | null = null;
 
     public message: string | null = null;
     public type: SnackbarTypes | null = null;
@@ -20,31 +21,31 @@ export class SnackbarComponent {
     }
 
     public show(message: string, type: SnackbarTypes): void {
-        this.clearIntervalIfExists();
+        this.clearTimeoutIfExists();
         this.message = message;
         this.type = type;
         this.isShown = true;
 
-        setInterval(() => {
+        this.timeout = setTimeout(() => {
             this.isShown = false;
             this.message = null;
-            this.interval = null;
+            this.timeout = null;
         }, this.FADE_AWAY);
     }
 
     public snackbarCloseHandler(): void {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
         }
         this.isShown = false;
         this.message = null;
     }
 
-    private clearIntervalIfExists(): void {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
+    private clearTimeoutIfExists(): void {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
         }
     }
 }

@@ -77,6 +77,8 @@ body {
     background-color: var(--neutral-color-lighter);
     color: var(--neutral-color-darker);
 
+    min-block-size: 100vh;
+
     line-height: 1;
 
     button {

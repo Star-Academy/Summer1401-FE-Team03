@@ -15,7 +15,7 @@ export class ApiService {
         const data = await response.json();
 
         if (response.status === 200) return data as T;
-        this.SnackbarService.show((data as ApiError).message, SnackbarTypes.ERROR);
+        this.SnackbarService.show((data as ApiError).message, SnackbarTypes.Error);
 
         return null;
     }

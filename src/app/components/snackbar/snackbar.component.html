@@ -1,5 +1,6 @@
-<div class="wrapper" [style.--type]="type" [class.show]="isShown">
+<div class="wrapper" [class]="type" [class.show]="isShown">
     <p>{{ message }}</p>
+
     <button (click)="snackbarCloseHandler()">
         <i class="far fa-xmark"></i>
     </button>

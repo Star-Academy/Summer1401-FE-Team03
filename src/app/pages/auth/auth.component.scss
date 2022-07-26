@@ -3,15 +3,45 @@ div {
     align-items: center;
     justify-content: center;
 
+    padding-inline: var(--content-inline-padding);
+
     form {
         background-color: var(--neutral-color-light);
+        box-shadow: var(--box-shadow-soft);
 
         display: flex;
         flex-direction: column;
         gap: 2.4rem;
 
+        min-inline-size: 25rem;
+        inline-size: 20%;
+
         padding: var(--card-padding);
 
         border-radius: 0.8rem;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            font-size: var(--font-size-paragraph);
+
+            input {
+                padding: 1.2rem;
+
+                border-radius: 0.8rem;
+            }
+        }
+
+        button {
+            background-color: var(--primary-color-normal);
+
+            color: var(--neutral-color-lighter);
+
+            &:hover {
+                background-color: var(--primary-color-dark);
+            }
+        }
     }
 }
