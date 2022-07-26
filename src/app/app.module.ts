@@ -6,10 +6,11 @@ import {HomeModule} from './pages/home/home.module';
 import {HeaderModule} from './components/header/header.module';
 import {FooterModule} from './components/footer/footer.module';
 import {SnackbarModule} from './components/snackbar/snackbar.module';
+import {AuthModule} from './pages/auth/auth.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, HomeModule, HeaderModule, FooterModule, SnackbarModule],
+    imports: [BrowserModule, AppRoutingModule, HomeModule, HeaderModule, FooterModule, SnackbarModule, AuthModule],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
