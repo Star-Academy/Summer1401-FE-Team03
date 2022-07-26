@@ -1,5 +1,12 @@
 .wrapper {
-    background-color: var(--error-color);
+    --type: 0;
+    @if var(--type) == 0 {
+        background-color: var(--error-color);
+    } @else if var(--type) == 1 {
+        background-color: var(--warning-color);
+    } @else if var(--type) == 2 {
+        background-color: var(--success-color);
+    }
 
     position: fixed;
     inset-block-end: 3rem;

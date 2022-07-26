@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {SnackbarService} from '../../services/snackbar/snackbar.service';
+import SnackbarTypes from '../../enum/snackbar.types';
 
 @Component({
     selector: 'app-snackbar',
@@ -10,13 +12,17 @@ export class SnackbarComponent {
     private interval: number | null = null;
 
     public message: string | null = null;
-    public color?: string | null = null;
+    public type: SnackbarTypes | null = null;
     public isShown: boolean = false;
 
-    public show(message: string, color?: string): void {
+    public constructor(private SnackbarService: SnackbarService) {
+        this.SnackbarService.initComponent(this);
+    }
+
+    public show(message: string, type: SnackbarTypes): void {
         this.clearIntervalIfExists();
         this.message = message;
-        this.color = color || null;
+        this.type = type;
         this.isShown = true;
 
         setInterval(() => {

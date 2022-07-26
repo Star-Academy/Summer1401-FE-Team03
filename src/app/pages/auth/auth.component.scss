@@ -1,0 +1,17 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        background-color: var(--neutral-color-light);
+
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        padding: var(--card-padding);
+
+        border-radius: 0.8rem;
+    }
+}
