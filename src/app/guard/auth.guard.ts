@@ -7,6 +7,7 @@ import {AuthService} from '../services/api/auth/auth.service';
 })
 export class AuthGuard implements CanActivate {
     public constructor(private router: Router, private authService: AuthService) {}
+
     public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         if (await this.isAllowed(route)) return true;
 
@@ -15,12 +16,14 @@ export class AuthGuard implements CanActivate {
     }
 
     private async isAllowed(route: ActivatedRouteSnapshot): Promise<boolean> {
+        await this.authService.auth();
         const isLoggedIn = this.authService.isUserLoggedIn;
-        const wantsToNavigateToAuthPage = !!route.routeConfig?.path?.startsWith('auth');
+        const wantsToNavigateToLoginPage = !!route.routeConfig?.path?.startsWith('login');
+        const wantsToNavigateToRegisterPage = !!route.routeConfig?.path?.startsWith('register');
         const wantsToNavigateToProfilePage = !!route.routeConfig?.path?.startsWith('profile');
 
         if (isLoggedIn) return wantsToNavigateToProfilePage;
 
-        return wantsToNavigateToAuthPage;
+        return wantsToNavigateToLoginPage || wantsToNavigateToRegisterPage;
     }
 }

@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {AuthService} from '../../services/api/auth/auth.service';
-import {NgxPopperjsPlacements} from 'ngx-popperjs';
 
 @Component({
     selector: 'app-header',
@@ -8,7 +6,5 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    public NgxPopperjsPlacements = NgxPopperjsPlacements;
-
-    public constructor(public authService: AuthService) {}
+    public constructor() {}
 }

@@ -13,12 +13,6 @@ header {
         cursor: pointer;
     }
 
-    .auth-button {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
     > div {
         display: flex;
         align-items: center;
@@ -37,41 +31,5 @@ header {
     .credit,
     app-divider-vertical {
         display: none;
-    }
-}
-
-.rows {
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    min-inline-size: 28rem;
-    inline-size: max-content;
-
-    border-radius: 1.6rem;
-
-    a {
-        display: grid;
-        grid-template-columns: 1.5rem 1fr auto;
-        align-items: center;
-        gap: 1rem;
-
-        padding: 2rem;
-
-        text-decoration: none;
-
-        &:last-child:hover {
-            background-color: var(--error-color);
-        }
-
-        &:hover {
-            background-color: var(--primary-color-normal);
-
-            p,
-            i {
-                color: var(--neutral-color-lighter);
-            }
-        }
     }
 }

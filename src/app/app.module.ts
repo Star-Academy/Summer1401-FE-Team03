@@ -6,21 +6,24 @@ import {HomeModule} from './pages/home/home.module';
 import {HeaderModule} from './components/header/header.module';
 import {FooterModule} from './components/footer/footer.module';
 import {SnackbarModule} from './components/snackbar/snackbar.module';
-import {AuthModule} from './pages/auth/auth.module';
-import {NgxPopperjsModule} from 'ngx-popperjs';
+import {ApiService} from './services/api/api.service';
+import {AuthService} from './services/api/auth/auth.service';
+import {LoginModule} from './pages/auth/login/login.module';
+import {RegisterModule} from './pages/auth/register/register.module';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgxPopperjsModule,
         HomeModule,
         HeaderModule,
         FooterModule,
         SnackbarModule,
-        AuthModule,
+        LoginModule,
+        RegisterModule,
     ],
     bootstrap: [AppComponent],
+    providers: [ApiService, AuthService],
 })
 export class AppModule {}

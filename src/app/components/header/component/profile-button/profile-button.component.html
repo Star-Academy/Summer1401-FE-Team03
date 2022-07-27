@@ -1,0 +1,43 @@
+<ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">
+    <button class="auth-button" [popper]="popperContent" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
+        <i class="far fa-user icon"></i>
+        <i class="far fa-angle-down icon"></i>
+    </button>
+</ng-container>
+
+<ng-template #notLoggedIn>
+    <button routerLink="/login" class="auth-button">
+        <i class="far fa-arrow-right-to-bracket"></i>
+        <p>ثبت نام | ورود</p>
+    </button>
+</ng-template>
+
+<popper-content #popperContent>
+    <div class="rows">
+        <a routerLink="/profile">
+            <i class="far fa-user"></i>
+            <p class="bold">محمد رسولیان</p>
+            <i class="far fa-angle-left"></i>
+        </a>
+
+        <a routerLink="/profile/orders">
+            <i class="far fa-shopping-bag"></i>
+            <p>سفارش‌ها</p>
+        </a>
+
+        <a routerLink="/profile/lists">
+            <i class="far fa-heart"></i>
+            <p>لیست‌ها</p>
+        </a>
+
+        <a routerLink="/profile/comments">
+            <i class="far fa-comment"></i>
+            <p>دیدگاه‌ها</p>
+        </a>
+
+        <a class="reset" (click)="authService.logout()">
+            <i class="far fa-arrow-right-from-bracket"></i>
+            <p>خروج از حساب کاربری</p>
+        </a>
+    </div>
+</popper-content>

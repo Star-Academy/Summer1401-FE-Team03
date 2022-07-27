@@ -5,13 +5,13 @@ import {LoginRequestModel, LoginResponseModel} from '../../../models/api/login.m
 import {RegisterRequestModel, RegisterResponseModel} from '../../../models/api/register.model';
 import {AuthResponseModel} from '../../../models/api/auth.model';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
     public isUserLoggedIn: boolean = false;
 
-    public constructor(private apiService: ApiService) {}
+    public constructor(private apiService: ApiService) {
+        console.log('here');
+    }
 
     public async login(data: LoginRequestModel): Promise<boolean> {
         const response = await this.apiService.post<LoginResponseModel>(API_USER_LOGIN, data);
@@ -40,8 +40,6 @@ export class AuthService {
     public async auth(): Promise<void> {
         const token = localStorage.getItem('token') || '';
         const response = await this.apiService.post<AuthResponseModel>(API_USER_AUTH, {token}, {}, false);
-        if (!!response?.id) {
-            this.isUserLoggedIn = true;
-        }
+        this.isUserLoggedIn = !!response?.id;
     }
 }

@@ -44,4 +44,8 @@
     &.warning {
         background-color: var(--warning-color);
     }
+
+    &.info {
+        background-color: var(--primary-color-normal);
+    }
 }
