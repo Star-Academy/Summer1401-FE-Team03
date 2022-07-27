@@ -11,6 +11,6 @@ export class AppComponent {
         this.checkIsLogin().then();
     }
     public async checkIsLogin(): Promise<void> {
-        await this.authService.isLoggedIn();
+        await this.authService.auth();
     }
 }

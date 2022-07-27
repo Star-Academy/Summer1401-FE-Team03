@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../api.service';
-import {TokenObject} from '../../../models/token-object.model';
 import {API_USER_AUTH, API_USER_LOGIN, API_USER_REGISTER} from '../../../utils/api.utils';
-import {Login} from '../../../models/login.model';
-import {User} from '../../../models/user.model';
+import {LoginRequestModel, LoginResponseModel} from '../../../models/api/login.model';
+import {RegisterRequestModel, RegisterResponseModel} from '../../../models/api/register.model';
+import {AuthResponseModel} from '../../../models/api/auth.model';
 
 @Injectable({
     providedIn: 'root',
@@ -13,8 +13,8 @@ export class AuthService {
 
     public constructor(private apiService: ApiService) {}
 
-    public async login(loginModel: Login): Promise<boolean> {
-        const response = await this.apiService.post<TokenObject>(API_USER_LOGIN, loginModel);
+    public async login(data: LoginRequestModel): Promise<boolean> {
+        const response = await this.apiService.post<LoginResponseModel>(API_USER_LOGIN, data);
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
@@ -22,8 +22,8 @@ export class AuthService {
         return true;
     }
 
-    public async register(user: User): Promise<boolean> {
-        const response = await this.apiService.post<TokenObject>(API_USER_REGISTER, user);
+    public async register(data: RegisterRequestModel): Promise<boolean> {
+        const response = await this.apiService.post<RegisterResponseModel>(API_USER_REGISTER, data);
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
@@ -37,8 +37,11 @@ export class AuthService {
         window.location.reload();
     }
 
-    public async isLoggedIn(): Promise<void> {
+    public async auth(): Promise<void> {
         const token = localStorage.getItem('token') || '';
-        this.isUserLoggedIn = !!(await this.apiService.post<boolean>(API_USER_AUTH, {token}, {}, false));
+        const response = await this.apiService.post<AuthResponseModel>(API_USER_AUTH, {token}, {}, false);
+        if (!!response?.id) {
+            this.isUserLoggedIn = true;
+        }
     }
 }
