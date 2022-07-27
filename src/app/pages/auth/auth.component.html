@@ -5,22 +5,22 @@
 
     <label *ngIf="!isLoginInView">
         نام:
-        <input type="text" name="firstName" [(ngModel)]="user.firstName" />
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" placeholder="امیر" />
     </label>
 
     <label *ngIf="!isLoginInView">
         نام خانوادگی:
-        <input type="text" name="lastName" [(ngModel)]="user.lastName" />
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" placeholder="امیری" />
     </label>
 
     <label>
         نام کاربری:
-        <input type="text" name="username" [(ngModel)]="user.username" />
+        <input type="text" name="username" [(ngModel)]="user.username" placeholder="amir_x20" />
     </label>
 
     <label>
         ایمیل:
-        <input type="email" name="email" [(ngModel)]="user.email" />
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="amir@email.com" />
     </label>
 
     <label>
@@ -28,7 +28,7 @@
         <input type="password" name="password" [(ngModel)]="user.password" />
     </label>
 
-    <button class="primary" type="submit">ورود</button>
+    <button class="primary" type="submit">{{ isLoginInView ? 'ورود' : 'ثبت‌نام' }}</button>
 
     <p class="supporting-text" (click)="changeView()">
         {{ isLoginInView ? 'حساب کاربری ندارم، میخواهم ثبت نام کنم' : 'حساب کاربری دارم، میخواهم وارد شوم' }}

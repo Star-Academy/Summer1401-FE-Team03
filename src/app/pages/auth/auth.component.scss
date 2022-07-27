@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
 
-    padding: 4.8rem var(--content-inline-padding);
+    padding: 2.4rem var(--content-inline-padding);
 
     form {
         background-color: var(--neutral-color-light);
@@ -31,9 +31,13 @@
             font-size: var(--font-size-paragraph);
 
             input {
-                padding: 1.2rem;
+                padding: 0.8rem;
 
                 border-radius: 0.8rem;
+
+                &::placeholder {
+                    color: var(--neutral-color-normal);
+                }
             }
         }
 
