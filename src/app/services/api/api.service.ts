@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {POST_REQUEST_INIT} from '../../utils/api.utils';
 import {SnackbarService} from '../snackbar/snackbar.service';
 import SnackbarTypes from '../../models/enum/snackbar.types';
-import ApiError from '../../models/api-error.model';
+import {ApiError} from '../../models/api-error.model';
 
 @Injectable({
     providedIn: 'root',

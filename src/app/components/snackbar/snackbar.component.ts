@@ -33,10 +33,7 @@ export class SnackbarComponent {
     }
 
     public snackbarCloseHandler(): void {
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-            this.timeout = null;
-        }
+        this.clearTimeoutIfExists();
         this.isShown = false;
         this.message = null;
     }
