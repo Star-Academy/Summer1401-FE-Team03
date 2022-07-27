@@ -9,7 +9,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 
-        width: 100%;
+        inline-size: 100%;
 
         margin-block-start: auto;
 
@@ -20,7 +20,7 @@
             flex-direction: column;
             gap: 1.6rem;
 
-            max-width: 20rem;
+            max-inline-size: 20rem;
 
             .social {
                 display: flex;
@@ -54,7 +54,7 @@
             }
 
             .logo {
-                height: 6.2rem;
+                block-size: 6.2rem;
 
                 cursor: pointer;
             }
