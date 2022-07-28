@@ -5,10 +5,10 @@ import {SearchBoxModule} from './component/search-box/search-box.module';
 import {DividerVerticalModule} from '../divider-vertical/divider-vertical.module';
 import {RouterModule} from '@angular/router';
 import {NgxPopperjsModule} from 'ngx-popperjs';
-import {ProfileButtonComponent} from './component/profile-button/profile-button.component';
+import {HeaderProfileAccessComponent} from './component/header-profile-access/header-profile-access.component';
 
 @NgModule({
-    declarations: [HeaderComponent, ProfileButtonComponent],
+    declarations: [HeaderComponent, HeaderProfileAccessComponent],
     imports: [CommonModule, SearchBoxModule, NgxPopperjsModule, DividerVerticalModule, RouterModule],
     exports: [HeaderComponent],
 })

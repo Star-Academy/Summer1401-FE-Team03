@@ -1,7 +1,7 @@
-<div class="wrapper" [class]="SnackbarService.type" [class.show]="SnackbarService.isShown">
-    <p>{{ SnackbarService.message }}</p>
+<div class="wrapper" [class]="snackbarService.type" [class.show]="snackbarService.isShown">
+    <p>{{ snackbarService.message }}</p>
 
-    <button (click)="SnackbarService.snackbarCloseHandler()">
+    <button (click)="snackbarService.snackbarCloseHandler()">
         <i class="far fa-xmark"></i>
     </button>
 </div>

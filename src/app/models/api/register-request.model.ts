@@ -5,8 +5,3 @@ export interface RegisterRequestModel {
     email: string;
     password: string;
 }
-
-export interface RegisterResponseModel {
-    id: number;
-    token: string;
-}

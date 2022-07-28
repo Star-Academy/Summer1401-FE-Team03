@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {SnackbarComponent} from '../../snackbar.component';
 import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class SnackbarService {
     private readonly FADE_AWAY: number = 4_000;
     private timeout: number | null = null;

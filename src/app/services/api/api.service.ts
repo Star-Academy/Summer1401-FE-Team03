@@ -6,7 +6,7 @@ import {ApiError} from '../../models/api/error.model';
 
 @Injectable()
 export class ApiService {
-    public constructor(private SnackbarService: SnackbarService) {}
+    public constructor(private snackbarService: SnackbarService) {}
 
     public async post<T>(
         url: string,
@@ -19,7 +19,7 @@ export class ApiService {
 
         if (response.ok) return data as T;
 
-        if (showSnackbarOnFail) this.SnackbarService.show((data as ApiError).message, SnackbarTypes.Error);
+        if (showSnackbarOnFail) this.snackbarService.show((data as ApiError).message, SnackbarTypes.Error);
 
         return null;
     }

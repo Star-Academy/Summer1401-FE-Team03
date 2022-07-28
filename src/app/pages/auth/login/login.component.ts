@@ -4,7 +4,7 @@ import {SnackbarTypes} from '../../../models/enum/snackbar.types';
 import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
-import {YOU_ARE_LOGGED_IN} from './language/message';
+import {SNACKBAR_LOGGED_IN} from '../language/message';
 
 @Component({
     selector: 'app-login',
@@ -29,7 +29,7 @@ export class LoginComponent {
 
         if (succeeded) {
             await this.router.navigateByUrl('/');
-            this.snackbarService.show(YOU_ARE_LOGGED_IN, SnackbarTypes.Success);
+            this.snackbarService.show(SNACKBAR_LOGGED_IN, SnackbarTypes.Success);
         }
     }
 }

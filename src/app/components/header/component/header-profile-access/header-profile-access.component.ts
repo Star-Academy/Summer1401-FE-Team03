@@ -3,11 +3,11 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
 import {AuthService} from '../../../../services/api/auth/auth.service';
 
 @Component({
-    selector: 'app-profile-button',
-    templateUrl: './profile-button.component.html',
-    styleUrls: ['./profile-button.component.scss'],
+    selector: 'app-header-profile-access',
+    templateUrl: './header-profile-access.component.html',
+    styleUrls: ['./header-profile-access.component.scss'],
 })
-export class ProfileButtonComponent {
+export class HeaderProfileAccessComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
     public constructor(public authService: AuthService) {}

@@ -3,8 +3,8 @@ import {SnackbarTypes} from '../../../models/enum/snackbar.types';
 import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
-import {YOU_ARE_REGISTERED} from './language/message';
 import {RegisterUserModel} from './models/register-user.model';
+import {SNACKBAR_REGISTERED} from '../language/message';
 
 @Component({
     selector: 'app-register',
@@ -31,7 +31,7 @@ export class RegisterComponent {
 
         if (succeeded) {
             await this.router.navigateByUrl('/');
-            this.snackbarService.show(YOU_ARE_REGISTERED, SnackbarTypes.Success);
+            this.snackbarService.show(SNACKBAR_REGISTERED, SnackbarTypes.Success);
         }
     }
 }

@@ -18,11 +18,17 @@ export class AuthGuard implements CanActivate {
     private async isAllowed(route: ActivatedRouteSnapshot): Promise<boolean> {
         await this.authService.auth();
         const isLoggedIn = this.authService.isUserLoggedIn;
-        const wantsToNavigateToLoginPage = !!route.routeConfig?.path?.startsWith('login');
-        const wantsToNavigateToRegisterPage = !!route.routeConfig?.path?.startsWith('register');
+
         const wantsToNavigateToProfilePage = !!route.routeConfig?.path?.startsWith('profile');
 
         if (isLoggedIn) return wantsToNavigateToProfilePage;
+
+        return this.navigateToAuth(route);
+    }
+
+    private navigateToAuth(route: ActivatedRouteSnapshot): boolean {
+        const wantsToNavigateToLoginPage = !!route.routeConfig?.path?.startsWith('login');
+        const wantsToNavigateToRegisterPage = !!route.routeConfig?.path?.startsWith('register');
 
         return wantsToNavigateToLoginPage || wantsToNavigateToRegisterPage;
     }

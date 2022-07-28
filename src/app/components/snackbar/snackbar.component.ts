@@ -8,5 +8,5 @@ import {SnackbarTypes} from '../../models/enum/snackbar.types';
     styleUrls: ['./snackbar.component.scss'],
 })
 export class SnackbarComponent {
-    public constructor(public SnackbarService: SnackbarService) {}
+    public constructor(public snackbarService: SnackbarService) {}
 }
