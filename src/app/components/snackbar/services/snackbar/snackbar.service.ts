@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
-import {SnackbarComponent} from '../../snackbar.component';
 import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 
 @Injectable()
 export class SnackbarService {
     private readonly FADE_AWAY: number = 4_000;
-    private timeout: number | null = null;
+    private timeout?: number;
 
     public message: string | null = null;
     public type: SnackbarTypes | null = null;
@@ -25,10 +24,7 @@ export class SnackbarService {
     }
 
     private setSnackbarProperties(message: string | null, isShown: boolean): void {
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-            this.timeout = null;
-        }
+        clearTimeout(this.timeout);
 
         this.message = message;
         this.isShown = isShown;
