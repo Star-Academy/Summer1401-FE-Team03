@@ -44,6 +44,11 @@ Shadows
     --neutral-color-light: hsl(210deg 13% 91%);
     --neutral-color-lighter: hsl(210deg 40% 98%);
 
+    --success-color: hsl(123deg 38% 57%);
+    --warning-color: var(--tertiary-color-light);
+    --error-color: hsl(4deg 90% 58%);
+    --error-color-dark: hsl(4deg 90% 50%);
+
     --box-shadow-hard: 0 0.4rem 1.6rem var(--neutral-color-light);
     --box-shadow-soft: 0 0.1rem 0.8rem var(--neutral-color-light);
 
@@ -73,7 +78,46 @@ body {
     background-color: var(--neutral-color-lighter);
     color: var(--neutral-color-darker);
 
+    min-block-size: 100vh;
+
     line-height: 1;
+
+    popper-content {
+        /* stylelint-disable selector-class-pattern */
+        .ngxp__container {
+            background-color: var(--neutral-color-light);
+            color: var(--neutral-color-darker);
+            box-shadow: 0 3px 5px -1px rgb(0 0 0 / 10%), 0 5px 8px 0 rgb(0 0 0 / 4%), 0 1px 14px 0 rgb(0 0 0 / 2%);
+
+            z-index: 1;
+
+            padding: 0;
+
+            border: 0;
+
+            border-radius: 2rem;
+
+            > .ngxp__arrow {
+                &::before {
+                    background-color: var(--neutral-color-light);
+                }
+            }
+        }
+
+        &.no-arrow {
+            .ngxp__container > .ngxp__arrow {
+                display: none;
+            }
+        }
+        /* stylelint-enable selector-class-pattern */
+    }
+
+    app-root {
+        display: flex;
+        flex-direction: column;
+
+        min-block-size: 100vh;
+    }
 
     button {
         background-color: transparent;
@@ -141,7 +185,7 @@ body {
 .icon {
     color: var(--secondary-color-normal);
 
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 
     &:hover {
         color: var(--primary-color-normal);
@@ -151,7 +195,7 @@ body {
 .icon-special {
     color: var(--tertiary-color-normal);
 
-    font-size: 2.4rem;
+    font-size: 1.8rem;
 
     &:hover {
         color: var(--tertiary-color-dark);

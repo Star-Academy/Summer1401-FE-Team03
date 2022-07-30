@@ -1,0 +1,7 @@
+<div class="wrapper" [class]="snackbarService.type" [class.show]="snackbarService.isShown">
+    <p>{{ snackbarService.message }}</p>
+
+    <button (click)="snackbarService.snackbarCloseHandler()">
+        <i class="far fa-xmark"></i>
+    </button>
+</div>

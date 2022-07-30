@@ -1,0 +1,31 @@
+<form (submit)="registerSubmitHandler()">
+    <h2>ثبت نام</h2>
+    <label>
+        <span>نام:</span>
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" placeholder="نام" />
+    </label>
+
+    <label>
+        <span>نام خانوادگی:</span>
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" placeholder="نام خانوادگی" />
+    </label>
+
+    <label>
+        <span>نام کاربری:</span>
+        <input type="text" name="username" [(ngModel)]="user.username" placeholder="نام کاربری" />
+    </label>
+
+    <label>
+        <span>ایمیل:</span>
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="ایمیل" />
+    </label>
+
+    <label>
+        <span>کلمه عبور:</span>
+        <input type="password" name="password" [(ngModel)]="user.password" placeholder="کلمه عبور" />
+    </label>
+
+    <button class="primary" type="submit">ثبت‌نام</button>
+
+    <a routerLink="/login" class="supporting-text"> حساب کاربری دارم، میخواهم وارد شوم </a>
+</form>

@@ -1,0 +1,64 @@
+:host {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2.4rem var(--content-inline-padding);
+
+    form {
+        background-color: var(--neutral-color-light);
+        box-shadow: var(--box-shadow-soft);
+
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        min-inline-size: 25rem;
+        inline-size: 30%;
+
+        padding: var(--card-padding);
+
+        border-radius: 0.8rem;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            font-size: var(--font-size-paragraph);
+
+            input {
+                padding: 0.8rem;
+
+                border-radius: 0.8rem;
+
+                &::placeholder {
+                    color: var(--neutral-color-normal);
+                }
+            }
+        }
+
+        button {
+            background-color: var(--primary-color-normal);
+
+            color: var(--neutral-color-lighter);
+
+            &:hover {
+                background-color: var(--primary-color-dark);
+            }
+        }
+
+        p {
+            text-decoration: underline;
+
+            cursor: pointer;
+
+            &:hover {
+                color: var(--primary-color-normal);
+            }
+        }
+    }
+}
