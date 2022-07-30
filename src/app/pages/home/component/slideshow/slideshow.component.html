@@ -1,4 +1,9 @@
-<div class="slideshow" [style.--active-index]="activeIndex">
+<div
+    class="slideshow"
+    [style.--active-index]="activeIndex"
+    (mouseenter)="stopSlideshow()"
+    (mouseleave)="initInterval()"
+>
     <ol>
         <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
             <img [src]="item.src" [alt]="item.alt" />

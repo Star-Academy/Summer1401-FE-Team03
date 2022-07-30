@@ -7,7 +7,7 @@ import {SlideshowItem} from '../../../../models/slidshow-item.models';
     styleUrls: ['./slideshow.component.scss'],
 })
 export class SlideshowComponent implements AfterViewInit, OnDestroy {
-    private readonly INTERVAL_DELAY: number = 6000;
+    private readonly INTERVAL_DELAY: number = 4_000;
     public items: SlideshowItem[] = [
         {src: 'assets/slides/01-compressed.webp', alt: 'بازی ویچر سه و اکسپنشن قلب های سنگی'},
         {src: 'assets/slides/02-compressed.webp', alt: 'بازی استری - مربوط به گربه ها'},
@@ -41,9 +41,13 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
         this.initInterval();
     }
 
-    private initInterval(): void {
+    public initInterval(): void {
         this.interval = setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);
         }, this.INTERVAL_DELAY);
+    }
+
+    public stopSlideshow(): void {
+        clearInterval(this.interval);
     }
 }

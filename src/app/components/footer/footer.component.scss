@@ -8,6 +8,7 @@
 
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        row-gap: 3.6rem;
 
         inline-size: 100%;
 
@@ -45,6 +46,18 @@
                 gap: 1.2rem;
 
                 list-style: none;
+
+                address {
+                    font-style: unset;
+
+                    line-height: 2rem;
+                }
+
+                i {
+                    padding-inline-end: 1.2rem;
+
+                    font-size: var(--font-size-paragraph);
+                }
 
                 .t-number {
                     direction: ltr;

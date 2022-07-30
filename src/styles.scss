@@ -41,7 +41,7 @@ Shadows
     --neutral-color-darker: hsl(210deg 47% 11%);
     --neutral-color-dark: hsl(210deg 25% 27%);
     --neutral-color-normal: hsl(210deg 20% 65%);
-    --neutral-color-light: hsl(210deg 13% 91%);
+    --neutral-color-light: hsl(210deg 3% 96%);
     --neutral-color-lighter: hsl(210deg 40% 98%);
 
     --success-color: hsl(123deg 38% 57%);
@@ -141,7 +141,7 @@ body {
             }
         }
 
-        &:focus {
+        &:focus-visible {
             background-color: var(--neutral-color-light);
 
             .icon {
@@ -157,7 +157,7 @@ body {
     main {
         display: flex;
         flex-direction: column;
-        gap: 4.8rem;
+        gap: 8rem;
 
         margin-block-end: 4.8rem;
     }
@@ -242,7 +242,7 @@ a {
 }
 
 .supporting-text {
-    color: var(--neutral-color-normal);
+    color: var(--neutral-color-dark);
 
     font-size: var(--font-size-detail);
 }
