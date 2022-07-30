@@ -3,7 +3,7 @@ import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 
 @Injectable()
 export class SnackbarService {
-    private readonly FADE_AWAY: number = 4_000;
+    private readonly DISPLAY_DURATION: number = 4_000;
     private timeout?: number;
 
     public message: string | null = null;
@@ -16,7 +16,7 @@ export class SnackbarService {
 
         this.timeout = setTimeout(() => {
             this.setSnackbarProperties(null, false);
-        }, this.FADE_AWAY);
+        }, this.DISPLAY_DURATION);
     }
 
     public snackbarCloseHandler(): void {

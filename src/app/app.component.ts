@@ -10,9 +10,6 @@ export class AppComponent implements OnInit {
     public constructor(private authService: AuthService) {}
 
     public async ngOnInit(): Promise<void> {
-        await this.checkIsLogin();
-    }
-    public async checkIsLogin(): Promise<void> {
         await this.authService.auth();
     }
 }
