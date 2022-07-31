@@ -1,14 +1,20 @@
 <section>
-    <h1 class="title">بازی های مورد انتظار در سال جاری</h1>
-    <div class="cards">
-        <ng-container *ngFor="let card of cards">
-            <app-card
-                [src]="card.src"
-                [alt]="card.alt"
-                [title]="card.title"
-                [description]="card.description"
-                [price]="card.price"
-            ></app-card>
-        </ng-container>
+    <h2 class="title">بازی های مورد انتظار در سال جاری</h2>
+    <div class="fog">
+        <div class="cards" #outerContainer>
+            <ng-container *ngFor="let card of cards" class="inner-container">
+                <app-card
+                    [src]="card.src"
+                    [alt]="card.alt"
+                    [title]="card.title"
+                    [description]="card.description"
+                    [price]="card.price"
+                ></app-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="buttons">
+        <button (click)="scrollToLeft()"><i class="far fa-angle-right"></i></button>
+        <button (click)="scrollToRight()"><i class="far fa-angle-left"></i></button>
     </div>
 </section>

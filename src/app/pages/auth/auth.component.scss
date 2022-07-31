@@ -21,7 +21,7 @@
 
         padding: var(--card-padding);
 
-        border-radius: 0.8rem;
+        border-radius: var(--border-radius-normal);
 
         label {
             display: flex;
@@ -33,7 +33,7 @@
             input {
                 padding: 0.8rem;
 
-                border-radius: 0.8rem;
+                border-radius: var(--border-radius-normal);
 
                 &::placeholder {
                     color: var(--neutral-color-normal);

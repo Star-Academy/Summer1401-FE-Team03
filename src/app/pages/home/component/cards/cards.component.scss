@@ -1,19 +1,15 @@
 section {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 1.6rem;
 
     width: 100%;
 
     padding-inline: var(--content-inline-padding);
 }
 
-.cards {
+.fog {
     position: relative;
-    overflow-x: clip;
-
-    display: flex;
-    gap: 2.4rem;
 
     &::after {
         content: "";
@@ -24,9 +20,47 @@ section {
         inset-block-start: 0;
         inset-inline-end: 0;
 
-        width: 10%;
+        width: 15%;
         height: 110%;
 
         transform: translateY(-5%);
+    }
+
+    .cards {
+        overflow: hidden;
+
+        display: flex;
+        gap: 2.4rem;
+
+        padding-block-start: 1.6rem;
+
+        &:last-child {
+            padding-inline-end: 15rem;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    button {
+        background-color: var(--primary-color-normal);
+
+        color: var(--neutral-color-lighter);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 3rem;
+        height: 3rem;
+
+        border-radius: 999rem;
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+        }
     }
 }

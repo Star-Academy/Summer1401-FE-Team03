@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {Card} from '../../../../models/card.model';
 
 @Component({
@@ -8,4 +8,19 @@ import {Card} from '../../../../models/card.model';
 })
 export class CardsComponent {
     @Input() public cards: Card[] = [];
+    @ViewChild('outerContainer') outerContainer!: ElementRef;
+
+    public scrollToLeft(): void {
+        this.outerContainer.nativeElement.scrollTo({
+            left: this.outerContainer.nativeElement.scrollLeft + 294,
+            behavior: 'smooth',
+        });
+    }
+
+    public scrollToRight(): void {
+        this.outerContainer.nativeElement.scrollTo({
+            left: this.outerContainer.nativeElement.scrollLeft - 294,
+            behavior: 'smooth',
+        });
+    }
 }
