@@ -8,7 +8,7 @@ import {Card} from '../../../../models/card.model';
 })
 export class CardsComponent {
     @Input() public cards: Card[] = [];
-    @ViewChild('outerContainer') outerContainer!: ElementRef;
+    @ViewChild('outerContainer') public outerContainer!: ElementRef;
 
     public scrollToLeft(): void {
         this.outerContainer.nativeElement.scrollTo({
