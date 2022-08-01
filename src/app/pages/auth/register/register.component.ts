@@ -3,8 +3,8 @@ import {SnackbarTypes} from '../../../models/enum/snackbar.types';
 import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
-import {RegisterUserModel} from './models/register-user.model';
 import {SNACKBAR_REGISTERED} from '../language/message';
+import {RegisterRequestModel} from '../../../models/api/register-request.model';
 
 @Component({
     selector: 'app-register',
@@ -12,7 +12,7 @@ import {SNACKBAR_REGISTERED} from '../language/message';
     styleUrls: ['../auth.component.scss'],
 })
 export class RegisterComponent {
-    public user: RegisterUserModel = {
+    public user: RegisterRequestModel = {
         firstName: '',
         lastName: '',
         username: '',

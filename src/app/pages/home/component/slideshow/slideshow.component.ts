@@ -14,7 +14,7 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
         {src: 'assets/slides/03-compressed.webp', alt: 'بازی رد دد ریدمپشن دو'},
     ];
     public activeIndex: number = 0;
-    private interval?: number;
+    private interval?: ReturnType<typeof setInterval>;
 
     public ngAfterViewInit(): void {
         this.initInterval();
