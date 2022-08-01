@@ -39,20 +39,4 @@ describe('CardsComponent', () => {
 
         expect(appCards.length).toEqual(component.cards.length);
     });
-
-    // it('should scroll to left then right', fakeAsync(() => {
-    //     let outerContainer = host.querySelector('.cards');
-    //
-    //     let currentScrollLeft = outerContainer?.scrollLeft;
-    //
-    //     component.scrollToLeft();
-    //
-    //     tick();
-    //
-    //     fixture.detectChanges();
-    //
-    //     let newScrollLeft = outerContainer?.scrollLeft;
-    //
-    //     expect(currentScrollLeft).not.toEqual(newScrollLeft);
-    // }));
 });

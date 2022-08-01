@@ -21,7 +21,6 @@ describe('AuthService', () => {
         spyOn(localStorage, 'getItem').and.callFake(localStorageMock.getItem.bind(localStorageMock));
         spyOn(localStorage, 'setItem').and.callFake(localStorageMock.setItem.bind(localStorageMock));
         spyOn(localStorage, 'removeItem').and.callFake(localStorageMock.removeItem.bind(localStorageMock));
-        spyOn(localStorage, 'clear').and.callFake(localStorageMock.clear.bind(localStorageMock));
 
         fetchMock = new FetchMock();
         spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));

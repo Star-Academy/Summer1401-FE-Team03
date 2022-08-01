@@ -12,17 +12,17 @@
 
     <label>
         <span>نام کاربری:</span>
-        <input type="text" name="username" [(ngModel)]="user.username" />
+        <input type="text" name="username" [(ngModel)]="user.username" required />
     </label>
 
     <label>
         <span>ایمیل:</span>
-        <input type="email" name="email" [(ngModel)]="user.email" />
+        <input type="email" name="email" [(ngModel)]="user.email" required />
     </label>
 
     <label>
         <span>کلمه عبور:</span>
-        <input type="password" name="password" [(ngModel)]="user.password" />
+        <input type="password" name="password" [(ngModel)]="user.password" required />
     </label>
 
     <button class="primary" type="submit">ثبت‌نام</button>

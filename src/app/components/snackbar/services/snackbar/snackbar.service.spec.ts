@@ -1,5 +1,5 @@
 import {SnackbarService} from './snackbar.service';
-import {TestBed} from '@angular/core/testing';
+import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 
 describe('SnackbarService', () => {
@@ -20,15 +20,24 @@ describe('SnackbarService', () => {
         service.show('test message', SnackbarTypes.Error);
 
         expect(service.type).toEqual(SnackbarTypes.Error);
-        expect(service.isShown).toEqual(true);
+        expect(service.isShown).toBeTrue();
         expect(service.message).toEqual('test message');
     });
 
     it('should unset values to hide snackbar', () => {
         service.snackbarCloseHandler();
 
-        expect(service.type).toEqual(null);
-        expect(service.isShown).toEqual(false);
-        expect(service.message).toEqual(null);
+        expect(service.type).toBeNull();
+        expect(service.isShown).toBeFalse();
+        expect(service.message).toBeNull();
     });
+
+    it('should disappear after 4000ms', fakeAsync(() => {
+        service.show('test message', SnackbarTypes.Error);
+
+        tick(4000);
+
+        expect(service.isShown).toBeFalse();
+        expect(service.message).toBeNull();
+    }));
 });

@@ -14,19 +14,7 @@ export class AuthServiceMock {
         });
     }
 
-    public register(data: RegisterRequestModel): Promise<boolean> {
-        console.log('login called');
-
-        this.isUserLoggedIn = true;
-
-        return new Promise<boolean>((resolve, reject) => {
-            resolve(true);
-        });
-    }
-
     public async logout(): Promise<void> {
         this.isUserLoggedIn = false;
     }
-
-    public async auth(): Promise<void> {}
 }

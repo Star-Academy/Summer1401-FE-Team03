@@ -1,15 +1,15 @@
 import {LoginComponent} from './login.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AuthService} from '../../../services/api/auth/auth.service';
-import {LocalStorageMock} from '../../../mock/localStorage.mock';
 import {FetchMock} from '../../../mock/fetch.mock';
-import {AuthServiceMock} from '../../../mock/authService.mock';
 import {FormsModule} from '@angular/forms';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {RouterTestingModule} from '@angular/router/testing';
+import {ApiService} from '../../../services/api/api.service';
 
 describe('LoginComponent', () => {
-    let authService: AuthServiceMock;
+    let authService: AuthService;
+    let fetchMock: FetchMock;
     let loginMethodSpy: jasmine.Spy;
 
     let fixture: ComponentFixture<LoginComponent>;
@@ -17,15 +17,16 @@ describe('LoginComponent', () => {
     let host: HTMLElement;
 
     beforeEach(async () => {
-        authService = new AuthServiceMock();
-
         await TestBed.configureTestingModule({
             declarations: [LoginComponent],
             imports: [FormsModule, RouterTestingModule],
-            providers: [{provide: AuthService, useValue: authService}, SnackbarService],
+            providers: [AuthService, SnackbarService, ApiService],
         }).compileComponents();
-
+        authService = TestBed.inject(AuthService);
         loginMethodSpy = spyOn(authService, 'login');
+
+        fetchMock = new FetchMock();
+        spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
     });
 
     beforeEach(() => {

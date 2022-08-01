@@ -2,8 +2,8 @@
     background-color: var(--neutral-color-light);
     box-shadow: var(--box-shadow-soft);
 
-    min-width: 27rem;
-    width: 27rem;
+    min-inline-size: 27rem;
+    inline-size: 27rem;
 
     border-radius: var(--border-radius-normal);
 
@@ -53,7 +53,7 @@
     }
 
     img {
-        width: 100%;
+        inline-size: 100%;
 
         border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
     }

@@ -37,7 +37,6 @@ describe('SnackbarComponent', () => {
     });
 
     it('should have error type and show class name', () => {
-        debugger;
         testDom(SnackbarTypes.Error);
     });
 

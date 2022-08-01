@@ -40,27 +40,19 @@ describe('HeaderProfileAccessComponent', () => {
     });
 
     it('should show user icon if logged in', async () => {
-        authService.isUserLoggedIn = true;
+        await authService.login(VALID_USER_LOGIN_DATA);
 
-        fixture.detectChanges();
-
-        const element = host.querySelector('.auth-button');
-
-        expect(element?.tagName).toEqual('BUTTON');
+        checkTagName('BUTTON');
     });
 
-    it('should show login button if not logged in', () => {
-        authService.isUserLoggedIn = false;
+    it('should show login button if not logged in', async () => {
+        await authService.logout();
 
-        fixture.detectChanges();
-
-        const element = host.querySelector('.auth-button');
-
-        expect(element?.tagName).toEqual('A');
+        checkTagName('A');
     });
 
-    it('should call logout function when click on reset button', () => {
-        authService.isUserLoggedIn = true;
+    it('should call logout function when click on reset button', async () => {
+        await authService.login(VALID_USER_LOGIN_DATA);
 
         fixture.detectChanges();
 
@@ -74,4 +66,14 @@ describe('HeaderProfileAccessComponent', () => {
 
         expect(logoutMethodSpy).toHaveBeenCalled();
     });
+
+    // utils functions
+
+    function checkTagName(tagName: string): void {
+        fixture.detectChanges();
+
+        const element = host.querySelector('.auth-button');
+
+        expect(element?.tagName).toEqual(tagName);
+    }
 });

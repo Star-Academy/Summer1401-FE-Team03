@@ -12,8 +12,4 @@ export class LocalStorageMock {
     public removeItem(key: string): void {
         delete this.storage[key];
     }
-
-    public clear(): void {
-        this.storage = {};
-    }
 }

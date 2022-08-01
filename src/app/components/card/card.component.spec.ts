@@ -31,53 +31,53 @@ describe('CardComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    // it('should render - default src', () => {
-    //     testSrc();
-    // });
-    //
-    // it('should render - src', () => {
-    //     testSrc('src test');
-    // });
-    //
-    // it('should render - default description', () => {
-    //     testDescription();
-    // });
-    //
-    // it('should render - description', () => {
-    //     testDescription('test description');
-    // });
-    //
-    // it('should render - default title', () => {
-    //     testTitle();
-    // });
-    //
-    // it('should render - title', () => {
-    //     testTitle('test title');
-    // });
-    //
-    // it('should render - default alt', () => {
-    //     testAlt();
-    // });
-    //
-    // it('should render - alt', () => {
-    //     testAlt('test alt');
-    // });
-    //
-    // it('should render - default price', () => {
-    //     testPrice();
-    // });
-    //
-    // it('should render - price', () => {
-    //     testPrice(350);
-    // });
-    //
-    // it('should render - default button text', () => {
-    //     testButtonText();
-    // });
-    //
-    // it('should render - button text', () => {
-    //     testButtonText('test button text');
-    // });
+    it('should render - default src', () => {
+        testSrc();
+    });
+
+    it('should render - src', () => {
+        testSrc('src test');
+    });
+
+    it('should render - default description', () => {
+        testDescription();
+    });
+
+    it('should render - description', () => {
+        testDescription('test description');
+    });
+
+    it('should render - default title', () => {
+        testTitle();
+    });
+
+    it('should render - title', () => {
+        testTitle('test title');
+    });
+
+    it('should render - default alt', () => {
+        testAlt();
+    });
+
+    it('should render - alt', () => {
+        testAlt('test alt');
+    });
+
+    it('should render - default price', () => {
+        testPrice();
+    });
+
+    it('should render - price', () => {
+        testPrice(350);
+    });
+
+    it('should render - default button text', () => {
+        testButtonText();
+    });
+
+    it('should render - button text', () => {
+        testButtonText('test button text');
+    });
 
     // [SECTION] Utility Functions
     function testSrc(src?: string): void {

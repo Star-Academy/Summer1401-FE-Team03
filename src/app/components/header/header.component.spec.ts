@@ -8,6 +8,7 @@ import {SearchBoxModule} from './component/search-box/search-box.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 import {DividerVerticalModule} from '../divider-vertical/divider-vertical.module';
 import {AuthServiceMock} from '../../mock/authService.mock';
+import {VALID_USER_LOGIN_DATA} from '../../mock/fetch.mock';
 
 describe('HeaderComponent', () => {
     let authService: AuthServiceMock;
@@ -37,7 +38,7 @@ describe('HeaderComponent', () => {
     });
 
     it('should show coins icon if logged in', async () => {
-        authService.isUserLoggedIn = true;
+        await authService.login(VALID_USER_LOGIN_DATA);
 
         fixture.detectChanges();
 
@@ -46,13 +47,13 @@ describe('HeaderComponent', () => {
         expect(element).toBeTruthy();
     });
 
-    it('should not show coins icon if not logged in', () => {
-        authService.isUserLoggedIn = false;
+    it('should not show coins icon if not logged in', async () => {
+        await authService.logout();
 
         fixture.detectChanges();
 
         const element = host.querySelector('header > [data-test-id="coin-box"]');
-        debugger;
+
         expect(element).not.toBeTruthy();
     });
 });
