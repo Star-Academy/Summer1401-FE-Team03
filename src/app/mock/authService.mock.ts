@@ -5,8 +5,6 @@ export class AuthServiceMock {
     public isUserLoggedIn: boolean = false;
 
     public login(data: LoginRequestModel): Promise<boolean> {
-        console.log('login called');
-
         this.isUserLoggedIn = true;
 
         return new Promise<boolean>((resolve, reject) => {

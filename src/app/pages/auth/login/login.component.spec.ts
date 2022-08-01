@@ -1,7 +1,7 @@
 import {LoginComponent} from './login.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AuthService} from '../../../services/api/auth/auth.service';
-import {FetchMock} from '../../../mock/fetch.mock';
+import {FetchMock, VALID_USER_LOGIN_DATA} from '../../../mock/fetch.mock';
 import {FormsModule} from '@angular/forms';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -9,8 +9,8 @@ import {ApiService} from '../../../services/api/api.service';
 
 describe('LoginComponent', () => {
     let authService: AuthService;
+    let snackbarService: SnackbarService;
     let fetchMock: FetchMock;
-    let loginMethodSpy: jasmine.Spy;
 
     let fixture: ComponentFixture<LoginComponent>;
     let component: LoginComponent;
@@ -23,7 +23,7 @@ describe('LoginComponent', () => {
             providers: [AuthService, SnackbarService, ApiService],
         }).compileComponents();
         authService = TestBed.inject(AuthService);
-        loginMethodSpy = spyOn(authService, 'login');
+        snackbarService = TestBed.inject(SnackbarService);
 
         fetchMock = new FetchMock();
         spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
@@ -43,8 +43,19 @@ describe('LoginComponent', () => {
     it('should change email value', () => {});
 
     it('should successfully call login method', () => {
+        let loginMethodSpy = spyOn(authService, 'login');
+
         component.loginSubmitHandler();
 
         expect(loginMethodSpy).toHaveBeenCalled();
+    });
+
+    it('should successfully call snackbar show methode when logged in', async () => {
+        let showSnackbarMethodSpy = spyOn(snackbarService, 'show');
+
+        component.user = VALID_USER_LOGIN_DATA;
+        await component.loginSubmitHandler();
+
+        expect(showSnackbarMethodSpy).toHaveBeenCalled();
     });
 });

@@ -8,8 +8,6 @@ describe('SlideshowComponent', () => {
     let component: SlideshowComponent;
     let host: HTMLElement;
 
-    let changeActiveIndexMethodSpy: jasmine.Spy;
-
     const TEST_IMAGES: SlideshowItem[] = [
         {src: 'test src', alt: 'test alt'},
         {src: 'test src', alt: 'test alt'},
@@ -26,7 +24,6 @@ describe('SlideshowComponent', () => {
         component = fixture.componentInstance;
         fixture.detectChanges();
         host = fixture.nativeElement as HTMLElement;
-        changeActiveIndexMethodSpy = spyOn(component, 'changeActiveIndex');
     });
 
     it('should create', () => {
@@ -34,6 +31,8 @@ describe('SlideshowComponent', () => {
     });
 
     it('should call changeActiveIndex method', () => {
+        let changeActiveIndexMethodSpy = spyOn(component, 'changeActiveIndex');
+
         let changeButtons = fixture.debugElement.queryAll(By.css('button'));
 
         for (let changeButton of changeButtons) {
@@ -55,20 +54,84 @@ describe('SlideshowComponent', () => {
         expect(images.length).toEqual(TEST_IMAGES.length);
     });
 
-    // it('should have show class name', () => {
-    //     debugger;
-    //
-    //     let ol = host.querySelector('ol');
-    //     let childs = ol?.children || [];
-    //
-    //     for (let i = 0; i < childs.length; i++) {
-    //         component.changeActiveIndex(i);
-    //
-    //         fixture.detectChanges();
-    //
-    //         let li = childs[i];
-    //
-    //         expect(li).toHaveClass('active');
-    //     }
-    // });
+    it('should have show class name', () => {
+        let ol = host.querySelector('ol');
+        let children = ol?.children || [];
+
+        for (let i = 0; i < children.length; i++) {
+            component.changeActiveIndex(i);
+
+            fixture.detectChanges();
+
+            let li = children[component.activeIndex];
+
+            expect(li).toHaveClass('active');
+        }
+    });
+
+    it('should set show class name to last item if active index < 0', () => {
+        let ol = host.querySelector('ol');
+        let children = ol?.children || [];
+
+        testActiveIndex(children, -1, children.length - 1);
+    });
+
+    it('should set show class name to first item if active index >= children.length', () => {
+        let ol = host.querySelector('ol');
+        let children = ol?.children || [];
+
+        testActiveIndex(children, children.length, 0);
+    });
+
+    it('should stop interval on mouseenter', () => {
+        let stopSlideShowMethodSpy = spyOn(component, 'stopSlideshow');
+
+        let slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
+
+        slideshowElement.triggerEventHandler('mouseenter', null);
+
+        fixture.detectChanges();
+
+        expect(stopSlideShowMethodSpy).toHaveBeenCalled();
+    });
+
+    it('should init interval on mouseleave', () => {
+        let initIntervalMethodSpy = spyOn(component, 'initInterval');
+
+        let slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
+
+        slideshowElement.triggerEventHandler('mouseleave', null);
+
+        fixture.detectChanges();
+
+        expect(initIntervalMethodSpy).toHaveBeenCalled();
+    });
+
+    it('should change active index after 4000 milliseconds', fakeAsync(() => {
+        let currActiveIndex = component.activeIndex;
+
+        component.initInterval();
+
+        tick(4000);
+
+        component.stopSlideshow();
+
+        expect(component.activeIndex).not.toEqual(currActiveIndex);
+    }));
+
+    // utils function
+    function testActiveIndex(
+        children: HTMLCollection | never[],
+        changeToActiveIndex: number,
+        expectedActiveIndex: number
+    ): void {
+        component.changeActiveIndex(changeToActiveIndex);
+
+        fixture.detectChanges();
+
+        let li = children[component.activeIndex];
+
+        expect(component.activeIndex).toBe(expectedActiveIndex);
+        expect(li).toHaveClass('active');
+    }
 });

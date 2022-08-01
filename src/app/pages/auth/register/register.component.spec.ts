@@ -5,11 +5,13 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {ApiService} from '../../../services/api/api.service';
-import {FetchMock} from '../../../mock/fetch.mock';
+import {FetchMock, VALID_USER_LOGIN_DATA, VALID_USER_REGISTER_DATA} from '../../../mock/fetch.mock';
 
 describe('RegisterComponent', () => {
     let authService: AuthService;
+    let snackbarService: SnackbarService;
     let fetchMock: FetchMock;
+
     let registerMethodSpy: jasmine.Spy;
 
     let fixture: ComponentFixture<RegisterComponent>;
@@ -24,8 +26,7 @@ describe('RegisterComponent', () => {
         }).compileComponents();
 
         authService = TestBed.inject(AuthService);
-
-        registerMethodSpy = spyOn(authService, 'register');
+        snackbarService = TestBed.inject(SnackbarService);
 
         fetchMock = new FetchMock();
         spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
@@ -45,8 +46,19 @@ describe('RegisterComponent', () => {
     it('should change email value', () => {});
 
     it('should successfully call register method', () => {
+        let registerMethodSpy = spyOn(authService, 'register');
+
         component.registerSubmitHandler();
 
         expect(registerMethodSpy).toHaveBeenCalled();
+    });
+
+    it('should successfully call snackbar show methode when registered', async () => {
+        let showSnackbarMethodSpy = spyOn(snackbarService, 'show');
+
+        component.user = VALID_USER_REGISTER_DATA;
+        await component.registerSubmitHandler();
+
+        expect(showSnackbarMethodSpy).toHaveBeenCalled();
     });
 });

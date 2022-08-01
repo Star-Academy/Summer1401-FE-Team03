@@ -44,9 +44,14 @@ describe('AuthService', () => {
         expect(service.isUserLoggedIn).toBeTrue();
     });
 
+    it('should fail on register', async () => {
+        await service.register({username: 'bad ata', email: 'badata@gmail.com', password: ''});
+
+        expect(service.isUserLoggedIn).toBeFalse();
+    });
+
     it('should be a valid user', async () => {
         localStorageMock.setItem('token', VALID_TOKEN);
-        debugger;
         await service.auth();
 
         expect(service.isUserLoggedIn).toBeTrue();
@@ -61,9 +66,11 @@ describe('AuthService', () => {
     it('should be a invalid user', async () => {
         localStorageMock.setItem('token', '1234');
 
-        await service.auth();
+        authenticateInvalidUser();
+    });
 
-        expect(service.isUserLoggedIn).toBeFalse();
+    it('should be a invalid user and not have any token', async () => {
+        authenticateInvalidUser();
     });
 
     it('should logout', async () => {
@@ -73,4 +80,11 @@ describe('AuthService', () => {
 
         expect(service.isUserLoggedIn).toBeFalse();
     });
+
+    // utils function
+    async function authenticateInvalidUser(): Promise<void> {
+        await service.auth();
+
+        expect(service.isUserLoggedIn).toBeFalse();
+    }
 });

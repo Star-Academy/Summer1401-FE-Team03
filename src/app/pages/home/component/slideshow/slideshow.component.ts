@@ -21,8 +21,6 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        if (this.interval === undefined) return;
-
         clearInterval(this.interval);
         this.interval = undefined;
     }
@@ -36,7 +34,7 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     }
 
     private resetInterval(): void {
-        if (this.interval !== undefined) clearInterval(this.interval);
+        clearInterval(this.interval);
 
         this.initInterval();
     }
