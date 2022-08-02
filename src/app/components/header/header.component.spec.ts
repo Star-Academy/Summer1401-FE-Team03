@@ -54,6 +54,6 @@ describe('HeaderComponent', () => {
 
         const element = host.querySelector('header > div');
 
-        expect(element).not.toBeTruthy();
+        expect(element).toBeFalsy();
     });
 });
