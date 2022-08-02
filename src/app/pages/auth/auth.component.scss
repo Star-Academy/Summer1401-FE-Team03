@@ -30,6 +30,14 @@
 
             font-size: var(--font-size-paragraph);
 
+            .required {
+                &::after {
+                    content: "*";
+                    color: var(--tertiary-color-normal);
+                    font-size: var(--font-size-sub-heading);
+                }
+            }
+
             input {
                 padding: 0.8rem;
 
