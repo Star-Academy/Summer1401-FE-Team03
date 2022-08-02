@@ -4,12 +4,10 @@ import {RegisterRequestModel} from '../models/api/register-request.model';
 export class AuthServiceMock {
     public isUserLoggedIn: boolean = false;
 
-    public login(data: LoginRequestModel): Promise<boolean> {
+    public async login(data: LoginRequestModel): Promise<boolean> {
         this.isUserLoggedIn = true;
 
-        return new Promise<boolean>((resolve, reject) => {
-            resolve(true);
-        });
+        return true;
     }
 
     public async logout(): Promise<void> {

@@ -11,18 +11,18 @@ import {AuthServiceMock} from '../../mock/authService.mock';
 import {VALID_USER_LOGIN_DATA} from '../../mock/fetch.mock';
 
 describe('HeaderComponent', () => {
-    let authService: AuthServiceMock;
+    let authServiceMock: AuthServiceMock;
 
     let fixture: ComponentFixture<HeaderComponent>;
     let component: HeaderComponent;
     let host: HTMLElement;
 
     beforeEach(() => {
-        authService = new AuthServiceMock();
+        authServiceMock = new AuthServiceMock();
         TestBed.configureTestingModule({
             declarations: [HeaderComponent, HeaderProfileAccessComponent],
             imports: [SearchBoxModule, NgxPopperjsModule, DividerVerticalModule],
-            providers: [{provide: AuthService, useValue: authService}, ApiService, SnackbarService],
+            providers: [{provide: AuthService, useValue: authServiceMock}, ApiService, SnackbarService],
         }).compileComponents();
     });
 
@@ -38,7 +38,7 @@ describe('HeaderComponent', () => {
     });
 
     it('should show coins icon if logged in', async () => {
-        await authService.login(VALID_USER_LOGIN_DATA);
+        await authServiceMock.login(VALID_USER_LOGIN_DATA);
 
         fixture.detectChanges();
 
@@ -48,7 +48,7 @@ describe('HeaderComponent', () => {
     });
 
     it('should not show coins icon if not logged in', async () => {
-        await authService.logout();
+        await authServiceMock.logout();
 
         fixture.detectChanges();
 

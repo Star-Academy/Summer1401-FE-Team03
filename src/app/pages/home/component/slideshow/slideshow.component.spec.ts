@@ -31,11 +31,11 @@ describe('SlideshowComponent', () => {
     });
 
     it('should call changeActiveIndex method', () => {
-        let changeActiveIndexMethodSpy = spyOn(component, 'changeActiveIndex');
+        const changeActiveIndexMethodSpy = spyOn(component, 'changeActiveIndex');
 
-        let changeButtons = fixture.debugElement.queryAll(By.css('button'));
+        const changeButtons = fixture.debugElement.queryAll(By.css('button'));
 
-        for (let changeButton of changeButtons) {
+        for (const changeButton of changeButtons) {
             changeButton.triggerEventHandler('click', null);
 
             fixture.detectChanges();
@@ -46,9 +46,7 @@ describe('SlideshowComponent', () => {
 
     it('should generate two images slideShow', () => {
         component.items = TEST_IMAGES;
-
         fixture.detectChanges();
-
         let images = fixture.debugElement.queryAll(By.css('img'));
 
         expect(images.length).toEqual(TEST_IMAGES.length);
@@ -60,9 +58,7 @@ describe('SlideshowComponent', () => {
 
         for (let i = 0; i < children.length; i++) {
             component.changeActiveIndex(i);
-
             fixture.detectChanges();
-
             let li = children[component.activeIndex];
 
             expect(li).toHaveClass('active');
@@ -84,9 +80,9 @@ describe('SlideshowComponent', () => {
     });
 
     it('should stop interval on mouseenter', () => {
-        let stopSlideShowMethodSpy = spyOn(component, 'stopSlideshow');
+        const stopSlideShowMethodSpy = spyOn(component, 'stopSlideshow');
 
-        let slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
+        const slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
 
         slideshowElement.triggerEventHandler('mouseenter', null);
 
@@ -96,9 +92,9 @@ describe('SlideshowComponent', () => {
     });
 
     it('should init interval on mouseleave', () => {
-        let initIntervalMethodSpy = spyOn(component, 'initInterval');
+        const initIntervalMethodSpy = spyOn(component, 'initInterval');
 
-        let slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
+        const slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
 
         slideshowElement.triggerEventHandler('mouseleave', null);
 
@@ -119,7 +115,7 @@ describe('SlideshowComponent', () => {
         expect(component.activeIndex).not.toEqual(currActiveIndex);
     }));
 
-    // utils function
+    // [SECTION] Utility Functions
     function testActiveIndex(
         children: HTMLCollection | never[],
         changeToActiveIndex: number,

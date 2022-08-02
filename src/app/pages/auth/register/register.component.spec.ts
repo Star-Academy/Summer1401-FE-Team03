@@ -8,7 +8,7 @@ import {ApiService} from '../../../services/api/api.service';
 import {FetchMock, VALID_USER_LOGIN_DATA, VALID_USER_REGISTER_DATA} from '../../../mock/fetch.mock';
 
 describe('RegisterComponent', () => {
-    let authService: AuthService;
+    let authServiceMock: AuthService;
     let snackbarService: SnackbarService;
     let fetchMock: FetchMock;
 
@@ -25,7 +25,7 @@ describe('RegisterComponent', () => {
             providers: [AuthService, SnackbarService, ApiService],
         }).compileComponents();
 
-        authService = TestBed.inject(AuthService);
+        authServiceMock = TestBed.inject(AuthService);
         snackbarService = TestBed.inject(SnackbarService);
 
         fetchMock = new FetchMock();
@@ -44,7 +44,7 @@ describe('RegisterComponent', () => {
     });
 
     it('should successfully call register method', () => {
-        const registerMethodSpy = spyOn(authService, 'register');
+        const registerMethodSpy = spyOn(authServiceMock, 'register');
 
         component.registerSubmitHandler();
 

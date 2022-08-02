@@ -1,5 +1,4 @@
 import {AuthGuard} from './auth.guard';
-import {AuthServiceMock} from '../mock/authService.mock';
 import {TestBed} from '@angular/core/testing';
 import {AuthService} from '../services/api/auth/auth.service';
 import {ApiService} from '../services/api/api.service';
@@ -8,15 +7,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {FetchMock, VALID_USER_LOGIN_DATA} from '../mock/fetch.mock';
 
-function mockRouterState(url: string): RouterStateSnapshot {
-    return {
-        url,
-    } as RouterStateSnapshot;
-}
-
 describe('AuthGuard', () => {
     let authGuard: AuthGuard;
-    let authService: AuthService;
+    let authServiceMock: AuthService;
     let routerSpy: jasmine.SpyObj<Router>;
     let apiService: ApiService;
     let snackbarService: SnackbarService;
@@ -31,12 +24,12 @@ describe('AuthGuard', () => {
         snackbarService = new SnackbarService();
         apiService = new ApiService(snackbarService);
         routerSpy = jasmine.createSpyObj<Router>('Router', ['navigateByUrl']);
-        authService = new AuthService(routerSpy, apiService);
-        authGuard = new AuthGuard(routerSpy, authService);
+        authServiceMock = new AuthService(routerSpy, apiService);
+        authGuard = new AuthGuard(routerSpy, authServiceMock);
 
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
-            providers: [{provide: AuthService, useValue: authService}, ApiService, SnackbarService],
+            providers: [{provide: AuthService, useValue: authServiceMock}, ApiService, SnackbarService],
         }).compileComponents();
 
         fetchMock = new FetchMock();
@@ -49,7 +42,7 @@ describe('AuthGuard', () => {
 
     describe('when user logged in', () => {
         beforeEach(async () => {
-            await authService.login(VALID_USER_LOGIN_DATA);
+            await authServiceMock.login(VALID_USER_LOGIN_DATA);
         });
 
         it('should redirected to home when navigate to login page', async () => {
@@ -73,7 +66,7 @@ describe('AuthGuard', () => {
 
     describe('when user not logged in', () => {
         beforeEach(async () => {
-            await authService.logout();
+            await authServiceMock.logout();
         });
 
         it('should not redirected to home when navigate to login page', async () => {

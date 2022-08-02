@@ -7,7 +7,7 @@ import {AuthServiceMock} from '../../../../mock/authService.mock';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 
 describe('HeaderProfileAccessComponent', () => {
-    let authService: AuthServiceMock;
+    let authServiceMock: AuthServiceMock;
     let logoutMethodSpy: jasmine.Spy;
 
     let fixture: ComponentFixture<HeaderProfileAccessComponent>;
@@ -15,15 +15,15 @@ describe('HeaderProfileAccessComponent', () => {
     let host: HTMLElement;
 
     beforeEach(() => {
-        authService = new AuthServiceMock();
+        authServiceMock = new AuthServiceMock();
 
         TestBed.configureTestingModule({
             declarations: [HeaderProfileAccessComponent],
             imports: [NgxPopperjsModule],
-            providers: [{provide: AuthService, useValue: authService}],
+            providers: [{provide: AuthService, useValue: authServiceMock}],
         }).compileComponents();
 
-        logoutMethodSpy = spyOn(authService, 'logout');
+        logoutMethodSpy = spyOn(authServiceMock, 'logout');
     });
 
     beforeEach(() => {
@@ -32,7 +32,7 @@ describe('HeaderProfileAccessComponent', () => {
         fixture.detectChanges();
         host = fixture.nativeElement as HTMLElement;
 
-        authService = TestBed.inject(AuthService);
+        authServiceMock = TestBed.inject(AuthService);
     });
 
     it('should create', () => {
@@ -40,25 +40,21 @@ describe('HeaderProfileAccessComponent', () => {
     });
 
     it('should show user icon if logged in', async () => {
-        await authService.login(VALID_USER_LOGIN_DATA);
+        await authServiceMock.login(VALID_USER_LOGIN_DATA);
 
         checkTagName('BUTTON');
     });
 
     it('should show login button if not logged in', async () => {
-        await authService.logout();
+        await authServiceMock.logout();
 
         checkTagName('A');
     });
 
     it('should call logout function when click on reset button', async () => {
-        await authService.login(VALID_USER_LOGIN_DATA);
-
-        fixture.detectChanges();
+        await authServiceMock.login(VALID_USER_LOGIN_DATA);
 
         const resetButton = fixture.debugElement.query(By.css('.reset'));
-
-        fixture.detectChanges();
 
         resetButton.triggerEventHandler('click', null);
 
@@ -67,8 +63,7 @@ describe('HeaderProfileAccessComponent', () => {
         expect(logoutMethodSpy).toHaveBeenCalled();
     });
 
-    // utils functions
-
+    // [SECTION] Utility Functions
     function checkTagName(tagName: string): void {
         fixture.detectChanges();
 

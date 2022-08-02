@@ -56,7 +56,7 @@ describe('SnackbarComponent', () => {
         testDom(SnackbarTypes.Error, 'bad request');
     });
 
-    // util function
+    // [SECTION] Utility Functions
     function testDom(type: SnackbarTypes, message?: string): void {
         snackbarService.show(message || 'test message', type);
 

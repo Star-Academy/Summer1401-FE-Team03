@@ -8,7 +8,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ApiService} from '../../../services/api/api.service';
 
 describe('LoginComponent', () => {
-    let authService: AuthService;
+    let authServiceMock: AuthService;
     let snackbarService: SnackbarService;
     let fetchMock: FetchMock;
 
@@ -22,7 +22,7 @@ describe('LoginComponent', () => {
             imports: [FormsModule, RouterTestingModule],
             providers: [AuthService, SnackbarService, ApiService],
         }).compileComponents();
-        authService = TestBed.inject(AuthService);
+        authServiceMock = TestBed.inject(AuthService);
         snackbarService = TestBed.inject(SnackbarService);
 
         fetchMock = new FetchMock();
@@ -40,10 +40,8 @@ describe('LoginComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should change email value', () => {});
-
     it('should successfully call login method', () => {
-        let loginMethodSpy = spyOn(authService, 'login');
+        const loginMethodSpy = spyOn(authServiceMock, 'login');
 
         component.loginSubmitHandler();
 
@@ -51,7 +49,7 @@ describe('LoginComponent', () => {
     });
 
     it('should successfully call snackbar show methode when logged in', async () => {
-        let showSnackbarMethodSpy = spyOn(snackbarService, 'show');
+        const showSnackbarMethodSpy = spyOn(snackbarService, 'show');
 
         component.user = VALID_USER_LOGIN_DATA;
         await component.loginSubmitHandler();

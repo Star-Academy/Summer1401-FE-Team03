@@ -81,7 +81,7 @@ describe('AuthService', () => {
         expect(service.isUserLoggedIn).toBeFalse();
     });
 
-    // utils function
+    // [SECTION] Utility Functions
     async function authenticateInvalidUser(): Promise<void> {
         await service.auth();
 

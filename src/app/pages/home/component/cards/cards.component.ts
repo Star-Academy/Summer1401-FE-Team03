@@ -10,16 +10,17 @@ export class CardsComponent {
     @Input() public cards: Card[] = [];
     @ViewChild('outerContainer') public outerContainer!: ElementRef;
 
-    public scrollToLeft(): void {
-        this.outerContainer.nativeElement.scrollTo({
-            left: this.outerContainer.nativeElement.scrollLeft + 294,
-            behavior: 'smooth',
-        });
-    }
+    private scrollAmount = 294;
 
-    public scrollToRight(): void {
+    public scroll(direction: string): void {
+        let scrollValue = this.outerContainer.nativeElement.scrollLeft;
+        if (direction === 'left') {
+            scrollValue = scrollValue + this.scrollAmount;
+        } else {
+            scrollValue = scrollValue - this.scrollAmount;
+        }
         this.outerContainer.nativeElement.scrollTo({
-            left: this.outerContainer.nativeElement.scrollLeft - 294,
+            left: scrollValue,
             behavior: 'smooth',
         });
     }
