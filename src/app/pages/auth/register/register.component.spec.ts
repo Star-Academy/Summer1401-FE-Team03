@@ -44,7 +44,7 @@ describe('RegisterComponent', () => {
     });
 
     it('should successfully call register method', () => {
-        let registerMethodSpy = spyOn(authService, 'register');
+        const registerMethodSpy = spyOn(authService, 'register');
 
         component.registerSubmitHandler();
 
@@ -52,7 +52,7 @@ describe('RegisterComponent', () => {
     });
 
     it('should successfully call snackbar show methode when registered', async () => {
-        let showSnackbarMethodSpy = spyOn(snackbarService, 'show');
+        const showSnackbarMethodSpy = spyOn(snackbarService, 'show');
 
         component.user = VALID_USER_REGISTER_DATA;
         await component.registerSubmitHandler();

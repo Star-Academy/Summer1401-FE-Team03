@@ -35,7 +35,7 @@ describe('CardsComponent', () => {
 
         fixture.detectChanges();
 
-        let appCards = fixture.debugElement.queryAll(By.css('app-card'));
+        const appCards = fixture.debugElement.queryAll(By.css('app-card'));
 
         expect(appCards.length).toEqual(component.cards.length);
     });
