@@ -23,7 +23,7 @@ describe('SearchBoxComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should render i', () => {
+    it('should have i tag with "far fa-magnifying-glass" class name ', () => {
         const searchIcon = host.querySelector('i');
 
         expect(searchIcon).toBeTruthy();

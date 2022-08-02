@@ -52,7 +52,7 @@ describe('HeaderComponent', () => {
 
         fixture.detectChanges();
 
-        const element = host.querySelector('header > [data-test-id="coin-box"]');
+        const element = host.querySelector('header > div');
 
         expect(element).not.toBeTruthy();
     });

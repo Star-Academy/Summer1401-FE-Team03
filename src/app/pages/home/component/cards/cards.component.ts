@@ -13,14 +13,14 @@ export class CardsComponent {
     public scrollToLeft(): void {
         this.outerContainer.nativeElement.scrollTo({
             left: this.outerContainer.nativeElement.scrollLeft + 294,
-            // behavior: 'smooth',
+            behavior: 'smooth',
         });
     }
 
     public scrollToRight(): void {
         this.outerContainer.nativeElement.scrollTo({
             left: this.outerContainer.nativeElement.scrollLeft - 294,
-            // behavior: 'smooth',
+            behavior: 'smooth',
         });
     }
 }

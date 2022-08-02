@@ -23,7 +23,7 @@ describe('DividerVerticalComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should render i', () => {
+    it('should have i tag', () => {
         const line = host.querySelector('i');
 
         expect(line).toBeTruthy();

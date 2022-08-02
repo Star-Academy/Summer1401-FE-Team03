@@ -48,4 +48,10 @@ describe('ApiService', () => {
 
         expect(response).toBeNull();
     });
+
+    it('should fail post request and show snackbar', async () => {
+        const response = await service.PostRequest<any>({url: '/fail', body: {}, showSnackbarOnFail: false});
+
+        expect(response).toBeNull();
+    });
 });

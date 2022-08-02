@@ -43,8 +43,6 @@ describe('RegisterComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should change email value', () => {});
-
     it('should successfully call register method', () => {
         let registerMethodSpy = spyOn(authService, 'register');
 

@@ -6,14 +6,12 @@ describe('CardComponent', () => {
     let component: CardComponent;
     let host: HTMLElement;
 
-    // defaults
     const DEFAULT_SRC: string = 'assets/card-images/no-image.jpg';
     const DEFAULT_DESCRIPTION: string = 'توضیحات بازی';
     const DEFAULT_TITLE: string = 'بازی';
     const DEFAULT_BUTTON_TEXT: string = 'افزودن به سبد خرید';
     const DEFAULT_ALT: string = 'برای این بازی عکسی قرار داده نشده است.';
 
-    // tests
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [CardComponent],
