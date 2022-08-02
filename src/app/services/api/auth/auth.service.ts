@@ -43,6 +43,7 @@ export class AuthService {
         const response = await this.apiService.PostRequest<AuthResponseModel>({
             url: API_USER_AUTH,
             body: {token: token},
+            showSnackbarOnFail: false,
         });
         this.isUserLoggedIn = !!response?.id;
     }
