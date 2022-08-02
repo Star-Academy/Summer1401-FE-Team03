@@ -22,7 +22,7 @@ describe('AuthGuard', () => {
     let snackbarService: SnackbarService;
     let fetchMock: FetchMock;
 
-    let routeMock = (path: string) => {
+    let routeMock = (path: string): ActivatedRouteSnapshot => {
         return {routeConfig: {path: path}} as ActivatedRouteSnapshot;
     };
     let stateMock = {} as RouterStateSnapshot;
