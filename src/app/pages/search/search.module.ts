@@ -8,7 +8,8 @@ import {GamesComponent} from './component/games/games.component';
 import {SwitchComponent} from './component/switch/switch.component';
 import {FormsModule} from '@angular/forms';
 import {ExpansionListComponent} from './component/expansion-list/expansion-list.component';
-import { ExpansionSearchBoxComponent } from './component/expansion-list/expansion-search-box/expansion-search-box.component';
+import {ExpansionSearchBoxComponent} from './component/expansion-list/expansion-search-box/expansion-search-box.component';
+import {FilterPipeModule} from '../../pipes/filter-pipe/filter-pipe.module';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,6 @@ import { ExpansionSearchBoxComponent } from './component/expansion-list/expansio
         ExpansionListComponent,
         ExpansionSearchBoxComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule],
+    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule],
 })
 export class SearchModule {}

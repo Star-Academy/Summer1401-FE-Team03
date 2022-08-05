@@ -5,10 +5,13 @@
 </header>
 
 <section *ngIf="isExpanded">
-    <app-expansion-search-box [placeholderText]="setPlaceholderText()"></app-expansion-search-box>
+    <app-expansion-search-box
+        [placeholderText]="setPlaceholderText()"
+        [(searchPhrase)]="searchPhrase"
+    ></app-expansion-search-box>
 
     <ul>
-        <li *ngFor="let item of expansionList" [class.checked]="item.isEnable">
+        <li *ngFor="let item of expansionList | filter: searchPhrase" [class.checked]="item.isEnable">
             <label>
                 <input type="checkbox" [(ngModel)]="item.isEnable" (ngModelChange)="itemsChange.emit($event)" />
                 <p>{{ item.title }}</p>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-expansion-search-box',
@@ -7,4 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ExpansionSearchBoxComponent {
     @Input() public placeholderText: string = '';
+    @Input() public searchPhrase: string = '';
+
+    @Output() public searchPhraseChange = new EventEmitter<string>();
 }
