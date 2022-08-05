@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    img {
+        background-color: var(--primary-color-lighter);
+
+        inline-size: var(--compact-card-inline-size);
+        aspect-ratio: 264/374;
+    }
+    h2 {
+    }
+    i {
+    }
+}

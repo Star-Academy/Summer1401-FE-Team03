@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {ExpansionListComponent} from './component/expansion-list/expansion-list.component';
 import {ExpansionSearchBoxComponent} from './component/expansion-list/expansion-search-box/expansion-search-box.component';
 import {FilterPipeModule} from '../../pipes/filter-pipe/filter-pipe.module';
+import {CompactCardComponent} from './component/compact-card/compact-card.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import {FilterPipeModule} from '../../pipes/filter-pipe/filter-pipe.module';
         SwitchComponent,
         ExpansionListComponent,
         ExpansionSearchBoxComponent,
+        CompactCardComponent,
     ],
     imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule],
 })

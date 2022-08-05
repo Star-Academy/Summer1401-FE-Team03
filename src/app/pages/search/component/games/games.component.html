@@ -1,1 +1,5 @@
-<div>games works!</div>
+<div class="wrapper">
+    <ng-container *ngFor="let game of games">
+        <app-compact-card [game]="game"></app-compact-card>
+    </ng-container>
+</div>
