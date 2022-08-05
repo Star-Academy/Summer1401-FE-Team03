@@ -1,0 +1,9 @@
+.filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2rem;
+
+    border: 0.1rem solid var(--neutral-color-light);
+}

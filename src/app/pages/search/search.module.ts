@@ -4,9 +4,20 @@ import {SearchComponent} from './search.component';
 import {BreadCrumbComponent} from './component/bread-crumb/bread-crumb.component';
 import {FilterComponent} from './component/filter/filter.component';
 import {RouterModule} from '@angular/router';
+import {GamesComponent} from './component/games/games.component';
+import {SwitchComponent} from './component/switch/switch.component';
+import {FormsModule} from '@angular/forms';
+import {ExpansionListComponent} from './component/expansion-list/expansion-list.component';
 
 @NgModule({
-    declarations: [SearchComponent, BreadCrumbComponent, FilterComponent],
-    imports: [CommonModule, RouterModule],
+    declarations: [
+        SearchComponent,
+        BreadCrumbComponent,
+        FilterComponent,
+        GamesComponent,
+        SwitchComponent,
+        ExpansionListComponent,
+    ],
+    imports: [CommonModule, RouterModule, FormsModule],
 })
 export class SearchModule {}

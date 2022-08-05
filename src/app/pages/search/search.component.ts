@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BreadCrumbModel} from './component/bread-crumb/models/bread-crumb.model';
+import {BreadCrumbModel} from './models/bread-crumb.model';
 
 @Component({
     selector: 'app-search',

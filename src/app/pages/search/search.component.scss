@@ -1,0 +1,26 @@
+.wrapper {
+    display: grid;
+    grid-template-areas:
+        "bread-crumb bread-crumb"
+        "filter games";
+    grid-template-columns: 30rem 1fr;
+    align-items: start;
+    gap: 2rem;
+
+    padding: 0 var(--content-inline-padding);
+
+    app-bread-crumb {
+        grid-area: bread-crumb;
+    }
+
+    aside {
+        grid-area: filter;
+
+        position: sticky;
+        inset-block-start: 1rem;
+    }
+
+    main {
+        grid-area: games;
+    }
+}
