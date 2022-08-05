@@ -4,9 +4,15 @@
     gap: 1.2rem;
 
     img {
-        background-color: var(--primary-color-lighter);
+        background-image: var(--image-background);
 
         inline-size: var(--compact-card-inline-size);
         aspect-ratio: 264/374;
+    }
+
+    h2 {
+        direction: ltr;
+
+        max-inline-size: var(--compact-card-inline-size);
     }
 }

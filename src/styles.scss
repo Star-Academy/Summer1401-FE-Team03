@@ -58,10 +58,12 @@ Shadows
 
     --card-padding: 2.4rem;
 
-    --compact-card-inline-size: 26.4rem;
+    --compact-card-inline-size: 20rem;
 
     --border-radius-small: 0.4rem;
     --border-radius-normal: 1rem;
+
+    --image-background: linear-gradient(to top right, var(--primary-color-dark), var(--primary-color-normal));
 }
 
 *,

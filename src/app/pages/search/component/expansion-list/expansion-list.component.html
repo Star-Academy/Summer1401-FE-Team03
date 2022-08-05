@@ -1,10 +1,10 @@
-<header (click)="isExpanded = !isExpanded">
+<header (click)="expand()">
     <p>{{ title }}</p>
 
     <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
 </header>
 
-<section class="no-select" *ngIf="isExpanded">
+<section class="no-select" #list *ngIf="isExpanded">
     <app-expansion-search-box
         [placeholderText]="setPlaceholderText()"
         [(searchPhrase)]="searchPhrase"
