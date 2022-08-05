@@ -12,7 +12,7 @@ export class ExpansionListComponent {
 
     @Output() public itemsChange = new EventEmitter<ExpansionListModel[]>();
 
-    public isExpanded: boolean = true;
+    public isExpanded: boolean = false;
     public searchPhrase: string = '';
 
     public setPlaceholderText(): string {
