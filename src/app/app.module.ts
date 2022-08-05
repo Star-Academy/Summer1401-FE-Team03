@@ -10,6 +10,7 @@ import {ApiService} from './services/api/api.service';
 import {AuthService} from './services/api/auth/auth.service';
 import {LoginModule} from './pages/auth/login/login.module';
 import {RegisterModule} from './pages/auth/register/register.module';
+import {SearchModule} from './pages/search/search.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {RegisterModule} from './pages/auth/register/register.module';
         SnackbarModule,
         LoginModule,
         RegisterModule,
+        SearchModule,
     ],
     bootstrap: [AppComponent],
     providers: [ApiService, AuthService],

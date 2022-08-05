@@ -1,0 +1,23 @@
+nav {
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        list-style: none;
+
+        li {
+            display: inherit;
+            align-items: center;
+            gap: 2rem;
+
+            a {
+                color: var(--neutral-color-normal);
+            }
+
+            &:not(:last-of-type)::after {
+                content: "/";
+            }
+        }
+    }
+}

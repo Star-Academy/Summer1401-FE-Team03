@@ -5,12 +5,14 @@ import {AuthGuard} from './guard/auth.guard';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {LoginComponent} from './pages/auth/login/login.component';
 import {RegisterComponent} from './pages/auth/register/register.component';
+import {SearchComponent} from './pages/search/search.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+    {path: 'search', component: SearchComponent},
     {path: '**', redirectTo: ''},
 ];
 
