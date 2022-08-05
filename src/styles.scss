@@ -25,6 +25,7 @@ Shadows
     --primary-color-normal: hsl(192deg 70% 43%);
     --primary-color-light: hsl(192deg 53% 55%);
     --primary-color-lighter: hsl(192deg 53% 77%);
+    --primary-color-lightest: hsl(192deg 50% 94%);
 
     --secondary-color-darker: hsl(201deg 100% 3%);
     --secondary-color-dark: hsl(201deg 96% 10%);
@@ -254,6 +255,10 @@ a {
     color: var(--neutral-color-dark);
 
     font-size: var(--font-size-detail);
+}
+
+.no-select {
+    user-select: none;
 }
 
 @media (width >= 480px) {

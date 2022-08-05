@@ -44,10 +44,8 @@ section {
 
             border-radius: var(--border-radius-small);
 
-            cursor: pointer;
-
             &.checked {
-                background-color: var(--primary-color-lighter);
+                background-color: var(--primary-color-lightest);
                 color: var(--primary-color-darker);
             }
 
@@ -56,6 +54,8 @@ section {
                 align-items: center;
                 justify-content: space-between;
                 gap: 1.2rem;
+
+                cursor: pointer;
             }
         }
     }

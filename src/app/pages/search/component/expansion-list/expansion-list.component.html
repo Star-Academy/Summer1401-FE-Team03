@@ -4,7 +4,7 @@
     <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
 </header>
 
-<section *ngIf="isExpanded">
+<section class="no-select" *ngIf="isExpanded">
     <app-expansion-search-box
         [placeholderText]="setPlaceholderText()"
         [(searchPhrase)]="searchPhrase"
