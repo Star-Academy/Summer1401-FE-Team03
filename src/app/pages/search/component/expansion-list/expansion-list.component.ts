@@ -12,6 +12,10 @@ export class ExpansionListComponent {
 
     @Output() public itemsChange = new EventEmitter<ExpansionListModel[]>();
 
-    public isExpanded: boolean = false;
+    public isExpanded: boolean = true;
     public searchPhrase: string = '';
+
+    public setPlaceholderText(): string {
+        return `${this.title} مدنظرت رو جستجو کن `;
+    }
 }

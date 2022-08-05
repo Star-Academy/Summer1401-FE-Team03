@@ -1,0 +1,36 @@
+label {
+    background-color: var(--neutral-color-lighter);
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    padding: 0.8rem 1.6rem;
+
+    border: 1px solid var(--neutral-color-light);
+    border-radius: var(--border-radius-normal);
+
+    input {
+        background-color: inherit;
+
+        inline-size: 100%;
+
+        &::placeholder {
+            color: var(--neutral-color-normal);
+        }
+    }
+
+    i {
+        color: var(--neutral-color-normal);
+
+        font-size: var(--font-size-paragraph);
+
+        &:hover {
+            color: var(--primary-color-normal);
+        }
+    }
+
+    &:focus-within {
+        border: 1px solid var(--primary-color-normal);
+    }
+}

@@ -1,15 +1,18 @@
 <header (click)="isExpanded = !isExpanded">
     <p>{{ title }}</p>
+
     <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
 </header>
 
-<main *ngIf="isExpanded">
+<section *ngIf="isExpanded">
+    <app-expansion-search-box [placeholderText]="setPlaceholderText()"></app-expansion-search-box>
+
     <ul>
-        <li *ngFor="let item of expansionList">
+        <li *ngFor="let item of expansionList" [class.checked]="item.isEnable">
             <label>
                 <input type="checkbox" [(ngModel)]="item.isEnable" (ngModelChange)="itemsChange.emit($event)" />
                 <p>{{ item.title }}</p>
             </label>
         </li>
     </ul>
-</main>
+</section>

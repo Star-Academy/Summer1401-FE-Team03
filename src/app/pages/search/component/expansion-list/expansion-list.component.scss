@@ -21,10 +21,35 @@ header {
     }
 }
 
-main {
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
     ul {
+        direction: ltr;
+
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        max-block-size: 30vh;
+
+        overscroll-behavior-y: contain;
+
         li {
-            padding-block: 1.2rem;
+            padding: 0.6rem 1.2rem;
+
+            border-radius: var(--border-radius-small);
+
+            cursor: pointer;
+
+            &.checked {
+                background-color: var(--primary-color-lighter);
+                color: var(--primary-color-darker);
+            }
 
             label {
                 display: flex;

@@ -8,6 +8,7 @@ import {GamesComponent} from './component/games/games.component';
 import {SwitchComponent} from './component/switch/switch.component';
 import {FormsModule} from '@angular/forms';
 import {ExpansionListComponent} from './component/expansion-list/expansion-list.component';
+import { ExpansionSearchBoxComponent } from './component/expansion-list/expansion-search-box/expansion-search-box.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import {ExpansionListComponent} from './component/expansion-list/expansion-list.
         GamesComponent,
         SwitchComponent,
         ExpansionListComponent,
+        ExpansionSearchBoxComponent,
     ],
     imports: [CommonModule, RouterModule, FormsModule],
 })
