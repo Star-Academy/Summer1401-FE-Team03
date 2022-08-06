@@ -4,7 +4,7 @@ import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
 import {SNACKBAR_REGISTERED} from '../language/message';
-import {RegisterRequestModel} from '../../../models/api/register-request.model';
+import {RegisterRequestModel} from '../../../models/api/register/register-request.model';
 
 @Component({
     selector: 'app-register',

@@ -1,5 +1,5 @@
-import {LoginRequestModel} from '../models/api/login-request.model';
-import {RegisterRequestModel} from '../models/api/register-request.model';
+import {LoginRequestModel} from '../models/api/login/login-request.model';
+import {RegisterRequestModel} from '../models/api/register/register-request.model';
 
 export class AuthServiceMock {
     public isUserLoggedIn: boolean = false;

@@ -4,7 +4,7 @@ import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
 import {SNACKBAR_LOGGED_IN} from '../language/message';
-import {LoginRequestModel} from '../../../models/api/login-request.model';
+import {LoginRequestModel} from '../../../models/api/login/login-request.model';
 
 @Component({
     selector: 'app-login',

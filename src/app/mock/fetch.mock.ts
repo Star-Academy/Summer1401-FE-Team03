@@ -1,6 +1,6 @@
-import {LoginRequestModel} from '../models/api/login-request.model';
+import {LoginRequestModel} from '../models/api/login/login-request.model';
 import {API_USER_AUTH, API_USER_LOGIN, API_USER_REGISTER} from '../utils/api.utils';
-import {RegisterRequestModel} from '../models/api/register-request.model';
+import {RegisterRequestModel} from '../models/api/register/register-request.model';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';

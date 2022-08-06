@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../api.service';
 import {API_USER_AUTH, API_USER_LOGIN, API_USER_REGISTER} from '../../../utils/api.utils';
-import {LoginRequestModel} from '../../../models/api/login-request.model';
-import {RegisterRequestModel} from '../../../models/api/register-request.model';
-import {AuthResponseModel} from '../../../models/api/auth.model';
-import {LoginResponseModel} from '../../../models/api/login-response.model';
-import {RegisterResponseModel} from '../../../models/api/register-response.model';
+import {LoginRequestModel} from '../../../models/api/login/login-request.model';
+import {RegisterRequestModel} from '../../../models/api/register/register-request.model';
+import {AuthResponseModel} from '../../../models/api/auth/auth-response.model';
+import {LoginResponseModel} from '../../../models/api/login/login-response.model';
+import {RegisterResponseModel} from '../../../models/api/register/register-response.model';
 import {Router} from '@angular/router';
 
 @Injectable()
