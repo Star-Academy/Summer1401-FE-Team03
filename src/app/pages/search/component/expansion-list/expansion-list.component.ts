@@ -1,5 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {ExpansionListModel} from '../../models/expantion-list.model';
+import {FilterService} from '../../../../services/filter/filter.service';
 
 @Component({
     selector: 'app-expansion-list',
@@ -8,19 +9,26 @@ import {ExpansionListModel} from '../../models/expantion-list.model';
 })
 export class ExpansionListComponent {
     @Input() public title: string = '';
-    @Input() public expansionList: ExpansionListModel[] = [];
-
-    @Output() public itemsChange = new EventEmitter<ExpansionListModel[]>();
+    @Input() public expansionListItems: ExpansionListModel[] = [];
 
     @ViewChild('list') public list: ElementRef | null = null;
 
-    public constructor(private changeDetectorRef: ChangeDetectorRef) {}
+    public constructor(private changeDetectorRef: ChangeDetectorRef, private filterService: FilterService) {}
 
     public isExpanded: boolean = false;
     public searchPhrase: string = '';
 
     public setPlaceholderText(): string {
         return `${this.title} مدنظرت رو جستجو کن `;
+    }
+
+    public async changeStatus(id: number, status: boolean): Promise<void> {
+        if (status) {
+            this.filterService.setGenre(id);
+        } else {
+            this.filterService.deleteGenre(id);
+        }
+        await this.filterService.navigateToSearchPage();
     }
 
     public expand(): void {

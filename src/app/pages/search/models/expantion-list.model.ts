@@ -1,4 +1,6 @@
+import {ItemModel} from '../../../models/game/dto/item.model';
+
 export interface ExpansionListModel {
-    title: string;
+    genre: ItemModel;
     isEnable: boolean;
 }

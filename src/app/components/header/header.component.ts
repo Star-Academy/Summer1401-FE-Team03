@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../services/api/auth/auth.service';
 import {Router} from '@angular/router';
 import {SearchRequestModel} from '../../models/api/search/search-request.model';
+import {FilterService} from '../../services/filter/filter.service';
 
 @Component({
     selector: 'app-header',
@@ -11,14 +12,10 @@ import {SearchRequestModel} from '../../models/api/search/search-request.model';
 export class HeaderComponent {
     public searchPhrase: string = '';
 
-    public constructor(private router: Router, public authService: AuthService) {}
+    public constructor(public authService: AuthService, private filterService: FilterService) {}
 
     public async searchSubmitHandler(): Promise<void> {
-        let searchObject: SearchRequestModel = {};
-        searchObject.searchPhrase = this.searchPhrase;
-
-        await this.router.navigate(['/search'], {
-            queryParams: {filter: JSON.stringify(searchObject)},
-        });
+        this.filterService.filter.searchPhrase = this.searchPhrase;
+        await this.filterService.navigateToSearchPage();
     }
 }

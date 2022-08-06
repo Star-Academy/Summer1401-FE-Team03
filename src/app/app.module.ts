@@ -12,6 +12,7 @@ import {LoginModule} from './pages/auth/login/login.module';
 import {RegisterModule} from './pages/auth/register/register.module';
 import {SearchModule} from './pages/search/search.module';
 import {GameService} from './services/api/game/game.service';
+import {FilterService} from './services/filter/filter.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -27,6 +28,6 @@ import {GameService} from './services/api/game/game.service';
         SearchModule,
     ],
     bootstrap: [AppComponent],
-    providers: [ApiService, AuthService, GameService],
+    providers: [ApiService, AuthService, GameService, FilterService],
 })
 export class AppModule {}

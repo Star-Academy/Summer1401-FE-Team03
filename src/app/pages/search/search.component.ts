@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {BreadCrumbModel} from './models/bread-crumb.model';
 import {ActivatedRoute} from '@angular/router';
+import {GameService} from '../../services/api/game/game.service';
+import {SearchRequestModel} from '../../models/api/search/search-request.model';
+import {FilterService} from '../../services/filter/filter.service';
 
 @Component({
     selector: 'app-search',
@@ -8,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
     styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-    public constructor(private activatedRoute: ActivatedRoute) {}
+    public constructor(public gameService: GameService, private filterService: FilterService) {}
     public breadcrumbs: BreadCrumbModel[] = [
         {title: 'خانه', url: '/'},
         {title: 'جستجو', url: '/search'},
@@ -26,9 +29,8 @@ export class SearchComponent implements OnInit {
         {imageSrc: '', title: 'pes 2022', platform: 'play station 4', rating: 4.3},
     ];
 
-    public ngOnInit(): void {
-        const filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
-
-        console.log(filter);
+    public async ngOnInit(): Promise<void> {
+        const filters = this.filterService.getFilter();
+        await this.gameService.search(filters);
     }
 }

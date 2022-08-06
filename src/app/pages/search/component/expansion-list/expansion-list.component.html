@@ -11,10 +11,14 @@
     ></app-expansion-search-box>
 
     <ul>
-        <li *ngFor="let item of expansionList | filter: searchPhrase" [class.checked]="item.isEnable">
+        <li *ngFor="let item of expansionListItems | filter: searchPhrase" [class.checked]="item.isEnable">
             <label>
-                <input type="checkbox" [(ngModel)]="item.isEnable" (ngModelChange)="itemsChange.emit($event)" />
-                <p>{{ item.title }}</p>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="item.isEnable"
+                    (change)="changeStatus(item.genre.id, !!item.isEnable)"
+                />
+                <p>{{ item.genre.name }}</p>
             </label>
         </li>
     </ul>

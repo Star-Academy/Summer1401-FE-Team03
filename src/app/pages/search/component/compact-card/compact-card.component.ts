@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {GameModel} from '../../../../models/game/game.model';
 
 @Component({
     selector: 'app-compact-card',
@@ -6,5 +7,5 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./compact-card.component.scss'],
 })
 export class CompactCardComponent {
-    @Input() public game!: {imageSrc: string; title: string; rating: number; platform: string};
+    @Input() public game!: GameModel;
 }

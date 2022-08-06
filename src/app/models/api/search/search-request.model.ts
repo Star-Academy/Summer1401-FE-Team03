@@ -5,5 +5,5 @@ export interface SearchRequestModel {
     pageSize?: number;
     offset?: number;
     sort?: number;
-    filters?: FilterModel;
+    options?: FilterModel;
 }

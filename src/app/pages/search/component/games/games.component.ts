@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {GameModel} from '../../../../models/game/game.model';
 
 @Component({
     selector: 'app-games',
@@ -6,5 +7,5 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./games.component.scss'],
 })
 export class GamesComponent {
-    @Input() public games: {imageSrc: string; title: string; rating: number; platform: string}[] = [];
+    @Input() public games: GameModel[] = [];
 }
