@@ -10,9 +10,15 @@
         aspect-ratio: 264/374;
     }
 
-    h2 {
+    h3 {
         direction: ltr;
 
+        overflow: hidden;
+
+        max-block-size: calc(3 * (var(--font-size-tertiary-heading)));
+
         max-inline-size: var(--compact-card-inline-size);
+
+        line-height: var(--font-size-tertiary-heading);
     }
 }
