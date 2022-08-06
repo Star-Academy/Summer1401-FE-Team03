@@ -11,6 +11,7 @@ import {AuthService} from './services/api/auth/auth.service';
 import {LoginModule} from './pages/auth/login/login.module';
 import {RegisterModule} from './pages/auth/register/register.module';
 import {SearchModule} from './pages/search/search.module';
+import {GameService} from './services/api/game/game.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -26,6 +27,6 @@ import {SearchModule} from './pages/search/search.module';
         SearchModule,
     ],
     bootstrap: [AppComponent],
-    providers: [ApiService, AuthService],
+    providers: [ApiService, AuthService, GameService],
 })
 export class AppModule {}

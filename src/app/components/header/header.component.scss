@@ -31,8 +31,19 @@ header {
         line-height: 0;
     }
 
-    app-search-box {
+    form {
+        background-color: var(--neutral-color-lighter);
+
         margin-inline-end: auto;
+
+        padding: 0.8rem 1.6rem;
+
+        border: 1px solid var(--neutral-color-light);
+        border-radius: 999rem;
+
+        &:focus-within {
+            border: 1px solid var(--primary-color-normal);
+        }
     }
 }
 

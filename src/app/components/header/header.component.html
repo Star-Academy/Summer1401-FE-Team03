@@ -5,7 +5,9 @@
 
     <app-divider-vertical></app-divider-vertical>
 
-    <app-search-box></app-search-box>
+    <form (submit)="searchSubmitHandler()">
+        <app-search-box [(searchWord)]="searchPhrase"></app-search-box>
+    </form>
 
     <div title="لول کوین" *ngIf="authService.isUserLoggedIn">
         <span>504</span>

@@ -1,42 +1,29 @@
-:host {
-    background-color: var(--neutral-color-lighter);
+label {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
 
-    padding: 0.8rem 1.6rem;
+    input {
+        background-color: inherit;
 
-    border: 1px solid var(--neutral-color-light);
-    border-radius: 999rem;
+        width: 30rem;
 
-    label {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
+        font-weight: 700;
 
-        input {
-            background-color: inherit;
-
-            width: 30rem;
-
-            font-weight: 700;
-
-            &::placeholder {
-                color: var(--neutral-color-normal);
-
-                font-weight: 400;
-            }
-        }
-
-        i {
+        &::placeholder {
             color: var(--neutral-color-normal);
 
-            font-size: var(--font-size-tertiary-heading);
-
-            &:hover {
-                color: var(--primary-color-normal);
-            }
+            font-weight: 400;
         }
     }
 
-    &:focus-within {
-        border: 1px solid var(--primary-color-normal);
+    i {
+        color: var(--neutral-color-normal);
+
+        font-size: var(--font-size-tertiary-heading);
+
+        &:hover {
+            color: var(--primary-color-normal);
+        }
     }
 }

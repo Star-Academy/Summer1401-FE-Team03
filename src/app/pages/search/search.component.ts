@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {BreadCrumbModel} from './models/bread-crumb.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
+    public constructor(private activatedRoute: ActivatedRoute) {}
     public breadcrumbs: BreadCrumbModel[] = [
         {title: 'خانه', url: '/'},
         {title: 'جستجو', url: '/search'},
@@ -23,4 +25,10 @@ export class SearchComponent {
         {imageSrc: '', title: 'underground 2', platform: 'xbox', rating: 3.2},
         {imageSrc: '', title: 'pes 2022', platform: 'play station 4', rating: 4.3},
     ];
+
+    public ngOnInit(): void {
+        const filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
+
+        console.log(filter);
+    }
 }
