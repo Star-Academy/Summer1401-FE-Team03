@@ -27,8 +27,9 @@ section {
     gap: 1.2rem;
 
     transform: scaleY(0);
+    transform-origin: top;
 
-    transition: transform 200ms ease-in;
+    transition: transform 200ms ease-in-out;
 
     &.flip {
         transform: scaleY(1);

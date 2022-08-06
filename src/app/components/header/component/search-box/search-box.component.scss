@@ -6,9 +6,11 @@ label {
     input {
         background-color: inherit;
 
+        color: var(--neutral-color-dark);
+
         width: 30rem;
 
-        font-weight: 700;
+        font-weight: 400;
 
         &::placeholder {
             color: var(--neutral-color-normal);
