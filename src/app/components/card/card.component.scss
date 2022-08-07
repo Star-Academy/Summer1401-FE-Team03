@@ -2,9 +2,10 @@
     background-color: var(--neutral-color-light);
     box-shadow: var(--box-shadow-soft);
 
-    width: 30rem;
+    min-inline-size: 27rem;
+    inline-size: 27rem;
 
-    border-radius: 2rem;
+    border-radius: var(--border-radius-normal);
 
     transition: transform 200ms ease-in;
 
@@ -33,7 +34,7 @@
         &__price {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 0.8rem;
         }
 
         > p {
@@ -52,8 +53,8 @@
     }
 
     img {
-        width: 100%;
+        inline-size: 100%;
 
-        border-radius: 2rem 2rem 0 0;
+        border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
     }
 }

@@ -1,9 +1,9 @@
 header {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1.6rem;
 
-    width: 100%;
+    inline-size: 100%;
 
     padding: 1.2rem var(--content-inline-padding);
 
@@ -17,12 +17,22 @@ header {
         display: flex;
         align-items: center;
 
-        margin-inline-start: auto;
-
         span {
-            font-size: var(--font-size-paragraph);
+            font-size: var(--font-size-detail);
             font-weight: 700;
+
+            line-height: 1;
         }
+    }
+
+    button {
+        padding: 0.6rem;
+
+        line-height: 0;
+    }
+
+    app-search-box {
+        margin-inline-end: auto;
     }
 }
 

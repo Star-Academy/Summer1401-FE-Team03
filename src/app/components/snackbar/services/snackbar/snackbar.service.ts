@@ -4,7 +4,7 @@ import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 @Injectable()
 export class SnackbarService {
     private readonly DISPLAY_DURATION: number = 4_000;
-    private timeout?: number;
+    private timeout?: ReturnType<typeof setTimeout>;
 
     public message: string | null = null;
     public type: SnackbarTypes | null = null;

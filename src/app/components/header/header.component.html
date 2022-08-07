@@ -7,7 +7,7 @@
 
     <app-search-box></app-search-box>
 
-    <div title="لول کوین">
+    <div title="لول کوین" *ngIf="authService.isUserLoggedIn">
         <span>504</span>
         <button>
             <i class="far fa-coins icon-special"></i>

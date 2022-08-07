@@ -6,15 +6,16 @@ import {RegisterRequestModel} from '../../../models/api/register-request.model';
 import {AuthResponseModel} from '../../../models/api/auth.model';
 import {LoginResponseModel} from '../../../models/api/login-response.model';
 import {RegisterResponseModel} from '../../../models/api/register-response.model';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
     public isUserLoggedIn: boolean = false;
 
-    public constructor(private apiService: ApiService) {}
+    public constructor(private router: Router, private apiService: ApiService) {}
 
     public async login(data: LoginRequestModel): Promise<boolean> {
-        const response = await this.apiService.post<LoginResponseModel>(API_USER_LOGIN, data);
+        const response = await this.apiService.PostRequest<LoginResponseModel>({body: data, url: API_USER_LOGIN});
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
@@ -23,7 +24,7 @@ export class AuthService {
     }
 
     public async register(data: RegisterRequestModel): Promise<boolean> {
-        const response = await this.apiService.post<RegisterResponseModel>(API_USER_REGISTER, data);
+        const response = await this.apiService.PostRequest<RegisterResponseModel>({body: data, url: API_USER_REGISTER});
         if (!response) return false;
 
         localStorage.setItem('token', response.token);
@@ -31,15 +32,19 @@ export class AuthService {
         return true;
     }
 
-    public logout(): void {
+    public async logout(): Promise<void> {
         localStorage.removeItem('token');
         this.isUserLoggedIn = false;
-        window.location.reload();
+        await this.router.navigateByUrl('/');
     }
 
     public async auth(): Promise<void> {
         const token = localStorage.getItem('token') || '';
-        const response = await this.apiService.post<AuthResponseModel>(API_USER_AUTH, {token}, {}, false);
+        const response = await this.apiService.PostRequest<AuthResponseModel>({
+            url: API_USER_AUTH,
+            body: {token: token},
+            showSnackbarOnFail: false,
+        });
         this.isUserLoggedIn = !!response?.id;
     }
 }

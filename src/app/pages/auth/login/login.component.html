@@ -2,21 +2,21 @@
     <h2>ورود</h2>
 
     <label>
-        <span>نام کاربری:</span>
-        <input type="text" name="username" [(ngModel)]="user.username" placeholder="نام کاربری" />
+        <span class="required">نام کاربری:</span>
+        <input type="text" name="username" [(ngModel)]="user.username" required />
     </label>
 
     <label>
         <span>ایمیل:</span>
-        <input type="email" name="email" [(ngModel)]="user.email" placeholder="ایمیل" />
+        <input type="email" name="email" [(ngModel)]="user.email" />
     </label>
 
     <label>
-        <span>کلمه عبور:</span>
-        <input type="password" name="password" [(ngModel)]="user.password" placeholder="کلمه عبور" />
+        <span class="required">کلمه عبور:</span>
+        <input type="password" name="password" [(ngModel)]="user.password" required />
     </label>
 
     <button class="primary" type="submit">ورود</button>
 
-    <a routerLink="/register" class="supporting-text"> حساب کاربری ندارم، میخواهم ثبت نام کنم </a>
+    <a routerLink="/register" class="supporting-text"> حساب کاربری ندارم، می‌خواهم ثبت‌نام کنم </a>
 </form>

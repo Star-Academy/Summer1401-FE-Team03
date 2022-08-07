@@ -21,7 +21,7 @@
 
         padding: var(--card-padding);
 
-        border-radius: 0.8rem;
+        border-radius: var(--border-radius-normal);
 
         label {
             display: flex;
@@ -30,10 +30,20 @@
 
             font-size: var(--font-size-paragraph);
 
+            .required {
+                &::after {
+                    content: "*";
+
+                    color: var(--tertiary-color-normal);
+
+                    font-size: var(--font-size-sub-heading);
+                }
+            }
+
             input {
                 padding: 0.8rem;
 
-                border-radius: 0.8rem;
+                border-radius: var(--border-radius-normal);
 
                 &::placeholder {
                     color: var(--neutral-color-normal);

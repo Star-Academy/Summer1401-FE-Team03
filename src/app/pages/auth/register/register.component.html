@@ -2,30 +2,30 @@
     <h2>ثبت نام</h2>
     <label>
         <span>نام:</span>
-        <input type="text" name="firstName" [(ngModel)]="user.firstName" placeholder="نام" />
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" />
     </label>
 
     <label>
         <span>نام خانوادگی:</span>
-        <input type="text" name="lastName" [(ngModel)]="user.lastName" placeholder="نام خانوادگی" />
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" />
     </label>
 
     <label>
-        <span>نام کاربری:</span>
-        <input type="text" name="username" [(ngModel)]="user.username" placeholder="نام کاربری" />
+        <span class="required">نام کاربری:</span>
+        <input type="text" name="username" [(ngModel)]="user.username" required />
     </label>
 
     <label>
-        <span>ایمیل:</span>
-        <input type="email" name="email" [(ngModel)]="user.email" placeholder="ایمیل" />
+        <span class="required">ایمیل:</span>
+        <input type="email" name="email" [(ngModel)]="user.email" required />
     </label>
 
     <label>
-        <span>کلمه عبور:</span>
-        <input type="password" name="password" [(ngModel)]="user.password" placeholder="کلمه عبور" />
+        <span class="required">کلمه عبور:</span>
+        <input type="password" name="password" [(ngModel)]="user.password" required />
     </label>
 
     <button class="primary" type="submit">ثبت‌نام</button>
 
-    <a routerLink="/login" class="supporting-text"> حساب کاربری دارم، میخواهم وارد شوم </a>
+    <a routerLink="/login" class="supporting-text"> حساب کاربری دارم، می‌خواهم وارد شوم </a>
 </form>

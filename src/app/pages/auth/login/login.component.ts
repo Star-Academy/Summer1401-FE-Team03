@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {LoginUserModel} from './models/login-user.model';
 import {SnackbarTypes} from '../../../models/enum/snackbar.types';
 import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
 import {SNACKBAR_LOGGED_IN} from '../language/message';
+import {LoginRequestModel} from '../../../models/api/login-request.model';
 
 @Component({
     selector: 'app-login',
@@ -12,7 +12,7 @@ import {SNACKBAR_LOGGED_IN} from '../language/message';
     styleUrls: ['../auth.component.scss'],
 })
 export class LoginComponent {
-    public user: LoginUserModel = {
+    public user: LoginRequestModel = {
         username: '',
         email: '',
         password: '',
