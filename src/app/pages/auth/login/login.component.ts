@@ -12,9 +12,9 @@ import {LoginRequestModel} from '../../../models/api/login/login-request.model';
     styleUrls: ['../auth.component.scss'],
 })
 export class LoginComponent {
+    public isLoading = false;
     public user: LoginRequestModel = {
         username: '',
-        email: '',
         password: '',
     };
 
@@ -25,7 +25,9 @@ export class LoginComponent {
     ) {}
 
     public async loginSubmitHandler(): Promise<void> {
+        this.isLoading = true;
         const succeeded = await this.authService.login(this.user);
+        this.isLoading = false;
 
         if (succeeded) {
             await this.router.navigateByUrl('/');

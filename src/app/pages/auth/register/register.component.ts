@@ -12,6 +12,7 @@ import {RegisterRequestModel} from '../../../models/api/register/register-reques
     styleUrls: ['../auth.component.scss'],
 })
 export class RegisterComponent {
+    public isLoading = false;
     public user: RegisterRequestModel = {
         firstName: '',
         lastName: '',
@@ -27,7 +28,9 @@ export class RegisterComponent {
     ) {}
 
     public async registerSubmitHandler(): Promise<void> {
+        this.isLoading = true;
         const succeeded = await this.authService.register(this.user);
+        this.isLoading = false;
 
         if (succeeded) {
             await this.router.navigateByUrl('/');
