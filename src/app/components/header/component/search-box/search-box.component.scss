@@ -24,6 +24,8 @@ label {
 
         font-size: var(--font-size-tertiary-heading);
 
+        cursor: pointer;
+
         &:hover {
             color: var(--primary-color-normal);
         }

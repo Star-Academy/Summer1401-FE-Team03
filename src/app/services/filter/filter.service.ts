@@ -51,14 +51,7 @@ export class FilterService {
         this.options = searchRequestObject;
         return searchRequestObject;
     }
-    public getSearchPhrase(): Promise<string> {
-        return new Promise<string>((resolve) => {
-            this.activatedRoute.queryParams.subscribe((params) => {
-                let paramsFilter = JSON.parse(params.filter) as SearchRequestModel;
-                resolve(paramsFilter.searchPhrase || '');
-            });
-        });
-    }
+
     public setGenre(id: number): void {
         if (this.options.filters) {
             if (this.options.filters.genres) {

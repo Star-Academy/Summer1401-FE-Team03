@@ -9,4 +9,6 @@ export class SearchBoxComponent {
     @Input() public searchWord?: string = '';
 
     @Output() public searchWordChange = new EventEmitter<string>();
+
+    public click(): void {}
 }

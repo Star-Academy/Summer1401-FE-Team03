@@ -7,23 +7,12 @@ import {FilterService} from '../../services/filter/filter.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-    public searchPhrase: string = '';
-
+export class HeaderComponent {
     public constructor(public authService: AuthService, public filterService: FilterService) {}
-
-    public ngOnInit(): void {
-        //TODO: FIX
-        this.filterService.getSearchPhrase().then((searchPhrase) => {
-            // this.searchPhrase = searchPhrase;
-        });
-    }
 
     public async searchSubmitHandler(event: Event): Promise<void> {
         event.preventDefault();
 
-        this.filterService.options.searchPhrase = this.searchPhrase;
         await this.filterService.navigateToSearchPage();
-        console.log();
     }
 }
