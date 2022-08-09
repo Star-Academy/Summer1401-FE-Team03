@@ -10,7 +10,7 @@ import {FilterService} from '../../services/filter/filter.service';
 export class HeaderComponent implements OnInit {
     public searchPhrase: string = '';
 
-    public constructor(public authService: AuthService, private filterService: FilterService) {}
+    public constructor(public authService: AuthService, public filterService: FilterService) {}
 
     public ngOnInit(): void {
         //TODO: FIX
@@ -24,5 +24,6 @@ export class HeaderComponent implements OnInit {
 
         this.filterService.options.searchPhrase = this.searchPhrase;
         await this.filterService.navigateToSearchPage();
+        console.log();
     }
 }

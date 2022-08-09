@@ -15,12 +15,18 @@ export class GameService {
 
     public async search(data: SearchRequestModel): Promise<void> {
         const response = await this.apiService.PostRequest<SearchResponseModel>({url: API_GAME_SEARCH, body: data});
-        this.games = response && Array.isArray(response?.games) ? response.games : [];
+        this.games =
+            response && Array.isArray(response?.games)
+                ? response.games.map((game) => {
+                      game.price = game.price / 1000;
+                      game.priceOnSale = game.priceOnSale / 1000;
+                      return game;
+                  })
+                : [];
         this.totalCount = response ? response.count : 0;
     }
 
     public async genres(): Promise<ItemModel[] | null> {
-        const response = await this.apiService.GetRequest<ItemModel[]>({url: API_GAME_GENRES});
-        return response;
+        return await this.apiService.GetRequest<ItemModel[]>({url: API_GAME_GENRES});
     }
 }

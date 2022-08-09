@@ -24,4 +24,6 @@ export interface GameModel {
     themes: ItemModel[];
     videos: ItemModel[];
     websites: WebsiteModel[];
+    price: number;
+    priceOnSale: number;
 }

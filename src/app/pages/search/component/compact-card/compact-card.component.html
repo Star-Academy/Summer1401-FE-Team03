@@ -1,5 +1,17 @@
 <div class="wrapper">
-    <img [src]="game.cover?.id || 'assets/card-images/no-image.webp'" alt="" />
+    <img [src]="getImageSource(game)" alt="" />
     <h3>{{ game.name }}</h3>
-    <i class="far fa-playstation"></i>
+    <div class="price-box">
+        <p *ngIf="isOnSale" class="discount-amount">-{{ calculateDiscount() }}%</p>
+
+        <div [class.sale-original-price]="isOnSale" class="original-price">
+            <i class="far fa-coins"></i>
+            <p>{{ game.price }}</p>
+        </div>
+
+        <div *ngIf="isOnSale" class="sale-price">
+            <i class="far fa-coins"></i>
+            <p>{{ game.priceOnSale }}</p>
+        </div>
+    </div>
 </div>
