@@ -1,7 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/api/auth/auth.service';
-import {Router} from '@angular/router';
-import {SearchRequestModel} from '../../models/api/search/search-request.model';
 import {FilterService} from '../../services/filter/filter.service';
 
 @Component({
@@ -9,13 +7,22 @@ import {FilterService} from '../../services/filter/filter.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     public searchPhrase: string = '';
 
     public constructor(public authService: AuthService, private filterService: FilterService) {}
 
-    public async searchSubmitHandler(): Promise<void> {
-        this.filterService.filter.searchPhrase = this.searchPhrase;
+    public ngOnInit(): void {
+        //TODO: FIX
+        this.filterService.getSearchPhrase().then((searchPhrase) => {
+            // this.searchPhrase = searchPhrase;
+        });
+    }
+
+    public async searchSubmitHandler(event: Event): Promise<void> {
+        event.preventDefault();
+
+        this.filterService.options.searchPhrase = this.searchPhrase;
         await this.filterService.navigateToSearchPage();
     }
 }

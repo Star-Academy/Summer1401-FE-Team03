@@ -11,6 +11,7 @@ import {ExpansionListComponent} from './component/expansion-list/expansion-list.
 import {ExpansionSearchBoxComponent} from './component/expansion-list/expansion-search-box/expansion-search-box.component';
 import {FilterPipeModule} from '../../pipes/filter-pipe/filter-pipe.module';
 import {CompactCardComponent} from './component/compact-card/compact-card.component';
+import {PaginationModule} from './component/games/component/pagination/pagination.module';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,6 @@ import {CompactCardComponent} from './component/compact-card/compact-card.compon
         ExpansionSearchBoxComponent,
         CompactCardComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule],
+    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule, PaginationModule],
 })
 export class SearchModule {}

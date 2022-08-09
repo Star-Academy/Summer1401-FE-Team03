@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BreadCrumbModel} from './models/bread-crumb.model';
-import {ActivatedRoute} from '@angular/router';
 import {GameService} from '../../services/api/game/game.service';
-import {SearchRequestModel} from '../../models/api/search/search-request.model';
 import {FilterService} from '../../services/filter/filter.service';
+import {GamesSortTypes} from '../../models/enum/games-sort.types';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
-    public constructor(public gameService: GameService, private filterService: FilterService) {}
+export class SearchComponent implements OnInit, OnDestroy {
+    public GamesSortTypes = GamesSortTypes;
+
+    public constructor(public gameService: GameService, public filterService: FilterService) {}
     public breadcrumbs: BreadCrumbModel[] = [
         {title: 'خانه', url: '/'},
         {title: 'جستجو', url: '/search'},
@@ -30,7 +31,15 @@ export class SearchComponent implements OnInit {
     ];
 
     public async ngOnInit(): Promise<void> {
-        const filters = this.filterService.getFilter();
-        await this.gameService.search(filters);
+        await this.filterService.searchByFilters();
+    }
+
+    public ngOnDestroy(): void {
+        this.filterService.clearFilter();
+    }
+
+    public async changeSortingFilter(sortNumber: number): Promise<void> {
+        this.filterService.changeSortType(sortNumber);
+        await this.filterService.navigateToSearchPage();
     }
 }

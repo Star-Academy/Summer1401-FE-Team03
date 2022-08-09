@@ -2,4 +2,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--compact-card-inline-size), 1fr));
     gap: 2.4rem 1.2rem;
+
+    app-pagination {
+        justify-self: center;
+
+        grid-column: 1/-1;
+    }
 }

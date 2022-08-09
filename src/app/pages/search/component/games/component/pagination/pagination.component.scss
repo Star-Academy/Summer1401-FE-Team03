@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    div {
+        block-size: 2rem;
+        inline-size: 2.5rem;
+
+        border-radius: var(--border-radius-small);
+
+        cursor: pointer;
+
+        &.selected {
+            background-color: var(--primary-color-normal);
+
+            p {
+                color: var(--neutral-color-lighter);
+            }
+        }
+    }
+}

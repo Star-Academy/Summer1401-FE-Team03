@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <img [src]="game.cover.id" alt="" />
+    <img [src]="game.cover?.id || 'assets/card-images/no-image.webp'" alt="" />
     <h3>{{ game.name }}</h3>
     <i class="far fa-playstation"></i>
 </div>

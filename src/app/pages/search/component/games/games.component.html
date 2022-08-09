@@ -2,4 +2,10 @@
     <ng-container *ngFor="let game of games">
         <app-compact-card [game]="game"></app-compact-card>
     </ng-container>
+
+    <app-pagination
+        *ngIf="games.length !== 0"
+        [pageSize]="filterService.options.pageSize"
+        [totalCount]="gameService.totalCount"
+    ></app-pagination>
 </div>

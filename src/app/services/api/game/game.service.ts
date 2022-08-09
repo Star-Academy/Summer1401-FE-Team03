@@ -10,11 +10,13 @@ import {ItemModel} from '../../../models/game/dto/item.model';
 @Injectable()
 export class GameService {
     public games: GameModel[] = [];
+    public totalCount: number = 0;
     public constructor(private router: Router, private apiService: ApiService) {}
 
     public async search(data: SearchRequestModel): Promise<void> {
         const response = await this.apiService.PostRequest<SearchResponseModel>({url: API_GAME_SEARCH, body: data});
         this.games = response && Array.isArray(response?.games) ? response.games : [];
+        this.totalCount = response ? response.count : 0;
     }
 
     public async genres(): Promise<ItemModel[] | null> {

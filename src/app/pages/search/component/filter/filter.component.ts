@@ -18,7 +18,7 @@ export class FilterComponent implements OnInit {
         const filters = this.filterService.getFilter();
 
         const expansionsItems = genres?.map((genre) => {
-            const isEnable = !!filters.options?.genres?.includes(genre.id);
+            const isEnable = !!filters.filters?.genres?.includes(genre.id);
             const expansionItem: ExpansionListModel = {
                 genre: genre,
                 isEnable: isEnable,

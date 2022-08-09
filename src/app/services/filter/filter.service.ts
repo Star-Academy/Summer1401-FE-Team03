@@ -1,42 +1,81 @@
 import {Injectable, OnInit} from '@angular/core';
 import {SearchRequestModel} from '../../models/api/search/search-request.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {GameService} from '../api/game/game.service';
+import {GamesSortTypes} from '../../models/enum/games-sort.types';
 
 @Injectable()
 export class FilterService {
-    public filter: SearchRequestModel = {};
+    private readonly DEFAULT_PAGE_SIZE = 12;
+    private readonly DEFAULT_OFFSET = 0;
 
-    public constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+    public options: SearchRequestModel = {
+        sort: GamesSortTypes.MOST_RELEVANT,
+        pageSize: this.DEFAULT_PAGE_SIZE,
+        offset: this.DEFAULT_OFFSET,
+    };
+
+    public constructor(
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
+        private gameService: GameService
+    ) {}
 
     public async navigateToSearchPage(): Promise<void> {
+        const isSearchPage = this.router.url.includes('/search');
+
         await this.router.navigate(['/', 'search'], {
-            queryParams: {filter: JSON.stringify(this.filter)},
+            queryParams: {filter: JSON.stringify(this.options)},
         });
+
+        if (isSearchPage) await this.searchByFilters();
     }
 
+    public async searchByFilters(): Promise<void> {
+        const filters = this.getFilter();
+        await this.gameService.search(filters);
+    }
+    public clearFilter(): void {
+        this.options = {
+            sort: GamesSortTypes.MOST_RELEVANT,
+            pageSize: this.DEFAULT_PAGE_SIZE,
+            offset: this.DEFAULT_OFFSET,
+        };
+    }
     public getFilter(): SearchRequestModel {
-        const filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
+        let filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
+
         let searchRequestObject = {} as SearchRequestModel;
         if (filter) searchRequestObject = JSON.parse(filter) as SearchRequestModel;
 
-        this.filter = searchRequestObject;
+        this.options = searchRequestObject;
         return searchRequestObject;
     }
-
+    public getSearchPhrase(): Promise<string> {
+        return new Promise<string>((resolve) => {
+            this.activatedRoute.queryParams.subscribe((params) => {
+                let paramsFilter = JSON.parse(params.filter) as SearchRequestModel;
+                resolve(paramsFilter.searchPhrase || '');
+            });
+        });
+    }
     public setGenre(id: number): void {
-        if (this.filter.options) {
-            if (this.filter.options.genres) {
-                this.filter.options.genres.push(id);
+        if (this.options.filters) {
+            if (this.options.filters.genres) {
+                this.options.filters.genres.push(id);
             } else {
-                this.filter.options.genres = [id];
+                this.options.filters.genres = [id];
             }
         } else {
-            this.filter.options = {genres: [id]};
+            this.options.filters = {genres: [id]};
         }
     }
     public deleteGenre(id: number): void {
-        const genres = this.filter.options?.genres?.filter((item) => item !== id);
+        const genres = this.options.filters?.genres?.filter((item) => item !== id);
 
-        if (this.filter.options && this.filter.options.genres) this.filter.options.genres = genres;
+        if (this.options.filters && this.options.filters.genres) this.options.filters.genres = genres;
+    }
+    public changeSortType(num: number): void {
+        this.options.sort = num;
     }
 }
