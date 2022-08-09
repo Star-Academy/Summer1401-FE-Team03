@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--compact-card-inline-size), 1fr));
-    gap: 2.4rem 1.2rem;
+    gap: 4.8rem 2.4rem;
 
     app-pagination {
         justify-self: center;

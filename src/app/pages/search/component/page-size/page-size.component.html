@@ -1,0 +1,11 @@
+<button [popper]="popperContent" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
+    {{ filterService.options.pageSize }} مورد در صفحه <i class="far fa-angle-down"></i>
+</button>
+
+<popper-content #popperContent (click)="popperContent.hide()">
+    <div class="rows">
+        <button (click)="pageSizeHandler(12)">12 مورد</button>
+        <button (click)="pageSizeHandler(24)">24 مورد</button>
+        <button (click)="pageSizeHandler(48)">48 مورد</button>
+    </div>
+</popper-content>

@@ -1,0 +1,22 @@
+.rows {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-inline-size: 8rem;
+    inline-size: max-content;
+
+    border-radius: var(--border-radius-normal);
+
+    button {
+        background-color: var(--neutral-color-light);
+
+        inline-size: 100%;
+
+        &:hover {
+            background-color: var(--neutral-color-lighter);
+        }
+    }
+}

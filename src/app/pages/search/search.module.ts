@@ -12,6 +12,8 @@ import {ExpansionSearchBoxComponent} from './component/expansion-list/expansion-
 import {FilterPipeModule} from '../../pipes/filter-pipe/filter-pipe.module';
 import {CompactCardComponent} from './component/compact-card/compact-card.component';
 import {PaginationModule} from './component/games/component/pagination/pagination.module';
+import {NgxPopperjsModule} from 'ngx-popperjs';
+import {PageSizeComponent} from './component/page-size/page-size.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,8 @@ import {PaginationModule} from './component/games/component/pagination/paginatio
         ExpansionListComponent,
         ExpansionSearchBoxComponent,
         CompactCardComponent,
+        PageSizeComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule, PaginationModule],
+    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule, PaginationModule, NgxPopperjsModule],
 })
 export class SearchModule {}

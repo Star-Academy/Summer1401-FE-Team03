@@ -8,6 +8,12 @@
 
         inline-size: 100%;
         aspect-ratio: 264/374;
+
+        border-radius: var(--border-radius-small);
+
+        &:hover {
+            filter: contrast(130%);
+        }
     }
 
     h3 {

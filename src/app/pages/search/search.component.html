@@ -18,21 +18,21 @@
                         class="supporting-text"
                         (click)="changeSortingFilter(GamesSortTypes.MOST_RELEVANT)"
                     >
-                        مرتبطترین
+                        مرتبط‌ترین
                     </li>
                     <li
                         [class.active]="filterService.options.sort === 1"
                         class="supporting-text"
                         (click)="changeSortingFilter(GamesSortTypes.TOP_SELLER)"
                     >
-                        پرفروشترین
+                        پرفروش‌ترین
                     </li>
                     <li
                         [class.active]="filterService.options.sort === 2"
                         class="supporting-text"
                         (click)="changeSortingFilter(GamesSortTypes.MOST_POPULAR)"
                     >
-                        محبوبترین
+                        محبوب‌ترین
                     </li>
                     <li
                         [class.active]="filterService.options.sort === 3"
@@ -43,7 +43,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="item-count supporting-text">{{ gameService.totalCount }} مورد</div>
+
+            <div class="offset-group">
+                <app-page-size></app-page-size>
+                <div class="item-count supporting-text">{{ gameService.totalCount }} مورد</div>
+            </div>
         </header>
 
         <app-games [games]="gameService.games"></app-games>
