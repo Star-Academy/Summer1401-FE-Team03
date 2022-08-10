@@ -16,6 +16,7 @@ export class HeaderComponent {
     public async searchSubmitHandler(event: Event): Promise<void> {
         event.preventDefault();
 
+        this.mobileSearchBoxShown = false;
         await this.filterService.navigateToSearchPage();
     }
 

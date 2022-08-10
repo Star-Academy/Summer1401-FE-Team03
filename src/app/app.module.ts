@@ -13,6 +13,7 @@ import {RegisterModule} from './pages/auth/register/register.module';
 import {SearchModule} from './pages/search/search.module';
 import {GameService} from './services/api/game/game.service';
 import {FilterService} from './services/filter/filter.service';
+import {SpinnerModule} from './components/spinner/spinner.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -26,6 +27,7 @@ import {FilterService} from './services/filter/filter.service';
         LoginModule,
         RegisterModule,
         SearchModule,
+        SpinnerModule,
     ],
     bootstrap: [AppComponent],
     providers: [ApiService, AuthService, GameService, FilterService],

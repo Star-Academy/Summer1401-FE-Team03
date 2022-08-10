@@ -15,6 +15,7 @@ import {NgxPopperjsModule} from 'ngx-popperjs';
 import {PageSizeComponent} from './component/page-size/page-size.component';
 import {SortingComponent} from './component/sorting/sorting.component';
 import {DiscountPipeModule} from '../../pipes/discount-pipe/discount-pipe.module';
+import {SpinnerService} from '../../components/spinner/service/spinner/spinner.service';
 
 @NgModule({
     declarations: [
@@ -37,5 +38,6 @@ import {DiscountPipeModule} from '../../pipes/discount-pipe/discount-pipe.module
         NgxPopperjsModule,
         DiscountPipeModule,
     ],
+    providers: [SpinnerService],
 })
 export class SearchModule {}

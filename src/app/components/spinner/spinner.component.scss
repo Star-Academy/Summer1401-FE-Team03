@@ -1,0 +1,19 @@
+.wrapper {
+    background-color: var(--spinner-color-background);
+
+    position: fixed;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    div {
+        block-size: 20rem;
+        inline-size: 20rem;
+
+        border: 2rem dotted var(--primary-color-normal);
+        border-radius: 999rem;
+
+        animation: spin 1000ms infinite;
+    }
+}

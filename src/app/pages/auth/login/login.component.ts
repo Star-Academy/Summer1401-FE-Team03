@@ -5,6 +5,7 @@ import {SnackbarService} from '../../../components/snackbar/services/snackbar/sn
 import {Router} from '@angular/router';
 import {SNACKBAR_LOGGED_IN} from '../language/message';
 import {LoginRequestModel} from '../../../models/api/login/login-request.model';
+import {SpinnerService} from '../../../components/spinner/service/spinner/spinner.service';
 
 @Component({
     selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent {
     public constructor(
         private authService: AuthService,
         private snackbarService: SnackbarService,
+        private spinnerService: SpinnerService,
         private router: Router
     ) {}
 

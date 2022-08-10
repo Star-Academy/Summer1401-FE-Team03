@@ -14,16 +14,21 @@ export class GameService {
     public totalCount: number = 0;
     public constructor(private router: Router, private apiService: ApiService) {}
 
+    private static responseMapper(response: SearchResponseModel): GameModel[] {
+        return response.games.map((game) => {
+            game.price = game.price / 1000;
+            game.priceOnSale = game.priceOnSale / 1000;
+            return game;
+        });
+    }
+
     public async search(data: SearchRequestModel): Promise<void> {
-        const response = await this.apiService.PostRequest<SearchResponseModel>({url: API_GAME_SEARCH, body: data});
-        this.games =
-            response && Array.isArray(response?.games)
-                ? response.games.map((game) => {
-                      game.price = game.price / 1000;
-                      game.priceOnSale = game.priceOnSale / 1000;
-                      return game;
-                  })
-                : [];
+        const response = await this.apiService.PostRequest<SearchResponseModel>({
+            url: API_GAME_SEARCH,
+            body: data,
+            showSpinnerOnFetch: true,
+        });
+        this.games = response && Array.isArray(response?.games) ? GameService.responseMapper(response) : [];
         this.totalCount = response ? response.count : 0;
     }
 
