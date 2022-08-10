@@ -1,6 +1,44 @@
+<div class="hero">
+    <img [src]="getImageSource('screenshot_huge')" alt="" />
+</div>
+
 <div class="wrapper">
-    <div class="side">
-        <img [src]="getImageSource('thumb')" alt="" />
+    <div class="cover">
+        <img [src]="getImageSource('cover_big')" alt="" />
     </div>
-    <div class="content"></div>
+
+    <div class="content">
+        <div class="group">
+            <h1 class="name">{{ game.name }}</h1>
+            <p class="summary">{{ game.summary }}</p>
+        </div>
+
+        <div class="stats">
+            <div class="box">
+                <i class="fas fa-star"></i>
+                <div>
+                    <h3>{{ game.rating }} / 100</h3>
+                    <p>{{ game.ratingCount }} نظر</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-calendar"></i>
+                <div>
+                    <h3>{{ getReleaseDate() }}</h3>
+                    <p>تاریخ انتشار</p>
+                </div>
+            </div>
+
+            <div class="age-rating">
+                <h1>{{ getAgeCategoryName() }}</h1>
+                <p>{{ getAgeRating() }}</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <h2 class="title">Story</h2>
+            <p class="story">{{ game.storyline }}</p>
+        </div>
+    </div>
 </div>

@@ -18,7 +18,6 @@ export class GameComponent implements OnInit {
         if (idString) {
             const id = parseInt(idString);
             this.game = await this.gameService.getGame(id);
-            let x = 5;
         }
     }
 
@@ -28,5 +27,63 @@ export class GameComponent implements OnInit {
         } else {
             return 'assets/card-images/no-image.webp';
         }
+    }
+
+    public getCompanyLogo(): string {
+        if (this.game.involvedCompanies[0].company.logo.id) {
+            return `https://images.igdb.com/igdb/image/upload/${this.game.involvedCompanies[0].company.logo.id}.jpg`;
+        } else {
+            return 'assets/card-images/no-image.webp';
+        }
+    }
+
+    public getAgeCategoryName(): string {
+        switch (this.game.ageRatings[0].category) {
+            case 1:
+                return 'ESRB';
+            case 2:
+                return 'PEGI';
+            default:
+                return '';
+        }
+    }
+
+    public getAgeRating(): string {
+        switch (this.game.ageRatings[1].rating) {
+            case 1:
+                return '+3 سال';
+            case 2:
+                return '+7 سال';
+            case 3:
+                return '+12 سال';
+            case 4:
+                return '+16 سال';
+            case 5:
+                return '+18 سال';
+            case 6:
+                return 'رده سنی مشخص نشده است.';
+            case 7:
+                return '+3 سال';
+            case 8:
+                return 'همه';
+            case 9:
+                return '+10 سال';
+            case 10:
+                return '+13 سال';
+            case 11:
+                return '+17 سال';
+            case 12:
+                return '+18 سال';
+            default:
+                return 'رده سنی مشخص نشده است.';
+        }
+    }
+
+    public hasStory(): boolean {
+        return !!this.game.storyline;
+    }
+
+    public getReleaseDate(): string {
+        return new Date(this.game.releaseDate).toLocaleDateString('fa-IR');
     }
 }

@@ -1,0 +1,121 @@
+.wrapper {
+    direction: ltr;
+
+    padding: 0 var(--content-inline-padding);
+
+    transform: translateY(-10rem);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 4.8rem;
+
+        .name {
+            margin-block-start: 2.4rem;
+
+            font-size: var(--font-size-game-name);
+        }
+
+        .summary {
+            font-size: var(--font-size-sub-heading);
+        }
+
+        .title {
+            font-size: var(--font-size-heading);
+        }
+
+        .story {
+            font-size: var(--font-size-sub-heading);
+        }
+
+        .group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+
+            .box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2.4rem;
+
+                i {
+                    color: var(--primary-color-normal);
+
+                    font-size: var(--font-size-game-name);
+                }
+
+                div {
+                    text-align: center;
+
+                    p {
+                        direction: rtl;
+                    }
+                }
+            }
+
+            .age-rating {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.8rem;
+
+                h1 {
+                    color: var(--primary-color-normal);
+
+                    font-size: var(--font-size-game-name);
+                }
+
+                p {
+                    direction: rtl;
+
+                    font-size: var(--font-size-sub-heading);
+                }
+            }
+        }
+    }
+
+    .cover {
+        background-color: var(--neutral-color-lighter);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20rem;
+        height: 20rem;
+
+        border-radius: var(--border-radius-small);
+
+        img {
+            width: 18rem;
+            height: 18rem;
+
+            object-fit: cover;
+
+            border-radius: var(--border-radius-small);
+        }
+    }
+}
+
+.hero {
+    overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 7 / 2;
+
+    img {
+        filter: blur(10px) contrast(115%) saturate(75%) brightness(90%);
+
+        width: 110%;
+
+        transform: translate(5%, -10%);
+    }
+}
