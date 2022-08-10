@@ -6,6 +6,7 @@ import {ProfileComponent} from './pages/profile/profile.component';
 import {LoginComponent} from './pages/auth/login/login.component';
 import {RegisterComponent} from './pages/auth/register/register.component';
 import {SearchComponent} from './pages/search/search.component';
+import {GameComponent} from './pages/game/game.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
     {path: 'search', component: SearchComponent},
+    {path: 'game/:id', component: GameComponent},
     {path: '**', redirectTo: ''},
 ];
 

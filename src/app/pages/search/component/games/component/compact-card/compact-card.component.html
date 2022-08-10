@@ -1,6 +1,8 @@
 <div class="wrapper">
     <img [src]="getImageSource(game)" alt="" />
-    <h3>{{ game.name }}</h3>
+    <a [routerLink]="navigateToGamePage"
+        ><h3>{{ game.name }}</h3>
+    </a>
     <div class="price-box">
         <p *ngIf="isOnSale" class="discount-amount">-{{ calculateDiscount() }}%</p>
 
