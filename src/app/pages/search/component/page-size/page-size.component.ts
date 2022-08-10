@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgxPopperjsPlacements} from 'ngx-popperjs';
 import {FilterService} from '../../../../services/filter/filter.service';
+import {GameService} from '../../../../services/api/game/game.service';
 
 @Component({
     selector: 'app-page-size',
@@ -8,7 +9,7 @@ import {FilterService} from '../../../../services/filter/filter.service';
     styleUrls: ['./page-size.component.scss'],
 })
 export class PageSizeComponent {
-    public constructor(public filterService: FilterService) {}
+    public constructor(public filterService: FilterService, public gameService: GameService) {}
 
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 

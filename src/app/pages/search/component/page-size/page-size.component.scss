@@ -1,22 +1,40 @@
-.rows {
-    overflow: hidden;
-
+.offset-group {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 1.2rem;
 
-    min-inline-size: 8rem;
-    inline-size: max-content;
-
-    border-radius: var(--border-radius-normal);
-
-    button {
-        background-color: var(--neutral-color-light);
-
-        inline-size: 100%;
+    > button {
+        padding: 0.6rem 1.2rem;
 
         &:hover {
-            background-color: var(--neutral-color-lighter);
+            background-color: var(--neutral-color-light);
+        }
+
+        &:focus {
+            background-color: var(--neutral-color-light);
+        }
+    }
+
+    .rows {
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        min-inline-size: 8rem;
+        inline-size: max-content;
+
+        border-radius: var(--border-radius-normal);
+
+        button {
+            background-color: var(--neutral-color-light);
+
+            inline-size: 100%;
+
+            &:hover {
+                background-color: var(--neutral-color-lighter);
+            }
         }
     }
 }

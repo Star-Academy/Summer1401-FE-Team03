@@ -43,11 +43,7 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="offset-group">
-                <app-page-size></app-page-size>
-                <div class="item-count supporting-text">{{ gameService.totalCount }} مورد</div>
-            </div>
+            <app-page-size></app-page-size>
         </header>
 
         <app-games [games]="gameService.games"></app-games>

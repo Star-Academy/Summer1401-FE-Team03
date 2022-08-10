@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {ExpansionListModel} from '../../models/expantion-list.model';
-import {FilterService} from '../../../../services/filter/filter.service';
+import {ExpansionListModel} from '../../../../models/expantion-list.model';
+import {FilterService} from '../../../../../../services/filter/filter.service';
 
 @Component({
     selector: 'app-expansion-list',
