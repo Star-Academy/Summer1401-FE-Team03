@@ -1,4 +1,6 @@
 header {
+    position: relative;
+
     display: flex;
     align-items: center;
     gap: 1.6rem;
@@ -31,6 +33,10 @@ header {
         line-height: 0;
     }
 
+    .mobile-search-icon {
+        display: none;
+    }
+
     form {
         background-color: var(--neutral-color-lighter);
 
@@ -47,10 +53,35 @@ header {
     }
 }
 
-@media (max-width: 44em) {
-    app-search-box,
-    .credit,
-    app-divider-vertical {
-        display: none;
+@media screen and (max-width: 850px) {
+    header {
+        a {
+            margin-inline-end: auto;
+
+            & + app-divider-vertical {
+                display: none;
+            }
+        }
+
+        .mobile-search-icon {
+            display: block;
+        }
+
+        form {
+            position: absolute;
+            inset-block-end: -6rem;
+            inset-inline-start: 0;
+            z-index: 1;
+
+            inline-size: 100%;
+
+            padding: 2rem var(--content-inline-padding);
+
+            border-radius: 0;
+
+            &:focus-within {
+                border: 1px solid var(--neutral-color-light);
+            }
+        }
     }
 }

@@ -1,48 +1,11 @@
 <div class="wrapper">
-    <app-bread-crumb [breadcrumbs]="breadcrumbs"></app-bread-crumb>
-
     <aside>
         <app-filter></app-filter>
     </aside>
 
     <main>
         <header>
-            <div class="sorting">
-                <i class="far fa-arrow-down-wide-short"></i>
-
-                <p>مرتب‌سازی</p>
-
-                <ul>
-                    <li
-                        [class.active]="!filterService.options.sort"
-                        class="supporting-text"
-                        (click)="changeSortingFilter(GamesSortTypes.MOST_RELEVANT)"
-                    >
-                        مرتبط‌ترین
-                    </li>
-                    <li
-                        [class.active]="filterService.options.sort === 1"
-                        class="supporting-text"
-                        (click)="changeSortingFilter(GamesSortTypes.TOP_SELLER)"
-                    >
-                        پرفروش‌ترین
-                    </li>
-                    <li
-                        [class.active]="filterService.options.sort === 2"
-                        class="supporting-text"
-                        (click)="changeSortingFilter(GamesSortTypes.MOST_POPULAR)"
-                    >
-                        محبوب‌ترین
-                    </li>
-                    <li
-                        [class.active]="filterService.options.sort === 3"
-                        class="supporting-text"
-                        (click)="changeSortingFilter(GamesSortTypes.NEWEST)"
-                    >
-                        جدیدترین
-                    </li>
-                </ul>
-            </div>
+            <app-sorting></app-sorting>
             <app-page-size></app-page-size>
         </header>
 

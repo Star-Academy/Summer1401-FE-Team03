@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SearchComponent} from './search.component';
-import {BreadCrumbComponent} from './component/bread-crumb/bread-crumb.component';
 import {FilterComponent} from './component/filter/filter.component';
 import {RouterModule} from '@angular/router';
 import {GamesComponent} from './component/games/games.component';
@@ -14,11 +13,12 @@ import {CompactCardComponent} from './component/games/component/compact-card/com
 import {PaginationModule} from './component/games/component/pagination/pagination.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 import {PageSizeComponent} from './component/page-size/page-size.component';
+import {SortingComponent} from './component/sorting/sorting.component';
+import {DiscountPipeModule} from '../../pipes/discount-pipe/discount-pipe.module';
 
 @NgModule({
     declarations: [
         SearchComponent,
-        BreadCrumbComponent,
         FilterComponent,
         GamesComponent,
         SwitchComponent,
@@ -26,7 +26,16 @@ import {PageSizeComponent} from './component/page-size/page-size.component';
         ExpansionSearchBoxComponent,
         CompactCardComponent,
         PageSizeComponent,
+        SortingComponent,
     ],
-    imports: [CommonModule, RouterModule, FormsModule, FilterPipeModule, PaginationModule, NgxPopperjsModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        FilterPipeModule,
+        PaginationModule,
+        NgxPopperjsModule,
+        DiscountPipeModule,
+    ],
 })
 export class SearchModule {}

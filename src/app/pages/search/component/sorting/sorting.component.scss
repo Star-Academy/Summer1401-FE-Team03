@@ -1,0 +1,54 @@
+.sorting {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    p {
+        display: none;
+
+        font-weight: 700;
+    }
+
+    ul {
+        display: none;
+    }
+
+    .popper-sorting {
+        > button {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+            padding: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .sorting {
+        p {
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width: 670px) {
+    .sorting {
+        ul {
+            display: flex;
+            gap: 1.2rem;
+
+            li {
+                cursor: pointer;
+
+                &.active {
+                    color: var(--primary-color-normal);
+                }
+            }
+        }
+
+        .popper-sorting {
+            display: none;
+        }
+    }
+}

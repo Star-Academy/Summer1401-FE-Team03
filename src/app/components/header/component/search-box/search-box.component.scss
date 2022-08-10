@@ -8,7 +8,7 @@ label {
 
         color: var(--neutral-color-dark);
 
-        width: 30rem;
+        inline-size: 30rem;
 
         font-weight: 400;
 
@@ -28,6 +28,13 @@ label {
 
         &:hover {
             color: var(--primary-color-normal);
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    label {
+        input {
+            inline-size: 100%;
         }
     }
 }

@@ -4,7 +4,7 @@
         ><h3>{{ game.name }}</h3>
     </a>
     <div class="price-box">
-        <p *ngIf="isOnSale" class="discount-amount">-{{ calculateDiscount() }}%</p>
+        <p *ngIf="isOnSale" class="discount-amount">-{{ game.price | discount: game.priceOnSale }}%</p>
 
         <div [class.sale-original-price]="isOnSale" class="original-price">
             <i class="far fa-coins"></i>

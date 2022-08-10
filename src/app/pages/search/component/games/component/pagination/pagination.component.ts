@@ -8,7 +8,7 @@ import {generateRange} from '../../../../../../utils/array.utils';
     templateUrl: './pagination.component.html',
     styleUrls: ['./pagination.component.scss'],
 })
-export class PaginationComponent implements OnChanges {
+export class PaginationComponent implements OnInit {
     @Input() public pageSize: number = 0;
     @Input() public totalCount: number = 0;
 
@@ -18,9 +18,9 @@ export class PaginationComponent implements OnChanges {
 
     public constructor(private gameService: GameService, private filterService: FilterService) {}
 
-    public ngOnChanges(changes: SimpleChanges): void {
-        if (changes.pageSize.currentValue !== 0) {
-            this.allPagesCount = Math.ceil(changes.totalCount.currentValue / changes.pageSize.currentValue);
+    public ngOnInit(): void {
+        if (this.pageSize !== 0) {
+            this.allPagesCount = Math.ceil(this.totalCount / this.pageSize);
             this.shownPages = this.setShownPages();
         }
     }

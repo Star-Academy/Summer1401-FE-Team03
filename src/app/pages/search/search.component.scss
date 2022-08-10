@@ -1,9 +1,7 @@
 .wrapper {
     display: grid;
-    grid-template-areas:
-        "bread-crumb bread-crumb"
-        "filter games";
-    grid-template-columns: 30rem 1fr;
+    grid-template-areas: "filter" "games";
+    grid-template-columns: 1fr;
     align-items: start;
     gap: 2rem;
 
@@ -15,9 +13,6 @@
 
     aside {
         grid-area: filter;
-
-        position: sticky;
-        inset-block-start: 1rem;
     }
 
     main {
@@ -30,29 +25,18 @@
             align-items: center;
             justify-content: space-between;
             gap: 1.2rem;
+        }
+    }
+}
 
-            .sorting {
-                display: flex;
-                align-items: center;
-                gap: 1.2rem;
+@media screen and (min-width: 1050px) {
+    .wrapper {
+        grid-template-areas: "filter games";
+        grid-template-columns: 30rem 1fr;
 
-                p {
-                    font-weight: 700;
-                }
-
-                ul {
-                    display: flex;
-                    gap: 1.2rem;
-
-                    li {
-                        cursor: pointer;
-
-                        &.active {
-                            color: var(--primary-color-normal);
-                        }
-                    }
-                }
-            }
+        aside {
+            position: sticky;
+            inset-block-start: 1rem;
         }
     }
 }

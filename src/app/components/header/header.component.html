@@ -5,7 +5,7 @@
 
     <app-divider-vertical></app-divider-vertical>
 
-    <form (submit)="searchSubmitHandler($event)">
+    <form *ngIf="windowInnerWidth > 850 || mobileSearchBoxShown" (submit)="searchSubmitHandler($event)">
         <app-search-box [(searchWord)]="filterService.options.searchPhrase"></app-search-box>
     </form>
 
@@ -18,6 +18,10 @@
 
     <button>
         <i class="far fa-shopping-cart icon"></i>
+    </button>
+
+    <button class="mobile-search-icon" (click)="mobileSearchBoxShown = !mobileSearchBoxShown">
+        <i class="far fa-magnifying-glass icon"></i>
     </button>
 
     <app-divider-vertical></app-divider-vertical>

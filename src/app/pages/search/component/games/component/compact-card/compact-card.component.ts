@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {GameModel} from '../../../../../../models/game/game.model';
 
 @Component({
@@ -6,14 +6,14 @@ import {GameModel} from '../../../../../../models/game/game.model';
     templateUrl: './compact-card.component.html',
     styleUrls: ['./compact-card.component.scss'],
 })
-export class CompactCardComponent implements OnChanges {
+export class CompactCardComponent implements OnInit {
     @Input() public game!: GameModel;
 
     public isOnSale: boolean = false;
     public navigateToGamePage: string = '';
 
-    public ngOnChanges(changes: SimpleChanges): void {
-        if (changes.game.currentValue.price && changes.game.currentValue.priceOnSale) {
+    public ngOnInit(): void {
+        if (this.game.price && this.game.priceOnSale) {
             this.isOnSale = this.game.price !== this.game.priceOnSale;
             this.navigateToGamePage = `/game/${this.game.id}`;
         }
