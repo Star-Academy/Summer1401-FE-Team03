@@ -27,10 +27,10 @@ export class GameService {
         this.totalCount = response ? response.count : 0;
     }
 
-    public async getGame(id: number): Promise<GameModel | null> {
+    public async getGame(id: number): Promise<GameModel> {
         const response = await this.apiService.GetRequest<GetGameResponseModel>({url: `${API_GAME_ONE}/${id}`});
 
-        return response.game;
+        return response?.game || ({} as GameModel);
     }
 
     public async genres(): Promise<ItemModel[] | null> {

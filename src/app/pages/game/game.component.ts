@@ -9,12 +9,11 @@ import {GameModel} from '../../models/game/game.model';
     styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
-    public game?: GameModel;
+    public game!: GameModel;
 
     public constructor(private route: ActivatedRoute, public gameService: GameService) {}
 
     public async ngOnInit(): Promise<void> {
-        debugger;
         const idString = this.route.snapshot.paramMap.get('id');
         if (idString) {
             const id = parseInt(idString);
@@ -24,7 +23,6 @@ export class GameComponent implements OnInit {
     }
 
     public getImageSource(type: string): string {
-        debugger;
         if (this.game?.cover?.id) {
             return `https://images.igdb.com/igdb/image/upload/t_${type}/${this.game.cover.id}.jpg`;
         } else {
