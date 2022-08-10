@@ -1,12 +1,19 @@
 <div class="hero">
-    <img [src]="getImageSource('screenshot_huge')" alt="" />
+    <img [src]="'screenshot_huge' | imageSource: game.cover.id" alt="" />
 </div>
 
 <div class="wrapper">
-    <div class="cover">
-        <img [src]="getImageSource('cover_big')" alt="" />
-    </div>
+    <div class="cover-wrapper">
+        <div class="cover">
+            <img [src]="'cover_big' | imageSource: game.cover.id" alt="" />
+        </div>
 
+        <div class="tags">
+            <ul>
+                <li *ngFor="let genere of game.genres">{{ genere.name }}</li>
+            </ul>
+        </div>
+    </div>
     <div class="content">
         <div class="group">
             <h1 class="name">{{ game.name }}</h1>
@@ -37,8 +44,22 @@
         </div>
 
         <div class="group">
-            <h2 class="title">Story</h2>
+            <h2 class="title" *ngIf="game.storyline">Story</h2>
             <p class="story">{{ game.storyline }}</p>
         </div>
+    </div>
+</div>
+
+<app-slideshow [items]="game.screenshots" *ngIf="game.screenshots.length > 0"></app-slideshow>
+
+<div class="company">
+    <img [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id" alt="" />
+    <div class="company-info">
+        <h2>{{ game.involvedCompanies[0].company.name }}</h2>
+        <p class="company-type">{{ game.involvedCompanies[0].developer ? 'developer' : 'publisher' }}</p>
+        <a [href]="game.involvedCompanies[0].company.url" *ngIf="game.involvedCompanies.length > 0"
+            >company's website</a
+        >
+        <p>{{ game.involvedCompanies[0].company.description }}</p>
     </div>
 </div>

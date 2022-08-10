@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
-import {SlideshowItem} from '../../../../models/slidshow-item.models';
+import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
+import {SlideshowItem} from '../../models/slidshow-item.models';
+import {GameImageModel} from '../../models/game/dto/gameImage.model';
 
 @Component({
     selector: 'app-slideshow',
@@ -7,12 +8,10 @@ import {SlideshowItem} from '../../../../models/slidshow-item.models';
     styleUrls: ['./slideshow.component.scss'],
 })
 export class SlideshowComponent implements AfterViewInit, OnDestroy {
+    @Input() public items: GameImageModel[] = [];
+
     private readonly INTERVAL_DELAY: number = 4_000;
-    public items: SlideshowItem[] = [
-        {src: 'assets/slides/01-compressed.webp', alt: 'بازی witcher3 و اکسپنشن قلب‌های  سنگی'},
-        {src: 'assets/slides/02-compressed.webp', alt: 'بازی Stray - مربوط به گربه‌ها'},
-        {src: 'assets/slides/03-compressed.webp', alt: 'بازی red dead redemption 2'},
-    ];
+
     public activeIndex: number = 0;
     private interval?: ReturnType<typeof setInterval>;
 

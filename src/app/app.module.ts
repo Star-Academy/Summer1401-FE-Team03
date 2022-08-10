@@ -14,6 +14,7 @@ import {SearchModule} from './pages/search/search.module';
 import {GameService} from './services/api/game/game.service';
 import {FilterService} from './services/filter/filter.service';
 import {SpinnerModule} from './components/spinner/spinner.module';
+import {GameModule} from './pages/game/game.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -28,6 +29,7 @@ import {SpinnerModule} from './components/spinner/spinner.module';
         RegisterModule,
         SearchModule,
         SpinnerModule,
+        GameModule,
     ],
     bootstrap: [AppComponent],
     providers: [ApiService, AuthService, GameService, FilterService],

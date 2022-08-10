@@ -1,7 +1,7 @@
 import {SlideshowComponent} from './slideshow.component';
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {SlideshowItem} from '../../../../models/slidshow-item.models';
+import {SlideshowItem} from '../../models/slidshow-item.models';
 
 describe('SlideshowComponent', () => {
     let fixture: ComponentFixture<SlideshowComponent>;
