@@ -10,7 +10,7 @@
 
         <div class="tags">
             <ul>
-                <li *ngFor="let genere of game.genres">{{ genere.name }}</li>
+                <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
             </ul>
         </div>
 
@@ -36,14 +36,14 @@
             <div class="box">
                 <i class="fas fa-calendar"></i>
                 <div>
-                    <h3>{{ getReleaseDate() }}</h3>
+                    <h3>{{ game.releaseDate | jalaliCalendar }}</h3>
                     <p>تاریخ انتشار</p>
                 </div>
             </div>
 
             <div class="age-rating">
-                <h1>{{ getAgeCategoryName() }}</h1>
-                <p>{{ getAgeRating() }}</p>
+                <h1>{{ game.ageRatings[0].category | ageCategoryType }}</h1>
+                <p>{{ game.ageRatings[0].rating | ageCategory }}</p>
             </div>
         </div>
 
