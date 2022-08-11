@@ -7,6 +7,7 @@ import {LoginComponent} from './pages/auth/login/login.component';
 import {RegisterComponent} from './pages/auth/register/register.component';
 import {SearchComponent} from './pages/search/search.component';
 import {GameComponent} from './pages/game/game.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -15,7 +16,7 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
     {path: 'search', component: SearchComponent},
     {path: 'game/:id', component: GameComponent},
-    {path: '**', redirectTo: ''},
+    {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
