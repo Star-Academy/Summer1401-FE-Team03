@@ -2,15 +2,16 @@ import {SlideshowComponent} from './slideshow.component';
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {GameImageModel} from '../../models/game/dto/gameImage.model';
+import {SlideshowItem} from '../../models/slidshow-item.models';
 
 describe('SlideshowComponent', () => {
     let fixture: ComponentFixture<SlideshowComponent>;
     let component: SlideshowComponent;
     let host: HTMLElement;
 
-    const TEST_IMAGES: GameImageModel[] = [
-        {id: 'test src', height: 250, width: 400},
-        {id: 'test src', height: 100, width: 350},
+    const TEST_IMAGES: SlideshowItem[] = [
+        {image: {id: 'test src', height: 250, width: 400}, title: 'test', description: 'test'},
+        {image: {id: 'test src', height: 100, width: 350}},
     ];
 
     beforeEach(async () => {

@@ -7,6 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {FetchMock, VALID_USER_LOGIN_DATA} from '../mock/fetch.mock';
 import {SpinnerService} from '../components/spinner/service/spinner/spinner.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 describe('AuthGuard', () => {
     let authGuard: AuthGuard;

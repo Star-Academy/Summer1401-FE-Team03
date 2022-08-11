@@ -7,6 +7,7 @@ import {ImageSourceModule} from '../../pipes/image-source/image-source.module';
 import {JalaliCalendarModule} from '../../pipes/jalali-calendar/jalali-calendar.module';
 import {AgeCategoryTypeModule} from '../../pipes/age-category-type/age-category-type.module';
 import {AgeCategoryModule} from '../../pipes/age-category/age-category.module';
+import {ToSlideshowItemModule} from '../../pipes/to-slideshow-item/to-slideshow-item.module';
 
 @NgModule({
     declarations: [GameComponent],
@@ -18,6 +19,7 @@ import {AgeCategoryModule} from '../../pipes/age-category/age-category.module';
         JalaliCalendarModule,
         AgeCategoryTypeModule,
         AgeCategoryModule,
+        ToSlideshowItemModule,
     ],
 })
 export class GameModule {}

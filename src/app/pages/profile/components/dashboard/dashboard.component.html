@@ -1,0 +1,68 @@
+<div class="dashboard">
+    <h1>داشبورد</h1>
+    <form>
+        <fieldset>
+            <legend>اطلاعات شخصی</legend>
+
+            <div class="grid">
+                <label class="image"
+                    ><img [src]="data.avatar" alt="" />
+                    <input type="file" accept="image/webp, image/jpg, image/jpeg" name="image" #imageUpload />
+                    <p><i class="far fa-edit"></i> تغییر عکس</p>
+                </label>
+
+                <label>
+                    <p>نام:</p>
+                    <input type="text" [(ngModel)]="data.firstName" name="firstName" />
+                </label>
+
+                <label>
+                    <p>نام خانوادگی:</p>
+                    <input type="text" [(ngModel)]="data.lastName" name="lastName" />
+                </label>
+
+                <div class="gender">
+                    <p>جنسیت:</p>
+
+                    <label>
+                        <span> مرد </span>
+                        <input type="radio" [value]="1" name="gender" [(ngModel)]="data.gender" />
+                    </label>
+
+                    <label>
+                        <span> زن </span>
+                        <input type="radio" [value]="0" name="gender" [(ngModel)]="data.gender" />
+                    </label>
+                </div>
+
+                <label>
+                    <p>تاریخ تولد:</p>
+                    <input type="date" [(ngModel)]="data.dateOfBirth" name="birthdate" />
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>اطلاعات کاربری</legend>
+
+            <div class="grid">
+                <label>
+                    <p>نام کاربری:</p>
+                    <input type="text" [(ngModel)]="data.username" name="username" />
+                </label>
+
+                <label>
+                    <p>ایمیل:</p>
+                    <input type="email" [(ngModel)]="data.email" name="email" />
+                </label>
+
+                <label>
+                    <p>شماره تلفن:</p>
+                    <input type="text" [(ngModel)]="data.phone" name="phone" />
+                </label>
+            </div>
+        </fieldset>
+
+        <button (click)="formSubmitHandler()">ذخیره تغییرات</button>
+    </form>
+</div>

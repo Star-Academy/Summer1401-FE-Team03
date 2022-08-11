@@ -10,5 +10,5 @@ export interface User {
     lastName: string;
     gender: boolean;
     dateOfBirth: string;
-    avatar: SafeUrl;
+    avatar: string;
 }

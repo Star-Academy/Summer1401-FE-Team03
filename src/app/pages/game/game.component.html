@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<!--<app-slideshow [items]="game.screenshots" *ngIf="game.screenshots.length > 0"></app-slideshow>-->
+<app-slideshow [items]="game.screenshots | toSlideshowItem" *ngIf="game.screenshots.length > 0"></app-slideshow>
 
 <div class="company" *ngIf="game.involvedCompanies[0]">
     <img [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id" alt="" />

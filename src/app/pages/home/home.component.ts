@@ -14,9 +14,14 @@ export class HomeComponent implements OnInit {
     public slideshowImages: SlideshowItem[] = [];
 
     public async ngOnInit(): Promise<void> {
-        await this.gameService.search({offset: 0, pageSize: 3, sort: 1});
+        await this.gameService.search({offset: 0, pageSize: 3, sort: 1}, false);
         this.slideshowImages = this.gameService.games.map((game) => {
-            return {image: game.artworks[0], title: game.name, description: game.summary} as SlideshowItem;
+            return {
+                image: game.artworks[0],
+                gameId: game.id,
+                title: game.name,
+                description: game.summary,
+            } as SlideshowItem;
         });
     }
 

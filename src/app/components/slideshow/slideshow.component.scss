@@ -24,6 +24,59 @@
                 aspect-ratio: 7 / 3;
                 object-fit: cover;
             }
+
+            .content {
+                --p-line-height: 1.8rem;
+
+                background-color: var(--slideshow-content-color-background);
+
+                backdrop-filter: blur(0.5rem);
+
+                direction: ltr;
+
+                position: absolute;
+                inset-block-end: 10rem;
+                inset-inline-start: 10rem;
+
+                inline-size: 40%;
+
+                padding: 2.4rem;
+
+                border-radius: var(--border-radius-normal);
+
+                text-align: left;
+
+                h1,
+                p {
+                    color: var(--neutral-color-lighter);
+                }
+
+                p {
+                    overflow: hidden;
+
+                    block-size: calc(3 * var(--p-line-height));
+
+                    margin-block-start: 1.2rem;
+
+                    line-height: var(--p-line-height);
+                }
+
+                a {
+                    display: inline-block;
+                    color: var(--neutral-color-lighter);
+                    text-decoration: none;
+                    border: 0.1rem solid var(--neutral-color-lighter);
+                    border-radius: var(--border-radius-small);
+                    padding: 0.8rem 1.6rem;
+
+                    margin-block-start: 1.6rem;
+
+                    &:hover {
+                        background-color: var(--neutral-color-lighter);
+                        color: var(--neutral-color-darker);
+                    }
+                }
+            }
         }
     }
 

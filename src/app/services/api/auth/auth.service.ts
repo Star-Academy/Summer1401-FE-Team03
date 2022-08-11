@@ -18,12 +18,7 @@ export class AuthService {
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
 
-    public constructor(
-        private router: Router,
-        private apiService: ApiService,
-        private snackbarService: SnackbarService,
-        private domSanitizer: DomSanitizer
-    ) {}
+    public constructor(private router: Router, private apiService: ApiService) {}
 
     public get token(): string {
         return localStorage.getItem('token') || '';
@@ -46,8 +41,8 @@ export class AuthService {
     }
 
     public async logout(): Promise<void> {
-        localStorage.removeItem('token');
-        this.isUserLoggedIn = false;
+        await this.saveCache(null, false, null);
+        this.cachedUser = null;
         await this.router.navigateByUrl('/');
     }
 
@@ -58,10 +53,7 @@ export class AuthService {
 
         if (!response?.user) return null;
 
-        return {
-            ...response.user,
-            avatar: this.domSanitizer.bypassSecurityTrustUrl(response.user.avatar?.toString()),
-        };
+        return response.user;
     }
 
     public async auth(): Promise<void> {

@@ -2,86 +2,18 @@
     <aside>
         <nav>
             <ul>
-                <li><button>داشبورد</button></li>
-                <li><button>سبد خرید</button></li>
-                <li><button>لیست علاقه مندی ها</button></li>
-                <li><button class="sign-out">خروج</button></li>
+                <li><button (click)="loadContent = 1" [class.active]="loadContent === 1">داشبورد</button></li>
+                <li><button (click)="loadContent = 2" [class.active]="loadContent === 2">سبد خرید</button></li>
+                <li>
+                    <button (click)="loadContent = 3" [class.active]="loadContent === 3">لیست علاقه مندی ها</button>
+                </li>
+                <li><button class="sign-out" (click)="authService.logout()">خروج</button></li>
             </ul>
         </nav>
     </aside>
     <main>
-        <div class="dashboard">
-            <h1>داشبورد</h1>
-            <form>
-                <fieldset>
-                    <legend>اطلاعات شخصی</legend>
-
-                    <div class="grid">
-                        <label class="image"
-                            ><img [src]="data.avatar" alt="" />
-                            <input type="file" accept="image/webp, image/jpg, image/jpeg" name="image" #imageUpload />
-                            <p><i class="far fa-edit"></i> تغییر عکس</p>
-                        </label>
-
-                        <label>
-                            <p>نام:</p>
-                            <input type="text" [(ngModel)]="data.firstName" name="firstName" />
-                        </label>
-
-                        <label>
-                            <p>نام خانوادگی:</p>
-                            <input type="text" [(ngModel)]="data.lastName" name="lastName" />
-                        </label>
-
-                        <div class="gender">
-                            <p>جنسیت:</p>
-
-                            <label>
-                                <span> مرد </span>
-                                <input type="radio" [value]="true" name="gender" [(ngModel)]="data.gender" />
-                            </label>
-
-                            <label>
-                                <span> زن </span>
-                                <input type="radio" [value]="false" name="gender" [(ngModel)]="data.gender" />
-                            </label>
-                        </div>
-
-                        <label>
-                            <p>تاریخ تولد:</p>
-                            <input type="date" [(ngModel)]="data.dateOfBirth" name="birthdate" />
-                        </label>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>اطلاعات کاربری</legend>
-
-                    <div class="grid">
-                        <label>
-                            <p>نام کاربری:</p>
-                            <input type="text" [(ngModel)]="data.username" name="username" />
-                        </label>
-
-                        <label>
-                            <p>ایمیل:</p>
-                            <input type="email" [(ngModel)]="data.email" name="email" />
-                        </label>
-
-                        <label>
-                            <p>شماره تلفن:</p>
-                            <input type="text" [(ngModel)]="data.phone" name="phone" />
-                        </label>
-
-                        <label>
-                            <p>رمز عبور:</p>
-                            <input type="password" [(ngModel)]="data.password" name="password" />
-                        </label>
-                    </div>
-                </fieldset>
-
-                <button (click)="formSubmitHandler()">ذخیره تغییرات</button>
-            </form>
-        </div>
+        <app-dashboard *ngIf="loadContent === 1"></app-dashboard>
+        <app-cart *ngIf="loadContent === 2"></app-cart>
+        <app-wishlist *ngIf="loadContent === 3"></app-wishlist>
     </main>
 </div>

@@ -22,11 +22,11 @@ export class GameService {
         });
     }
 
-    public async search(data: SearchRequestModel): Promise<void> {
+    public async search(data: SearchRequestModel, showSpinnerOnFetch: boolean = true): Promise<void> {
         const response = await this.apiService.PostRequest<SearchResponseModel>({
             url: API_GAME_SEARCH,
             body: data,
-            showSpinnerOnFetch: true,
+            showSpinnerOnFetch: showSpinnerOnFetch,
         });
         this.games = response && Array.isArray(response?.games) ? GameService.responseMapper(response) : [];
         this.totalCount = response ? response.count : 0;
