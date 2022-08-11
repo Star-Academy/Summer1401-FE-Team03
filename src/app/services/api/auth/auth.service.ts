@@ -17,6 +17,10 @@ export class AuthService {
 
     public constructor(private router: Router, private apiService: ApiService) {}
 
+    public get token(): string {
+        return localStorage.getItem('token') || '';
+    }
+
     public async login(data: LoginRequestModel): Promise<boolean> {
         const response = await this.apiService.PostRequest<TokenObjectModel>({body: data, url: API_USER_LOGIN});
         if (!response) return false;
@@ -53,7 +57,7 @@ export class AuthService {
             body: {token: token},
             showSnackbarOnFail: false,
         });
-        this.isUserLoggedIn = !!response?.id;
+        await this.saveCache(this.token, !!response, response?.id ?? null);
     }
 
     private async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
