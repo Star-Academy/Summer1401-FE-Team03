@@ -21,7 +21,7 @@ export class HeaderComponent {
     }
 
     @HostListener('window:resize', ['$event'])
-    onWindowResize(): void {
+    public onWindowResize(): void {
         this.windowInnerWidth = window.innerWidth;
     }
 }

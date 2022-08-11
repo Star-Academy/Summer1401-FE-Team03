@@ -53,7 +53,7 @@ jobs:
 
             - name: 404.html Hack
               if: success()
-              run: cp dist/Summer1401-FE-Team03/index.html dist/ Summer1401-FE-Team03/404.html
+              run: cp dist/Summer1401-FE-Team03/index.html dist/Summer1401-FE-Team03/404.html
 
             - name: Upload Build
               if: success()
