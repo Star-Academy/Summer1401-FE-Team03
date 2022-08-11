@@ -16,7 +16,10 @@
     <div class="rows">
         <a routerLink="/profile">
             <i class="far fa-user"></i>
-            <p class="bold">محمد رسولیان</p>
+            <p class="bold">
+                {{ authService.cachedUser?.firstName }}
+                {{ authService.cachedUser?.lastName }}
+            </p>
             <i class="far fa-angle-left"></i>
         </a>
 
