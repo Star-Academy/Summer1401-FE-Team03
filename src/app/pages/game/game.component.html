@@ -3,7 +3,7 @@
 </div>
 
 <div class="wrapper">
-    <div class="cover-wrapper">
+    <div class="info-wrapper">
         <div class="cover">
             <img [src]="'cover_big' | imageSource: game.cover.id" alt="" />
         </div>
@@ -12,6 +12,10 @@
             <ul>
                 <li *ngFor="let genere of game.genres">{{ genere.name }}</li>
             </ul>
+        </div>
+
+        <div class="cta">
+            <button>افزودن به سبد خرید</button>
         </div>
     </div>
     <div class="content">
@@ -52,7 +56,7 @@
 
 <app-slideshow [items]="game.screenshots" *ngIf="game.screenshots.length > 0"></app-slideshow>
 
-<div class="company">
+<div class="company" *ngIf="game.involvedCompanies[0]">
     <img [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id" alt="" />
     <div class="company-info">
         <h2>{{ game.involvedCompanies[0].company.name }}</h2>
