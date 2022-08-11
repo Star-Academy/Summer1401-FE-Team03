@@ -6,6 +6,7 @@ import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {ApiService} from '../../../services/api/api.service';
 import {FetchMock, VALID_USER_LOGIN_DATA, VALID_USER_REGISTER_DATA} from '../../../mock/fetch.mock';
+import {SpinnerService} from '../../../components/spinner/service/spinner/spinner.service';
 
 describe('RegisterComponent', () => {
     let authServiceMock: AuthService;
@@ -22,7 +23,7 @@ describe('RegisterComponent', () => {
         await TestBed.configureTestingModule({
             declarations: [RegisterComponent],
             imports: [FormsModule, RouterTestingModule],
-            providers: [AuthService, SnackbarService, ApiService],
+            providers: [AuthService, SnackbarService, ApiService, SpinnerService],
         }).compileComponents();
 
         authServiceMock = TestBed.inject(AuthService);

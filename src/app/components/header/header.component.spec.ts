@@ -9,9 +9,12 @@ import {NgxPopperjsModule} from 'ngx-popperjs';
 import {DividerVerticalModule} from '../divider-vertical/divider-vertical.module';
 import {AuthServiceMock} from '../../mock/authService.mock';
 import {VALID_USER_LOGIN_DATA} from '../../mock/fetch.mock';
+import {FilterService} from '../../services/filter/filter.service';
+import {FilterServiceMock} from '../../mock/filterService.mock';
 
 describe('HeaderComponent', () => {
     let authServiceMock: AuthServiceMock;
+    let filterServiceMock: FilterServiceMock;
 
     let fixture: ComponentFixture<HeaderComponent>;
     let component: HeaderComponent;
@@ -19,10 +22,17 @@ describe('HeaderComponent', () => {
 
     beforeEach(() => {
         authServiceMock = new AuthServiceMock();
+        filterServiceMock = new FilterServiceMock();
+
         TestBed.configureTestingModule({
             declarations: [HeaderComponent, HeaderProfileAccessComponent],
             imports: [SearchBoxModule, NgxPopperjsModule, DividerVerticalModule],
-            providers: [{provide: AuthService, useValue: authServiceMock}, ApiService, SnackbarService],
+            providers: [
+                {provide: AuthService, useValue: authServiceMock},
+                ApiService,
+                SnackbarService,
+                {provide: FilterService, useValue: filterServiceMock},
+            ],
         }).compileComponents();
     });
 

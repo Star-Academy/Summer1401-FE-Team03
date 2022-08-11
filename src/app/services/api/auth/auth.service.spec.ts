@@ -5,6 +5,7 @@ import {TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {ApiService} from '../api.service';
+import {SpinnerService} from '../../../components/spinner/service/spinner/spinner.service';
 
 describe('AuthService', () => {
     let service: AuthService;
@@ -14,7 +15,7 @@ describe('AuthService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
-            providers: [AuthService, SnackbarService, ApiService],
+            providers: [AuthService, SnackbarService, ApiService, SpinnerService],
         });
 
         localStorageMock = new LocalStorageMock();
