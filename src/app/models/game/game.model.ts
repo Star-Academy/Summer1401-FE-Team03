@@ -7,6 +7,7 @@ import {WebsiteModel} from './dto/website.model';
 export interface GameModel {
     id: number;
     ageRatings: AgeRatingModel[];
+    artworks: GameImageModel[];
     cover: GameImageModel;
     gameModes: ItemModel[];
     genres: ItemModel[];

@@ -41,6 +41,7 @@ export class ApiService {
         } else {
             response = await fetch(url, init);
         }
+
         const data = await response.json();
 
         if (response.ok) return data as T;

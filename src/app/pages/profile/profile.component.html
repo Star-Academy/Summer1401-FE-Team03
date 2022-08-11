@@ -19,18 +19,18 @@
                     <div class="grid">
                         <label class="image"
                             ><img [src]="data.avatar" alt="" />
-                            <input type="file" accept="image/webp, image/jpg, image/jpeg" [(ngModel)]="data.avatar" />
+                            <input type="file" accept="image/webp, image/jpg, image/jpeg" name="image" #imageUpload />
                             <p><i class="far fa-edit"></i> تغییر عکس</p>
                         </label>
 
                         <label>
                             <p>نام:</p>
-                            <input type="text" [(ngModel)]="data.firstName" />
+                            <input type="text" [(ngModel)]="data.firstName" name="firstName" />
                         </label>
 
                         <label>
                             <p>نام خانوادگی:</p>
-                            <input type="text" [(ngModel)]="data.lastName" />
+                            <input type="text" [(ngModel)]="data.lastName" name="lastName" />
                         </label>
 
                         <div class="gender">
@@ -38,18 +38,18 @@
 
                             <label>
                                 <span> مرد </span>
-                                <input type="radio" value="true" id="male" name="gender" [(ngModel)]="data.gender" />
+                                <input type="radio" [value]="true" name="gender" [(ngModel)]="data.gender" />
                             </label>
 
                             <label>
                                 <span> زن </span>
-                                <input type="radio" value="false" id="female" name="gender" [(ngModel)]="data.gender" />
+                                <input type="radio" [value]="false" name="gender" [(ngModel)]="data.gender" />
                             </label>
                         </div>
 
                         <label>
                             <p>تاریخ تولد:</p>
-                            <input type="date" [(ngModel)]="data.dateOfBirth" />
+                            <input type="date" [(ngModel)]="data.dateOfBirth" name="birthdate" />
                         </label>
                     </div>
                 </fieldset>
@@ -60,22 +60,22 @@
                     <div class="grid">
                         <label>
                             <p>نام کاربری:</p>
-                            <input type="text" [(ngModel)]="data.username" />
+                            <input type="text" [(ngModel)]="data.username" name="username" />
                         </label>
 
                         <label>
                             <p>ایمیل:</p>
-                            <input type="email" [(ngModel)]="data.email" />
+                            <input type="email" [(ngModel)]="data.email" name="email" />
                         </label>
 
                         <label>
                             <p>شماره تلفن:</p>
-                            <input type="text" [(ngModel)]="data.phone" />
+                            <input type="text" [(ngModel)]="data.phone" name="phone" />
                         </label>
 
                         <label>
                             <p>رمز عبور:</p>
-                            <input type="password" [(ngModel)]="data.password" />
+                            <input type="password" [(ngModel)]="data.password" name="password" />
                         </label>
                     </div>
                 </fieldset>

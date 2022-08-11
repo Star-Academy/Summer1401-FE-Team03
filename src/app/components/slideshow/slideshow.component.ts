@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
-import {GameImageModel} from '../../models/game/dto/gameImage.model';
+import {SlideshowItem} from '../../models/slidshow-item.models';
 
 @Component({
     selector: 'app-slideshow',
@@ -7,7 +7,8 @@ import {GameImageModel} from '../../models/game/dto/gameImage.model';
     styleUrls: ['./slideshow.component.scss'],
 })
 export class SlideshowComponent implements AfterViewInit, OnDestroy {
-    @Input() public items: GameImageModel[] = [];
+    @Input() public items: SlideshowItem[] = [];
+    @Input() public showInfo: boolean = false;
 
     private readonly INTERVAL_DELAY: number = 4_000;
 

@@ -1,3 +1,5 @@
+import {SafeUrl} from '@angular/platform-browser';
+
 export interface AlterRequestModel {
     token?: string;
     username?: string;
@@ -8,5 +10,5 @@ export interface AlterRequestModel {
     lastName?: string;
     gender?: boolean;
     dateOfBirth?: Date;
-    avatar?: string;
+    avatar?: SafeUrl;
 }

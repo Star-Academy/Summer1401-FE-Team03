@@ -1,3 +1,5 @@
+import {SafeUrl} from '@angular/platform-browser';
+
 export interface User {
     id: string;
     username: string;
@@ -8,5 +10,5 @@ export interface User {
     lastName: string;
     gender: boolean;
     dateOfBirth: string;
-    avatar: string;
+    avatar: SafeUrl;
 }

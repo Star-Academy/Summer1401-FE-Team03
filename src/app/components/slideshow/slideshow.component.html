@@ -6,7 +6,7 @@
 >
     <ol>
         <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
-            <img [src]="'1080p' | imageSource: item.id" alt="" />
+            <!--            <img [src]="'1080p' | imageSource: item.id" alt="" />-->
         </li>
     </ol>
 
@@ -20,4 +20,6 @@
             <i *ngFor="let _ of items; index as index" [class.active]="index === activeIndex"></i>
         </div>
     </div>
+
+    <div class="content"></div>
 </div>

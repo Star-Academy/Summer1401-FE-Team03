@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
 import {User} from '../../../models/user.model';
 import {GetUserResponseModel} from '../../../models/api/get-user/get-user-response.model';
 import {AlterRequestModel} from '../../../models/api/alter/alter-request.model';
-import {ApiError} from '../../../models/api/error.model';
+import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable()
 export class AuthService {
@@ -17,7 +18,12 @@ export class AuthService {
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService) {}
+    public constructor(
+        private router: Router,
+        private apiService: ApiService,
+        private snackbarService: SnackbarService,
+        private domSanitizer: DomSanitizer
+    ) {}
 
     public get token(): string {
         return localStorage.getItem('token') || '';
@@ -49,7 +55,13 @@ export class AuthService {
         const response = await this.apiService.GetRequest<GetUserResponseModel>({
             url: `${API_USER_ONE}/${this.cachedUserId}`,
         });
-        return response?.user || null;
+
+        if (!response?.user) return null;
+
+        return {
+            ...response.user,
+            avatar: this.domSanitizer.bypassSecurityTrustUrl(response.user.avatar?.toString()),
+        };
     }
 
     public async auth(): Promise<void> {
@@ -83,7 +95,7 @@ export class AuthService {
         // if (!data.username) data.username = this.cachedUser?.username;
         // if (!data.password) data.password = this.cachedUser?.password;
 
-        const response = await this.apiService.PostRequest<ApiError>({
+        const response = await this.apiService.PostRequest({
             url: API_USER_ALTER,
             body: data,
         });

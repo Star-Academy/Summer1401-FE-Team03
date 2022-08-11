@@ -1,16 +1,16 @@
 import {SlideshowComponent} from './slideshow.component';
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {SlideshowItem} from '../../models/slidshow-item.models';
+import {GameImageModel} from '../../models/game/dto/gameImage.model';
 
 describe('SlideshowComponent', () => {
     let fixture: ComponentFixture<SlideshowComponent>;
     let component: SlideshowComponent;
     let host: HTMLElement;
 
-    const TEST_IMAGES: SlideshowItem[] = [
-        {src: 'test src', alt: 'test alt'},
-        {src: 'test src', alt: 'test alt'},
+    const TEST_IMAGES: GameImageModel[] = [
+        {id: 'test src', height: 250, width: 400},
+        {id: 'test src', height: 100, width: 350},
     ];
 
     beforeEach(async () => {
@@ -92,7 +92,7 @@ describe('SlideshowComponent', () => {
     });
 
     it('should init interval on mouseleave', () => {
-        const initIntervalMethodSpy = spyOn(component, 'initInterval');
+        const initIntervalMethodSpy = spyOn(component, 'initNewInterval');
 
         const slideshowElement = fixture.debugElement.query(By.css('.slideshow'));
 
@@ -106,7 +106,7 @@ describe('SlideshowComponent', () => {
     it('should change active index after 4000 milliseconds', fakeAsync(() => {
         let currActiveIndex = component.activeIndex;
 
-        component.initInterval();
+        component.initNewInterval();
 
         tick(4000);
 
