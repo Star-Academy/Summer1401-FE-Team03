@@ -1,1 +1,87 @@
-<p>profile works!</p>
+<div class="wrapper">
+    <aside>
+        <nav>
+            <ul>
+                <li><button>داشبورد</button></li>
+                <li><button>سبد خرید</button></li>
+                <li><button>لیست علاقه مندی ها</button></li>
+                <li><button class="sign-out">خروج</button></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <div class="dashboard">
+            <h1>داشبورد</h1>
+            <form>
+                <fieldset>
+                    <legend>اطلاعات شخصی</legend>
+
+                    <div class="grid">
+                        <label class="image"
+                            ><img [src]="data.avatar" alt="" />
+                            <input type="file" accept="image/webp, image/jpg, image/jpeg" [(ngModel)]="data.avatar" />
+                            <p><i class="far fa-edit"></i> تغییر عکس</p>
+                        </label>
+
+                        <label>
+                            <p>نام:</p>
+                            <input type="text" [(ngModel)]="data.firstName" />
+                        </label>
+
+                        <label>
+                            <p>نام خانوادگی:</p>
+                            <input type="text" [(ngModel)]="data.lastName" />
+                        </label>
+
+                        <div class="gender">
+                            <p>جنسیت:</p>
+
+                            <label>
+                                <span> مرد </span>
+                                <input type="radio" value="true" id="male" name="gender" [(ngModel)]="data.gender" />
+                            </label>
+
+                            <label>
+                                <span> زن </span>
+                                <input type="radio" value="false" id="female" name="gender" [(ngModel)]="data.gender" />
+                            </label>
+                        </div>
+
+                        <label>
+                            <p>تاریخ تولد:</p>
+                            <input type="date" [(ngModel)]="data.dateOfBirth" />
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>اطلاعات کاربری</legend>
+
+                    <div class="grid">
+                        <label>
+                            <p>نام کاربری:</p>
+                            <input type="text" [(ngModel)]="data.username" />
+                        </label>
+
+                        <label>
+                            <p>ایمیل:</p>
+                            <input type="email" [(ngModel)]="data.email" />
+                        </label>
+
+                        <label>
+                            <p>شماره تلفن:</p>
+                            <input type="text" [(ngModel)]="data.phone" />
+                        </label>
+
+                        <label>
+                            <p>رمز عبور:</p>
+                            <input type="password" [(ngModel)]="data.password" />
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button (click)="formSubmitHandler()">ذخیره تغییرات</button>
+            </form>
+        </div>
+    </main>
+</div>

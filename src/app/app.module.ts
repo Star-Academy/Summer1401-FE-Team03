@@ -16,6 +16,7 @@ import {FilterService} from './services/filter/filter.service';
 import {SpinnerModule} from './components/spinner/spinner.module';
 import {GameModule} from './pages/game/game.module';
 import {NotFoundModule} from './pages/not-found/not-found.module';
+import {ProfileModule} from './pages/profile/profile.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -32,6 +33,7 @@ import {NotFoundModule} from './pages/not-found/not-found.module';
         SpinnerModule,
         GameModule,
         NotFoundModule,
+        ProfileModule,
     ],
     bootstrap: [AppComponent],
     providers: [ApiService, AuthService, GameService, FilterService],

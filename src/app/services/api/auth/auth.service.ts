@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../api.service';
-import {API_USER_AUTH, API_USER_LOGIN, API_USER_ONE, API_USER_REGISTER} from '../../../utils/api.utils';
+import {API_USER_ALTER, API_USER_AUTH, API_USER_LOGIN, API_USER_ONE, API_USER_REGISTER} from '../../../utils/api.utils';
 import {LoginRequestModel} from '../../../models/api/login/login-request.model';
 import {RegisterRequestModel} from '../../../models/api/register/register-request.model';
 import {AuthResponseModel} from '../../../models/api/auth/auth-response.model';
@@ -8,6 +8,8 @@ import {TokenObjectModel} from '../../../models/api/token-object.model';
 import {Router} from '@angular/router';
 import {User} from '../../../models/user.model';
 import {GetUserResponseModel} from '../../../models/api/get-user/get-user-response.model';
+import {AlterRequestModel} from '../../../models/api/alter/alter-request.model';
+import {ApiError} from '../../../models/api/error.model';
 
 @Injectable()
 export class AuthService {
@@ -68,5 +70,26 @@ export class AuthService {
         this.cachedUserId = userId;
 
         if (this.cachedUserId) this.cachedUser = await this.fetchLoggedInUserInfo();
+    }
+
+    public async alter(data: AlterRequestModel): Promise<void> {
+        data.token = this.token;
+        // if (!data.avatar) data.avatar = this.cachedUser?.avatar;
+        // if (!data.firstName) data.firstName = this.cachedUser?.firstName;
+        // if (!data.lastName) data.lastName = this.cachedUser?.lastName;
+        // if (!data.email) data.email = this.cachedUser?.email;
+        // if (!data.dateOfBirth) data.dateOfBirth = new Date(this.cachedUser?.dateOfBirth || '');
+        // if (!data.phone) data.phone = this.cachedUser?.phone;
+        // if (!data.username) data.username = this.cachedUser?.username;
+        // if (!data.password) data.password = this.cachedUser?.password;
+
+        const response = await this.apiService.PostRequest<ApiError>({
+            url: API_USER_ALTER,
+            body: data,
+        });
+
+        if (response) {
+            await this.saveCache(this.token, this.isUserLoggedIn, this.cachedUserId);
+        }
     }
 }

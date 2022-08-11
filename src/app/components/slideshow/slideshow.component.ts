@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
-import {SlideshowItem} from '../../models/slidshow-item.models';
 import {GameImageModel} from '../../models/game/dto/gameImage.model';
 
 @Component({
@@ -16,7 +15,7 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     private interval?: ReturnType<typeof setInterval>;
 
     public ngAfterViewInit(): void {
-        this.initInterval();
+        this.initNewInterval();
     }
 
     public ngOnDestroy(): void {
@@ -29,22 +28,24 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
         else if (index >= this.items.length) index = 0;
 
         this.activeIndex = index;
-        this.resetInterval();
+        this.initNewInterval();
     }
 
-    private resetInterval(): void {
-        clearInterval(this.interval);
+    public initNewInterval(): void {
+        this.stopSlideshow();
 
         this.initInterval();
     }
 
-    public initInterval(): void {
+    private initInterval(): void {
+        console.log('start');
         this.interval = setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);
         }, this.INTERVAL_DELAY);
     }
 
     public stopSlideshow(): void {
+        console.log('stop');
         clearInterval(this.interval);
     }
 }

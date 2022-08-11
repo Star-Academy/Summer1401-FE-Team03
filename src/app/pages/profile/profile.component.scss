@@ -1,0 +1,174 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) 3fr;
+    align-items: start;
+    gap: 2rem;
+
+    padding: 0 var(--content-inline-padding);
+
+    aside {
+        nav {
+            background-color: var(--neutral-color-light);
+
+            border-radius: var(--border-radius-small);
+
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    button {
+                        inline-size: 100%;
+
+                        padding: 1.6rem 3.2rem;
+
+                        font-size: var(--font-size-paragraph);
+
+                        text-align: right;
+
+                        &:hover {
+                            background-color: var(--primary-color-normal);
+
+                            color: var(--neutral-color-lighter);
+                        }
+
+                        &.sign-out:hover {
+                            background-color: var(--error-color);
+
+                            color: var(--neutral-color-lighter);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        background-color: var(--neutral-color-light);
+
+        padding: 1.6rem;
+
+        border-radius: var(--border-radius-small);
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 4.8rem;
+
+                button {
+                    background-color: var(--primary-color-normal);
+
+                    color: var(--neutral-color-lighter);
+
+                    &:hover {
+                        background-color: var(--primary-color-dark);
+                    }
+                }
+
+                fieldset {
+                    padding: 1.6rem;
+
+                    border: 0.1rem solid var(--fieldset-border-color);
+                    border-radius: var(--border-radius-normal);
+
+                    legend {
+                        padding-inline: 1.6rem;
+
+                        font-size: var(--font-size-paragraph);
+
+                        font-weight: 700;
+                    }
+
+                    .grid {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        align-items: center;
+                        gap: 2.4rem;
+
+                        .image {
+                            justify-self: start;
+
+                            display: flex;
+                            grid-column: 1 / -1;
+                            align-items: end;
+
+                            img {
+                                background-image: linear-gradient(
+                                    to top right,
+                                    var(--primary-color-dark),
+                                    var(--primary-color-normal)
+                                );
+
+                                width: 10rem;
+                                aspect-ratio: 1 / 1;
+
+                                border-radius: var(--border-radius-small);
+                            }
+
+                            input {
+                                display: none;
+                            }
+
+                            p {
+                                color: var(--primary-color-normal);
+
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: var(--primary-color-dark);
+                                }
+                            }
+                        }
+
+                        .date {
+                            input {
+                                max-inline-size: 20rem;
+                            }
+                        }
+
+                        .gender {
+                            display: flex;
+
+                            gap: 2.4rem;
+
+                            p {
+                                display: inline-block;
+
+                                min-inline-size: 10rem;
+                            }
+
+                            span {
+                                font-size: var(--font-size-paragraph);
+                            }
+                        }
+
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 1.2rem;
+
+                            p {
+                                display: inline-block;
+
+                                min-inline-size: 10rem;
+                            }
+
+                            input {
+                                flex: 1;
+
+                                padding: 0.8rem 1.6rem;
+
+                                border-radius: var(--border-radius-normal);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

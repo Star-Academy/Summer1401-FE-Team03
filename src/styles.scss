@@ -54,6 +54,8 @@ Shadows
     --error-color: hsl(4deg 90% 58%);
     --error-color-dark: hsl(4deg 90% 50%);
 
+    --fieldset-border-color: hsl(210deg 5% 87%);
+
     --box-shadow-hard: 0 0.4rem 1.6rem var(--neutral-color-light);
     --box-shadow-soft: 0 0.1rem 0.8rem var(--neutral-color-light);
 
@@ -179,8 +181,6 @@ body {
     select,
     textarea,
     button,
-    fieldset,
-    legend,
     datalist,
     output,
     option,

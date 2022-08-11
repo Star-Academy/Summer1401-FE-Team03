@@ -2,7 +2,7 @@
     class="slideshow"
     [style.--active-index]="activeIndex"
     (mouseenter)="stopSlideshow()"
-    (mouseleave)="initInterval()"
+    (mouseleave)="initNewInterval()"
 >
     <ol>
         <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
