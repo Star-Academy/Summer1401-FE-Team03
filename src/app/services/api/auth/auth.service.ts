@@ -9,8 +9,6 @@ import {Router} from '@angular/router';
 import {User} from '../../../models/user.model';
 import {GetUserResponseModel} from '../../../models/api/get-user/get-user-response.model';
 import {AlterRequestModel} from '../../../models/api/alter/alter-request.model';
-import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable()
 export class AuthService {

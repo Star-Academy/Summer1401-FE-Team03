@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GameService} from '../../../../../../services/api/game/game.service';
 import {FilterService} from '../../../../../../services/filter/filter.service';
 import {generateRange} from '../../../../../../utils/array.utils';
@@ -51,7 +51,7 @@ export class PaginationComponent implements OnInit {
     }
 
     public async previousPage(): Promise<void> {
-        if (this.selectedPage === 0) return;
+        if (this.selectedPage === 1) return;
 
         this.selectedPage -= 1;
         await this.changePage();
