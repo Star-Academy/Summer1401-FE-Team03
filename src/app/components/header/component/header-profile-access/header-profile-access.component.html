@@ -12,7 +12,7 @@
     </a>
 </ng-template>
 
-<popper-content #popperContent>
+<popper-content #popperContent (click)="popperContent.hide()">
     <div class="rows">
         <a routerLink="/profile">
             <i class="far fa-user"></i>

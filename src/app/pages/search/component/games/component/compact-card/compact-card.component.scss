@@ -1,4 +1,6 @@
 .wrapper {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -13,6 +15,43 @@
 
         &:hover {
             filter: contrast(130%);
+        }
+    }
+
+    .cta {
+        position: absolute;
+
+        inset-block-start: 0.8rem;
+        inset-inline-start: 0.8rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        button {
+            background-color: var(--content-color-background);
+
+            opacity: 0.7;
+
+            backdrop-filter: blur(0.5rem);
+
+            padding: 0.8rem;
+
+            &:hover {
+                opacity: 1;
+
+                i {
+                    color: var(--primary-color-normal);
+                }
+            }
+
+            i {
+                color: var(--neutral-color-lighter);
+
+                font-size: var(--font-size-tertiary-heading);
+
+                line-height: 1;
+            }
         }
     }
 
