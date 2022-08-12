@@ -3,6 +3,7 @@ import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing'
 import {By} from '@angular/platform-browser';
 import {GameImageModel} from '../../models/game/dto/gameImage.model';
 import {SlideshowItem} from '../../models/slidshow-item.models';
+import {FetchMock} from '../../mock/fetch.mock';
 
 describe('SlideshowComponent', () => {
     let fixture: ComponentFixture<SlideshowComponent>;
@@ -74,7 +75,11 @@ describe('SlideshowComponent', () => {
     });
 
     it('should set show class name to first item if active index >= children.length', () => {
+        component.items = TEST_IMAGES;
+
         let ol = host.querySelector('ol');
+        fixture.detectChanges();
+
         let children = ol?.children || [];
 
         testActiveIndex(children, children.length, 0);
