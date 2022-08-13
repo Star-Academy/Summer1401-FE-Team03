@@ -1,7 +1,7 @@
 <img [src]="'cover_big' | imageSource: game.cover.id" alt="" />
 
 <div class="card-body">
-    <a [routerLink]="navigateToGamePage">
+    <a [routerLink]="'/game/' + game.id">
         <h2 [title]="game.name">{{ game.name }}</h2>
     </a>
 
