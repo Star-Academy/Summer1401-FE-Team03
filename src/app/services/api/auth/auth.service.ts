@@ -88,12 +88,9 @@ export class AuthService {
     }
 
     public async alterCredit(credit: number): Promise<boolean> {
-        let newCredit = credit / 1000;
-        let lastCredit: number = this.cachedUser?.credit || 0;
-        let totalCredit = newCredit + lastCredit;
         let data: AlterRequestModel = {
             token: this.token,
-            credit: totalCredit,
+            credit: credit,
         };
 
         const response = await this.apiService.PostRequest({url: API_USER_ALTER, body: data});

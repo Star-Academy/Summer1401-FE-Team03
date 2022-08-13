@@ -8,7 +8,7 @@ export class SumPricesPipe implements PipeTransform {
     public transform(games: GameModel[]): number {
         let sum = 0;
         for (let game of games) {
-            sum += game.price;
+            sum += game.priceOnSale;
         }
         return sum;
     }
