@@ -37,7 +37,12 @@
 
                 <label>
                     <p>تاریخ تولد:</p>
-                    <input type="date" [(ngModel)]="data.dateOfBirth" name="birthdate" />
+                    <input
+                        type="date"
+                        [ngModel]="data.dateOfBirth | date: 'yyyy-MM-dd'"
+                        (ngModelChange)="data.dateOfBirth = $event"
+                        name="birthdate"
+                    />
                 </label>
             </div>
         </fieldset>
