@@ -13,7 +13,7 @@
                 <a [routerLink]="'/game/' + game.id">{{ game.name }}</a>
             </h2>
 
-            <p><i class="far fa-coins icon-special" title="لول کوین"></i> {{ game.price }}</p>
+            <p><i class="far fa-coins icon-special" title="لول کوین"></i> {{ game.priceOnSale }}</p>
 
             <button (click)="cartService.removeFromList(game.id)">
                 <i class="far fa-xmark"></i>

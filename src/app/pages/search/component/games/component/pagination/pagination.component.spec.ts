@@ -106,6 +106,6 @@ describe('PaginationComponent', () => {
         component.pageSize = pageSize;
         component.totalCount = totalCount;
         fixture.detectChanges();
-        component.ngOnInit();
+        // component.ngOnInit();
     }
 });
