@@ -1,0 +1,32 @@
+<button [popper]="popperContent" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
+    <i class="far fa-shopping-cart icon"></i>
+</button>
+
+<popper-content #popperContent>
+    <div class="container">
+        <div class="items">
+            <div class="item">
+                <img src="" alt="" />
+
+                <h2>
+                    <a>GAME TITLE</a>
+                </h2>
+
+                <button>
+                    <i class="far fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">
+            <button class="shopping-cart">سبد خرید</button>
+        </ng-container>
+
+        <ng-template #notLoggedIn>
+            <a routerLink="/login" class="auth">
+                <i class="far fa-arrow-right-to-bracket"></i>
+                <span>ثبت‌نام | ورود</span>
+            </a>
+        </ng-template>
+    </div>
+</popper-content>
