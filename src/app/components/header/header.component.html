@@ -10,7 +10,7 @@
     </form>
 
     <div title="لول کوین" *ngIf="authService.isUserLoggedIn">
-        <span>504</span>
+        <span>{{ authService.cachedUser?.credit || 0 }}</span>
         <button>
             <i class="far fa-coins icon-special"></i>
         </button>

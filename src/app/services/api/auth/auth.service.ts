@@ -76,14 +76,6 @@ export class AuthService {
 
     public async alter(data: AlterRequestModel): Promise<void> {
         data.token = this.token;
-        // if (!data.avatar) data.avatar = this.cachedUser?.avatar;
-        // if (!data.firstName) data.firstName = this.cachedUser?.firstName;
-        // if (!data.lastName) data.lastName = this.cachedUser?.lastName;
-        // if (!data.email) data.email = this.cachedUser?.email;
-        // if (!data.dateOfBirth) data.dateOfBirth = new Date(this.cachedUser?.dateOfBirth || '');
-        // if (!data.phone) data.phone = this.cachedUser?.phone;
-        // if (!data.username) data.username = this.cachedUser?.username;
-        // if (!data.password) data.password = this.cachedUser?.password;
 
         const response = await this.apiService.PostRequest({
             url: API_USER_ALTER,
@@ -93,5 +85,23 @@ export class AuthService {
         if (response) {
             await this.saveCache(this.token, this.isUserLoggedIn, this.cachedUserId);
         }
+    }
+
+    public async alterCredit(credit: number): Promise<boolean> {
+        let newCredit = credit / 1000;
+        let lastCredit: number = this.cachedUser?.credit || 0;
+        let totalCredit = newCredit + lastCredit;
+        let data: AlterRequestModel = {
+            token: this.token,
+            credit: totalCredit,
+        };
+
+        const response = await this.apiService.PostRequest({url: API_USER_ALTER, body: data});
+
+        if (response) {
+            await this.saveCache(this.token, this.isUserLoggedIn, this.cachedUserId);
+            return true;
+        }
+        return false;
     }
 }

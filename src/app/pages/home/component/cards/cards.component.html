@@ -3,7 +3,7 @@
     <div class="fog">
         <div class="cards" #outerContainer>
             <ng-container *ngFor="let game of games" class="inner-container">
-                <app-card></app-card>
+                <app-card [game]="game"></app-card>
             </ng-container>
         </div>
     </div>

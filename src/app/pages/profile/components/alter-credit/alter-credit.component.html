@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <h1>افزایش اعتبار</h1>
+
+    <form>
+        <p>هر هزار تومان معادل یک لول کوین هست</p>
+        <label>
+            <p>مبلغ افزایش را به تومان وارد کنید</p>
+            <input type="number" step="1000" name="credit" [(ngModel)]="credit" />
+        </label>
+
+        <button (click)="payHandler()">پرداخت</button>
+    </form>
+</div>

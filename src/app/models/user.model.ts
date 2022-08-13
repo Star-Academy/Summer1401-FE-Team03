@@ -11,4 +11,5 @@ export interface User {
     gender: boolean;
     dateOfBirth: string;
     avatar: string;
+    credit: number;
 }

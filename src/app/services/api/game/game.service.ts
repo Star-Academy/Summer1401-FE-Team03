@@ -15,8 +15,8 @@ export class GameService {
     public totalCount: number = 0;
     public constructor(private router: Router, private apiService: ApiService) {}
 
-    private static responseMapper(response: SearchResponseModel): GameModel[] {
-        return response.games.map((game) => {
+    private static responseMapper(games: GameModel[]): GameModel[] {
+        return games.map((game) => {
             game.price = game.price / 1000;
             game.priceOnSale = game.priceOnSale / 1000;
             return game;
@@ -29,7 +29,7 @@ export class GameService {
             body: data,
             showSpinnerOnFetch: showSpinnerOnFetch,
         });
-        this.games = response && Array.isArray(response?.games) ? GameService.responseMapper(response) : [];
+        this.games = response && Array.isArray(response?.games) ? GameService.responseMapper(response.games) : [];
         this.totalCount = response ? response.count : 0;
     }
 
@@ -42,7 +42,11 @@ export class GameService {
     public async getUpcoming(): Promise<GameModel[]> {
         const response = await this.apiService.GetRequest<GamesModel>({url: `${API_GAME_UPCOMING}`});
 
-        return response?.games || ({} as GameModel[]);
+        if (response) {
+            return GameService.responseMapper(response.games);
+        } else {
+            return [];
+        }
     }
 
     public async genres(): Promise<ItemModel[] | null> {

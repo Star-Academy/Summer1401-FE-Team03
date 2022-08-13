@@ -11,4 +11,5 @@ export interface AlterRequestModel {
     gender?: boolean;
     dateOfBirth?: Date;
     avatar?: string;
+    credit?: number;
 }

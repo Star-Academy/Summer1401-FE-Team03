@@ -5,7 +5,7 @@
                 <li><button (click)="loadContent = 1" [class.active]="loadContent === 1">داشبورد</button></li>
                 <li><button (click)="loadContent = 2" [class.active]="loadContent === 2">سبد خرید</button></li>
                 <li>
-                    <button (click)="loadContent = 3" [class.active]="loadContent === 3">لیست علاقه مندی ها</button>
+                    <button (click)="loadContent = 3" [class.active]="loadContent === 3">افزایش اعتبار</button>
                 </li>
                 <li><button class="sign-out" (click)="authService.logout()">خروج</button></li>
             </ul>
@@ -14,6 +14,6 @@
     <main>
         <app-dashboard *ngIf="loadContent === 1"></app-dashboard>
         <app-cart *ngIf="loadContent === 2"></app-cart>
-        <app-wishlist *ngIf="loadContent === 3"></app-wishlist>
+        <app-alter-credit *ngIf="loadContent === 3"></app-alter-credit>
     </main>
 </div>

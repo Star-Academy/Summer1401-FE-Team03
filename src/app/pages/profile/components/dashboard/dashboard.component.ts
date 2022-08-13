@@ -22,6 +22,7 @@ export class DashboardComponent {
         username: this.authService.cachedUser?.username,
         password: this.authService.cachedUser?.password,
         gender: this.authService.cachedUser?.gender,
+        credit: this.authService.cachedUser?.credit,
     };
 
     public async formSubmitHandler(): Promise<void> {
