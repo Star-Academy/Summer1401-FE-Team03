@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../api.service';
-import {API_GAME_GENRES, API_GAME_ONE, API_GAME_SEARCH} from '../../../utils/api.utils';
+import {API_GAME_GENRES, API_GAME_ONE, API_GAME_SEARCH, API_GAME_UPCOMING} from '../../../utils/api.utils';
 import {GameModel} from '../../../models/game/game.model';
 import {SearchResponseModel} from '../../../models/api/search/search-response.model';
 import {SearchRequestModel} from '../../../models/api/search/search-request.model';
 import {ItemModel} from '../../../models/game/dto/item.model';
 import {GetGameResponseModel} from '../../../models/api/get-game/get-game-response.model';
+import {GamesModel} from '../../../models/game/games.model';
 
 @Injectable()
 export class GameService {
@@ -36,6 +37,12 @@ export class GameService {
         const response = await this.apiService.GetRequest<GetGameResponseModel>({url: `${API_GAME_ONE}/${id}`});
 
         return response?.game || ({} as GameModel);
+    }
+
+    public async getUpcoming(): Promise<GameModel[]> {
+        const response = await this.apiService.GetRequest<GamesModel>({url: `${API_GAME_UPCOMING}`});
+
+        return response?.games || ({} as GameModel[]);
     }
 
     public async genres(): Promise<ItemModel[] | null> {

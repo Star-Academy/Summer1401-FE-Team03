@@ -2,13 +2,14 @@
     <h2 class="title">بازی‌های مورد انتظار در سال جاری</h2>
     <div class="fog">
         <div class="cards" #outerContainer>
-            <ng-container *ngFor="let card of cards" class="inner-container">
+            <ng-container *ngFor="let game of games" class="inner-container">
                 <app-card
-                    [src]="card.src"
-                    [alt]="card.alt"
-                    [title]="card.title"
-                    [description]="card.description"
-                    [price]="card.price"
+                    [src]="'cover_big' | imageSource: game.cover.id"
+                    alt=""
+                    [title]="game.name"
+                    [description]="game.summary"
+                    [price]="game.price / 1000"
+                    [link]="game.id"
                 ></app-card>
             </ng-container>
         </div>
