@@ -4,6 +4,8 @@
     position: relative;
 
     ol {
+        background-image: linear-gradient(to top right, var(--primary-color-dark), var(--primary-color-normal));
+
         overflow: hidden;
 
         display: flex;
@@ -12,8 +14,6 @@
 
         inline-size: 100%;
         aspect-ratio: 7 / 3;
-
-        background-image: linear-gradient(to top right, var(--primary-color-dark), var(--primary-color-normal));
 
         li {
             flex: 0 0 100%;
@@ -158,6 +158,31 @@
     &:hover {
         .overlay .controls {
             opacity: 1;
+        }
+    }
+}
+
+@media (width < 950px) {
+    .slideshow {
+        ol {
+            aspect-ratio: 4 / 3;
+
+            li {
+                img {
+                    height: 100%;
+
+                    aspect-ratio: 4 / 3;
+                }
+
+                .content {
+                    inset-block-end: 3rem;
+                    inset-inline-start: 3rem;
+
+                    h1 {
+                        font-size: var(--font-size-sub-heading);
+                    }
+                }
+            }
         }
     }
 }

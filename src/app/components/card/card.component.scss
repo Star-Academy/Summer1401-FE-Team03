@@ -47,6 +47,8 @@
         }
 
         > p {
+            direction: ltr;
+
             overflow: hidden;
 
             width: 100%;
@@ -57,7 +59,13 @@
         }
 
         h2 {
-            text-align: end;
+            direction: ltr;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
         }
     }
 
