@@ -1,0 +1,133 @@
+.wrapper {
+    background-color: var(--neutral-color-lighter);
+
+    direction: ltr;
+
+    width: 100%;
+
+    padding: 2.4rem;
+
+    .values {
+        background-color: var(--primary-color-normal);
+
+        color: var(--neutral-color-lighter);
+
+        position: relative;
+
+        block-size: 30%;
+
+        margin-inline: auto;
+
+        padding: 1.2rem;
+
+        border-radius: var(--border-radius-small);
+
+        text-align: center;
+
+        &::before {
+            content: "";
+
+            position: absolute;
+            inset-block-end: -1.2rem;
+            inset-inline: 0;
+
+            block-size: 0;
+            inline-size: 0;
+
+            margin-inline: auto;
+
+            border-top: 1.6rem solid var(--primary-color-normal);
+            border-right: 1.6rem solid transparent;
+            border-left: 1.6rem solid transparent;
+        }
+    }
+
+    .container {
+        position: relative;
+
+        width: 100%;
+
+        margin-top: 30px;
+
+        input[type="range"] {
+            appearance: none;
+
+            background-color: transparent;
+
+            position: absolute;
+            inset-block-start: 0.4rem;
+            inset-inline: 0;
+
+            block-size: 100%;
+
+            margin: auto;
+
+            outline: none;
+
+            pointer-events: none;
+        }
+
+        .slider-track {
+            background-color: var(--neutral-color-normal);
+
+            position: absolute;
+            inset-block: 0;
+
+            block-size: 0.8rem;
+            inline-size: 100%;
+
+            margin-inline: auto;
+
+            border-radius: var(--border-radius-small);
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+
+            background-color: var(--primary-color-normal);
+
+            block-size: 1.6rem;
+            inline-size: 1.6rem;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            pointer-events: auto;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            appearance: none;
+
+            background-color: var(--primary-color-normal);
+
+            block-size: 1.6rem;
+            inline-size: 1.6rem;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            pointer-events: auto;
+        }
+
+        input[type="range"]::-ms-thumb {
+            appearance: none;
+
+            background-color: var(--primary-color-normal);
+
+            block-size: 1.6rem;
+            inline-size: 1.6rem;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            pointer-events: auto;
+        }
+
+        input[type="range"]:active::-webkit-slider-thumb {
+            background-color: var(--primary-color-dark);
+        }
+    }
+}

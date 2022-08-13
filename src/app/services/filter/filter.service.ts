@@ -35,6 +35,7 @@ export class FilterService {
         const filters = this.getFilter();
         await this.gameService.search(filters);
     }
+
     public clearFilter(): void {
         this.options = {
             sort: GamesSortTypes.MOST_RELEVANT,
@@ -42,6 +43,7 @@ export class FilterService {
             offset: this.DEFAULT_OFFSET,
         };
     }
+
     public getFilter(): SearchRequestModel {
         let filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
 
@@ -63,11 +65,29 @@ export class FilterService {
             this.options.filters = {genres: [id]};
         }
     }
+
+    public maxRate(value: number): void {
+        if (this.options.filters) {
+            this.options.filters.maximumRating = value;
+        } else {
+            this.options.filters = {maximumRating: value};
+        }
+    }
+
+    public minRate(value: number): void {
+        if (this.options.filters) {
+            this.options.filters.minimumRating = value;
+        } else {
+            this.options.filters = {minimumRating: value};
+        }
+    }
+
     public deleteGenre(id: number): void {
         const genres = this.options.filters?.genres?.filter((item) => item !== id);
 
         if (this.options.filters && this.options.filters.genres) this.options.filters.genres = genres;
     }
+
     public changeSortType(num: number): void {
         this.options.sort = num;
     }

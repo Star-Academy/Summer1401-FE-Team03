@@ -16,6 +16,7 @@ import {PageSizeComponent} from './component/page-size/page-size.component';
 import {SortingComponent} from './component/sorting/sorting.component';
 import {DiscountPipeModule} from '../../pipes/discount-pipe/discount-pipe.module';
 import {SpinnerService} from '../../components/spinner/service/spinner/spinner.service';
+import { TwoWayRangeComponent } from './component/filter/component/two-way-range/two-way-range.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import {SpinnerService} from '../../components/spinner/service/spinner/spinner.s
         CompactCardComponent,
         PageSizeComponent,
         SortingComponent,
+        TwoWayRangeComponent,
     ],
     imports: [
         CommonModule,
