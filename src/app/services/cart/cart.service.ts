@@ -17,6 +17,7 @@ export class CartService {
         }
         this.cartGames.push(game);
         this.saveToStorage();
+        this.snackbarService.show('بازی به سبد خرید اضافه شد', SnackbarTypes.Success);
     }
 
     public removeFromList(id: number): void {
@@ -24,6 +25,7 @@ export class CartService {
         let index = this.cartGames.findIndex((game) => game.id === id);
         if (index !== -1) {
             this.cartGames.splice(index, 1);
+            this.snackbarService.show('بازی از سبد خرید حذف شد', SnackbarTypes.Error);
         }
         this.saveToStorage();
     }
@@ -31,6 +33,7 @@ export class CartService {
     public clearList(): void {
         localStorage.removeItem('cartGame');
         this.cartGames = [];
+        this.snackbarService.show('سبد خرید خالی شد', SnackbarTypes.Error);
     }
 
     public getAllList(): GameModel[] {
@@ -45,10 +48,12 @@ export class CartService {
 
         return findElement !== undefined;
     }
+
     private saveToStorage(): void {
         localStorage.setItem('cartGames', JSON.stringify(this.cartGames));
     }
-    private getCartGames(): void {
+
+    public getCartGames(): void {
         let gamesStr = localStorage.getItem('cartGames');
         if (gamesStr) {
             this.cartGames = JSON.parse(gamesStr);

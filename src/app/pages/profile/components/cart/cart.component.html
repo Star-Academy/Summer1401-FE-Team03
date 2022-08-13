@@ -1,39 +1,31 @@
 <div class="shopping-cart">
     <h1>سبد خرید</h1>
     <div class="list">
-        <div class="list-item">
-            <img src="" alt="" />
-
-            <h2>
-                <a>GAME TITLE</a>
-            </h2>
-
-            <p><i class="far fa-coins icon-special" title="لول کوین"></i> 324</p>
-
-            <button>
-                <i class="far fa-xmark"></i>
-            </button>
+        <div class="no-game" *ngIf="cartService.cartGames.length === 0">
+            <i class="fa-regular fa-folder-open"></i>
+            <h3>سبد خریدتون خالیه</h3>
         </div>
 
-        <div class="list-item">
-            <img src="" alt="" />
+        <div class="list-item" *ngFor="let game of cartService.cartGames">
+            <img [src]="'thumb' | imageSource: game.cover.id" alt="" />
 
             <h2>
-                <a>GAME TITLE</a>
+                <a [routerLink]="'/game/' + game.id">{{ game.name }}</a>
             </h2>
 
-            <p><i class="far fa-coins icon-special" title="لول کوین"></i> 324</p>
+            <p><i class="far fa-coins icon-special" title="لول کوین"></i> {{ game.price }}</p>
 
-            <button>
+            <button (click)="cartService.removeFromList(game.id)">
                 <i class="far fa-xmark"></i>
             </button>
         </div>
     </div>
     <h3 class="sum">
-        مجموع: <span>1080 <i class="far fa-coins icon-special" title="لول کوین"></i></span>
+        مجموع:
+        <span>{{ cartService.cartGames | sumPrices }} <i class="far fa-coins icon-special" title="لول کوین"></i></span>
     </h3>
     <div class="buttons">
-        <button class="clear">خالی کردن سبد خرید</button>
+        <button class="clear" (click)="cartService.clearList()">خالی کردن سبد خرید</button>
         <button class="purchase">پرداخت</button>
     </div>
 </div>

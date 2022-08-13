@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 2.4rem;
 
+    inline-size: 40rem;
+
     padding: 2.4rem;
 
     .items {
@@ -16,12 +18,26 @@
         overscroll-behavior-y: contain;
         scrollbar-gutter: stable;
 
-        min-inline-size: 28rem;
-        inline-size: max-content;
-
         border: 0.1rem solid var(--neutral-color-normal);
 
         border-radius: var(--border-radius-small);
+
+        .no-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.4rem;
+
+            block-size: 20rem;
+            inline-size: 100%;
+
+            i {
+                color: var(--primary-color-normal);
+
+                font-size: var(--font-size-heading);
+            }
+        }
 
         .item {
             direction: ltr;
