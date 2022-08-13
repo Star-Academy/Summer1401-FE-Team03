@@ -1,13 +1,13 @@
 <form (submit)="registerSubmitHandler()">
     <h2>ثبت نام</h2>
     <label>
-        <span>نام:</span>
-        <input type="text" name="firstName" [(ngModel)]="user.firstName" />
+        <span class="required">نام:</span>
+        <input type="text" name="firstName" [(ngModel)]="user.firstName" required />
     </label>
 
     <label>
-        <span>نام خانوادگی:</span>
-        <input type="text" name="lastName" [(ngModel)]="user.lastName" />
+        <span class="required">نام خانوادگی:</span>
+        <input type="text" name="lastName" [(ngModel)]="user.lastName" required />
     </label>
 
     <label>

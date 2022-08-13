@@ -100,6 +100,16 @@
                     align-items: center;
                     gap: 1.2rem;
 
+                    .required {
+                        &::after {
+                            content: "*";
+
+                            color: var(--tertiary-color-normal);
+
+                            font-size: var(--font-size-sub-heading);
+                        }
+                    }
+
                     p {
                         display: inline-block;
 
