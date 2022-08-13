@@ -10,6 +10,9 @@
 
         list-style: none;
 
+        inline-size: 100%;
+        aspect-ratio: 7 / 3;
+
         li {
             flex: 0 0 100%;
 
@@ -20,7 +23,7 @@
             cursor: pointer;
 
             img {
-                width: 100%;
+                inline-size: 100%;
                 aspect-ratio: 7 / 3;
                 object-fit: cover;
             }

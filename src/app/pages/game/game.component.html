@@ -47,8 +47,8 @@
             </div>
         </div>
 
-        <div class="group">
-            <h2 class="title" *ngIf="game.storyline">Story</h2>
+        <div class="group" *ngIf="game.storyline">
+            <h2 class="title">Story</h2>
             <p class="story">{{ game.storyline }}</p>
         </div>
     </div>
@@ -57,7 +57,11 @@
 <app-slideshow [items]="game.screenshots | toSlideshowItem" *ngIf="game.screenshots.length > 0"></app-slideshow>
 
 <div class="company" *ngIf="game.involvedCompanies[0]">
-    <img [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id" alt="" />
+    <img
+        [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id"
+        alt=""
+        *ngIf="game.involvedCompanies[0].company.logo"
+    />
     <div class="company-info">
         <h2>{{ game.involvedCompanies[0].company.name }}</h2>
         <p class="company-type">{{ game.involvedCompanies[0].developer ? 'developer' : 'publisher' }}</p>

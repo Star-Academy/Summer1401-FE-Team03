@@ -14,6 +14,7 @@ export class GameComponent implements OnInit {
     public constructor(private route: ActivatedRoute, public gameService: GameService) {}
 
     public async ngOnInit(): Promise<void> {
+        window.scrollTo(0, 0);
         const idString = this.route.snapshot.paramMap.get('id');
         if (idString) {
             const id = parseInt(idString);
