@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {GameModel} from '../../../../../../models/game/game.model';
+import {CartService} from '../../../../../../services/cart/cart.service';
 
 @Component({
     selector: 'app-compact-card',
@@ -11,6 +12,8 @@ export class CompactCardComponent implements OnInit {
 
     public isOnSale: boolean = false;
     public navigateToGamePage: string = '';
+
+    public constructor(public cartService: CartService) {}
 
     public ngOnInit(): void {
         if (this.game.price && this.game.priceOnSale) {

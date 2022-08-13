@@ -1,14 +1,20 @@
 import {Injectable} from '@angular/core';
 import {GameModel} from '../../models/game/game.model';
+import {SnackbarService} from '../../components/snackbar/services/snackbar/snackbar.service';
+import {SnackbarTypes} from '../../models/enum/snackbar.types';
 
 @Injectable()
 export class CartService {
     public cartGames: GameModel[] = [];
 
-    public constructor() {}
+    public constructor(private snackbarService: SnackbarService) {}
 
     public addToList(game: GameModel): void {
         this.getCartGames();
+        if (this.has(game)) {
+            this.snackbarService.show('این بازی قبلا اضافه شده', SnackbarTypes.Warning);
+            return;
+        }
         this.cartGames.push(game);
         this.saveToStorage();
     }
@@ -32,6 +38,13 @@ export class CartService {
         return this.cartGames;
     }
 
+    private has(newGame: GameModel): boolean {
+        const findElement = this.cartGames.find((game) => {
+            return game.id === newGame.id;
+        });
+
+        return findElement !== undefined;
+    }
     private saveToStorage(): void {
         localStorage.setItem('cartGames', JSON.stringify(this.cartGames));
     }

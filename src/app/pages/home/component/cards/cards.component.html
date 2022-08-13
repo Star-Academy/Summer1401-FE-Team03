@@ -3,14 +3,7 @@
     <div class="fog">
         <div class="cards" #outerContainer>
             <ng-container *ngFor="let game of games" class="inner-container">
-                <app-card
-                    [src]="'cover_big' | imageSource: game.cover.id"
-                    alt=""
-                    [title]="game.name"
-                    [description]="game.summary"
-                    [price]="game.price / 1000"
-                    [link]="game.id"
-                ></app-card>
+                <app-card></app-card>
             </ng-container>
         </div>
     </div>

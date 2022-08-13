@@ -9,6 +9,6 @@ import {PrimaryButtonModule} from '../../../components/primary-button/primary-bu
 @NgModule({
     declarations: [LoginComponent],
     imports: [CommonModule, FormsModule, RouterModule, PrimaryButtonModule],
-    providers: [SnackbarService],
+    providers: [],
 })
 export class LoginModule {}

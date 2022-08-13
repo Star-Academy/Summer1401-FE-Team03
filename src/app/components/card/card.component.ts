@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CartService} from '../../services/cart/cart.service';
+import {GameModel} from '../../models/game/game.model';
 
 @Component({
     selector: 'app-card',
@@ -6,18 +8,14 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-    @Input() public src: string = 'assets/card-images/no-image.jpg';
-    @Input() public alt: string = 'برای این بازی عکسی قرار داده نشده است.';
-    @Input() public title: string = 'بازی';
-    @Input() public description: string = 'توضیحات بازی';
-    @Input() public price!: number;
-    @Input() public buttonText?: string = 'افزودن به سبد خرید';
-    @Input() public link?: number;
+    @Input() public game!: GameModel;
 
     public readonly DASH: string = '_';
     public navigateToGamePage: string = '';
 
+    public constructor(public cartService: CartService) {}
+
     public ngOnInit(): void {
-        this.navigateToGamePage = `/game/${this.link}`;
+        this.navigateToGamePage = `/game/${this.game.id}`;
     }
 }

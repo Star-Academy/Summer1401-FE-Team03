@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GameService} from '../../services/api/game/game.service';
 import {GameModel} from '../../models/game/game.model';
+import {CartService} from '../../services/cart/cart.service';
 
 @Component({
     selector: 'app-game',
@@ -11,7 +12,11 @@ import {GameModel} from '../../models/game/game.model';
 export class GameComponent implements OnInit {
     public game!: GameModel;
 
-    public constructor(private route: ActivatedRoute, public gameService: GameService) {}
+    public constructor(
+        private route: ActivatedRoute,
+        public gameService: GameService,
+        public cartService: CartService
+    ) {}
 
     public async ngOnInit(): Promise<void> {
         window.scrollTo(0, 0);

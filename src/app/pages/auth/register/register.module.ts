@@ -9,6 +9,6 @@ import {PrimaryButtonModule} from '../../../components/primary-button/primary-bu
 @NgModule({
     declarations: [RegisterComponent],
     imports: [CommonModule, FormsModule, RouterModule, PrimaryButtonModule],
-    providers: [SnackbarService],
+    providers: [],
 })
 export class RegisterModule {}
