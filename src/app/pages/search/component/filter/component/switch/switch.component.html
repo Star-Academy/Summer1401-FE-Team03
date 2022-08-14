@@ -1,4 +1,4 @@
 <label>
     <p>{{ title }}</p>
-    <input type="checkbox" [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" />
+    <input type="checkbox" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" />
 </label>

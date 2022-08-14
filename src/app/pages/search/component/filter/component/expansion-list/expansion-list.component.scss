@@ -13,7 +13,7 @@ header {
 
         font-size: var(--font-size-paragraph);
 
-        transition: 200ms ease-in-out;
+        transition: transform 200ms ease-in-out;
 
         &.expanded {
             transform: rotate(-90deg);

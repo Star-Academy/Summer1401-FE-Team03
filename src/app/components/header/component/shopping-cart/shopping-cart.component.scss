@@ -90,12 +90,18 @@
 
         inline-size: 100%;
 
+        padding-block: 1.6rem;
+
         border-radius: var(--border-radius-small);
 
         font-size: var(--font-size-paragraph);
 
+        text-align: center;
+
         &:hover {
             background-color: var(--primary-color-dark);
+
+            text-decoration: none;
         }
     }
 

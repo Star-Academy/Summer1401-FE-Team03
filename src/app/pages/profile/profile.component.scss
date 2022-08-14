@@ -17,7 +17,10 @@
                 flex-direction: column;
 
                 li {
+                    a,
                     button {
+                        display: inline-block;
+
                         inline-size: 100%;
 
                         padding: 1.6rem 3.2rem;
@@ -38,6 +41,8 @@
                             background-color: var(--primary-color-light);
 
                             color: var(--neutral-color-lighter);
+
+                            text-decoration: none;
                         }
 
                         &.sign-out:hover {

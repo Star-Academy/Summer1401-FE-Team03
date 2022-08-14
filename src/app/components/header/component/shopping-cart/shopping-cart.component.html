@@ -24,13 +24,13 @@
         </div>
 
         <ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">
-            <button class="shopping-cart" routerLink="/profile/credit">سبد خرید</button>
+            <a class="shopping-cart" routerLink="/profile/shopping-cart">سبد خرید</a>
         </ng-container>
 
         <ng-template #notLoggedIn>
             <a routerLink="/login" class="auth">
                 <i class="far fa-arrow-right-to-bracket"></i>
-                <span>ثبت‌نام | ورود</span>
+                <span>ثبت ‌نام | ورود</span>
             </a>
         </ng-template>
     </div>

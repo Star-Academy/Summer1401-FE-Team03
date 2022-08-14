@@ -13,11 +13,14 @@ export class ProfileComponent {
     public section?: string;
 
     public constructor(public authService: AuthService, private route: ActivatedRoute) {
-        this.section = route.snapshot.params.section;
-        console.log(this.section);
+        this.switchToProfileComponents();
+    }
+
+    private switchToProfileComponents(): void {
+        this.section = this.route.snapshot.params.section;
 
         switch (this.section) {
-            case 'orders':
+            case 'shopping-cart':
                 this.loadContent = 2;
                 break;
             case 'credit':
