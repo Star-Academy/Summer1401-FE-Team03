@@ -4,10 +4,10 @@ import {PaginationComponent} from './pagination.component';
 import {GameService} from '../../../../../../services/api/game/game.service';
 import {FilterService} from '../../../../../../services/filter/filter.service';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ApiService} from '../../../../../../services/api/api.service';
 import {SnackbarService} from '../../../../../../components/snackbar/services/snackbar/snackbar.service';
 import {SpinnerService} from '../../../../../../components/spinner/service/spinner/spinner.service';
 import {GameServiceMock} from '../../../../../../mock/gameService.mock';
+import {SimpleChange} from '@angular/core';
 
 describe('PaginationComponent', () => {
     let component: PaginationComponent;
@@ -41,14 +41,13 @@ describe('PaginationComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should show correct pagination numbers - pages = 5', () => {
-        const result = component.setShownPages();
-        expect(result).toEqual([1, 2, 3, 4]);
-    });
-
     it('should show correct pagination numbers - pages > 5', () => {
         component.selectedPage = 4;
         fixture.detectChanges();
+
+        component.ngOnChanges({
+            name: new SimpleChange(null, component.allPagesCount, true),
+        });
 
         const result = component.setShownPages();
         expect(result[0]).toEqual(2);
@@ -57,6 +56,10 @@ describe('PaginationComponent', () => {
     it('should show correct pagination numbers - selected page beyond pagination', () => {
         component.selectedPage = 12;
         fixture.detectChanges();
+
+        component.ngOnChanges({
+            name: new SimpleChange(null, component.allPagesCount, true),
+        });
 
         const result = component.setShownPages();
         expect(result).toEqual([6, 7, 8, 9, 10]);
@@ -72,6 +75,11 @@ describe('PaginationComponent', () => {
 
     it('should take pagination to next page - on end of pagination', () => {
         component.goToPage(10);
+
+        component.ngOnChanges({
+            name: new SimpleChange(null, component.allPagesCount, true),
+        });
+
         component.nextPage();
         fixture.detectChanges();
 
