@@ -15,17 +15,19 @@ import {LocalStorageMock} from '../../mock/localStorage.mock';
 import {FetchMock, VALID_GAMES_DATA} from '../../mock/fetch.mock';
 import {host} from '@angular-devkit/build-angular/src/test-utils';
 import {ToSlideshowItemModule} from '../../pipes/to-slideshow-item/to-slideshow-item.module';
+import {GameServiceMock} from '../../mock/gameService.mock';
 
 describe('GameComponent', () => {
     let component: GameComponent;
     let fixture: ComponentFixture<GameComponent>;
     let localStorageMock: LocalStorageMock;
-    let fetchMock: FetchMock;
+    let gameServiceMock: GameServiceMock;
     let host: HTMLElement;
     let routerMock: RouterTestingModule;
 
     beforeEach(async () => {
         localStorageMock = new LocalStorageMock();
+        gameServiceMock = new GameServiceMock();
 
         await TestBed.configureTestingModule({
             declarations: [GameComponent],
@@ -37,7 +39,12 @@ describe('GameComponent', () => {
                 AgeCategoryTypeModule,
                 ToSlideshowItemModule,
             ],
-            providers: [GameService, ApiService, CartService, SnackbarService, SpinnerService],
+            providers: [
+                {provide: GameService, useValue: gameServiceMock},
+                CartService,
+                SnackbarService,
+                SpinnerService,
+            ],
         }).compileComponents();
 
         routerMock = TestBed.inject(RouterTestingModule);
@@ -45,9 +52,6 @@ describe('GameComponent', () => {
         spyOn(localStorage, 'getItem').and.callFake(localStorageMock.getItem.bind(localStorageMock));
         spyOn(localStorage, 'setItem').and.callFake(localStorageMock.setItem.bind(localStorageMock));
         spyOn(localStorage, 'removeItem').and.callFake(localStorageMock.removeItem.bind(localStorageMock));
-
-        fetchMock = new FetchMock();
-        spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
     });
 
     beforeEach(() => {
@@ -66,9 +70,5 @@ describe('GameComponent', () => {
         const pSummery = host.querySelector('.content p');
 
         expect(pSummery?.innerHTML).toBe(VALID_GAMES_DATA[0].summary);
-    });
-
-    it('should have id params', () => {
-        routerMock;
     });
 });
