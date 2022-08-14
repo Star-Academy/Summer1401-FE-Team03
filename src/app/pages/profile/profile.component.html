@@ -3,19 +3,25 @@
         <nav>
             <ul>
                 <li>
-                    <a (click)="loadContent = 1" [class.active]="loadContent === 1" routerLink="/profile"> داشبورد </a>
-                </li>
-                <li>
-                    <a (click)="loadContent = 2" [class.active]="loadContent === 2" routerLink="/profile/shopping-cart">
-                        سبد خرید
+                    <a (click)="loadContent = 1" [class.active]="loadContent === 1" routerLink="/profile"
+                        ><i class="far fa-user"></i><span>داشبورد</span>
                     </a>
                 </li>
                 <li>
-                    <a (click)="loadContent = 3" [class.active]="loadContent === 3" routerLink="/profile/credit">
-                        افزایش اعتبار
+                    <a (click)="loadContent = 2" [class.active]="loadContent === 2" routerLink="/profile/shopping-cart"
+                        ><i class="far fa-shopping-cart"></i><span>سبد خرید</span>
                     </a>
                 </li>
-                <li><button class="sign-out" (click)="authService.logout()">خروج</button></li>
+                <li>
+                    <a (click)="loadContent = 3" [class.active]="loadContent === 3" routerLink="/profile/credit"
+                        ><i class="far fa-coins"></i><span>افزایش اعتبار</span></a
+                    >
+                </li>
+                <li>
+                    <button class="sign-out" (click)="authService.logout()">
+                        <i class="far fa-arrow-right-from-bracket"></i><span>خروج</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </aside>

@@ -26,12 +26,14 @@
         .clear {
             flex: 1;
 
-            background-color: var(--error-color);
+            color: var(--error-color);
 
-            color: var(--neutral-color-lighter);
+            border: 1px solid var(--error-color);
 
             &:hover {
-                background-color: var(--error-color-dark);
+                background-color: var(--error-color);
+
+                color: var(--neutral-color-lighter);
             }
         }
     }

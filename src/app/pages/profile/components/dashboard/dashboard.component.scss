@@ -12,6 +12,10 @@
             border: 1px solid var(--neutral-color-normal);
         }
 
+        .ltr {
+            direction: ltr;
+        }
+
         button {
             background-color: var(--primary-color-normal);
 

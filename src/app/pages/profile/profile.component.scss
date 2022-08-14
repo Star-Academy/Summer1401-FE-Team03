@@ -15,11 +15,14 @@
             ul {
                 display: flex;
                 flex-direction: column;
+                gap: 1.2rem;
 
                 li {
                     a,
                     button {
-                        display: inline-block;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.8rem;
 
                         inline-size: 100%;
 
@@ -38,9 +41,9 @@
                         }
 
                         &:hover {
-                            background-color: var(--primary-color-light);
+                            background-color: var(--primary-color-lightest);
 
-                            color: var(--neutral-color-lighter);
+                            color: var(--primary-color-darker);
 
                             text-decoration: none;
                         }
