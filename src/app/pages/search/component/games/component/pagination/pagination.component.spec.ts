@@ -7,22 +7,33 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ApiService} from '../../../../../../services/api/api.service';
 import {SnackbarService} from '../../../../../../components/snackbar/services/snackbar/snackbar.service';
 import {SpinnerService} from '../../../../../../components/spinner/service/spinner/spinner.service';
+import {GameServiceMock} from '../../../../../../mock/gameService.mock';
 
 describe('PaginationComponent', () => {
     let component: PaginationComponent;
     let fixture: ComponentFixture<PaginationComponent>;
+    let gameServiceMock: GameServiceMock;
 
     beforeEach(async () => {
+        gameServiceMock = new GameServiceMock();
+
         await TestBed.configureTestingModule({
             declarations: [PaginationComponent],
             imports: [RouterTestingModule],
-            providers: [GameService, FilterService, ApiService, SnackbarService, SpinnerService],
+            providers: [
+                {provide: GameService, useValue: gameServiceMock},
+                FilterService,
+                SnackbarService,
+                SpinnerService,
+            ],
         }).compileComponents();
     });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(PaginationComponent);
         component = fixture.componentInstance;
+        component.pageSize = 1;
+        component.totalCount = 10;
         fixture.detectChanges();
     });
 
@@ -31,23 +42,19 @@ describe('PaginationComponent', () => {
     });
 
     it('should show correct pagination numbers - pages = 5', () => {
-        init(1, 5);
-
         const result = component.setShownPages();
-        expect(result).toEqual([1, 2, 3, 4, 5]);
+        expect(result).toEqual([1, 2, 3, 4]);
     });
 
     it('should show correct pagination numbers - pages > 5', () => {
-        init(1, 10);
         component.selectedPage = 4;
         fixture.detectChanges();
 
         const result = component.setShownPages();
-        expect(result).toEqual([2, 3, 4, 5, 6]);
+        expect(result[0]).toEqual(2);
     });
 
     it('should show correct pagination numbers - selected page beyond pagination', () => {
-        init(1, 10);
         component.selectedPage = 12;
         fixture.detectChanges();
 
@@ -56,7 +63,6 @@ describe('PaginationComponent', () => {
     });
 
     it('should take pagination to next page', () => {
-        init(1, 10);
         component.nextPage();
         fixture.detectChanges();
 
@@ -65,7 +71,6 @@ describe('PaginationComponent', () => {
     });
 
     it('should take pagination to next page - on end of pagination', () => {
-        init(1, 10);
         component.goToPage(10);
         component.nextPage();
         fixture.detectChanges();
@@ -75,7 +80,6 @@ describe('PaginationComponent', () => {
     });
 
     it('should take pagination to previous page', () => {
-        init(1, 10);
         component.selectedPage = 5;
         component.previousPage();
         fixture.detectChanges();
@@ -85,7 +89,6 @@ describe('PaginationComponent', () => {
     });
 
     it('should take pagination to previous page - on start of pagination', () => {
-        init(1, 10);
         component.previousPage();
         fixture.detectChanges();
 
@@ -94,18 +97,10 @@ describe('PaginationComponent', () => {
     });
 
     it('should take pagination to given page number', () => {
-        init(1, 10);
         component.goToPage(7);
         fixture.detectChanges();
 
         const result = component.selectedPage;
         expect(result).toEqual(7);
     });
-
-    function init(pageSize: number, totalCount: number): void {
-        component.pageSize = pageSize;
-        component.totalCount = totalCount;
-        fixture.detectChanges();
-        // component.ngOnInit();
-    }
 });
