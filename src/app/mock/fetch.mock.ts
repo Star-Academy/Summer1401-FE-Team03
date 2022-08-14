@@ -1,7 +1,19 @@
 import {LoginRequestModel} from '../models/api/login/login-request.model';
-import {API_GAME_SEARCH, API_USER_AUTH, API_USER_LOGIN, API_USER_REGISTER} from '../utils/api.utils';
+import {
+    API_GAME_GENRES,
+    API_GAME_ONE,
+    API_GAME_SEARCH,
+    API_GAME_UPCOMING,
+    API_USER_ALTER,
+    API_USER_AUTH,
+    API_USER_LOGIN,
+    API_USER_REGISTER,
+} from '../utils/api.utils';
 import {RegisterRequestModel} from '../models/api/register/register-request.model';
 import {GameModel} from '../models/game/game.model';
+import {User} from '../models/user.model';
+import {ItemModel} from '../models/game/dto/item.model';
+import {AlterRequestModel} from '../models/api/alter/alter-request.model';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';
@@ -19,6 +31,19 @@ export const VALID_USER_REGISTER_DATA: RegisterRequestModel = {
     lastName: 'faraji',
 };
 
+export const VALID_USER_DATA: User = {
+    id: '1',
+    firstName: 'ata',
+    lastName: 'faraji',
+    avatar: 'test avatar',
+    email: 'ata@gmail.com',
+    gender: true,
+    phone: '09124437644',
+    password: '1234',
+    username: 'ata',
+    dateOfBirth: new Date('2022/23/2').toDateString(),
+    credit: 1000,
+};
 export const VALID_GAMES_DATA: GameModel[] = [
     {
         id: 1,
@@ -151,6 +176,13 @@ export const VALID_GAMES_DATA: GameModel[] = [
         websites: [],
     },
 ];
+export const VALID_GENRES: ItemModel[] = [
+    {id: 1, name: 'genre1'},
+    {id: 2, name: 'genre2'},
+    {id: 3, name: 'genre3'},
+    {id: 4, name: 'genre4'},
+];
+
 export const TEST_URL = '/test';
 
 export class FetchMock {
@@ -166,6 +198,10 @@ export class FetchMock {
         return new Response(JSON.stringify({id: 1}), {status: 200});
     }
 
+    private static get emptyObject(): Response {
+        return new Response(JSON.stringify({}), {status: 200});
+    }
+
     private static get errorResponse(): Response {
         return new Response(JSON.stringify({message: '', trace: ''}), {status: 500});
     }
@@ -175,13 +211,26 @@ export class FetchMock {
     }
 
     private static get searchedGame(): Response {
-        let games: GameModel[];
-        return new Response(JSON.stringify(VALID_GAMES_DATA), {status: 200});
+        return new Response(JSON.stringify({games: VALID_GAMES_DATA}), {status: 200});
+    }
+
+    private static get genres(): Response {
+        return new Response(JSON.stringify(VALID_GENRES), {status: 200});
+    }
+
+    private static get game(): Response {
+        return new Response(JSON.stringify({game: VALID_GAMES_DATA[0]}), {status: 200});
+    }
+
+    private static get upComings(): Response {
+        return new Response(JSON.stringify({games: VALID_GAMES_DATA}), {status: 200});
     }
 
     public async fetch(url: RequestInfo, init?: RequestInit): Promise<Response> {
         if (!init || init.method === 'get') {
-            if (url.toString().endsWith(TEST_URL)) return FetchMock.testPostResponse;
+            if (url === API_GAME_ONE) return FetchMock.game;
+            else if (url === API_GAME_UPCOMING) return FetchMock.upComings;
+            else if (url.toString().endsWith(TEST_URL)) return FetchMock.testPostResponse;
         } else if (init && init.body && init.method === 'post') {
             const body = JSON.parse(init.body as any);
 
@@ -190,7 +239,9 @@ export class FetchMock {
             else if (url === API_USER_REGISTER && FetchMock.isEqual(body, VALID_USER_REGISTER_DATA))
                 return FetchMock.tokenObjectResponse;
             else if (url === API_USER_AUTH && body.token === VALID_TOKEN) return FetchMock.IdObjectResponse;
+            else if (url === API_USER_ALTER && body.token === VALID_TOKEN) return FetchMock.emptyObject;
             else if (url === API_GAME_SEARCH) return FetchMock.searchedGame;
+            else if (url === API_GAME_GENRES) return FetchMock.genres;
             else if (url === TEST_URL) return FetchMock.testPostResponse;
         }
 

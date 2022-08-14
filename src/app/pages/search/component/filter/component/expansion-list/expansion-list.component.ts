@@ -39,8 +39,8 @@ export class ExpansionListComponent {
         this.list?.nativeElement.classList.toggle('flip');
         const last = this.list?.nativeElement.getBoundingClientRect();
 
-        const deltaX = first.left - last.left;
-        const deltaY = first.top - last.top;
+        const deltaX = first?.left ?? 0 - last?.left ?? 0;
+        const deltaY = first?.top ?? 0 - last?.top ?? 0;
 
         // prettier-ignore
         this.list?.nativeElement.animate([

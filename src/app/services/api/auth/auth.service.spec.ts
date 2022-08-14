@@ -11,6 +11,7 @@ describe('AuthService', () => {
     let service: AuthService;
     let localStorageMock: LocalStorageMock;
     let fetchMock: FetchMock;
+    let apiService: ApiService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -27,6 +28,7 @@ describe('AuthService', () => {
         spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
 
         service = TestBed.inject(AuthService);
+        apiService = TestBed.inject(ApiService);
     });
 
     it('should be created', () => {
@@ -80,6 +82,26 @@ describe('AuthService', () => {
         await service.logout();
 
         expect(service.isUserLoggedIn).toBeFalse();
+    });
+
+    it('should alter credit', async () => {
+        await service.login(VALID_USER_LOGIN_DATA);
+        const result = await service.alterCredit(1000);
+
+        expect(result).toBeTrue();
+    });
+
+    it('should not alter credit', async () => {
+        const result = await service.alterCredit(1000);
+
+        expect(result).toBeFalse();
+    });
+
+    it('should not alter user', async () => {
+        const fetchSpy = spyOn(apiService, 'PostRequest');
+        await service.alter({username: '12'});
+
+        expect(fetchSpy).toHaveBeenCalled();
     });
 
     // [SECTION] Utility Functions

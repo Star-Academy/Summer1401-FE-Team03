@@ -28,4 +28,26 @@ describe('AlterCreditComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should pay', async () => {
+        component.credit = 1000;
+        fixture.detectChanges();
+
+        const alterCreditSpy = spyOn(authServiceMock, 'alterCredit');
+
+        await component.payHandler();
+
+        expect(alterCreditSpy).toHaveBeenCalled();
+    });
+
+    it('should not pay', async () => {
+        component.credit = 0;
+        fixture.detectChanges();
+
+        const alterCreditSpy = spyOn(authServiceMock, 'alterCredit');
+
+        await component.payHandler();
+
+        expect(alterCreditSpy).not.toHaveBeenCalled();
+    });
 });

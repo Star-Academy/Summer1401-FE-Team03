@@ -24,4 +24,28 @@ describe('GameService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
+
+    it('should search games', async () => {
+        await service.search({pageSize: 12, sort: 2, offset: 0}, false);
+
+        expect(service.games.length).not.toBe(0);
+    });
+
+    it('should get genres', async () => {
+        const genres = await service.genres();
+
+        expect(genres?.length).not.toBe(0);
+    });
+
+    it('should get game', async () => {
+        const game = await service.getGame(1);
+
+        expect(game).toBeTruthy();
+    });
+
+    it('should get upcoming', async () => {
+        const games = await service.getUpcoming();
+
+        expect(games.length).not.toBe(0);
+    });
 });

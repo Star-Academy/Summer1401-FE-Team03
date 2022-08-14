@@ -31,4 +31,9 @@ describe('FilterComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should expansion list not to be 0', async () => {
+        await component.ngOnInit();
+        expect(component.expansionItems.length).not.toBe(0);
+    });
 });
