@@ -25,14 +25,4 @@ describe('CardsComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-    it('should make two app-card', () => {
-        component.games = VALID_GAMES_DATA;
-
-        fixture.detectChanges();
-
-        const appCards = fixture.debugElement.queryAll(By.css('app-card'));
-
-        // expect(appCards.length).toEqual(component.cards.length);
-    });
 });
