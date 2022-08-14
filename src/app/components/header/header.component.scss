@@ -38,14 +38,14 @@ header {
     }
 
     form {
-        background-color: var(--neutral-color-lighter);
+        background-color: var(--neutral-color-light);
 
         margin-inline-end: auto;
 
         padding: 0.8rem 1.6rem;
 
-        border: 1px solid var(--neutral-color-light);
-        border-radius: 999rem;
+        border: 1px solid var(--neutral-color-normal);
+        border-radius: var(--border-radius-normal);
 
         &:focus-within {
             border: 1px solid var(--primary-color-normal);

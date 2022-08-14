@@ -6,13 +6,11 @@
 >
     <ol>
         <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
-            <img [src]="'1080p' | imageSource: item.image.id" alt="" />
+            <a routerLink="/game/{{ item.gameId }}"><img [src]="'1080p' | imageSource: item.image.id" alt="" /></a>
             <div *ngIf="item.title" class="content">
                 <h1>{{ item.title }}</h1>
 
                 <p>{{ item.description }}</p>
-
-                <a routerLink="/game/{{ item.gameId }}"> اطلاعات بیشتر </a>
             </div>
         </li>
     </ol>

@@ -9,23 +9,6 @@ section {
 }
 
 .fog {
-    position: relative;
-
-    &::after {
-        content: "";
-
-        background-image: linear-gradient(to right, var(--neutral-color-lighter) 0, hsl(210deg 40% 98% / 0%));
-
-        position: absolute;
-        inset-block-start: 0;
-        inset-inline-end: 0;
-
-        block-size: 110%;
-        inline-size: 15%;
-
-        transform: translateY(-5%);
-    }
-
     .cards {
         overflow: hidden;
 

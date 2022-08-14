@@ -43,6 +43,8 @@
             input {
                 padding: 0.8rem;
 
+                border: 1px solid var(--neutral-color-normal);
+
                 border-radius: var(--border-radius-normal);
 
                 &::placeholder {
