@@ -1,8 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {BreadCrumbModel} from './models/bread-crumb.model';
 import {GameService} from '../../services/api/game/game.service';
 import {FilterService} from '../../services/filter/filter.service';
-import {GamesSortTypes} from '../../models/enum/games-sort.types';
 
 @Component({
     selector: 'app-search',

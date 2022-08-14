@@ -21,8 +21,10 @@ export class FilterService {
         private gameService: GameService
     ) {}
 
-    public async navigateToSearchPage(): Promise<void> {
+    public async navigateToSearchPage(resetOffset: boolean = true): Promise<void> {
         const isSearchPage = this.router.url.includes('/search');
+
+        if (resetOffset) this.options.offset = this.DEFAULT_OFFSET;
 
         await this.router.navigate(['/', 'search'], {
             queryParams: {filter: JSON.stringify(this.options)},
@@ -47,8 +49,12 @@ export class FilterService {
     public getFilter(): SearchRequestModel {
         let filter = this.activatedRoute.snapshot.queryParamMap.get('filter');
 
-        let searchRequestObject = {} as SearchRequestModel;
-        if (filter) searchRequestObject = JSON.parse(filter) as SearchRequestModel;
+        if (!filter) {
+            this.clearFilter();
+            return this.options;
+        }
+
+        let searchRequestObject = JSON.parse(filter) as SearchRequestModel;
 
         this.options = searchRequestObject;
         return searchRequestObject;

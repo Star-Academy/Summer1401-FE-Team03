@@ -5,7 +5,11 @@
 
     <i class="far fa-chevron-right" (click)="previousPage()"></i>
 
-    <div *ngFor="let page of shownPages" [class.selected]="page === selectedPage" (click)="goToPage(page)">
+    <div
+        *ngFor="let page of shownPages"
+        [class.selected]="page === filterService.options.offset + 1"
+        (click)="goToPage(page)"
+    >
         <p>{{ page }}</p>
     </div>
 

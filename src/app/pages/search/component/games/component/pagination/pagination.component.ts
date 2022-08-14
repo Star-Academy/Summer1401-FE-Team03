@@ -12,20 +12,17 @@ export class PaginationComponent implements OnChanges {
     @Input() public pageSize: number = 0;
     @Input() public totalCount: number = 0;
 
-    public selectedPage: number = 1;
     public allPagesCount: number = 0;
-    public shownPages: number[] = [];
 
-    public constructor(private gameService: GameService, private filterService: FilterService) {}
+    public constructor(private gameService: GameService, public filterService: FilterService) {}
 
     public ngOnChanges(changes: SimpleChanges): void {
         if (this.pageSize !== 0) {
             this.allPagesCount = Math.ceil(this.totalCount / this.pageSize);
-            this.shownPages = this.setShownPages();
         }
     }
 
-    public setShownPages(): number[] {
+    public get shownPages(): number[] {
         let start = 1;
         let end = this.allPagesCount;
 
@@ -33,7 +30,7 @@ export class PaginationComponent implements OnChanges {
             return generateRange(start, end, 1);
         }
 
-        start = Math.max(this.selectedPage - 2, 1);
+        start = Math.max(this.filterService.options.offset - 1, 1);
         end = start + 4;
 
         if (end > this.allPagesCount) {
@@ -44,27 +41,21 @@ export class PaginationComponent implements OnChanges {
     }
 
     public async nextPage(): Promise<void> {
-        if (this.selectedPage === this.allPagesCount) return;
+        if (this.filterService.options.offset + 1 === this.allPagesCount) return;
 
-        this.selectedPage += 1;
-        await this.changePage();
+        this.filterService.options.offset += 1;
+        await this.filterService.navigateToSearchPage(false);
     }
 
     public async previousPage(): Promise<void> {
-        if (this.selectedPage === 1) return;
+        if (this.filterService.options.offset === 0) return;
 
-        this.selectedPage -= 1;
-        await this.changePage();
+        this.filterService.options.offset -= 1;
+        await this.filterService.navigateToSearchPage(false);
     }
 
     public async goToPage(pageNumber: number): Promise<void> {
-        this.selectedPage = pageNumber;
-        await this.changePage();
-    }
-
-    private async changePage(): Promise<void> {
-        this.shownPages = this.setShownPages();
-        this.filterService.options.offset = this.selectedPage - 1;
-        await this.filterService.navigateToSearchPage();
+        this.filterService.options.offset = pageNumber - 1;
+        await this.filterService.navigateToSearchPage(false);
     }
 }

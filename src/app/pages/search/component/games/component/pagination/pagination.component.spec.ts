@@ -47,7 +47,7 @@ describe('PaginationComponent', () => {
 
         component.ngOnChanges({});
 
-        const result = component.setShownPages();
+        const result = component.shownPages();
         expect(result[0]).toEqual(2);
     });
 
@@ -57,7 +57,7 @@ describe('PaginationComponent', () => {
 
         component.ngOnChanges({});
 
-        const result = component.setShownPages();
+        const result = component.shownPages();
         expect(result).toEqual([6, 7, 8, 9, 10]);
     });
 
