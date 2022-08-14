@@ -1,4 +1,6 @@
 section {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
@@ -6,6 +8,10 @@ section {
     inline-size: 100%;
 
     padding-inline: var(--content-inline-padding);
+}
+
+.title {
+    font-size: var(--font-size-heading);
 }
 
 .fog {
@@ -24,9 +30,16 @@ section {
 }
 
 .buttons {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: calc(var(--content-inline-padding) - 5rem);
+
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1.2rem;
+
+    inline-size: calc((100% - (var(--content-inline-padding) * 2)) + 10rem);
 
     button {
         background-color: var(--primary-color-normal);
@@ -37,13 +50,28 @@ section {
         align-items: center;
         justify-content: center;
 
-        block-size: 3rem;
-        inline-size: 3rem;
+        block-size: 4rem;
+        inline-size: 4rem;
 
         border-radius: 999rem;
 
         &:hover {
             background-color: var(--primary-color-dark);
         }
+    }
+}
+
+@media (width < 800px) {
+    .buttons {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-end: calc(var(--content-inline-padding));
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+
+        inline-size: calc((100% - (var(--content-inline-padding) * 2)));
     }
 }
