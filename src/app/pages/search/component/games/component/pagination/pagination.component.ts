@@ -1,5 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {GameService} from '../../../../../../services/api/game/game.service';
+import {Component, Input} from '@angular/core';
 import {FilterService} from '../../../../../../services/filter/filter.service';
 import {generateRange} from '../../../../../../utils/array.utils';
 
@@ -8,17 +7,17 @@ import {generateRange} from '../../../../../../utils/array.utils';
     templateUrl: './pagination.component.html',
     styleUrls: ['./pagination.component.scss'],
 })
-export class PaginationComponent implements OnChanges {
+export class PaginationComponent {
     @Input() public pageSize: number = 0;
     @Input() public totalCount: number = 0;
 
-    public allPagesCount: number = 0;
+    public constructor(public filterService: FilterService) {}
 
-    public constructor(private gameService: GameService, public filterService: FilterService) {}
-
-    public ngOnChanges(changes: SimpleChanges): void {
+    public get allPagesCount(): number {
         if (this.pageSize !== 0) {
-            this.allPagesCount = Math.ceil(this.totalCount / this.pageSize);
+            return Math.ceil(this.totalCount / this.pageSize);
+        } else {
+            return 0;
         }
     }
 

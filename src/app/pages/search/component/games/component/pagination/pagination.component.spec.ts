@@ -7,7 +7,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {SnackbarService} from '../../../../../../components/snackbar/services/snackbar/snackbar.service';
 import {SpinnerService} from '../../../../../../components/spinner/service/spinner/spinner.service';
 import {GameServiceMock} from '../../../../../../mock/gameService.mock';
-import {SimpleChange} from '@angular/core';
 
 describe('PaginationComponent', () => {
     let component: PaginationComponent;
@@ -48,8 +47,6 @@ describe('PaginationComponent', () => {
         filterService.options.offset = 4;
         fixture.detectChanges();
 
-        component.ngOnChanges({});
-
         const result = component.shownPages;
         expect(result[0]).toEqual(3);
     });
@@ -57,8 +54,6 @@ describe('PaginationComponent', () => {
     it('should show correct pagination numbers - selected page beyond pagination', () => {
         filterService.options.offset = 12;
         fixture.detectChanges();
-
-        component.ngOnChanges({});
 
         const result = component.shownPages;
         expect(result).toEqual([6, 7, 8, 9, 10]);
@@ -73,8 +68,6 @@ describe('PaginationComponent', () => {
 
     it('should take pagination to next page - on end of pagination', () => {
         component.goToPage(10);
-
-        component.ngOnChanges({});
 
         component.nextPage();
         fixture.detectChanges();
