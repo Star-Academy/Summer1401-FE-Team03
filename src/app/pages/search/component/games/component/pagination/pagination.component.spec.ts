@@ -13,6 +13,7 @@ describe('PaginationComponent', () => {
     let component: PaginationComponent;
     let fixture: ComponentFixture<PaginationComponent>;
     let gameServiceMock: GameServiceMock;
+    let filterService: FilterService;
 
     beforeEach(async () => {
         gameServiceMock = new GameServiceMock();
@@ -27,6 +28,8 @@ describe('PaginationComponent', () => {
                 SpinnerService,
             ],
         }).compileComponents();
+
+        filterService = TestBed.inject(FilterService);
     });
 
     beforeEach(() => {
@@ -42,22 +45,22 @@ describe('PaginationComponent', () => {
     });
 
     it('should show correct pagination numbers - pages > 5', () => {
-        component.selectedPage = 4;
+        filterService.options.offset = 4;
         fixture.detectChanges();
 
         component.ngOnChanges({});
 
-        const result = component.shownPages();
-        expect(result[0]).toEqual(2);
+        const result = component.shownPages;
+        expect(result[0]).toEqual(3);
     });
 
     it('should show correct pagination numbers - selected page beyond pagination', () => {
-        component.selectedPage = 12;
+        filterService.options.offset = 12;
         fixture.detectChanges();
 
         component.ngOnChanges({});
 
-        const result = component.shownPages();
+        const result = component.shownPages;
         expect(result).toEqual([6, 7, 8, 9, 10]);
     });
 
@@ -65,8 +68,7 @@ describe('PaginationComponent', () => {
         component.nextPage();
         fixture.detectChanges();
 
-        const result = component.selectedPage;
-        expect(result).toEqual(2);
+        expect(filterService.options.offset + 1).toEqual(2);
     });
 
     it('should take pagination to next page - on end of pagination', () => {
@@ -77,32 +79,28 @@ describe('PaginationComponent', () => {
         component.nextPage();
         fixture.detectChanges();
 
-        const result = component.selectedPage;
-        expect(result).toEqual(10);
+        expect(filterService.options.offset + 1).toEqual(10);
     });
 
     it('should take pagination to previous page', () => {
-        component.selectedPage = 5;
+        filterService.options.offset = 5;
         component.previousPage();
         fixture.detectChanges();
 
-        const result = component.selectedPage;
-        expect(result).toEqual(4);
+        expect(filterService.options.offset).toEqual(4);
     });
 
     it('should take pagination to previous page - on start of pagination', () => {
         component.previousPage();
         fixture.detectChanges();
 
-        const result = component.selectedPage;
-        expect(result).toEqual(1);
+        expect(filterService.options.offset + 1).toEqual(1);
     });
 
     it('should take pagination to given page number', () => {
         component.goToPage(7);
         fixture.detectChanges();
 
-        const result = component.selectedPage;
-        expect(result).toEqual(7);
+        expect(filterService.options.offset + 1).toEqual(7);
     });
 });
