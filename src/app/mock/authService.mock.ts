@@ -1,11 +1,12 @@
 import {LoginRequestModel} from '../models/api/login/login-request.model';
 import {User} from '../models/user.model';
-import {VALID_USER_DATA} from './fetch.mock';
+import {VALID_TOKEN, VALID_USER_DATA} from './fetch.mock';
 import {AlterRequestModel} from '../models/api/alter/alter-request.model';
 
 export class AuthServiceMock {
     public cachedUser: User | null = null;
     public isUserLoggedIn: boolean = false;
+    public token: string = VALID_TOKEN;
 
     public async login(data: LoginRequestModel): Promise<boolean> {
         this.isUserLoggedIn = true;

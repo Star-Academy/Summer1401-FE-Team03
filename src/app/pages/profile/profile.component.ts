@@ -23,8 +23,11 @@ export class ProfileComponent {
             case 'shopping-cart':
                 this.loadContent = 2;
                 break;
-            case 'credit':
+            case 'library':
                 this.loadContent = 3;
+                break;
+            case 'credit':
+                this.loadContent = 4;
                 break;
             default:
                 this.loadContent = 1;

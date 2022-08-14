@@ -4,6 +4,9 @@ import {
     API_GAME_ONE,
     API_GAME_SEARCH,
     API_GAME_UPCOMING,
+    API_LIBRARY_ADD,
+    API_LIBRARY_ALL,
+    API_LIBRARY_REMOVE,
     API_USER_ALTER,
     API_USER_AUTH,
     API_USER_LOGIN,
@@ -99,7 +102,7 @@ export const VALID_GAMES_DATA: GameModel[] = [
         websites: [{id: 1, url: 'test url', trusted: true, category: 1}],
     },
     {
-        id: 1,
+        id: 2,
         priceOnSale: 1500,
         price: 2000,
         cover: {id: 'test', height: 100, width: 500},
@@ -152,7 +155,7 @@ export const VALID_GAMES_DATA: GameModel[] = [
         websites: [{id: 1, url: 'test url', trusted: true, category: 1}],
     },
     {
-        id: 2,
+        id: 3,
         priceOnSale: 1500,
         price: 1500,
         cover: {id: 'test', height: 100, width: 100},
@@ -242,7 +245,11 @@ export class FetchMock {
             else if (url === API_USER_ALTER && body.token === VALID_TOKEN) return FetchMock.emptyObject;
             else if (url === API_GAME_SEARCH) return FetchMock.searchedGame;
             else if (url === API_GAME_GENRES) return FetchMock.genres;
+            else if (url === API_LIBRARY_ADD) return FetchMock.emptyObject;
+            else if (url === API_LIBRARY_ALL) return FetchMock.searchedGame;
             else if (url === TEST_URL) return FetchMock.testPostResponse;
+        } else if (init && init.body && init.method === 'delete') {
+            if (url === API_LIBRARY_REMOVE) return FetchMock.emptyObject;
         }
 
         return FetchMock.errorResponse;
