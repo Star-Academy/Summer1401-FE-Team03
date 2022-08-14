@@ -22,11 +22,6 @@ export class CompactCardComponent implements OnInit {
         }
     }
 
-    public calculateDiscount(): number {
-        const difference = this.game.price - this.game.priceOnSale;
-        return Math.ceil((difference / this.game.price) * 100);
-    }
-
     public getImageSource(game: GameModel): string {
         if (game.cover?.id) {
             return `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.id}.jpg`;

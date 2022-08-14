@@ -55,20 +55,37 @@ describe('DashboardComponent', () => {
         });
 
         it('should alter user', async () => {
-            component.data = {firstName: 'ata update'};
+            component.data = {
+                firstName: 'ata update',
+                lastName: 'ata lastName',
+                username: 'ata userName',
+                email: 'ata email',
+                credit: 1,
+                avatar: 'test avatar',
+                phone: '0912',
+                dateOfBirth: new Date(),
+            };
 
             await component.formSubmitHandler();
 
             expect(authServiceMock.cachedUser?.firstName).toEqual('ata update');
         });
 
-        // it('should change avatar', async () => {
-        //     const input = fixture.debugElement.query(By.css('label.image > input'));
-        //     input.nativeElement.files[0] = '123456';
-        //
-        //     await component.formSubmitHandler();
-        //
-        //     expect(authServiceMock.cachedUser?.avatar).toEqual('123456');
-        // });
+        it('should alter user', async () => {
+            component.data = {
+                firstName: undefined,
+                lastName: undefined,
+                username: undefined,
+                email: undefined,
+                credit: undefined,
+                avatar: undefined,
+                phone: undefined,
+                dateOfBirth: undefined,
+            };
+
+            await component.formSubmitHandler();
+
+            expect(authServiceMock.cachedUser?.firstName).toEqual('');
+        });
     });
 });
