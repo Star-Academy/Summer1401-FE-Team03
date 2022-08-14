@@ -4,6 +4,7 @@ import {By} from '@angular/platform-browser';
 import {GameImageModel} from '../../models/game/dto/gameImage.model';
 import {SlideshowItem} from '../../models/slidshow-item.models';
 import {FetchMock} from '../../mock/fetch.mock';
+import {ImageSourceModule} from '../../pipes/image-source/image-source.module';
 
 describe('SlideshowComponent', () => {
     let fixture: ComponentFixture<SlideshowComponent>;
@@ -17,6 +18,7 @@ describe('SlideshowComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [ImageSourceModule],
             declarations: [SlideshowComponent],
         }).compileComponents();
     });
@@ -24,7 +26,9 @@ describe('SlideshowComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(SlideshowComponent);
         component = fixture.componentInstance;
+        component.items = TEST_IMAGES;
         fixture.detectChanges();
+
         host = fixture.nativeElement as HTMLElement;
     });
 
@@ -47,8 +51,6 @@ describe('SlideshowComponent', () => {
     });
 
     it('should generate two images slideShow', () => {
-        component.items = TEST_IMAGES;
-        fixture.detectChanges();
         let images = fixture.debugElement.queryAll(By.css('img'));
 
         expect(images.length).toEqual(TEST_IMAGES.length);

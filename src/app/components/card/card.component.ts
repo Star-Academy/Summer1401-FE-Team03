@@ -10,7 +10,5 @@ import {GameModel} from '../../models/game/game.model';
 export class CardComponent {
     @Input() public game!: GameModel;
 
-    public readonly DASH: string = '_';
-
     public constructor(public cartService: CartService) {}
 }

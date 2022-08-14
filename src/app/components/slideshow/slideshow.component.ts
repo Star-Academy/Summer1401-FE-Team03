@@ -39,14 +39,12 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
     }
 
     private initInterval(): void {
-        console.log('start');
         this.interval = setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);
         }, this.INTERVAL_DELAY);
     }
 
     public stopSlideshow(): void {
-        console.log('stop');
         clearInterval(this.interval);
     }
 }

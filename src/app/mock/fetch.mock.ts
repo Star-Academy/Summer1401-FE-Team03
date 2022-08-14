@@ -176,7 +176,7 @@ export class FetchMock {
 
     private static get searchedGame(): Response {
         let games: GameModel[];
-        return new Response(JSON.stringify(games), {status: 200});
+        return new Response(JSON.stringify(VALID_GAMES_DATA), {status: 200});
     }
 
     public async fetch(url: RequestInfo, init?: RequestInit): Promise<Response> {

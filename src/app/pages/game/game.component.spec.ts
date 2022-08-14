@@ -10,12 +10,23 @@ import {ImageSourceModule} from '../../pipes/image-source/image-source.module';
 import {JalaliCalendarModule} from '../../pipes/jalali-calendar/jalali-calendar.module';
 import {AgeCategoryModule} from '../../pipes/age-category/age-category.module';
 import {AgeCategoryTypeModule} from '../../pipes/age-category-type/age-category-type.module';
+import {CartService} from '../../services/cart/cart.service';
+import {LocalStorageMock} from '../../mock/localStorage.mock';
+import {FetchMock, VALID_GAMES_DATA} from '../../mock/fetch.mock';
+import {host} from '@angular-devkit/build-angular/src/test-utils';
+import {ToSlideshowItemModule} from '../../pipes/to-slideshow-item/to-slideshow-item.module';
 
 describe('GameComponent', () => {
     let component: GameComponent;
     let fixture: ComponentFixture<GameComponent>;
+    let localStorageMock: LocalStorageMock;
+    let fetchMock: FetchMock;
+    let host: HTMLElement;
+    let routerMock: RouterTestingModule;
 
     beforeEach(async () => {
+        localStorageMock = new LocalStorageMock();
+
         await TestBed.configureTestingModule({
             declarations: [GameComponent],
             imports: [
@@ -24,18 +35,40 @@ describe('GameComponent', () => {
                 JalaliCalendarModule,
                 AgeCategoryModule,
                 AgeCategoryTypeModule,
+                ToSlideshowItemModule,
             ],
-            providers: [GameService, ApiService, SnackbarService, SpinnerService],
+            providers: [GameService, ApiService, CartService, SnackbarService, SpinnerService],
         }).compileComponents();
+
+        routerMock = TestBed.inject(RouterTestingModule);
+
+        spyOn(localStorage, 'getItem').and.callFake(localStorageMock.getItem.bind(localStorageMock));
+        spyOn(localStorage, 'setItem').and.callFake(localStorageMock.setItem.bind(localStorageMock));
+        spyOn(localStorage, 'removeItem').and.callFake(localStorageMock.removeItem.bind(localStorageMock));
+
+        fetchMock = new FetchMock();
+        spyOn(window, 'fetch').and.callFake(fetchMock.fetch.bind(fetchMock));
     });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(GameComponent);
         component = fixture.componentInstance;
+        component.game = VALID_GAMES_DATA[0];
         fixture.detectChanges();
+        host = fixture.nativeElement as HTMLElement;
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should show summery', () => {
+        const pSummery = host.querySelector('.content p');
+
+        expect(pSummery?.innerHTML).toBe(VALID_GAMES_DATA[0].summary);
+    });
+
+    it('should have id params', () => {
+        routerMock;
     });
 });

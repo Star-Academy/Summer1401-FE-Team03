@@ -66,4 +66,22 @@ describe('HeaderComponent', () => {
 
         expect(element).toBeFalsy();
     });
+
+    // it('should call navigate to search page method', () => {
+    //     window.onbeforeunload = () => 'Oh no!';
+    //     const navigateToSearchPageMethodSpy = spyOn(filterServiceMock, 'navigateToSearchPage');
+    //     const submitForm = host.querySelector('form');
+    //
+    //     submitForm?.addEventListener('submit', () => {
+    //         expect(submitForm).toBeTruthy();
+    //         expect(navigateToSearchPageMethodSpy).toHaveBeenCalled();
+    //     });
+    //     submitForm?.submit();
+    // });
+
+    it('should call resize window', () => {
+        const spyOnResize = spyOn(component, 'onWindowResize');
+        window.dispatchEvent(new Event('resize'));
+        expect(spyOnResize).toHaveBeenCalled();
+    });
 });
