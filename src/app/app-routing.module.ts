@@ -12,6 +12,7 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    {path: 'profile/:section', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
     {path: 'search', component: SearchComponent},

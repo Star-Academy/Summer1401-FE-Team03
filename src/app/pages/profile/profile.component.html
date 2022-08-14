@@ -2,10 +2,18 @@
     <aside>
         <nav>
             <ul>
-                <li><button (click)="loadContent = 1" [class.active]="loadContent === 1">داشبورد</button></li>
-                <li><button (click)="loadContent = 2" [class.active]="loadContent === 2">سبد خرید</button></li>
                 <li>
-                    <button (click)="loadContent = 3" [class.active]="loadContent === 3">افزایش اعتبار</button>
+                    <a (click)="loadContent = 1" [class.active]="loadContent === 1" routerLink="/profile"> داشبورد </a>
+                </li>
+                <li>
+                    <a (click)="loadContent = 2" [class.active]="loadContent === 2" routerLink="/profile/orders">
+                        سبد خرید
+                    </a>
+                </li>
+                <li>
+                    <a (click)="loadContent = 3" [class.active]="loadContent === 3" routerLink="/profile/credit">
+                        افزایش اعتبار
+                    </a>
                 </li>
                 <li><button class="sign-out" (click)="authService.logout()">خروج</button></li>
             </ul>

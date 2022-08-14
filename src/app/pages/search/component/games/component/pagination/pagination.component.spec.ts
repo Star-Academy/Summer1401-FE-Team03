@@ -45,9 +45,7 @@ describe('PaginationComponent', () => {
         component.selectedPage = 4;
         fixture.detectChanges();
 
-        component.ngOnChanges({
-            name: new SimpleChange(null, component.allPagesCount, true),
-        });
+        component.ngOnChanges({});
 
         const result = component.setShownPages();
         expect(result[0]).toEqual(2);
@@ -57,9 +55,7 @@ describe('PaginationComponent', () => {
         component.selectedPage = 12;
         fixture.detectChanges();
 
-        component.ngOnChanges({
-            name: new SimpleChange(null, component.allPagesCount, true),
-        });
+        component.ngOnChanges({});
 
         const result = component.setShownPages();
         expect(result).toEqual([6, 7, 8, 9, 10]);
@@ -76,9 +72,7 @@ describe('PaginationComponent', () => {
     it('should take pagination to next page - on end of pagination', () => {
         component.goToPage(10);
 
-        component.ngOnChanges({
-            name: new SimpleChange(null, component.allPagesCount, true),
-        });
+        component.ngOnChanges({});
 
         component.nextPage();
         fixture.detectChanges();
