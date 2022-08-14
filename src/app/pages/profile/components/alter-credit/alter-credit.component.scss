@@ -18,11 +18,12 @@
         }
 
         button {
-            margin-block-start: 2.4rem;
-            inline-size: 20rem;
-
             background-color: var(--primary-color-normal);
             color: var(--neutral-color-lighter);
+
+            inline-size: 20rem;
+
+            margin-block-start: 2.4rem;
 
             &:hover {
                 background-color: var(--primary-color-dark);
@@ -31,8 +32,8 @@
     }
 
     input {
-        border-radius: var(--border-radius-small);
-
         padding: 1.2rem 1.6rem;
+
+        border-radius: var(--border-radius-small);
     }
 }

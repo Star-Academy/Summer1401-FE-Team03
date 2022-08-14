@@ -12,10 +12,13 @@
     img {
         background-color: var(--primary-color-normal);
 
-        inline-size: 27rem;
+        inline-size: 100%;
+
         aspect-ratio: 1 / 1;
 
         object-fit: cover;
+
+        border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
     }
 
     &:hover {
@@ -67,11 +70,5 @@
 
             white-space: nowrap;
         }
-    }
-
-    img {
-        inline-size: 100%;
-
-        border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
     }
 }
