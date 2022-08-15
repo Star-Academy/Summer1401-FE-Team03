@@ -28,4 +28,12 @@ export class FilterComponent implements OnInit {
 
         this.expansionItems = expansionsItems ?? [];
     }
+
+    public async filterSet(): Promise<void> {
+        await this.filterService.navigateToSearchPage();
+    }
+    public async clearFilter(): Promise<void> {
+        await this.filterService.clearFilter();
+        await this.filterService.navigateToSearchPage();
+    }
 }

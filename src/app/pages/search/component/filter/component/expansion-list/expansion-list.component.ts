@@ -28,7 +28,7 @@ export class ExpansionListComponent {
         } else {
             this.filterService.deleteGenre(id);
         }
-        await this.filterService.navigateToSearchPage();
+        // await this.filterService.navigateToSearchPage();
     }
 
     public expand(): void {
