@@ -5,7 +5,7 @@
 
     <input
         type="search"
-        placeholder="بازی یا ناشر مد نظرت رو پیدا کن"
+        [placeholder]="gameSearchboxOPlaceholder"
         [(ngModel)]="searchWord"
         (ngModelChange)="searchWordChange.emit($event)"
     />

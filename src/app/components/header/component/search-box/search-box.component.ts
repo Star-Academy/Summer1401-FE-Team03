@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {GAME_SEARCHBOX_PLACEHOLDER} from '../../../../languages/fa-IR/fa';
 
 @Component({
     selector: 'app-search-box',
@@ -9,4 +10,6 @@ export class SearchBoxComponent {
     @Input() public searchWord?: string = '';
 
     @Output() public searchWordChange = new EventEmitter<string>();
+
+    public gameSearchboxOPlaceholder: string = GAME_SEARCHBOX_PLACEHOLDER;
 }

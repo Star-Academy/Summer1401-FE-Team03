@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from '../../services/cart/cart.service';
 import {GameModel} from '../../models/game/game.model';
+import {ADD_TO_CART, LEVEL_COIN} from '../../languages/fa-IR/fa';
 
 @Component({
     selector: 'app-card',
@@ -11,6 +12,8 @@ export class CardComponent implements OnInit {
     @Input() public game!: GameModel;
     public imageSrc: string = '';
     public linkToGamePage: string = '';
+    public addToCart: string = ADD_TO_CART;
+    public levelCoin: string = LEVEL_COIN;
 
     public constructor(public cartService: CartService) {}
 

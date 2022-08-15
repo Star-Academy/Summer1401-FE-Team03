@@ -1,1 +1,9 @@
 export const ADD_TO_CART = 'افزودن به سبد خرید';
+export const LEVEL_COIN = 'لول کوین';
+export const GAME_SEARCHBOX_PLACEHOLDER = 'بازی یا ناشر مد نظرت رو پیدا کن';
+export const EMPTY_SHOPPING_CART = 'سبد خریدتون خالیه';
+export const SHOPPING_CART = 'سبد خرید';
+export const SIGN_UP_SIGN_IN = 'ثبت ‌نام | ورود';
+export const WANT_TO_SIGN_UP = 'حساب کاربری ندارم، می‌خواهم ثبت‌نام کنم';
+export const PASSWORD = 'کلمه عبور:';
+export const USERNAME = 'نام کاربری:';

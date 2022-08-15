@@ -5,6 +5,8 @@ import {SnackbarService} from '../../../components/snackbar/services/snackbar/sn
 import {Router} from '@angular/router';
 import {SNACKBAR_LOGGED_IN} from '../language/message';
 import {LoginRequestModel} from '../../../models/api/login/login-request.model';
+import {PASSWORD, USERNAME, WANT_TO_SIGN_UP} from '../../../languages/fa-IR/fa';
+import {REGISTER_LINK} from '../../../links/links';
 
 @Component({
     selector: 'app-login',
@@ -17,6 +19,12 @@ export class LoginComponent {
         username: '',
         password: '',
     };
+
+    public wantToSignUp: string = WANT_TO_SIGN_UP;
+    public username: string = USERNAME;
+    public password: string = PASSWORD;
+
+    public registerLink: string = REGISTER_LINK;
 
     public constructor(
         private authService: AuthService,

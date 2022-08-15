@@ -9,7 +9,7 @@
         <app-search-box [(searchWord)]="filterService.options.searchPhrase"></app-search-box>
     </form>
 
-    <div title="لول کوین" *ngIf="authService.isUserLoggedIn">
+    <div [title]="levelCoin" *ngIf="authService.isUserLoggedIn">
         <span>{{ authService.cachedUser?.credit }}</span>
         <button>
             <i class="far fa-coins icon-special"></i>

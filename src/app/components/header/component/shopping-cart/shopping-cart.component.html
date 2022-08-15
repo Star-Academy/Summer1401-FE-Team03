@@ -7,7 +7,7 @@
         <div class="items">
             <div class="no-game" *ngIf="cartService.cartGames.length === 0">
                 <i class="far fa-folder-open"></i>
-                <h3>سبد خریدتون خالیه</h3>
+                <h3>{{ emptyShoppingCart }}</h3>
             </div>
 
             <ng-container *ngFor="let game of cartService.cartGames">
@@ -16,13 +16,13 @@
         </div>
 
         <ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">
-            <a class="shopping-cart" routerLink="/profile/shopping-cart">سبد خرید</a>
+            <a class="shopping-cart" [routerLink]="shoppingCartLink">{{ shoppingCart }}</a>
         </ng-container>
 
         <ng-template #notLoggedIn>
-            <a routerLink="/login" class="auth">
+            <a [routerLink]="loginLink" class="auth">
                 <i class="far fa-arrow-right-to-bracket"></i>
-                <span>ثبت ‌نام | ورود</span>
+                <span>{{ singUPSignIn }}</span>
             </a>
         </ng-template>
     </div>

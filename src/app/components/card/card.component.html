@@ -12,9 +12,9 @@
 
         <p>
             {{ game.priceOnSale }}
-            <span class="additional-info">لول کوین</span>
+            <span class="additional-info">{{ levelCoin }}</span>
         </p>
     </div>
 
-    <button class="add-to-cart-btn" (click)="cartService.addToList(game)">اضافه کردن به سبد خرید</button>
+    <button class="add-to-cart-btn" (click)="cartService.addToList(game)">{{ addToCart }}</button>
 </div>

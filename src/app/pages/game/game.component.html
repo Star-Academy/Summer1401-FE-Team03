@@ -62,7 +62,7 @@
     <div class="company-info">
         <h2>{{ game.involvedCompanies[0].company.name }}</h2>
 
-        <p class="company-type">{{ game.involvedCompanies[0].developer ? 'developer' : 'publisher' }}</p>
+        <p class="company-type">{{ game.involvedCompanies[0] | companyType }}</p>
 
         <a [href]="game.involvedCompanies[0].company.url" *ngIf="game.involvedCompanies.length > 0"
             >company's website

@@ -1,6 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {AuthService} from '../../services/api/auth/auth.service';
 import {FilterService} from '../../services/filter/filter.service';
+import {LEVEL_COIN} from '../../languages/fa-IR/fa';
 
 @Component({
     selector: 'app-header',
@@ -10,6 +11,8 @@ import {FilterService} from '../../services/filter/filter.service';
 export class HeaderComponent {
     public mobileSearchBoxShown: boolean = false;
     public windowInnerWidth = window.innerWidth;
+
+    public levelCoin: string = LEVEL_COIN;
 
     public constructor(public authService: AuthService, public filterService: FilterService) {}
 

@@ -29,11 +29,12 @@ export class GameComponent {
         this.route.params.subscribe(async (e) => {
             window.scrollTo(0, 0);
             const idString = e?.id;
-            if (idString) {
-                const id = parseInt(idString);
-                this.game = await this.gameService.getGame(id);
-                this.setImageSrcs();
-            }
+
+            if (!idString) return;
+
+            const id = parseInt(idString);
+            this.game = await this.gameService.getGame(id);
+            this.setImageSrcs();
         });
     }
 
