@@ -2,6 +2,12 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../../components/snackbar/services/snackbar/snackbar.service';
 import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
+import {
+    ENTER_CREDIT_INCREMENT_AMOUNT,
+    INCREMENT_CREDIT_PAGE_TITLE,
+    PAY,
+    TOMAN_TO_LEVEL_COIN,
+} from '../../../../languages/fa-IR/fa';
 
 @Component({
     selector: 'app-alter-credit',
@@ -10,6 +16,10 @@ import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 })
 export class AlterCreditComponent {
     public credit: number = 0;
+    public incrementCreditPageTitle: string = INCREMENT_CREDIT_PAGE_TITLE;
+    public enterCreditIncrementAmount: string = ENTER_CREDIT_INCREMENT_AMOUNT;
+    public tomanToLevelCoin: string = TOMAN_TO_LEVEL_COIN;
+    public pay: string = PAY;
 
     public constructor(private authService: AuthService, private snackbarService: SnackbarService) {}
 

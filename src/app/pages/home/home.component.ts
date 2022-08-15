@@ -16,6 +16,14 @@ export class HomeComponent implements OnInit {
     public bestShootingGames: GameModel[] = [];
 
     public async ngOnInit(): Promise<void> {
+        await this.getSlideshowItems();
+
+        this.upcomingGames = await this.gameService.getUpcoming();
+
+        await this.getActionGames();
+    }
+
+    private async getSlideshowItems(): Promise<void> {
         await this.gameService.search({offset: 0, pageSize: 3, sort: 1}, false);
         const slideShowGamesSearchResult = this.gameService.games;
         this.slideshowImages = slideShowGamesSearchResult.map((game) => {
@@ -24,17 +32,20 @@ export class HomeComponent implements OnInit {
                 gameId: game.id,
                 title: game.name,
                 description: game.summary,
-            } as SlideshowItem;
+            };
         });
+    }
 
-        this.upcomingGames = await this.gameService.getUpcoming();
-
-        await this.gameService.search({
-            offset: 0,
-            pageSize: 15,
-            sort: 1,
-            filters: {genres: [5]},
-        });
+    private async getActionGames(): Promise<void> {
+        await this.gameService.search(
+            {
+                offset: 0,
+                pageSize: 15,
+                sort: 1,
+                filters: {genres: [5]},
+            },
+            false
+        );
         this.bestShootingGames = this.gameService.games;
     }
 }

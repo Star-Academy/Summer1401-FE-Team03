@@ -4,6 +4,7 @@ import {SnackbarTypes} from '../../../../models/enum/snackbar.types';
 import {AuthService} from '../../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../../components/snackbar/services/snackbar/snackbar.service';
 import {LibraryService} from '../../../../services/api/library/library.service';
+import {CLEAR_SHOPPING_CART, EMPTY_SHOPPING_CART, LEVEL_COIN} from '../../../../languages/fa-IR/fa';
 
 @Component({
     selector: 'app-cart',
@@ -12,6 +13,10 @@ import {LibraryService} from '../../../../services/api/library/library.service';
 })
 export class CartComponent {
     public payButtonLoading = false;
+
+    public emptyShoppingCart: string = EMPTY_SHOPPING_CART;
+    public levelCoin: string = LEVEL_COIN;
+    public clearShoppingCart: string = CLEAR_SHOPPING_CART;
 
     public constructor(
         public cartService: CartService,

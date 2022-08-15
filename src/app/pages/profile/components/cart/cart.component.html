@@ -3,7 +3,7 @@
     <div class="list">
         <div class="no-game" *ngIf="cartService.cartGames.length === 0">
             <i class="fa-regular fa-folder-open"></i>
-            <h3>سبد خریدتون خالیه</h3>
+            <h3>{{ emptyShoppingCart }}</h3>
         </div>
 
         <ng-container *ngFor="let game of cartService.cartGames">
@@ -12,7 +12,9 @@
     </div>
     <h3 class="sum">
         مجموع:
-        <span>{{ cartService.cartGames | sumPrices }} <i class="far fa-coins icon-special" title="لول کوین"></i></span>
+        <span
+            >{{ cartService.cartGames | sumPrices }} <i class="far fa-coins icon-special" [title]="levelCoin"></i
+        ></span>
     </h3>
     <div class="buttons">
         <app-primary-button
@@ -21,6 +23,6 @@
             class="purchase"
             (click)="payHandler()"
         ></app-primary-button>
-        <button class="clear" (click)="cartService.clearList()">خالی کردن سبد خرید</button>
+        <button class="clear" (click)="cartService.clearList()">{{ clearShoppingCart }}</button>
     </div>
 </div>

@@ -1,13 +1,13 @@
 <div class="wrapper">
-    <h1>افزایش اعتبار</h1>
+    <h1>{{ incrementCreditPageTitle }}</h1>
 
     <form>
         <label>
-            <h3>مبلغ افزایش را به تومان وارد کنید</h3>
+            <h3>{{ enterCreditIncrementAmount }}</h3>
             <input type="number" step="1000" name="credit" [(ngModel)]="credit" />
-            <p>هر هزار تومان معادل یک لول کوین هست</p>
+            <p>{{ tomanToLevelCoin }}</p>
         </label>
 
-        <button (click)="payHandler()">پرداخت</button>
+        <button (click)="payHandler()">{{ pay }}</button>
     </form>
 </div>

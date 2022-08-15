@@ -32,7 +32,7 @@ export class GameComponent {
 
             if (!idString) return;
 
-            const id = parseInt(idString);
+            const id = +idString;
             this.game = await this.gameService.getGame(id);
             this.setImageSrcs();
         });
