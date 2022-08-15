@@ -1,0 +1,8 @@
+<li>
+    <a [routerLink]="linkToGamePage"><img [src]="imageSrc" alt="" loading="lazy" /></a>
+    <div *ngIf="item.title" class="content">
+        <h1>{{ item.title }}</h1>
+
+        <p>{{ item.description }}</p>
+    </div>
+</li>

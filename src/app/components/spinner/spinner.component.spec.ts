@@ -30,7 +30,7 @@ describe('SpinnerComponent', () => {
     });
 
     it('should show spinner', () => {
-        spinnerService.show();
+        spinnerService.showSpinner();
 
         fixture.detectChanges();
 

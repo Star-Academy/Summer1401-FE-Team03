@@ -4,7 +4,7 @@
     position: relative;
 
     ol {
-        background-image: linear-gradient(to top right, var(--primary-color-dark), var(--primary-color-normal));
+        background-image: linear-gradient(to top right, var(--skeleton-color-dark), var(--skeleton-color-light));
 
         overflow: hidden;
 
@@ -15,7 +15,7 @@
         inline-size: 100%;
         aspect-ratio: 7 / 3;
 
-        li {
+        app-slideshow-image {
             flex: 0 0 100%;
 
             transform: translateX(calc(var(--active-index) * 100%));
@@ -23,69 +23,6 @@
             transition: transform 500ms ease-in-out;
 
             cursor: pointer;
-
-            img {
-                inline-size: 100%;
-                aspect-ratio: 7 / 3;
-                object-fit: cover;
-            }
-
-            .content {
-                --p-line-height: 1.8rem;
-
-                background-color: var(--content-color-background);
-
-                backdrop-filter: blur(0.5rem);
-
-                direction: ltr;
-
-                position: absolute;
-                inset-block-end: 10rem;
-                inset-inline-start: 10rem;
-
-                inline-size: 40%;
-
-                padding: 3rem;
-
-                border-radius: var(--border-radius-normal);
-
-                text-align: left;
-
-                h1,
-                p {
-                    color: var(--neutral-color-lighter);
-                }
-
-                p {
-                    overflow: hidden;
-
-                    block-size: calc(3 * var(--p-line-height));
-
-                    margin-block-start: 1.2rem;
-
-                    line-height: var(--p-line-height);
-                }
-
-                a {
-                    color: var(--neutral-color-lighter);
-
-                    display: inline-block;
-
-                    margin-block-start: 1.6rem;
-
-                    padding: 0.8rem 1.6rem;
-
-                    border: 0.1rem solid var(--neutral-color-lighter);
-                    border-radius: var(--border-radius-small);
-
-                    text-decoration: none;
-
-                    &:hover {
-                        background-color: var(--neutral-color-lighter);
-                        color: var(--neutral-color-darker);
-                    }
-                }
-            }
         }
     }
 

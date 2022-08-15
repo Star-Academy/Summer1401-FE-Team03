@@ -5,19 +5,19 @@ export class SpinnerService {
     public counter: number = 0;
 
     public async wrapAsync<T>(callback: () => T): Promise<T> {
-        this.show();
+        this.showSpinner();
 
         try {
             return await callback();
         } finally {
-            this.hide();
+            this.hideSpinner();
         }
     }
-    public show(): void {
+    public showSpinner(): void {
         this.counter++;
     }
 
-    public hide(): void {
+    public hideSpinner(): void {
         if (this.counter === 0) return;
 
         this.counter--;

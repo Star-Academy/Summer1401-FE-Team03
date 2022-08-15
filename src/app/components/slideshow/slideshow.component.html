@@ -5,16 +5,9 @@
     (mouseleave)="initNewInterval()"
 >
     <ol>
-        <li *ngFor="let item of items; let index = index" [class.active]="index === activeIndex">
-            <a routerLink="/game/{{ item.gameId }}"
-                ><img [src]="'1080p' | imageSource: item.image.id" alt="" loading="lazy"
-            /></a>
-            <div *ngIf="item.title" class="content">
-                <h1>{{ item.title }}</h1>
-
-                <p>{{ item.description }}</p>
-            </div>
-        </li>
+        <ng-container *ngFor="let item of items; let index = index">
+            <app-slideshow-image [item]="item" [class.active]="index === activeIndex"></app-slideshow-image>
+        </ng-container>
     </ol>
 
     <div class="overlay">

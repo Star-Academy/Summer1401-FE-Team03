@@ -17,15 +17,15 @@ describe('SpinnerService', () => {
     });
 
     it('should hide spinner', () => {
-        service.show();
+        service.showSpinner();
         expect(service.counter).toBe(1);
 
-        service.hide();
+        service.hideSpinner();
         expect(service.counter).toBe(0);
     });
 
     it('should do nothing', () => {
-        service.hide();
+        service.hideSpinner();
         expect(service.counter).toBe(0);
     });
 
