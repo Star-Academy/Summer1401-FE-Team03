@@ -7,6 +7,5 @@ import {SlideshowModule} from '../../components/slideshow/slideshow.module';
 @NgModule({
     declarations: [HomeComponent],
     imports: [CommonModule, CardsModule, SlideshowModule],
-    exports: [],
 })
 export class HomeModule {}

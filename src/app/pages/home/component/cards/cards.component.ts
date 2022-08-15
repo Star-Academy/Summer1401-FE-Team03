@@ -7,9 +7,9 @@ import {GameModel} from '../../../../models/game/game.model';
     styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent {
+    @ViewChild('outerContainer') public outerContainer!: ElementRef;
     @Input() public games: GameModel[] = [];
     @Input() public cardsTitle?: string;
-    @ViewChild('outerContainer') public outerContainer!: ElementRef;
 
     private scrollAmount = 294;
 

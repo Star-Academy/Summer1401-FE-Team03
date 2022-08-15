@@ -21,7 +21,6 @@ export class SlideshowComponent implements AfterViewInit, OnDestroy {
 
     public ngOnDestroy(): void {
         clearInterval(this.interval);
-        this.interval = undefined;
     }
 
     public changeActiveIndex(index: number): void {

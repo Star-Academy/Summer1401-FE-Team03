@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {ExpansionListModel} from '../../../../models/expantion-list.model';
 import {FilterService} from '../../../../../../services/filter/filter.service';
 
@@ -8,10 +8,10 @@ import {FilterService} from '../../../../../../services/filter/filter.service';
     styleUrls: ['./expansion-list.component.scss'],
 })
 export class ExpansionListComponent {
+    @ViewChild('list') public list: ElementRef | null = null;
+
     @Input() public title: string = '';
     @Input() public expansionListItems: ExpansionListModel[] = [];
-
-    @ViewChild('list') public list: ElementRef | null = null;
 
     public constructor(private changeDetectorRef: ChangeDetectorRef, private filterService: FilterService) {}
 
@@ -42,7 +42,6 @@ export class ExpansionListComponent {
         const deltaX = first?.left ?? 0 - last?.left ?? 0;
         const deltaY = first?.top ?? 0 - last?.top ?? 0;
 
-        // prettier-ignore
         this.list?.nativeElement.animate([
             {transform: `translate(${deltaX}px, ${deltaY}px`},
             {transform: `translate(0)`},

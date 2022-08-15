@@ -8,10 +8,10 @@ import {FilterService} from '../../services/filter/filter.service';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    public constructor(public authService: AuthService, public filterService: FilterService) {}
-
     public mobileSearchBoxShown: boolean = false;
     public windowInnerWidth = window.innerWidth;
+
+    public constructor(public authService: AuthService, public filterService: FilterService) {}
 
     public async searchSubmitHandler(event: Event): Promise<void> {
         event.preventDefault();

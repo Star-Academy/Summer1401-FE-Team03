@@ -58,7 +58,7 @@ header {
         a {
             margin-inline-end: auto;
 
-            & + app-divider-vertical {
+            app-divider-vertical {
                 display: none;
             }
         }

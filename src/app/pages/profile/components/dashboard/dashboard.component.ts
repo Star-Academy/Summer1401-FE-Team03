@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlterRequestModel} from '../../../../models/api/alter/alter-request.model';
 import {AuthService} from '../../../../services/api/auth/auth.service';
 
@@ -9,8 +9,6 @@ import {AuthService} from '../../../../services/api/auth/auth.service';
 })
 export class DashboardComponent {
     @ViewChild('imageUpload') public imageUpload!: ElementRef<HTMLInputElement>;
-
-    public constructor(private authService: AuthService) {}
 
     public data: AlterRequestModel = {
         firstName: this.authService.cachedUser?.firstName,
@@ -24,6 +22,8 @@ export class DashboardComponent {
         gender: this.authService.cachedUser?.gender,
         credit: this.authService.cachedUser?.credit,
     };
+
+    public constructor(private authService: AuthService) {}
 
     public async formSubmitHandler(): Promise<void> {
         this.data.avatar = await this.convertImageToBase64(this.imageUpload.nativeElement.files);
