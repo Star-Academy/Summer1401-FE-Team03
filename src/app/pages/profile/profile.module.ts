@@ -8,9 +8,13 @@ import {ImageSourceModule} from '../../pipes/image-source/image-source.module';
 import {SumPricesModule} from '../../pipes/sum-prices/sum-prices.module';
 import {RouterModule} from '@angular/router';
 import {AlterCreditComponent} from './components/alter-credit/alter-credit.component';
+import {LibraryService} from '../../services/api/library/library.service';
+import {PrimaryButtonModule} from '../../components/primary-button/primary-button.module';
+import { LibraryComponent } from './components/library/library.component';
 
 @NgModule({
-    declarations: [ProfileComponent, DashboardComponent, CartComponent, AlterCreditComponent],
-    imports: [CommonModule, FormsModule, ImageSourceModule, SumPricesModule, RouterModule],
+    declarations: [ProfileComponent, DashboardComponent, CartComponent, AlterCreditComponent, LibraryComponent],
+    imports: [CommonModule, FormsModule, ImageSourceModule, SumPricesModule, RouterModule, PrimaryButtonModule],
+    providers: [LibraryService],
 })
 export class ProfileModule {}

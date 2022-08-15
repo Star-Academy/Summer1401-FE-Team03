@@ -13,7 +13,12 @@
                     </a>
                 </li>
                 <li>
-                    <a (click)="loadContent = 3" [class.active]="loadContent === 3" routerLink="/profile/credit"
+                    <a (click)="loadContent = 3" [class.active]="loadContent === 3" routerLink="/profile/shopping-cart"
+                        ><i class="far fa-shopping-cart"></i><span>بازی‌های من</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="loadContent = 4" [class.active]="loadContent === 4" routerLink="/profile/credit"
                         ><i class="far fa-coins"></i><span>افزایش اعتبار</span></a
                     >
                 </li>
@@ -28,6 +33,7 @@
     <main>
         <app-dashboard *ngIf="loadContent === 1"></app-dashboard>
         <app-cart *ngIf="loadContent === 2"></app-cart>
-        <app-alter-credit *ngIf="loadContent === 3"></app-alter-credit>
+        <app-library *ngIf="loadContent === 3"></app-library>
+        <app-alter-credit *ngIf="loadContent === 4"></app-alter-credit>
     </main>
 </div>

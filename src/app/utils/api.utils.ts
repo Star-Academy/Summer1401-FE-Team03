@@ -12,6 +12,10 @@ export const API_GAME_PLATFORMS = BASE_URL + '/platforms';
 export const API_GAME_UPCOMING = BASE_URL + '/upcoming';
 export const API_GAME_SEARCH = BASE_URL + '/search';
 
+export const API_LIBRARY_ALL = BASE_URL + '/library/all';
+export const API_LIBRARY_ADD = BASE_URL + '/library/add';
+export const API_LIBRARY_REMOVE = BASE_URL + '/library/remove';
+
 export const POST_REQUEST_INIT: RequestInit = {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
