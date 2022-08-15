@@ -23,7 +23,7 @@ export class TwoWayRangeComponent {
         }
         this.fillColor();
         this.filterService.minRate(this.valueOne);
-        this.filterService.navigateToSearchPage();
+        // this.filterService.navigateToSearchPage();
     }
 
     public slideTwo(): void {
@@ -32,7 +32,7 @@ export class TwoWayRangeComponent {
         }
         this.fillColor();
         this.filterService.maxRate(this.valueTwo);
-        this.filterService.navigateToSearchPage();
+        // this.filterService.navigateToSearchPage();
     }
 
     private fillColor(): void {
