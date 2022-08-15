@@ -18,6 +18,8 @@
 
             color: var(--neutral-color-lighter);
 
+            border-radius: var(--border-radius-normal);
+
             &:hover {
                 background-color: var(--primary-color-dark);
             }

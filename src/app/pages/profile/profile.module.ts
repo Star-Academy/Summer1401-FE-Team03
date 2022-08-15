@@ -10,10 +10,18 @@ import {RouterModule} from '@angular/router';
 import {AlterCreditComponent} from './components/alter-credit/alter-credit.component';
 import {LibraryService} from '../../services/api/library/library.service';
 import {PrimaryButtonModule} from '../../components/primary-button/primary-button.module';
-import { LibraryComponent } from './components/library/library.component';
+import {LibraryComponent} from './components/library/library.component';
+import {LibraryCardComponent} from './components/library/components/library-card/library-card.component';
 
 @NgModule({
-    declarations: [ProfileComponent, DashboardComponent, CartComponent, AlterCreditComponent, LibraryComponent],
+    declarations: [
+        ProfileComponent,
+        DashboardComponent,
+        CartComponent,
+        AlterCreditComponent,
+        LibraryComponent,
+        LibraryCardComponent,
+    ],
     imports: [CommonModule, FormsModule, ImageSourceModule, SumPricesModule, RouterModule, PrimaryButtonModule],
     providers: [LibraryService],
 })

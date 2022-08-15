@@ -11,4 +11,26 @@
     h3 {
         font-size: var(--font-size-sub-heading);
     }
+
+    .reset-filter {
+        color: var(--primary-color-dark);
+
+        border: 1px solid var(--primary-color-dark);
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+
+            color: var(--neutral-color-lighter);
+        }
+    }
+
+    .apply-filter {
+        background-color: var(--primary-color-normal);
+
+        color: var(--neutral-color-lighter);
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+        }
+    }
 }
