@@ -29,10 +29,10 @@ describe('PrimaryButtonComponent', () => {
         fixture.detectChanges();
 
         const p = host.querySelector('p');
-        const span = host.querySelector('span');
+        const i = host.querySelector('i');
 
         expect(p).toBeFalsy();
-        expect(span).toBeTruthy();
+        expect(i).toBeTruthy();
     });
 
     it('should not show spinner', () => {

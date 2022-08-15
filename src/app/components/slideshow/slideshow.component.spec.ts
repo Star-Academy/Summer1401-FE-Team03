@@ -51,7 +51,7 @@ describe('SlideshowComponent', () => {
     });
 
     it('should generate two images slideShow', () => {
-        let images = fixture.debugElement.queryAll(By.css('img'));
+        let images = fixture.debugElement.queryAll(By.css('app-slideshow-image'));
 
         expect(images.length).toEqual(TEST_IMAGES.length);
     });

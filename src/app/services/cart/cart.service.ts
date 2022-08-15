@@ -31,7 +31,7 @@ export class CartService {
     }
 
     public clearList(): void {
-        localStorage.removeItem('cartGame');
+        localStorage.removeItem('cartGames');
         this.cartGames = [];
         this.snackbarService.show('سبد خرید خالی شد', SnackbarTypes.Error);
     }

@@ -34,7 +34,7 @@ describe('SpinnerComponent', () => {
 
         fixture.detectChanges();
 
-        const div = host.querySelector('.wrapper > div');
+        const div = host.querySelector('.wrapper > i');
         expect(div).toBeTruthy();
     });
 });

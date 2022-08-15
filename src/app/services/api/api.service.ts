@@ -42,7 +42,12 @@ export class ApiService {
             response = await fetch(url, init);
         }
 
-        const data = await response.json();
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            data = {} as T;
+        }
 
         if (response.ok) return data as T;
 
