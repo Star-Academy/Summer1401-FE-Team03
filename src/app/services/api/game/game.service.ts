@@ -35,8 +35,11 @@ export class GameService {
 
     public async getGame(id: number): Promise<GameModel> {
         const response = await this.apiService.GetRequest<GetGameResponseModel>({url: `${API_GAME_ONE}/${id}`});
-
-        return response?.game || ({} as GameModel);
+        if (response) {
+            return GameService.responseMapper([response.game])[0];
+        } else {
+            return {} as GameModel;
+        }
     }
 
     public async getUpcoming(): Promise<GameModel[]> {
