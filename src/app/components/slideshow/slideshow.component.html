@@ -5,7 +5,7 @@
     (mouseleave)="initNewInterval()"
 >
     <ol>
-        <li *ngFor="let item of items; index as index" [class.active]="index === activeIndex">
+        <li *ngFor="let item of items; let index = index" [class.active]="index === activeIndex">
             <a routerLink="/game/{{ item.gameId }}"
                 ><img [src]="'1080p' | imageSource: item.image.id" alt="" loading="lazy"
             /></a>

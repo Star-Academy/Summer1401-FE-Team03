@@ -1,0 +1,42 @@
+.shopping-cart-item {
+    direction: ltr;
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    padding: 1.2rem;
+
+    border-radius: var(--border-radius-small);
+
+    &:hover {
+        background-color: var(--neutral-color-lighter);
+    }
+
+    img {
+        background-color: var(--primary-color-normal);
+
+        height: 4rem;
+        aspect-ratio: 1 / 1;
+
+        border-radius: var(--border-radius-small);
+    }
+
+    h2 {
+        flex: 1;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+    i {
+        font-size: var(--font-size-tertiary-heading);
+
+        &:hover {
+            color: var(--error-color);
+        }
+    }
+}

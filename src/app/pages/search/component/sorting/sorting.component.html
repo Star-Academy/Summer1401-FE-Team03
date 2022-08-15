@@ -6,28 +6,28 @@
     <ul>
         <li
             [class.active]="!filterService.options.sort"
-            class="supporting-text"
+            class="additional-info"
             (click)="changeSortingFilter(GamesSortTypes.MOST_RELEVANT)"
         >
             مرتبط‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 1"
-            class="supporting-text"
+            class="additional-info"
             (click)="changeSortingFilter(GamesSortTypes.TOP_SELLER)"
         >
             پرفروش‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 2"
-            class="supporting-text"
+            class="additional-info"
             (click)="changeSortingFilter(GamesSortTypes.MOST_POPULAR)"
         >
             محبوب‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 3"
-            class="supporting-text"
+            class="additional-info"
             (click)="changeSortingFilter(GamesSortTypes.NEWEST)"
         >
             جدیدترین

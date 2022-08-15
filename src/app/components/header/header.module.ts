@@ -8,9 +8,10 @@ import {NgxPopperjsModule} from 'ngx-popperjs';
 import {HeaderProfileAccessComponent} from './component/header-profile-access/header-profile-access.component';
 import {ShoppingCartComponent} from './component/shopping-cart/shopping-cart.component';
 import {ImageSourceModule} from '../../pipes/image-source/image-source.module';
+import {ShoppingCartItemComponent} from './component/shopping-cart/components/shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
-    declarations: [HeaderComponent, HeaderProfileAccessComponent, ShoppingCartComponent],
+    declarations: [HeaderComponent, HeaderProfileAccessComponent, ShoppingCartComponent, ShoppingCartItemComponent],
     imports: [CommonModule, SearchBoxModule, NgxPopperjsModule, DividerVerticalModule, RouterModule, ImageSourceModule],
     exports: [HeaderComponent],
 })

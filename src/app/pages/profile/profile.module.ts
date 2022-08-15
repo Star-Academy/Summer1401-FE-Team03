@@ -12,6 +12,7 @@ import {LibraryService} from '../../services/api/library/library.service';
 import {PrimaryButtonModule} from '../../components/primary-button/primary-button.module';
 import {LibraryComponent} from './components/library/library.component';
 import {LibraryCardComponent} from './components/library/components/library-card/library-card.component';
+import {CartItemComponent} from './components/cart/components/cart-item/cart-item.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import {LibraryCardComponent} from './components/library/components/library-card
         AlterCreditComponent,
         LibraryComponent,
         LibraryCardComponent,
+        CartItemComponent,
     ],
     imports: [CommonModule, FormsModule, ImageSourceModule, SumPricesModule, RouterModule, PrimaryButtonModule],
     providers: [LibraryService],

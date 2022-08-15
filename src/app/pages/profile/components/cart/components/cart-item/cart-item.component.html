@@ -1,0 +1,13 @@
+<div class="cart-item">
+    <img [src]="'thumb' | imageSource: game.cover.id" alt="" />
+
+    <h2>
+        <a [routerLink]="'/game/' + game.id">{{ game.name }}</a>
+    </h2>
+
+    <p><i class="far fa-coins icon-special" title="لول کوین"></i> {{ game.priceOnSale }}</p>
+
+    <button (click)="cartService.removeFromList(game.id)">
+        <i class="far fa-xmark"></i>
+    </button>
+</div>

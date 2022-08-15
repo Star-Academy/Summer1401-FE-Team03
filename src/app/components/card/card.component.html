@@ -1,7 +1,7 @@
-<img [src]="'cover_big' | imageSource: game.cover.id" alt="" />
+<img [src]="imageSrc" alt="" loading="lazy" />
 
 <div class="card-body">
-    <a [routerLink]="'/game/' + game.id">
+    <a [routerLink]="linkToGamePage">
         <h2 [title]="game.name">{{ game.name }}</h2>
     </a>
 
@@ -12,9 +12,9 @@
 
         <p>
             {{ game.priceOnSale }}
-            <span class="supporting-text">لول کوین</span>
+            <span class="additional-info">لول کوین</span>
         </p>
     </div>
 
-    <button class="card-add-to-cart-btn" (click)="cartService.addToList(game)">اضافه کردن به سبد خرید</button>
+    <button class="add-to-cart-btn" (click)="cartService.addToList(game)">اضافه کردن به سبد خرید</button>
 </div>

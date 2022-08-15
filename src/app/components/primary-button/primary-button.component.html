@@ -1,6 +1,6 @@
 <button type="submit">
     <p *ngIf="!isLoading; else spinner">{{ label }}</p>
     <ng-template #spinner>
-        <span class="spinner"></span>
+        <i class="spinner"></i>
     </ng-template>
 </button>

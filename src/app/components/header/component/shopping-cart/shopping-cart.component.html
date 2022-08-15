@@ -10,17 +10,9 @@
                 <h3>سبد خریدتون خالیه</h3>
             </div>
 
-            <div class="item" *ngFor="let game of cartService.cartGames">
-                <img [src]="'thumb' | imageSource: game.cover.id" alt="" />
-
-                <h2>
-                    <a [routerLink]="'/game/' + game.id">{{ game.name }}</a>
-                </h2>
-
-                <button (click)="cartService.removeFromList(game.id)">
-                    <i class="far fa-xmark"></i>
-                </button>
-            </div>
+            <ng-container *ngFor="let game of cartService.cartGames">
+                <app-shopping-cart-item [game]="game"></app-shopping-cart-item>
+            </ng-container>
         </div>
 
         <ng-container *ngIf="authService.isUserLoggedIn; else notLoggedIn">

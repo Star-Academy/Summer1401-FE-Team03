@@ -6,19 +6,9 @@
             <h3>سبد خریدتون خالیه</h3>
         </div>
 
-        <div class="list-item" *ngFor="let game of cartService.cartGames">
-            <img [src]="'thumb' | imageSource: game.cover.id" alt="" />
-
-            <h2>
-                <a [routerLink]="'/game/' + game.id">{{ game.name }}</a>
-            </h2>
-
-            <p><i class="far fa-coins icon-special" title="لول کوین"></i> {{ game.priceOnSale }}</p>
-
-            <button (click)="cartService.removeFromList(game.id)">
-                <i class="far fa-xmark"></i>
-            </button>
-        </div>
+        <ng-container *ngFor="let game of cartService.cartGames">
+            <app-cart-item [game]="game"></app-cart-item>
+        </ng-container>
     </div>
     <h3 class="sum">
         مجموع:
