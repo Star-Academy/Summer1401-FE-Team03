@@ -37,8 +37,8 @@ export class CartComponent {
         this.payButtonLoading = false;
 
         if (payResult) {
-            this.snackbarService.show('خرید شما با موفقیت انجام شد', SnackbarTypes.Success);
             this.cartService.clearList();
+            this.snackbarService.show('خرید شما با موفقیت انجام شد', SnackbarTypes.Success);
         }
     }
 
