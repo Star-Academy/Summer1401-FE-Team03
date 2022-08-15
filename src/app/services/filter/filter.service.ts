@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SearchRequestModel} from '../../models/api/search/search-request.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../api/game/game.service';
@@ -10,7 +10,7 @@ export class FilterService {
     private readonly DEFAULT_OFFSET = 0;
 
     public options: SearchRequestModel = {
-        sort: GamesSortTypes.MOST_RELEVANT,
+        sort: GamesSortTypes.MostRelevant,
         pageSize: this.DEFAULT_PAGE_SIZE,
         offset: this.DEFAULT_OFFSET,
     };
@@ -40,7 +40,7 @@ export class FilterService {
 
     public clearFilter(): void {
         this.options = {
-            sort: GamesSortTypes.MOST_RELEVANT,
+            sort: GamesSortTypes.MostRelevant,
             pageSize: this.DEFAULT_PAGE_SIZE,
             offset: this.DEFAULT_OFFSET,
         };

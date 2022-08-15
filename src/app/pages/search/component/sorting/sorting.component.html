@@ -7,28 +7,28 @@
         <li
             [class.active]="!filterService.options.sort"
             class="additional-info"
-            (click)="changeSortingFilter(GamesSortTypes.MOST_RELEVANT)"
+            (click)="changeSortingFilter(GamesSortTypes.MostRelevant)"
         >
             مرتبط‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 1"
             class="additional-info"
-            (click)="changeSortingFilter(GamesSortTypes.TOP_SELLER)"
+            (click)="changeSortingFilter(GamesSortTypes.TopSeller)"
         >
             پرفروش‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 2"
             class="additional-info"
-            (click)="changeSortingFilter(GamesSortTypes.MOST_POPULAR)"
+            (click)="changeSortingFilter(GamesSortTypes.MostPopular)"
         >
             محبوب‌ترین
         </li>
         <li
             [class.active]="filterService.options.sort === 3"
             class="additional-info"
-            (click)="changeSortingFilter(GamesSortTypes.NEWEST)"
+            (click)="changeSortingFilter(GamesSortTypes.Newest)"
         >
             جدیدترین
         </li>
@@ -41,10 +41,10 @@
 
         <popper-content #popperContent (click)="popperContent.hide()">
             <div class="rows">
-                <button (click)="changeSortingFilter(GamesSortTypes.MOST_RELEVANT)">مرتبط‌ترین</button>
-                <button (click)="changeSortingFilter(GamesSortTypes.TOP_SELLER)">پرفروش‌ترین</button>
-                <button (click)="changeSortingFilter(GamesSortTypes.MOST_POPULAR)">محبوب‌ترین</button>
-                <button (click)="changeSortingFilter(GamesSortTypes.NEWEST)">جدیدترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.MostRelevant)">مرتبط‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.TopSeller)">پرفروش‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.MostPopular)">محبوب‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.Newest)">جدیدترین</button>
             </div>
         </popper-content>
     </div>

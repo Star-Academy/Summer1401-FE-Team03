@@ -1,7 +1,7 @@
 export enum GamesSortTypes {
-    MOST_RELEVANT,
-    TOP_SELLER,
-    MOST_POPULAR,
-    NEWEST,
-    OLDEST,
+    MostRelevant = 0,
+    TopSeller = 1,
+    MostPopular = 2,
+    Newest = 3,
+    Oldest = 4,
 }

@@ -1,11 +1,11 @@
 <div class="hero">
-    <img [src]="'screenshot_huge' | imageSource: game.cover.id" alt="" />
+    <img [src]="screenshotImageSrc" alt="" />
 </div>
 
 <div class="wrapper">
     <div class="info-wrapper">
         <div class="cover">
-            <img [src]="'cover_big' | imageSource: game.cover.id" alt="" />
+            <img [src]="coverImageSrc" alt="" />
         </div>
 
         <div class="tags">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="cta">
-            <button (click)="cartService.addToList(game)">افزودن به سبد خرید</button>
+            <button (click)="cartService.addToList(game)">{{ addToCart }}</button>
         </div>
     </div>
     <div class="content">
@@ -57,17 +57,17 @@
 <app-slideshow [items]="game.screenshots | toSlideshowItem" *ngIf="game.screenshots.length > 0"></app-slideshow>
 
 <div class="company" *ngIf="game.involvedCompanies[0]">
-    <img
-        [src]="'cover_big' | imageSource: game.involvedCompanies[0].company.logo.id"
-        alt=""
-        *ngIf="game.involvedCompanies[0].company.logo"
-    />
+    <img [src]="companyImageSrc" alt="" *ngIf="game.involvedCompanies[0].company.logo" />
+
     <div class="company-info">
         <h2>{{ game.involvedCompanies[0].company.name }}</h2>
+
         <p class="company-type">{{ game.involvedCompanies[0].developer ? 'developer' : 'publisher' }}</p>
+
         <a [href]="game.involvedCompanies[0].company.url" *ngIf="game.involvedCompanies.length > 0"
-            >company's website</a
-        >
+            >company's website
+        </a>
+
         <p>{{ game.involvedCompanies[0].company.description }}</p>
     </div>
 </div>
