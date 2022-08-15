@@ -15,7 +15,7 @@ export class LibraryCardComponent implements OnInit {
     }
 
     public getImageSource(game: GameModel): string {
-        if (game.cover?.id) {
+        if (game.cover.id) {
             return `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.id}.jpg`;
         } else {
             return 'assets/card-images/no-image-compact-card.webp';

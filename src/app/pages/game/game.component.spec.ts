@@ -16,6 +16,7 @@ import {FetchMock, VALID_GAMES_DATA} from '../../mock/fetch.mock';
 import {host} from '@angular-devkit/build-angular/src/test-utils';
 import {ToSlideshowItemModule} from '../../pipes/to-slideshow-item/to-slideshow-item.module';
 import {GameServiceMock} from '../../mock/gameService.mock';
+import {CompanyTypePipeModule} from '../../pipes/company-type-pipe/company-type-pipe.module';
 
 describe('GameComponent', () => {
     let component: GameComponent;
@@ -38,6 +39,7 @@ describe('GameComponent', () => {
                 AgeCategoryModule,
                 AgeCategoryTypeModule,
                 ToSlideshowItemModule,
+                CompanyTypePipeModule,
             ],
             providers: [
                 {provide: GameService, useValue: gameServiceMock},

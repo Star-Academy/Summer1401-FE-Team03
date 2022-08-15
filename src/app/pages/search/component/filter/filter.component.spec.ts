@@ -4,6 +4,7 @@ import {FilterService} from '../../../../services/filter/filter.service';
 import {GameServiceMock} from '../../../../mock/gameService.mock';
 import {GameService} from '../../../../services/api/game/game.service';
 import {RouterTestingModule} from '@angular/router/testing';
+import {By} from '@angular/platform-browser';
 
 describe('FilterComponent', () => {
     let fixture: ComponentFixture<FilterComponent>;
