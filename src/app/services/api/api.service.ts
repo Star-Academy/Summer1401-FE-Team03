@@ -8,10 +8,11 @@ import {
     PostRequestOptionModel,
     RequestOptionsModel,
 } from '../../models/api/request-option.model';
+import {SpinnerService} from '../../components/spinner/service/spinner/spinner.service';
 
 @Injectable()
 export class ApiService {
-    public constructor(private snackbarService: SnackbarService) {}
+    public constructor(private snackbarService: SnackbarService, private spinnerService: SpinnerService) {}
 
     private static GeneratePostRequestInit(options: PostRequestOptionModel): RequestInit {
         return {
@@ -31,9 +32,22 @@ export class ApiService {
     }
 
     private async fetchRequest<T>(options: RequestOptionsModel, init?: RequestInit): Promise<T | null> {
-        const {url, showSnackbarOnFail = true} = options;
-        const response = await fetch(url, init);
-        const data = await response.json();
+        const {url, showSnackbarOnFail = true, showSpinnerOnFetch = false} = options;
+        let response;
+        if (showSpinnerOnFetch) {
+            response = await this.spinnerService.wrapAsync<Promise<Response>>(async () => {
+                return await fetch(url, init);
+            });
+        } else {
+            response = await fetch(url, init);
+        }
+
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            data = {} as T;
+        }
 
         if (response.ok) return data as T;
 

@@ -1,0 +1,36 @@
+.filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2rem;
+
+    border: 0.1rem solid var(--neutral-color-light);
+    border-radius: var(--border-radius-small);
+
+    h3 {
+        font-size: var(--font-size-sub-heading);
+    }
+
+    .reset-filter {
+        color: var(--primary-color-dark);
+
+        border: 1px solid var(--primary-color-dark);
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+
+            color: var(--neutral-color-lighter);
+        }
+    }
+
+    .apply-filter {
+        background-color: var(--primary-color-normal);
+
+        color: var(--neutral-color-lighter);
+
+        &:hover {
+            background-color: var(--primary-color-dark);
+        }
+    }
+}

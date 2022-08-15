@@ -1,42 +1,45 @@
-:host {
-    background-color: var(--neutral-color-lighter);
+label {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
 
-    padding: 0.8rem 1.6rem;
+    input {
+        background-color: inherit;
 
-    border: 1px solid var(--neutral-color-light);
-    border-radius: 999rem;
+        color: var(--neutral-color-dark);
 
-    label {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
+        inline-size: 30rem;
 
-        input {
-            background-color: inherit;
+        font-weight: 400;
 
-            width: 30rem;
+        &::placeholder {
+            color: var(--neutral-color-normal);
 
-            font-weight: 700;
-
-            &::placeholder {
-                color: var(--neutral-color-normal);
-
-                font-weight: 400;
-            }
+            font-weight: 400;
         }
+    }
+
+    button {
+        padding: 0;
 
         i {
             color: var(--neutral-color-normal);
 
             font-size: var(--font-size-tertiary-heading);
 
+            cursor: pointer;
+
             &:hover {
                 color: var(--primary-color-normal);
             }
         }
     }
+}
 
-    &:focus-within {
-        border: 1px solid var(--primary-color-normal);
+@media screen and (max-width: 850px) {
+    label {
+        input {
+            inline-size: 100%;
+        }
     }
 }

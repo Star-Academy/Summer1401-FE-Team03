@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <img [src]="getImageSource(game)" alt="" />
+    <div class="cta">
+        <button title="به سبد خرید اضافه کن" (click)="cartService.addToList(game)">
+            <i class="fas fa-cart-plus"></i>
+        </button>
+    </div>
+    <a [routerLink]="navigateToGamePage"
+        ><h3>{{ game.name }}</h3>
+    </a>
+    <div class="price-box">
+        <p *ngIf="isOnSale" class="discount-amount">-{{ game.price | discount: game.priceOnSale }}%</p>
+
+        <div [class.sale-original-price]="isOnSale" class="original-price">
+            <i class="far fa-coins"></i>
+            <p>{{ game.price }}</p>
+        </div>
+
+        <div *ngIf="isOnSale" class="sale-price">
+            <i class="far fa-coins"></i>
+            <p>{{ game.priceOnSale }}</p>
+        </div>
+    </div>
+</div>

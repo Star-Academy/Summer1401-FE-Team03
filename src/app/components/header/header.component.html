@@ -5,17 +5,21 @@
 
     <app-divider-vertical></app-divider-vertical>
 
-    <app-search-box></app-search-box>
+    <form *ngIf="windowInnerWidth > 850 || mobileSearchBoxShown" (submit)="searchSubmitHandler($event)">
+        <app-search-box [(searchWord)]="filterService.options.searchPhrase"></app-search-box>
+    </form>
 
-    <div title="لول کوین" *ngIf="authService.isUserLoggedIn">
-        <span>504</span>
+    <div [title]="levelCoin" *ngIf="authService.isUserLoggedIn">
+        <span>{{ authService.cachedUser?.credit }}</span>
         <button>
             <i class="far fa-coins icon-special"></i>
         </button>
     </div>
 
-    <button>
-        <i class="far fa-shopping-cart icon"></i>
+    <app-shopping-cart></app-shopping-cart>
+
+    <button class="mobile-search-icon" (click)="mobileSearchBoxShown = !mobileSearchBoxShown">
+        <i class="far fa-magnifying-glass icon"></i>
     </button>
 
     <app-divider-vertical></app-divider-vertical>

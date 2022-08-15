@@ -1,0 +1,14 @@
+<p>امتیاز بازی</p>
+
+<div class="wrapper">
+    <div class="values">
+        <span id="range1"> {{ valueOne }} </span>
+        <span> &dash; </span>
+        <span id="range2"> {{ valueTwo }} </span>
+    </div>
+    <div class="container">
+        <div class="slider-track" [ngStyle]="backgroundColor"></div>
+        <input type="range" min="0" max="100" [(ngModel)]="valueOne" id="slider-1" (change)="slideOne()" />
+        <input type="range" min="0" max="100" [(ngModel)]="valueTwo" id="slider-2" (change)="slideTwo()" />
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="dashboard">
+    <h1>داشبورد</h1>
+    <form>
+        <fieldset>
+            <legend>اطلاعات کاربری</legend>
+
+            <div class="grid">
+                <label class="image"
+                    ><img [src]="data.avatar" alt="" />
+                    <input type="file" accept=".webp, .jpg, .jpeg, .png" name="image" #imageUpload />
+                    <p><i class="far fa-edit"></i> تغییر عکس</p>
+                </label>
+
+                <label>
+                    <p class="required">نام کاربری:</p>
+                    <input type="text" [(ngModel)]="data.username" name="username" required class="border ltr" />
+                </label>
+
+                <label>
+                    <p class="required">ایمیل:</p>
+                    <input type="email" [(ngModel)]="data.email" name="email" required class="border ltr" />
+                </label>
+
+                <label>
+                    <p>شماره تلفن:</p>
+                    <input type="text" [(ngModel)]="data.phone" name="phone" class="border ltr" />
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>اطلاعات شخصی</legend>
+
+            <div class="grid">
+                <label>
+                    <p class="required">نام:</p>
+                    <input type="text" [(ngModel)]="data.firstName" name="firstName" required class="border" />
+                </label>
+
+                <label>
+                    <p class="required">نام خانوادگی:</p>
+                    <input type="text" [(ngModel)]="data.lastName" name="lastName" required class="border" />
+                </label>
+
+                <label>
+                    <p>تاریخ تولد:</p>
+                    <input
+                        type="date"
+                        [ngModel]="data.dateOfBirth | date: 'yyyy-MM-dd'"
+                        (ngModelChange)="data.dateOfBirth = $event"
+                        name="birthdate"
+                        class="border"
+                    />
+                </label>
+
+                <div class="gender">
+                    <p>جنسیت:</p>
+
+                    <label>
+                        <span> مرد </span>
+                        <input type="radio" [value]="1" name="gender" [(ngModel)]="data.gender" />
+                    </label>
+
+                    <label>
+                        <span> زن </span>
+                        <input type="radio" [value]="0" name="gender" [(ngModel)]="data.gender" />
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <button (click)="formSubmitHandler()">ذخیره تغییرات</button>
+    </form>
+</div>

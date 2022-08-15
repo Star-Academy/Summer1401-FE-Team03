@@ -1,0 +1,30 @@
+button {
+    background-color: var(--primary-color-normal);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    block-size: 4.4rem;
+    inline-size: 100%;
+
+    p {
+        color: var(--neutral-color-lighter);
+    }
+
+    &:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+    i {
+        display: flex;
+
+        block-size: 2rem;
+        inline-size: 2rem;
+
+        border: 0.4rem dotted var(--neutral-color-lighter);
+        border-radius: 999rem;
+
+        animation: spin 1000ms infinite;
+    }
+}

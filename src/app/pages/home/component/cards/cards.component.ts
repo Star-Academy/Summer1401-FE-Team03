@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {Card} from '../../../../models/card.model';
+import {GameModel} from '../../../../models/game/game.model';
 
 @Component({
     selector: 'app-cards',
@@ -7,8 +7,9 @@ import {Card} from '../../../../models/card.model';
     styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent {
-    @Input() public cards: Card[] = [];
     @ViewChild('outerContainer') public outerContainer!: ElementRef;
+    @Input() public games: GameModel[] = [];
+    @Input() public cardsTitle?: string;
 
     private scrollAmount = 294;
 

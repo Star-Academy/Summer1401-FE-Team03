@@ -1,5 +1,7 @@
 <main>
-    <app-slideshow></app-slideshow>
+    <app-slideshow [items]="slideshowImages"></app-slideshow>
 
-    <app-cards [cards]="fetchedCards"></app-cards>
+    <app-cards [games]="upcomingGames" cardsTitle="بازی‌های مورد انتظار در سال جاری"></app-cards>
+
+    <app-cards [games]="bestShootingGames" cardsTitle="بهترین‌های شوتر"></app-cards>
 </main>

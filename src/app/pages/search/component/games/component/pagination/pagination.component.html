@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <button (click)="goToPage(1)">
+        <p>صفحه اول (1)</p>
+    </button>
+
+    <i class="far fa-chevron-right" (click)="previousPage()"></i>
+
+    <div
+        *ngFor="let page of shownPages"
+        [class.selected]="page === filterService.options.offset + 1"
+        (click)="goToPage(page)"
+    >
+        <p>{{ page }}</p>
+    </div>
+
+    <i class="far fa-chevron-left" (click)="nextPage()"></i>
+
+    <button (click)="goToPage(allPagesCount)">
+        <p>صفحه اخر ({{ allPagesCount }})</p>
+    </button>
+</div>

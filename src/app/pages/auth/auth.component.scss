@@ -43,21 +43,13 @@
             input {
                 padding: 0.8rem;
 
+                border: 1px solid var(--neutral-color-normal);
+
                 border-radius: var(--border-radius-normal);
 
                 &::placeholder {
                     color: var(--neutral-color-normal);
                 }
-            }
-        }
-
-        button {
-            background-color: var(--primary-color-normal);
-
-            color: var(--neutral-color-lighter);
-
-            &:hover {
-                background-color: var(--primary-color-dark);
             }
         }
 

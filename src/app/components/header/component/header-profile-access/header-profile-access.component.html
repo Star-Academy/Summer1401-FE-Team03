@@ -12,11 +12,14 @@
     </a>
 </ng-template>
 
-<popper-content #popperContent>
+<popper-content #popperContent (click)="popperContent.hide()">
     <div class="rows">
         <a routerLink="/profile">
             <i class="far fa-user"></i>
-            <p class="bold">محمد رسولیان</p>
+            <p>
+                {{ authService.cachedUser?.firstName }}
+                {{ authService.cachedUser?.lastName }}
+            </p>
             <i class="far fa-angle-left"></i>
         </a>
 

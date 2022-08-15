@@ -1,0 +1,63 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        block-size: 3rem;
+        inline-size: 3rem;
+
+        border-radius: var(--border-radius-small);
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--neutral-color-light);
+        }
+
+        &.selected {
+            background-color: var(--primary-color-normal);
+
+            p {
+                color: var(--neutral-color-lighter);
+            }
+
+            &:hover {
+                background-color: var(--primary-color-dark);
+            }
+        }
+    }
+
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        block-size: 3rem;
+        inline-size: 3rem;
+
+        border-radius: var(--border-radius-small);
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--neutral-color-light);
+        }
+    }
+
+    button {
+        background-color: var(--neutral-color-lighter);
+
+        padding: 0.6rem 1.2rem;
+
+        border-radius: var(--border-radius-small);
+
+        &:hover {
+            background-color: var(--neutral-color-light);
+        }
+    }
+}

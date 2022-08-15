@@ -4,7 +4,7 @@ import {AuthService} from '../../../services/api/auth/auth.service';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {Router} from '@angular/router';
 import {SNACKBAR_REGISTERED} from '../language/message';
-import {RegisterRequestModel} from '../../../models/api/register-request.model';
+import {RegisterRequestModel} from '../../../models/api/register/register-request.model';
 
 @Component({
     selector: 'app-register',
@@ -12,6 +12,7 @@ import {RegisterRequestModel} from '../../../models/api/register-request.model';
     styleUrls: ['../auth.component.scss'],
 })
 export class RegisterComponent {
+    public isLoading = false;
     public user: RegisterRequestModel = {
         firstName: '',
         lastName: '',
@@ -27,7 +28,9 @@ export class RegisterComponent {
     ) {}
 
     public async registerSubmitHandler(): Promise<void> {
+        this.isLoading = true;
         const succeeded = await this.authService.register(this.user);
+        this.isLoading = false;
 
         if (succeeded) {
             await this.router.navigateByUrl('/');

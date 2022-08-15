@@ -1,0 +1,41 @@
+.wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    img {
+        background-image: var(--image-background);
+
+        inline-size: 100%;
+        aspect-ratio: 264/374;
+
+        border-radius: var(--border-radius-small);
+
+        &:hover {
+            filter: contrast(110%);
+        }
+    }
+
+    h3 {
+        direction: ltr;
+
+        overflow: hidden;
+
+        max-block-size: calc(1 * (var(--font-size-tertiary-heading)));
+
+        font-size: var(--font-size-quaternery);
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+    p,
+    i {
+        padding: 0.4rem 0;
+
+        line-height: 1;
+    }
+}

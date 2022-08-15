@@ -1,0 +1,51 @@
+<div class="sorting">
+    <i class="far fa-arrow-down-wide-short"></i>
+
+    <p>مرتب‌سازی</p>
+
+    <ul>
+        <li
+            [class.active]="!filterService.options.sort"
+            class="additional-info"
+            (click)="changeSortingFilter(GamesSortTypes.MostRelevant)"
+        >
+            مرتبط‌ترین
+        </li>
+        <li
+            [class.active]="filterService.options.sort === 1"
+            class="additional-info"
+            (click)="changeSortingFilter(GamesSortTypes.TopSeller)"
+        >
+            پرفروش‌ترین
+        </li>
+        <li
+            [class.active]="filterService.options.sort === 2"
+            class="additional-info"
+            (click)="changeSortingFilter(GamesSortTypes.MostPopular)"
+        >
+            محبوب‌ترین
+        </li>
+        <li
+            [class.active]="filterService.options.sort === 3"
+            class="additional-info"
+            (click)="changeSortingFilter(GamesSortTypes.Newest)"
+        >
+            جدیدترین
+        </li>
+    </ul>
+
+    <div class="popper-sorting">
+        <button [popper]="popperContent" [popperPlacement]="NgxPopperjsPlacements.BOTTOMSTART">
+            {{ selectedSortingText }}<i class="far fa-angle-down"></i>
+        </button>
+
+        <popper-content #popperContent (click)="popperContent.hide()">
+            <div class="rows">
+                <button (click)="changeSortingFilter(GamesSortTypes.MostRelevant)">مرتبط‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.TopSeller)">پرفروش‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.MostPopular)">محبوب‌ترین</button>
+                <button (click)="changeSortingFilter(GamesSortTypes.Newest)">جدیدترین</button>
+            </div>
+        </popper-content>
+    </div>
+</div>

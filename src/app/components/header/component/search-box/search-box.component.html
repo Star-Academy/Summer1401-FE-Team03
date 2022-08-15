@@ -1,5 +1,12 @@
 <label>
-    <i class="far fa-magnifying-glass"></i>
+    <button>
+        <i class="far fa-magnifying-glass"></i>
+    </button>
 
-    <input type="search" placeholder="بازی یا ناشر مد نظرت رو پیدا کن" />
+    <input
+        type="search"
+        [placeholder]="gameSearchboxOPlaceholder"
+        [(ngModel)]="searchWord"
+        (ngModelChange)="searchWordChange.emit($event)"
+    />
 </label>

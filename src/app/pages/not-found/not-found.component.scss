@@ -1,0 +1,80 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 0 var(--content-inline-padding);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2.4rem;
+
+        button {
+            background-color: var(--primary-color-normal);
+            color: var(--neutral-color-lighter);
+
+            &:hover {
+                background-color: var(--primary-color-dark);
+            }
+        }
+
+        .text {
+            h2 {
+                color: var(--primary-color-normal);
+
+                font-size: var(--font-size-tertiary-heading);
+            }
+
+            h1 {
+                font-size: var(--font-size-game-name);
+            }
+
+            p {
+                margin-block-start: 0.8rem;
+
+                font-size: var(--font-size-heading);
+            }
+        }
+    }
+
+    .image {
+        padding: 2.4rem;
+
+        img {
+            max-inline-size: 70rem;
+            aspect-ratio: 4 / 3;
+
+            border-radius: var(--border-radius-normal);
+        }
+    }
+}
+
+@media (width <= 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+
+        justify-items: center;
+
+        row-gap: 2.4rem;
+
+        margin-block: 4.8rem;
+
+        .content {
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .image {
+            grid-row: 1 / 2;
+
+            padding: 0.6rem;
+
+            img {
+                max-inline-size: 40rem;
+            }
+        }
+    }
+}

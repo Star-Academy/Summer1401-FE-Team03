@@ -1,5 +1,7 @@
 import {SearchBoxComponent} from './search-box.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {FilterService} from '../../../../services/filter/filter.service';
+import {FilterServiceMock} from '../../../../mock/filterService.mock';
 
 describe('SearchBoxComponent', () => {
     let fixture: ComponentFixture<SearchBoxComponent>;

@@ -1,0 +1,124 @@
+.wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    img {
+        background-image: var(--image-background);
+
+        inline-size: 100%;
+        aspect-ratio: 264/374;
+
+        border-radius: var(--border-radius-small);
+
+        &:hover {
+            filter: contrast(110%);
+        }
+    }
+
+    .cta {
+        position: absolute;
+
+        inset-block-start: 0.8rem;
+        inset-inline-start: 0.8rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        button {
+            background-color: var(--card-content-color-background);
+
+            opacity: 0.8;
+
+            backdrop-filter: blur(0.5rem);
+
+            padding: 0.8rem;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            i {
+                color: var(--neutral-color-lighter);
+
+                font-size: var(--font-size-tertiary-heading);
+
+                line-height: 1;
+            }
+        }
+    }
+
+    h3 {
+        direction: ltr;
+
+        overflow: hidden;
+
+        max-block-size: calc(1 * (var(--font-size-tertiary-heading)));
+
+        font-size: var(--font-size-quaternery);
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+    p,
+    i {
+        padding: 0.4rem 0;
+
+        line-height: 1;
+    }
+
+    & .price-box {
+        direction: ltr;
+
+        display: flex;
+        align-items: baseline;
+        gap: 1.2rem;
+
+        margin-block-start: auto;
+
+        & .original-price,
+        & .sale-price {
+            display: flex;
+            gap: 0.6rem;
+
+            p {
+                font-weight: 700;
+            }
+
+            i {
+                color: var(--tertiary-color-normal);
+
+                font-size: var(--font-size-detail);
+            }
+        }
+
+        & .sale-original-price {
+            p {
+                color: var(--neutral-color-normal);
+
+                font-weight: 400;
+
+                text-decoration: line-through;
+            }
+
+            i {
+                color: var(--neutral-color-normal);
+            }
+        }
+
+        & .discount-amount {
+            background-color: var(--primary-color-normal);
+
+            color: var(--neutral-color-lighter);
+
+            padding: 0.4rem 0.8rem;
+
+            border-radius: var(--border-radius-small);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--compact-card-inline-size), 1fr));
+    gap: 4.8rem 2.4rem;
+
+    app-pagination,
+    div {
+        justify-self: center;
+
+        grid-column: 1/-1;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+
+        font-size: var(--font-size-sub-heading);
+
+        i {
+            color: var(--primary-color-normal);
+
+            font-size: var(--font-size-heading);
+        }
+    }
+}

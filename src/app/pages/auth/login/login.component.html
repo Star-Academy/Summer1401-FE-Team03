@@ -2,21 +2,16 @@
     <h2>ورود</h2>
 
     <label>
-        <span class="required">نام کاربری:</span>
+        <span class="required">{{ username }}</span>
         <input type="text" name="username" [(ngModel)]="user.username" required />
     </label>
 
     <label>
-        <span>ایمیل:</span>
-        <input type="email" name="email" [(ngModel)]="user.email" />
-    </label>
-
-    <label>
-        <span class="required">کلمه عبور:</span>
+        <span class="required">{{ password }}</span>
         <input type="password" name="password" [(ngModel)]="user.password" required />
     </label>
 
-    <button class="primary" type="submit">ورود</button>
+    <app-primary-button label="ورود" [isLoading]="isLoading"></app-primary-button>
 
-    <a routerLink="/register" class="supporting-text"> حساب کاربری ندارم، می‌خواهم ثبت‌نام کنم </a>
+    <a [routerLink]="registerLink" class="additional-info">{{ wantToSignUp }}</a>
 </form>

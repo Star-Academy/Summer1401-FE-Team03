@@ -1,0 +1,25 @@
+<header (click)="expand()">
+    <p>{{ title }}</p>
+
+    <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
+</header>
+
+<section class="no-select" #list *ngIf="isExpanded">
+    <app-expansion-search-box
+        [placeholderText]="setPlaceholderText()"
+        [(searchPhrase)]="searchPhrase"
+    ></app-expansion-search-box>
+
+    <ul>
+        <li *ngFor="let item of expansionListItems | filter: searchPhrase" [class.checked]="item.isEnable">
+            <label>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="item.isEnable"
+                    (change)="changeStatus(item.genre.id, !!item.isEnable)"
+                />
+                <p>{{ item.genre.name }}</p>
+            </label>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <h1>{{ incrementCreditPageTitle }}</h1>
+
+    <form>
+        <label>
+            <h3>{{ enterCreditIncrementAmount }}</h3>
+            <input type="number" step="1000" name="credit" [(ngModel)]="credit" />
+            <p>{{ tomanToLevelCoin }}</p>
+        </label>
+
+        <button (click)="payHandler()">{{ pay }}</button>
+    </form>
+</div>

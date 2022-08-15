@@ -1,0 +1,13 @@
+<div class="cart-item">
+    <img [src]="imageSrc" alt="" />
+
+    <h2>
+        <a [routerLink]="linkToGamePage">{{ game.name }}</a>
+    </h2>
+
+    <p><i class="far fa-coins icon-special" [title]="levelCoin"></i> {{ game.priceOnSale }}</p>
+
+    <button (click)="cartService.removeFromList(game.id)">
+        <i class="far fa-xmark"></i>
+    </button>
+</div>

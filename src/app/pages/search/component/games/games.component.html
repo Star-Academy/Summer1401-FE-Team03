@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <ng-container *ngFor="let game of games">
+        <app-compact-card [game]="game"></app-compact-card>
+    </ng-container>
+
+    <div *ngIf="games.length === 0">
+        <i class="fa-regular fa-folder-open"></i>
+        <h3>موردی یافت نشد</h3>
+    </div>
+
+    <app-pagination
+        *ngIf="games.length !== 0"
+        [pageSize]="filterService.options.pageSize"
+        [totalCount]="gameService.totalCount"
+    ></app-pagination>
+</div>

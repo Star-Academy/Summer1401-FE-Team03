@@ -1,0 +1,9 @@
+<div class="library">
+    <h1>بازی‌های من</h1>
+
+    <div class="wrapper">
+        <ng-container *ngFor="let game of libraryService.games">
+            <app-library-card [game]="game"></app-library-card>
+        </ng-container>
+    </div>
+</div>

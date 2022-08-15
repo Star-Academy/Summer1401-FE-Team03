@@ -1,4 +1,8 @@
+import {GameImageModel} from './game/dto/gameImage.model';
+
 export interface SlideshowItem {
-    src: string;
-    alt: string;
+    image: GameImageModel;
+    gameId?: number;
+    title?: string;
+    description?: string;
 }

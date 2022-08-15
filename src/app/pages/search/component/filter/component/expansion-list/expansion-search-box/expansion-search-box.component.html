@@ -1,0 +1,10 @@
+<label>
+    <i class="far fa-magnifying-glass"></i>
+
+    <input
+        type="search"
+        [placeholder]="placeholderText"
+        [(ngModel)]="searchPhrase"
+        (ngModelChange)="searchPhraseChange.emit($event)"
+    />
+</label>

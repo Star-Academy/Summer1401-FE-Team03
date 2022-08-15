@@ -1,15 +1,9 @@
 <section>
-    <h2 class="title">بازی‌های مورد انتظار در سال جاری</h2>
+    <h2 class="title">{{ cardsTitle }}</h2>
     <div class="fog">
         <div class="cards" #outerContainer>
-            <ng-container *ngFor="let card of cards" class="inner-container">
-                <app-card
-                    [src]="card.src"
-                    [alt]="card.alt"
-                    [title]="card.title"
-                    [description]="card.description"
-                    [price]="card.price"
-                ></app-card>
+            <ng-container *ngFor="let game of games" class="inner-container">
+                <app-card [game]="game"></app-card>
             </ng-container>
         </div>
     </div>

@@ -40,6 +40,7 @@
                 "groupName": "color",
                 "emptyLineBefore": "always",
                 "properties": [
+                    "appearance",
                     "background",
                     "background-attachment",
                     "background-blend-mode",

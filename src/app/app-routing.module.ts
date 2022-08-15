@@ -5,13 +5,19 @@ import {AuthGuard} from './guard/auth.guard';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {LoginComponent} from './pages/auth/login/login.component';
 import {RegisterComponent} from './pages/auth/register/register.component';
+import {SearchComponent} from './pages/search/search.component';
+import {GameComponent} from './pages/game/game.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    {path: 'profile/:section', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
-    {path: '**', redirectTo: ''},
+    {path: 'search', component: SearchComponent},
+    {path: 'game/:id', component: GameComponent},
+    {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

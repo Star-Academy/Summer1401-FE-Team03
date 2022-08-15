@@ -14,9 +14,11 @@ Shadows
 */
 
 :root {
+    --font-size-game-name: 4.4rem;
     --font-size-heading: 2.4rem;
     --font-size-sub-heading: 2rem;
     --font-size-tertiary-heading: 1.8rem;
+    --font-size-quaternery: 1.7rem;
     --font-size-paragraph: 1.4rem;
     --font-size-detail: 1.2rem;
 
@@ -25,6 +27,7 @@ Shadows
     --primary-color-normal: hsl(192deg 70% 43%);
     --primary-color-light: hsl(192deg 53% 55%);
     --primary-color-lighter: hsl(192deg 53% 77%);
+    --primary-color-lightest: hsl(192deg 50% 94%);
 
     --secondary-color-darker: hsl(201deg 100% 3%);
     --secondary-color-dark: hsl(201deg 96% 10%);
@@ -40,14 +43,23 @@ Shadows
 
     --neutral-color-darker: hsl(210deg 47% 11%);
     --neutral-color-dark: hsl(210deg 25% 27%);
-    --neutral-color-normal: hsl(210deg 20% 65%);
-    --neutral-color-light: hsl(210deg 5% 94%);
+    --neutral-color-normal: hsl(210deg 20% 80%);
+    --neutral-color-light: hsl(210deg 20% 97%);
     --neutral-color-lighter: hsl(210deg 40% 98%);
+
+    --spinner-color-background: hsl(210deg 5% 94% / 90%);
+    --content-color-background: hsl(0deg 0% 0% / 40%);
+    --card-content-color-background: hsl(0deg 0% 0% / 20%);
 
     --success-color: hsl(123deg 38% 57%);
     --warning-color: var(--tertiary-color-light);
     --error-color: hsl(4deg 90% 58%);
     --error-color-dark: hsl(4deg 90% 50%);
+
+    --fieldset-border-color: hsl(210deg 5% 87%);
+
+    --skeleton-color-dark: hsl (0deg 0% 80%);
+    --skeleton-color-light: hsl (0deg 0% 90%);
 
     --box-shadow-hard: 0 0.4rem 1.6rem var(--neutral-color-light);
     --box-shadow-soft: 0 0.1rem 0.8rem var(--neutral-color-light);
@@ -57,7 +69,12 @@ Shadows
 
     --card-padding: 2.4rem;
 
+    --compact-card-inline-size: 22rem;
+
+    --border-radius-small: 0.4rem;
     --border-radius-normal: 1rem;
+
+    --image-background: linear-gradient(to top right, var(--primary-color-dark), var(--primary-color-normal));
 }
 
 *,
@@ -169,8 +186,6 @@ body {
     select,
     textarea,
     button,
-    fieldset,
-    legend,
     datalist,
     output,
     option,
@@ -181,6 +196,10 @@ body {
         outline: none;
 
         font-family: inherit;
+    }
+
+    ul {
+        list-style: none;
     }
 }
 
@@ -243,10 +262,14 @@ a {
     }
 }
 
-.supporting-text {
+.additional-info {
     color: var(--neutral-color-dark);
 
     font-size: var(--font-size-detail);
+}
+
+.no-select {
+    user-select: none;
 }
 
 @media (width >= 480px) {
@@ -282,5 +305,17 @@ a {
 @media (width >= 1920px) {
     :root {
         --content-inline-padding: calc(calc(100vw - var(--content-max-width)) * 0.5);
+    }
+}
+
+// key frames
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

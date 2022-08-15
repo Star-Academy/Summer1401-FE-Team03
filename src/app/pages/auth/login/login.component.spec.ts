@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {SnackbarService} from '../../../components/snackbar/services/snackbar/snackbar.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ApiService} from '../../../services/api/api.service';
+import {SpinnerService} from '../../../components/spinner/service/spinner/spinner.service';
 
 describe('LoginComponent', () => {
     let authServiceMock: AuthService;
@@ -20,7 +21,7 @@ describe('LoginComponent', () => {
         await TestBed.configureTestingModule({
             declarations: [LoginComponent],
             imports: [FormsModule, RouterTestingModule],
-            providers: [AuthService, SnackbarService, ApiService],
+            providers: [AuthService, SnackbarService, ApiService, SpinnerService],
         }).compileComponents();
         authServiceMock = TestBed.inject(AuthService);
         snackbarService = TestBed.inject(SnackbarService);

@@ -1,0 +1,75 @@
+.shopping-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2.4rem;
+
+        max-inline-size: 40rem;
+
+        app-primary-button {
+            flex: 1;
+
+            background-color: var(--primary-color-normal);
+
+            color: var(--neutral-color-lighter);
+
+            border-radius: var(--border-radius-normal);
+
+            &:hover {
+                background-color: var(--primary-color-dark);
+            }
+        }
+
+        .clear {
+            flex: 1;
+
+            color: var(--error-color);
+
+            border: 1px solid var(--error-color);
+
+            &:hover {
+                background-color: var(--error-color);
+
+                color: var(--neutral-color-lighter);
+            }
+        }
+    }
+
+    .list {
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        block-size: 65vh;
+
+        overscroll-behavior-y: contain;
+        scrollbar-gutter: stable;
+
+        border: 1px solid var(--fieldset-border-color);
+
+        border-radius: var(--border-radius-normal);
+
+        .no-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.4rem;
+
+            block-size: 100%;
+            inline-size: 100%;
+
+            i {
+                color: var(--primary-color-normal);
+
+                font-size: var(--font-size-heading);
+            }
+        }
+    }
+}

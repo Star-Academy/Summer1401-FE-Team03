@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <aside>
+        <app-filter></app-filter>
+    </aside>
+
+    <main>
+        <header>
+            <app-sorting></app-sorting>
+            <app-page-size></app-page-size>
+        </header>
+
+        <app-games [games]="gameService.games"></app-games>
+    </main>
+</div>

@@ -10,6 +10,15 @@ import {ApiService} from './services/api/api.service';
 import {AuthService} from './services/api/auth/auth.service';
 import {LoginModule} from './pages/auth/login/login.module';
 import {RegisterModule} from './pages/auth/register/register.module';
+import {SearchModule} from './pages/search/search.module';
+import {GameService} from './services/api/game/game.service';
+import {FilterService} from './services/filter/filter.service';
+import {SpinnerModule} from './components/spinner/spinner.module';
+import {GameModule} from './pages/game/game.module';
+import {NotFoundModule} from './pages/not-found/not-found.module';
+import {ProfileModule} from './pages/profile/profile.module';
+import {CartService} from './services/cart/cart.service';
+import {SnackbarService} from './components/snackbar/services/snackbar/snackbar.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,8 +31,13 @@ import {RegisterModule} from './pages/auth/register/register.module';
         SnackbarModule,
         LoginModule,
         RegisterModule,
+        SearchModule,
+        SpinnerModule,
+        GameModule,
+        NotFoundModule,
+        ProfileModule,
     ],
     bootstrap: [AppComponent],
-    providers: [ApiService, AuthService],
+    providers: [ApiService, AuthService, GameService, FilterService, CartService, SnackbarService],
 })
 export class AppModule {}

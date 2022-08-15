@@ -6,6 +6,8 @@ import {SnackbarService} from '../components/snackbar/services/snackbar/snackbar
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {FetchMock, VALID_USER_LOGIN_DATA} from '../mock/fetch.mock';
+import {SpinnerService} from '../components/spinner/service/spinner/spinner.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 describe('AuthGuard', () => {
     let authGuard: AuthGuard;
@@ -13,6 +15,7 @@ describe('AuthGuard', () => {
     let routerSpy: jasmine.SpyObj<Router>;
     let apiService: ApiService;
     let snackbarService: SnackbarService;
+    let spinnerService: SpinnerService;
     let fetchMock: FetchMock;
 
     let routeMock = (path: string): ActivatedRouteSnapshot => {
@@ -22,14 +25,14 @@ describe('AuthGuard', () => {
 
     beforeEach(() => {
         snackbarService = new SnackbarService();
-        apiService = new ApiService(snackbarService);
+        apiService = new ApiService(snackbarService, spinnerService);
         routerSpy = jasmine.createSpyObj<Router>('Router', ['navigateByUrl']);
         authServiceMock = new AuthService(routerSpy, apiService);
         authGuard = new AuthGuard(routerSpy, authServiceMock);
 
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
-            providers: [{provide: AuthService, useValue: authServiceMock}, ApiService, SnackbarService],
+            providers: [{provide: AuthService, useValue: authServiceMock}, ApiService, SnackbarService, spinnerService],
         }).compileComponents();
 
         fetchMock = new FetchMock();

@@ -1,0 +1,42 @@
+.wrapper {
+    display: grid;
+    grid-template-areas: "filter" "games";
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 2rem;
+
+    padding: 0 var(--content-inline-padding);
+
+    app-bread-crumb {
+        grid-area: bread-crumb;
+    }
+
+    aside {
+        grid-area: filter;
+    }
+
+    main {
+        grid-area: games;
+
+        gap: 2.4rem;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .wrapper {
+        grid-template-areas: "filter games";
+        grid-template-columns: 30rem 1fr;
+
+        aside {
+            position: sticky;
+            inset-block-start: 1rem;
+        }
+    }
+}

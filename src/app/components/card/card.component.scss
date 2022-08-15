@@ -9,13 +9,25 @@
 
     transition: transform 200ms ease-in;
 
+    img {
+        background-color: var(--primary-color-normal);
+
+        inline-size: 100%;
+
+        aspect-ratio: 1;
+
+        object-fit: cover;
+
+        border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
+    }
+
     &:hover {
         box-shadow: var(--box-shadow-hard);
 
         transform: translateY(-1rem);
     }
 
-    .card-add-to-cart-btn {
+    .add-to-cart-btn {
         background-color: var(--primary-color-normal);
         color: var(--neutral-color-lighter);
 
@@ -38,6 +50,8 @@
         }
 
         > p {
+            direction: ltr;
+
             overflow: hidden;
 
             width: 100%;
@@ -48,13 +62,13 @@
         }
 
         h2 {
-            text-align: end;
+            direction: ltr;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
         }
-    }
-
-    img {
-        inline-size: 100%;
-
-        border-radius: var(--border-radius-normal) var(--border-radius-normal) 0 0;
     }
 }
